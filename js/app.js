@@ -63,7 +63,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
 			company:"锅炉制造厂",
 			registrationCode:55555,
 			model:655555,
-			state:2,
+			state:0,
 			fuel:"燃气",
 			evaporation:2
 		},
@@ -73,7 +73,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
 			company:"锅炉制造厂测试3",
 			registrationCode:33333,
 			model:33333,
-			state:3,
+			state:1,
 			fuel:"燃气",
 			evaporation:2
 		},
@@ -103,7 +103,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
 			company:"锅炉制造厂测试",
 			registrationCode:688888,
 			model:688888,
-			state:1,
+			state:0,
 			fuel:"燃气",
 			evaporation:2
 		},
@@ -113,7 +113,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
 			company:"锅炉制造厂",
 			registrationCode:55555,
 			model:655555,
-			state:2,
+			state:0,
 			fuel:"燃煤",
 			evaporation:2
 		},
@@ -123,7 +123,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
 			company:"锅炉制造厂测试3",
 			registrationCode:33333,
 			model:33333,
-			state:3,
+			state:0,
 			fuel:"燃油",
 			evaporation:2
 		},
@@ -163,7 +163,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
 			company:"锅炉制造厂",
 			registrationCode:55555,
 			model:655555,
-			state:2,
+			state:0,
 			fuel:"燃气",
 			evaporation:2
 		}
@@ -191,7 +191,9 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
 		$scope.currentPage = 1;
 		
 		//表格数据
-		
+		$scope.setData = function(){
+			$scope.productDataList = data.slice($scope.itemsPerPage*($scope.currentPage - 1),($scope.itemsPerPage*$scope.currentPage));
+		};
 		$scope.productDataList = data.slice(0,$scope.itemsPerPage);
 		
 		//分页数组
@@ -200,13 +202,8 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
 		};
 		
 		
-	}
-	
 		
-		$scope.setData = function(){
-			$scope.productDataList = data.slice($scope.itemsPerPage*($scope.currentPage - 1),($scope.itemsPerPage*$scope.currentPage));
-		};
-	//选择页码
+		//选择页码
 		$scope.selectPage = function(page){
 			if(page < 1 || page > $scope.pages) return;
 			if(page > 2){
@@ -222,6 +219,11 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
 			$scope.isActivePage(page);
 			console.log(page);
 		}
+	}
+	
+		
+		
+	
 	
 	$scope.p_size = function(n,data){
 		$scope.itemsPerPage = n;	//每页显示数量
@@ -283,6 +285,9 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
 
  mainApp.controller("viewCtrl",function($scope,productData){
 	$scope.p_size(4,productData);
+	
+	
+	
 })
 
  mainApp.controller("productList",function($scope,productData){

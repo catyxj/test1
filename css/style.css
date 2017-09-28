@@ -13,10 +13,39 @@
 
 
 
+/*header*/
+.navbar-fixed-top{
+	z-index: 999;
+}
 .navbar{
 	border-radius: 0;
 	margin: 0;
+	background-color: #2b3643;
+	color: #FFFFFF;
 }
+.navbar a{
+	color: #EEEEEE;
+}
+.navbar .dropdown{
+	padding-right: 10px;
+}
+.navbar .dropdown:hover .dropdown-toggle{
+	background-color: #122B40;
+}
+.header .dropdown:hover .dropdown-menu{
+	display: block;
+}
+.header .dropdown .dropdown-menu{
+	right: 10px;
+}
+
+.navbar-header{
+	line-height: 50px;
+}
+
+
+
+
 
 
 
@@ -24,15 +53,13 @@
 	color: red;
 }
 
-.navbar-fixed-top{
-	z-index: 999;
-}
+/*sidebar*/
 .sidebar{
 	position: fixed;
-	z-index: 999;
+	z-index: 99;
 	top: 50px;	
 	background-color: #364150;
-	color: #888888;
+	color: #708096;
 	line-height: 35px;	
 	padding-right: 0;
 	padding-top: 10px;
@@ -42,7 +69,10 @@
 }
 .sidebar a{
 	display: block;
-	color: #9ebfd0;
+	color: #b4bcc8;
+}
+.sidebar a .glyphicon{
+	text-indent: 10px;
 }
 .sidebar a:hover{
 	background-color: #122B40;
@@ -124,6 +154,9 @@
 	padding: 0;
 	
 }
+.view .row{
+	margin: 0;
+}
 .view ul li .view_box{
 	border: 1px solid #CCCCCC;
 	margin: 10px;
@@ -144,10 +177,26 @@
 .view_body table th{
 	color: #999999;
 	height: 50px;
+	
 }
 .view_body img{
 	width: 100%;
 }
+.view .btn.btn-combustion{
+	background-color: #d9534f;
+	
+}
+
+.view .btn-incombustion{
+	background-color: #1B6D85;
+	
+}
+
+
+
+
+
+
 
 
 

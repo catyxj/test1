@@ -1,4 +1,4 @@
-<div ng-controller="viewCtrl" class="">
+<div ng-controller="viewCtrl" class="view">
 <ul class="row">
 							        	<li ng-repeat="data in productDataList "  class="col-md-6 col-sm-12 col-xs-12">
 							        		<div class="view_box">
@@ -12,8 +12,8 @@
 							        				</a>
 							        			</div>
 							        			<div class="float_right">
-							        				<button type="button" class="btn btn-danger btn-sm">终端状态</button>
-							        				<button type="button" class="btn btn-danger btn-sm">燃烧状态</button>
+							        				<button type="button" ng-class="{'btn-danger':data.state==1, 'btn-info':data.state==0,}" class="btn btn-sm ">终端状态</button>
+							        				<button type="button" ng-class="{'btn-danger':data.state==1, 'btn-info':data.state==0,}" class="btn btn-sm">燃烧状态</button>
 							        				<button type="button" class="btn btn-warning btn-sm">告警</button>
 							        			</div>
 							        		</div>
