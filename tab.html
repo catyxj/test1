@@ -1,0 +1,52 @@
+<div class="select_container">
+																				
+								<select ng-model="selectedSite" >
+									<option ng-repeat="x in modelSelect"  value="{{x.url}}">{{x.site}}</option>
+								</select>
+										
+								<label class="button">
+								  <input type="checkbox">
+								  <span></span>
+								  <span></span>
+								  <span></span>
+								</label>
+
+								
+							</div>
+							
+							
+							<div class="main_console" >
+							    <ul class="nav nav-tabs" >
+							      <li ui-sref-active="active" ng-class="active:isActiveTag(tab.productview)"><a href="" ui-sref=".productview">图文模式</a></li>
+							      <li ui-sref-active="active" ng-class="active:isActiveTag(tab.productlist)"><a href=""  ui-sref=".productlist">列表模式</a></li>
+							      
+							    </ul>
+							    <div class="tab-content">
+							    	
+							    	<div class="">
+							    		<div ui-view=""></div>
+							    	</div>
+							    	
+							    	
+							    	
+							    	
+							    	<!--view-->
+							      <!--<div ng-controller="viewCtrl" role="tabpanel" class="tab-pane fade active in view" id="view" aria-labelledby="home-tab">
+							       		<div ng-include="'productview.html'"></div>
+							        
+							      </div>-->
+							      
+							      
+							      
+							      <!--list-->
+							      <!--<div ng-controller="productList"  role="tabpanel" class="tab-pane fade" id="list" aria-labelledby="profile-tab">
+							        	<div ng-include="'productlist.html'"></div>
+									
+									
+									
+							      </div>-->
+							     
+							    </div>
+							  </div>
+							
+							

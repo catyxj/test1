@@ -1,0 +1,352 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.float_left{
+	float: left;
+}
+.float_right{
+	float: right;
+}
+
+
+
+.navbar{
+	border-radius: 0;
+	margin: 0;
+}
+
+
+
+.orderColor{
+	color: red;
+}
+
+.navbar-fixed-top{
+	z-index: 999;
+}
+.sidebar{
+	position: fixed;
+	z-index: 999;
+	top: 50px;	
+	background-color: #364150;
+	color: #888888;
+	line-height: 35px;	
+	padding-right: 0;
+	padding-top: 10px;
+}
+.sidebar ul li{
+	text-indent: 30px;
+}
+.sidebar a{
+	display: block;
+	color: #9ebfd0;
+}
+.sidebar a:hover{
+	background-color: #122B40;
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+
+
+
+.data_display{
+	margin-top: 50px;
+	float: right;	
+	padding: 0;
+	background-color: #EEEEEE;
+	overflow: hidden;
+}
+
+.breadcrumb{
+	background-color: #FFFFFF;
+	border-radius:0 ;
+}
+
+.page_content{
+	/*padding: 0px 20px;*/
+	margin: 0px 20px;
+	background-color: #FFFFFF;
+	overflow: hidden;
+}
+
+.select_container{
+	padding:10px 0;
+}
+.select_container select{
+	padding: 3px 6px;
+}
+
+
+.pagesize{
+	float: left;
+	margin: 8px 0;
+}
+
+.pagination{
+	float: right;
+}
+.pagination li a{
+	cursor: pointer;
+}
+.count_num{
+	margin: 20px 0;
+}
+
+
+
+
+.data_header{
+	padding-bottom: 10px;
+	position: relative;
+}
+.data_nav_h{
+	padding-top: 10px;
+}
+.subscription{
+	position: absolute;
+	left: 20px;
+	top: 10px;
+	z-index: 9;
+}
+.data_header .nav-tabs li{
+	float: right;
+}
+
+.main_console .nav-tabs li{
+	float: right;
+}
+
+.view ul li{	
+	padding: 0;
+	
+}
+.view ul li .view_box{
+	border: 1px solid #CCCCCC;
+	margin: 10px;
+}
+.view_header{
+	overflow: hidden;
+	padding: 20px 20px;
+	border-bottom: 1px solid #CCCCCC;
+}
+.view_header .view_title span{
+	font-size: 20px;
+	color: #555555;
+}
+.view_body{
+	padding: 20px 10px;
+	overflow: hidden;
+}
+.view_body table th{
+	color: #999999;
+	height: 50px;
+}
+.view_body img{
+	width: 100%;
+}
+
+
+
+.runtime_header .btn{
+	border-radius: 15px;
+}
+.runtime_header .btn.btn-default{
+	border-color:#2e6da4 ;
+	color: #2e6da4;
+}
+.runtime_header .btn.active, .runtime_header .btn:hover{
+	border-color:#2e6da4 ;
+	background-color: #337ab7;
+	color: #FFFFFF;
+	transition: 0.3s;
+}
+.runtime_container{
+	padding: 20px;
+}
+.runtime_header{
+	overflow: hidden;
+}
+.runtime_header b{
+	font-size: 18px;
+	color: #D9534F;
+}
+.runtime_header span{
+	padding: 10px ;
+}
+
+
+.runtime_data1,.runtime_data2{
+	padding: 5px;
+	
+}
+
+.data_box{
+	border: 1px solid #DDDDDD;
+}
+.runtime_container .data_box{	
+	min-height: 250px;
+}
+.runtime_view h3,.runtime_view h4{
+	float: left;
+	margin: 0;
+	padding-left: 10px;
+	line-height: 30px;
+}
+.runtime_view h3{
+	font-size: 16px;
+	font-weight: bold;
+	color: #1B6D85;
+}
+.runtime_view h4{
+	font-size: 14px;
+}
+.runtime_d_header{
+	line-height: 30px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #DDDDDD;
+	overflow: hidden;
+}
+
+.runtime_d_header .float_right{
+	padding-right: 10px;
+}
+.runtime_d_header .runtime_date span{
+	font-size: 12px;
+	color: #999999;
+}
+.runtime_d_header .full{
+	color: #888888;
+}
+.run_data_box{
+	padding: 10px;
+}
+.run_data_box .table *{
+	border-color: #EEEEEE;
+}
+
+
+.btn_lightblue{
+	border: 1px solid #269ABC;
+	color: #1B6D85;
+}
+.btn_lightblue:hover{
+	background-color: #31B0D5;
+	color: #FFFFFF;
+	transition: 0.3s;
+}
+
+
+.flash_view{
+	padding-top: 25px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*按钮*/
+.select_container{
+	position: relative;
+}
+.button {
+  display: block;
+  position: absolute;
+  left: 160px;
+  top: 25px;
+  width: 120px;
+  height: 40px;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border-radius: 16px;
+  /*box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);*/
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.button span {
+  position: absolute;
+  display: block;
+}
+.button span:first-of-type {
+  z-index: 100;
+  top: 2px;
+  right: 2px;
+  width: 70px;
+  height: 36px;
+  /*background: -webkit-linear-gradient(top, #2c3e50 0%, #1e2a36 100%);
+  background: linear-gradient(to bottom, #2c3e50 0%, #1e2a36 100%);*/
+ background-color:#DDDDDD;
+  /*box-shadow: 0 6px 4px rgba(255, 255, 255, 0.1) inset, 0 2px 0px rgba(255, 255, 255, 0.2) inset, 0 -6px 0px rgba(0, 0, 0, 0.2) inset, 0 -2px 0px rgba(0, 0, 0, 0.2) inset, 0 2px 2px rgba(0, 0, 0, 0.4), -4px 2px 8px rgba(0, 0, 0, 0.4), 2px 0 1px rgba(242, 201, 197, 0.5) inset;*/
+  border-radius: 16px;
+  -webkit-transition: right 400ms cubic-bezier(1, 0, 0, 1), box-shadow 400ms ease;
+          transition: right 400ms cubic-bezier(1, 0, 0, 1), box-shadow 400ms ease;
+}
+.button span:nth-last-of-type(-n+2) {
+  z-index: 10;
+  top: 2px;
+  width: 58px;
+  height: 36px;
+  -webkit-transition: opacity 800ms ease 100ms;
+          transition: opacity 800ms ease 100ms;
+}
+.button span:nth-last-of-type(-n+2):after {
+  position: absolute;
+  top: 12px;
+  line-height: 1;
+  font-weight: normal;
+  font-size: 14px;
+  color: white;
+  /*text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 0 20px #ffffff;*/
+}
+.button span:nth-of-type(2) {
+  left: 2px;
+  /*background: -webkit-linear-gradient(top, #c0392b 0%, #d65548 100%);
+  background: linear-gradient(to bottom, #c0392b 0%, #d65548 100%);*/
+ background-color: #d9534f;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+  /*box-shadow: 4px 4px 12px 4px rgba(0, 0, 0, 0.5) inset, 0 -2px 8px rgba(0, 0, 0, 0.4) inset;*/
+}
+.button span:nth-of-type(2):after {
+  content: "停燃";
+  left: 9px;
+}
+.button span:last-of-type {
+  right: 2px;
+  background-color: #31B0D5;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  /*box-shadow: -4px 4px 12px 4px rgba(0, 0, 0, 0.5) inset, 0 -2px 8px rgba(0, 0, 0, 0.4) inset;*/
+  opacity: 0.2;
+}
+.button span:last-of-type:after {
+  content: "燃烧";
+  right: 11px;
+}
+.button input[type="checkbox"] {
+  display: none;
+}
+.button input[type="checkbox"]:checked ~ span:first-of-type {
+  right: 48px;
+  /*box-shadow: 0 6px 4px rgba(255, 255, 255, 0.1) inset, 0 2px 0px rgba(255, 255, 255, 0.2) inset, 0 -6px 0px rgba(0, 0, 0, 0.2) inset, 0 -2px 0px rgba(0, 0, 0, 0.2) inset, 0 2px 2px rgba(0, 0, 0, 0.4), 4px 2px 8px rgba(0, 0, 0, 0.4), -2px 0 1px rgba(209, 245, 224, 0.5) inset;*/
+}
+.button input[type="checkbox"]:checked ~ span:nth-of-type(2) {
+  opacity: 0.2;
+}
+.button input[type="checkbox"]:checked ~ span:last-of-type {
+  opacity: 1;
+}

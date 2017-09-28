@@ -1,0 +1,28 @@
+
+		<div class="runtime_container">
+			<div class="runtime_header">
+				<div class="float_left">
+					<b>
+						6666666
+					</b>
+					<span>
+						6666666
+					</span>
+					<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+					<span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
+				</div>
+				<div class="float_right">
+					<a ui-sref-active="active" ng-class="active:isActiveTag(boilerflash.animation)" ui-sref=".animation" class="btn btn-sm btn-default" href="" role="button">动画监测</a>
+					<a ui-sref-active="active" ng-class="active:isActiveTag(boilerflash.runtimedata)" ui-sref=".runtimedata" class="btn btn-sm btn-default" href="" role="button">运行参数</a>
+					<a ui-sref-active="active" ng-class="active:isActiveTag(boilerflash.historydata)" ui-sref=".historydata" class="btn btn-default btn-sm" href="#" role="button">历史数据</a>
+					<a ui-sref-active="active" ng-class="active:isActiveTag(boilerflash.alarm)" ui-sref=".alarm" class="btn btn-default btn-sm" href="" role="button">锅炉警告</a>
+					<a ui-sref-active="active" ng-class="active:isActiveTag(boilerflash.maintain)" ui-sref=".maintain"  class="btn btn-default btn-sm" href="" role="button">维保记录</a>
+					<a class="btn btn-default btn-sm" href="" role="button">...</a>
+				</div>
+			</div>
+			<div class="flash_view">
+				<div ui-view></div>
+			</div>
+		</div>
+		
+

@@ -1,0 +1,81 @@
+<div ng-controller="historyController" class="historydata">
+	<div class="data_header">
+		<input type="date" value="2015-09-24"/>
+		至
+		<input type="date" value="2015-09-24"/>
+		
+		<button type="button" class="btn btn-primary">今天</button>
+		<button type="button" class="btn btn-default">本周</button>
+		<button type="button" class="btn btn-default">本月</button>
+		
+		<span>
+			共找到{{count}}条记录
+		</span>
+		
+		<button type="button" class="btn btn-info">导出</button>
+		
+	</div>
+	
+	<div class="historybody">
+		<!--pagination-->
+									<nav aria-label="Page navigation">
+										<div class="float_left count_num">
+											第{{currentPage}} 页  共{{pages}}页
+										</div>
+									  <ul class="pagination">
+									  	<li>
+									      <a ng-click="p_index()">
+									        <span aria-hidden="true">首页</span>
+									      </a>
+									    </li>
+									    <li>
+									      <a ng-click="Previous()">
+									        <span  aria-hidden="true">上一页</span>
+									      </a>
+									    </li>
+									    <li ng-repeat="page in pageList"  ng-class="{active:isActivePage(page)}">
+									    	<a ng-click="selectPage(page)">
+									    		{{page}} 
+									    	</a>
+									    </li>
+									    
+									    <li>
+									      <a ng-click="Next()">
+									        <span aria-hidden="true">下一页</span>
+									      </a>
+									    </li>
+									    <li>
+									      <a ng-click="p_last()">
+									        <span aria-hidden="true">尾页</span>
+									      </a>
+									    </li>
+									  </ul>
+									</nav>
+									
+									
+		<div class="">
+			<table class="table" border="0" >
+				<tr>
+					<th> </th>
+					<th>采样时间</th>
+					<th>蒸汽温度 ℃</th>
+					<th>排烟温度(低) ℃</th>
+				</tr>
+				<tr ng-repeat="h in productDataList">
+					<td>{{h.num}}</td>
+					<td>{{h.time}}</td>
+					<td>{{h.steamTemp}}</td>
+					<td>{{h.exhaustGasTemp}}</td>
+				</tr>
+			</table>
+			
+			<p ng-show="!data.length">记录为空</p>
+			
+		</div>							
+									
+									
+									
+									
+	</div>
+	
+</div>

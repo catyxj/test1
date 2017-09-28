@@ -1,0 +1,90 @@
+<div ng-controller="viewCtrl" class="">
+<ul class="row">
+							        	<li ng-repeat="data in productDataList "  class="col-md-6 col-sm-12 col-xs-12">
+							        		<div class="view_box">
+							        			<div class="view_header">
+							        			<div class="float_left view_title">
+							        				<a ui-sref="boilerflash.animation" href="">
+							        					<span>{{data.model}} </span>
+							        				</a>
+							        				<a href="">
+							        					测算
+							        				</a>
+							        			</div>
+							        			<div class="float_right">
+							        				<button type="button" class="btn btn-danger btn-sm">终端状态</button>
+							        				<button type="button" class="btn btn-danger btn-sm">燃烧状态</button>
+							        				<button type="button" class="btn btn-warning btn-sm">告警</button>
+							        			</div>
+							        		</div>
+							        		<div class="view_body">
+							        			<div class="col-md-6 col-sm-12">
+							        				<table border="0" cellspacing="" cellpadding="" width="100%">
+							        					<tr>
+							        						<th>热效率</th>
+							        						<th>蒸汽压力</th>
+							        					</tr>
+							        					<tr>
+							        						<td>{{data.num}}</td>
+							        						<td>{{data.model}}</td>
+							        					</tr>
+							        					<tr>
+							        						<th>排烟温度(低)</th>
+							        						<th>过量空气系数</th>
+							        					</tr>
+							        					<tr>
+							        						<td>Data</td>
+							        						<td>Data</td>
+							        					</tr>
+							        				</table>
+							        			</div>
+							        			<div class="col-md-6 col-sm-12">
+							        				<img src="img/gasboiler.png"/>
+							        			</div>
+							        		</div>
+							        	
+							        		</div>
+							        	</li>
+							        	
+							        	
+							        </ul>
+							        
+							        <!--pagination-->
+									<nav aria-label="Page navigation">
+										<div class="float_left count_num">
+											共{{count}}条记录
+										</div>
+									  <ul class="pagination">
+									  	<li>
+									      <a ng-click="p_index()">
+									        <span aria-hidden="true">首页</span>
+									      </a>
+									    </li>
+									    <li>
+									      <a ng-click="Previous()">
+									        <span  aria-hidden="true">上一页</span>
+									      </a>
+									    </li>
+									    <li ng-repeat="page in pageList"  ng-class="{active:isActivePage(page)}">
+									    	<a ng-click="selectPage(page)">
+									    		{{page}} 
+									    	</a>
+									    </li>
+									    
+									    <li>
+									      <a ng-click="Next()">
+									        <span aria-hidden="true">下一页</span>
+									      </a>
+									    </li>
+									    <li>
+									      <a ng-click="p_last()">
+									        <span aria-hidden="true">尾页</span>
+									      </a>
+									    </li>
+									  </ul>
+									</nav>
+									
+									
+								
+</div>						
+							

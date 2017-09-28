@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	</head>
+	<body>
+		
+		<div  ng-app="boiler" class="">
+			<!--header-->
+			<div  class="navbar-fixed-top">
+				<div ng-include="'header.html'"></div>
+			</div>
+		
+			
+			<div class="container-fluid">
+				<div class="row">
+					
+					<!--sidebar-->
+					<div class="sidebar nav nav-stacked col-xs-12 col-sm-3 col-md-2">
+						<div ng-include="'sidebar.html'"></div>
+					</div>
+					
+					
+					
+					<!--main-->
+					<div class="data_display col-xs-12 col-sm-9 col-md-10" ng-controller="productController">						
+						<div class="page-bar">
+							<ol class="breadcrumb">
+							  <li><a href="#">首页</a></li>
+							  <li><a href=""  ui-sref="tab.productview">主控制台</a></li>
+							  
+							</ol>
+						</div>
+						
+						
+						
+						<div class="page_content" >
+														
+							<div ui-view></div>
+			
+			
+						</div>
+					
+					
+					</div>
+					
+				</div>
+			</div>
+			
+			
+			
+			
+		</div>	
+			
+			
+			
+		
+			
+		
+		
+		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>	
+		<script src="js/angular.min.js" type="text/javascript" charset="utf-8"></script>		
+		<script src="js/angular-ui-router.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/app.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>
