@@ -1,5 +1,5 @@
 
-var mainApp = angular.module("boiler",["ui.router"]);
+var mainApp = angular.module("boiler",["ui.router" , "ui.bootstrap"]);
 
 mainApp.config(function ($stateProvider, $urlRouterProvider) {
 
@@ -84,7 +84,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
 			registrationCode:666666,
 			model:680064,
 			state:1,
-			fuel:"燃气",
+			fuel:"燃油",
 			evaporation:2
 		},
 		{
@@ -228,7 +228,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
 	$scope.p_size = function(n,data){
 		$scope.itemsPerPage = n;	//每页显示数量
 		$scope.refreshPage(data);		
-	}
+	};
 	
 	
 //	$scope.p_size(5);
@@ -264,6 +264,13 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
 	    {site : "M4", url : 680064},
 	    {site : "M5", url : 688888}
 	];
+	$scope.fuelSelect = [
+	    {site : "锅炉燃料不限", url : ""},
+	    {site : "燃气", url : "燃气"},
+	    {site : "燃煤", url : "燃煤"},
+	    {site : "燃油", url : "燃油"}
+	    
+	];
 	
 	$scope.selectedSite = $scope.modelSelect[0].url;
 	
@@ -281,6 +288,66 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
 
 
 
+mainApp.controller("DatepickerDemoCtrl", ["$scope", function($scope){
+  
+ // grab today and inject into field
+ 
+//  $scope.startTime = new Date();
+//  $scope.endTime = new Date();
+  	$scope.format = "yyyy-MM-dd";
+  
+
+  // open min-cal
+  $scope.startopen = function($event) {
+    $event.preventDefault();
+    $event.stopPropagation();
+    $scope.startopened = true;
+  };
+  $scope.endopen = function($event) {
+    $event.preventDefault();
+    $event.stopPropagation();
+    $scope.endopened = true;
+  };
+  
+  
+
+}]);
+
+
+
+
+
+
+
+
+
+mainApp.controller('modalController', function($scope, $rootScope, $modal) {
+        var data = [];
+        $scope.openModal = function() {
+                var modalInstance = $modal.open({
+                    templateUrl : 'modal.html',//script标签中定义的id
+                    controller : 'modalCtrl',//modal对应的Controller
+                    size: 'lg', //大小配置 
+                    resolve : {
+                        data : function() {//data作为modal的controller传入的参数
+                             return data;//用于传递数据
+                        }
+                    }
+                })
+            }
+    })
+     //模态框对应的Controller
+     mainApp.controller('modalCtrl', function($scope, $modalInstance, data) {
+          $scope.data= data;
+
+          //在这里处理要进行的操作
+          $scope.ok = function() {
+              $modalInstance.close();
+          };
+          $scope.cancel = function() {
+              $modalInstance.dismiss('cancel');
+          }
+    });
 
 
  mainApp.controller("viewCtrl",function($scope,productData){
@@ -315,6 +382,17 @@ mainApp.controller("historyController",function($scope){
 		},
 		{
 			num:3,
+			time:"2017-09-27 15:02:59",
+			steamTemp:41.1,
+			exhaustGasTemp:33.4
+		},
+		{
+			num:4,
+			time:"2017-09-27 15:02:59",
+			steamTemp:41.1,
+			exhaustGasTemp:33.4
+		},{
+			num:5,
 			time:"2017-09-27 15:02:59",
 			steamTemp:41.1,
 			exhaustGasTemp:33.4

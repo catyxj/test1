@@ -1,18 +1,72 @@
+
+
 <div ng-controller="historyController" class="historydata">
 	<div class="data_header">
-		<input type="date" value="2015-09-24"/>
-		至
-		<input type="date" value="2015-09-24"/>
+		<div ng-controller="DatepickerDemoCtrl" class="col-md-5">
+			
+			<div class="col-md-5">
+				<p class="input-group">
+				    <input type="text" class="form-control"  datepicker-popup="{{format}}" 
+			           ng-model="startTime" 
+			           is-open="startopened" 
+			           min-date="minDate" 
+			           max-date="'2018-06-22'"
+			           datepicker-options="dateOptions" 
+			           date-disabled="disabled(date, mode)" 
+			           ng-required="true" 
+			           close-text="关闭" 
+			           clear-text="清空"
+			           readonly
+			           ng-click="open($event)"
+			            current-text="今天"/>
+				    <span class="input-group-btn">
+				    　　<button type="button" class="btn btn-default" ng-click="startopen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+				    </span>
+				</p>
+			</div>
+			
+			<div class="float_left text-center">
+				至
+			</div>
+			<div class="col-md-5">
+				<p class="input-group">
+				    <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="endTime" 
+			           is-open="endopened" 
+			           min-date="minDate" 
+			           max-date="'2018-06-22'"
+			           datepicker-options="dateOptions" 
+			           date-disabled="disabled(date, mode)" 
+			           ng-required="true" 
+			           close-text="关闭" 
+			           clear-text="清空"			           
+			           readonly
+			           ng-click="open($event)"
+			            current-text="今天" />
+				    <span class="input-group-btn">
+				        <button type="button" class="btn btn-default" ng-click="endopen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+				    </span>
+				</p>
+			</div>
+			
+			
+			
+			
+		</div>
 		
-		<button type="button" class="btn btn-primary">今天</button>
-		<button type="button" class="btn btn-default">本周</button>
-		<button type="button" class="btn btn-default">本月</button>
+		<div class="col-md-4">
+			<button type="button" class="btn btn-primary">今天</button>
+			<button type="button" class="btn btn-default">本周</button>
+			<button type="button" class="btn btn-default">本月</button>
+		</div>
 		
-		<span>
+		<div class="col-md-3 ">
+			<span>
 			共找到{{count}}条记录
-		</span>
+			</span>
+			
+			<button type="button" class="btn btn-info float_right">导出</button>
+		</div>
 		
-		<button type="button" class="btn btn-info">导出</button>
 		
 	</div>
 	

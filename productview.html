@@ -1,90 +1,298 @@
 <div ng-controller="viewCtrl" class="view">
-<ul class="row">
-							        	<li ng-repeat="data in productDataList "  class="col-md-6 col-sm-12 col-xs-12">
-							        		<div class="view_box">
-							        			<div class="view_header">
-							        			<div class="float_left view_title">
-							        				<a ui-sref="boilerflash.animation" href="">
-							        					<span>{{data.model}} </span>
-							        				</a>
-							        				<a href="">
-							        					测算
-							        				</a>
-							        			</div>
-							        			<div class="float_right">
-							        				<button type="button" ng-class="{'btn-danger':data.state==1, 'btn-info':data.state==0,}" class="btn btn-sm ">终端状态</button>
-							        				<button type="button" ng-class="{'btn-danger':data.state==1, 'btn-info':data.state==0,}" class="btn btn-sm">燃烧状态</button>
-							        				<button type="button" class="btn btn-warning btn-sm">告警</button>
-							        			</div>
-							        		</div>
-							        		<div class="view_body">
-							        			<div class="col-md-6 col-sm-12">
-							        				<table border="0" cellspacing="" cellpadding="" width="100%">
-							        					<tr>
-							        						<th>热效率</th>
-							        						<th>蒸汽压力</th>
-							        					</tr>
-							        					<tr>
-							        						<td>{{data.num}}</td>
-							        						<td>{{data.model}}</td>
-							        					</tr>
-							        					<tr>
-							        						<th>排烟温度(低)</th>
-							        						<th>过量空气系数</th>
-							        					</tr>
-							        					<tr>
-							        						<td>Data</td>
-							        						<td>Data</td>
-							        					</tr>
-							        				</table>
-							        			</div>
-							        			<div class="col-md-6 col-sm-12">
-							        				<img src="img/gasboiler.png"/>
-							        			</div>
-							        		</div>
-							        	
-							        		</div>
-							        	</li>
-							        	
-							        	
-							        </ul>
-							        
-							        <!--pagination-->
-									<nav aria-label="Page navigation">
-										<div class="float_left count_num">
-											共{{count}}条记录
-										</div>
-									  <ul class="pagination">
-									  	<li>
-									      <a ng-click="p_index()">
-									        <span aria-hidden="true">首页</span>
-									      </a>
-									    </li>
-									    <li>
-									      <a ng-click="Previous()">
-									        <span  aria-hidden="true">上一页</span>
-									      </a>
-									    </li>
-									    <li ng-repeat="page in pageList"  ng-class="{active:isActivePage(page)}">
-									    	<a ng-click="selectPage(page)">
-									    		{{page}} 
-									    	</a>
-									    </li>
-									    
-									    <li>
-									      <a ng-click="Next()">
-									        <span aria-hidden="true">下一页</span>
-									      </a>
-									    </li>
-									    <li>
-									      <a ng-click="p_last()">
-									        <span aria-hidden="true">尾页</span>
-									      </a>
-									    </li>
-									  </ul>
-									</nav>
-									
-									
+	<ul class="row">
+		<li ng-repeat="data in productDataList " class="col-md-6 col-sm-12 col-xs-12">
+			<div class="view_box">
+				<div class="view_header">
+					<div class="float_left view_title">
+						<a ui-sref="boilerflash.animation" href="">
+							<span>{{data.model}} </span>
+						</a>
+						
+						<div ng-controller="modalController" class="inline">
+							<a href="" ng-click="openModal()">测算</a>
+
+			<script type="text/ng-template" id="modal.html">
+				<div>
+					<div class="modal-header">
+						<button type="button" class="close"  ng-click="cancel()"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">计算参数设置 
+							<span>
+								{{data.model}}
+								</span>
+						</h4>
+           
+					</div>
+					<div class="modal-body">
+						<form  class="" action="" method="post">
+					
+							<div class="data_header">
+								分析参数
+							</div>
+							<div class="modal_form">
+								<div class="form-group col-md-6">
+									<label class="" for="">排烟热损失计算系数 m</label>
+									<div class="">
+										<input type="text" class="form-control" id="" placeholder="0">
+									</div>									
+								</div>
 								
-</div>						
-							
+								<div class="form-group col-md-6">
+									<label class="" for="">排烟热损失计算系数 n</label>
+									<div class="">
+										<input type="text" class="form-control" id="" placeholder="0">
+									</div>									
+								</div>
+								
+								<div class="form-group col-md-12">
+									<label class="" for="">燃料收到基低位发热量</label>
+									<div class="">
+										<input type="text" class="form-control" id="" placeholder="0">
+									</div>
+									
+								</div>
+							</div>
+					
+							<div class="data_header">
+								实时参数
+							</div>
+							<div class="modal_form">
+								<div class="form-group col-md-4">
+									<label class="" for="">排烟温度</label>
+									<div class="">
+										<input type="text" class="form-control" id="" placeholder="0" disabled>
+									</div>
+								</div>
+								<div class="form-group col-md-4">
+									<label class="" for="">送风温度</label>
+									<div class="">
+										<input type="text" class="form-control" id="" placeholder="0" disabled>
+									</div>
+								</div>
+								<div class="form-group col-md-4">
+									<label class="" for="">排烟氧量</label>
+									<div class="">
+										<input type="text" class="form-control" id="" placeholder="0" disabled>
+									</div>
+								</div>
+							</div>
+					
+							<div class="data_header">
+								参数修改计算值
+							</div>
+							<div class="modal_form">
+								<div class="form-group col-md-6">
+									<label class="" for="">排烟热损失(q2)</label>
+									<div class="">
+										<input type="text" class="form-control" id="" placeholder="0">
+									</div>
+								</div>
+								<div class="form-group col-md-6">
+									<label class="" for="">气体未完全燃烧热损失(q3)</label>
+									<div class="">
+										<input type="text" class="form-control" id="" placeholder="0">
+									</div>
+								</div>
+								<div class="form-group col-md-6">
+									<label class="" for="">散热损失(q5)</label>
+									<div class="">
+										<input type="text" class="form-control" id="" placeholder="0">
+									</div>
+								</div>
+								<div class="form-group col-md-6">
+									<label class="" for="">过量空气系数</label>
+									<div class="">
+										<input type="text" class="form-control" id="" placeholder="0">
+									</div>
+								</div>
+								<div class="form-group col-md-12">
+									<label class="" for="">参数修改后锅炉效率</label>
+									<div class="">
+										<input type="text" class="form-control" id="" placeholder="0">
+									</div>
+								</div>
+							</div>
+					
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-success">恢复初始值</button>
+						<button type="button" class="btn btn-success">参数计算</button>
+						<button class="btn btn-primary" ng-click="ok()">
+					                确认
+					            </button>
+						<button class="btn btn-warning" ng-click="cancel()">
+					                退出
+					            </button>
+					</div>
+					</div>
+					</script>
+					
+					</div>
+						
+						<!-- Button trigger modal -->
+						<!--<a href="" class="" data-toggle="modal" data-target="#myModal">
+							测算
+						</a>-->
+						<!-- Modal -->
+						<!--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+							<div class="modal-dialog modal-lg" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+										<h4 class="modal-title">计算参数设置 
+											<span>
+												{{data.model}}
+											</span>
+										</h4>
+
+									</div>
+									
+									<div class="modal-body">
+										<form class="" action="" method="post">
+
+											<div class="data_header">
+												分析参数
+											</div>
+											<div class="modal_form">
+												<div class="form-group col-md-6">
+													<label for="">排烟热损失计算系数 m</label>
+													<input type="email" class="form-control" id="" placeholder="0">
+												</div>
+												<div class="form-group col-md-6">
+													<label for="">排烟热损失计算系数 n</label>
+													<input type="email" class="form-control" id="" placeholder="0">
+												</div>
+												<div class="form-group col-md-12">
+													<label for="">燃料收到基低位发热量</label>
+													<input type="email" class="form-control" id="" placeholder="0">
+												</div>
+											</div>
+
+											<div class="data_header">
+												实时参数
+											</div>
+											<div class="modal_form">
+												<div class="form-group col-md-4">
+													<label for="">排烟热损失计算系数 m</label>
+													<input type="email" class="form-control" id="" placeholder="0" disabled>
+												</div>
+												<div class="form-group col-md-4">
+													<label for="">排烟热损失计算系数 n</label>
+													<input type="email" class="form-control" id="" placeholder="0" disabled>
+												</div>
+												<div class="form-group col-md-4">
+													<label for="">燃料收到基低位发热量</label>
+													<input type="email" class="form-control" id="" placeholder="0" disabled>
+												</div>
+											</div>
+
+											<div class="data_header">
+												参数修改计算值
+											</div>
+											<div class="modal_form">
+												<div class="form-group col-md-6">
+													<label for="">排烟热损失计算系数 m</label>
+													<input type="email" class="form-control" id="" placeholder="0">
+												</div>
+												<div class="form-group col-md-6">
+													<label for="">排烟热损失计算系数 n</label>
+													<input type="email" class="form-control" id="" placeholder="0">
+												</div>
+												<div class="form-group col-md-12">
+													<label for="">燃料收到基低位发热量</label>
+													<input type="email" class="form-control" id="" placeholder="0">
+												</div>
+											</div>
+
+										</form>
+
+									</div>
+
+									
+									<div class="modal-footer">
+										<button type="button" class="btn btn-success">恢复初始值</button>
+										<button type="button" class="btn btn-success">参数计算</button>
+										<button type="button" class="btn btn-primary">保存</button>
+										<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+									</div>
+								</div>
+							</div>
+						</div>
+-->
+
+					</div>
+
+					<div class="float_right">
+						<button type="button" ng-class="{'btn-danger':data.state==1, 'btn-info':data.state==0,}" class="btn btn-sm ">终端状态</button>
+						<button type="button" ng-class="{'btn-danger':data.state==1, 'btn-info':data.state==0,}" class="btn btn-sm">燃烧状态</button>
+						<button type="button" class="btn btn-warning btn-sm">告警</button>
+					</div>
+				</div>
+
+				<div class="view_body">
+					<div class="col-md-6 col-sm-12">
+						<table border="0" cellspacing="" cellpadding="" width="100%">
+							<tr>
+								<th>热效率</th>
+								<th>蒸汽压力</th>
+							</tr>
+							<tr>
+								<td>{{data.num}}</td>
+								<td>{{data.model}}</td>
+							</tr>
+							<tr>
+								<th>排烟温度(低)</th>
+								<th>过量空气系数</th>
+							</tr>
+							<tr>
+								<td>Data</td>
+								<td>Data</td>
+							</tr>
+						</table>
+					</div>
+					<div class="col-md-6 col-sm-12">
+						<img src="img/gasboiler.png" />
+					</div>
+				</div>
+
+			</div>
+		</li>
+
+	</ul>
+
+	<!--pagination-->
+	<nav aria-label="Page navigation">
+		<div class="float_left count_num">
+			共{{count}}条记录
+		</div>
+		<ul class="pagination">
+			<li>
+				<a ng-click="p_index()">
+					<span aria-hidden="true">首页</span>
+				</a>
+			</li>
+			<li>
+				<a ng-click="Previous()">
+					<span aria-hidden="true">上一页</span>
+				</a>
+			</li>
+			<li ng-repeat="page in pageList" ng-class="{active:isActivePage(page)}">
+				<a ng-click="selectPage(page)">
+					{{page}}
+				</a>
+			</li>
+
+			<li>
+				<a ng-click="Next()">
+					<span aria-hidden="true">下一页</span>
+				</a>
+			</li>
+			<li>
+				<a ng-click="p_last()">
+					<span aria-hidden="true">尾页</span>
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+</div>
