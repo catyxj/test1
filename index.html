@@ -5,13 +5,20 @@
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+		<script src="js/angular.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>	
+		<script src="https://cdn.bootcss.com/angular-ui-bootstrap/0.11.2/ui-bootstrap-tpls.min.js"></script>		
+		<script src="js/angular-ui-router.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/angular-locale_zh-cn.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/app.js" type="text/javascript" charset="utf-8"></script>		
 	</head>
-	<body>
+	<body ng-app="boiler">
 		
-		<div  ng-app="boiler" class="">
+		<div  class="">
 			<!--header-->
 			<div  class="navbar-fixed-top header">
-				<div ng-include="'header.html'"></div>
+				<div ng-include="'views/header.html'"></div>
 			</div>
 		
 			
@@ -21,7 +28,7 @@
 					<!--sidebar-->
 					<div  class="sidebar  col-xs-12 col-sm-3 col-md-2">
 						<div class="collapse navbar-collapse" id="example-navbar-collapse">
-							<div ng-include="'sidebar.html'"></div>
+							<div ng-include="'views/sidebar.html'"></div>
 						</div>
 						
 					</div>
@@ -62,15 +69,10 @@
 			
 		
 			
-		
-		
-		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
-		<script src="js/angular.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>	
-		<script src="https://cdn.bootcss.com/angular-ui-bootstrap/0.11.2/ui-bootstrap-tpls.min.js"></script>		
-		<script src="js/angular-ui-router.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/angular-locale_zh-cn.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/filters/customFilter.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/controllers/productController.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/controllers/controller.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/modal.js" type="text/javascript" charset="utf-8"></script>
 		
 		
 	</body>

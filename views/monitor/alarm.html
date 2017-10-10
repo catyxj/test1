@@ -1,39 +1,53 @@
-<div ng-controller="maintainController" class="maintain">
+<div ng-controller="alarmController" class="alarm">
 	
 	<div class="data_header">
-		<div class="">
-			<a class="btn btn-sm btn-primary" href="" role="button">添加</a>
+		<div class="clearfix">
+			<div class="subscription">
+				订阅推送
+			</div>
+			<div class="">
+				<ul class="nav nav-tabs">
+				  <li role="presentation" class="active"><a href="">当前告警列表</a></li>
+				  <li role="presentation"><a href="">历史告警列表</a></li>
+				 
+				</ul>
+			</div>
 		</div>
 		<div class="data_nav_h">
 			<nav>
-									  <div class="container-fluid">	
-									  	<!--select pageSize-->
-									  	<div class="dropdown pagesize">
-									  		每页显示
-										  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-										    {{itemsPerPage}}
-										    <span class="caret"></span>
-										  </button>
-										 	 条
-										  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-										    <li><a ng-click="p_size(5,productData)">5</a></li>
-										    <li><a ng-click="p_size(10,productData)">10</a></li>
-										    <li><a ng-click="p_size(20,productData)">20</a></li>
-										   
-										  </ul>
-										</div>
-										
-										<!--search-->
-									      <form class="navbar-form navbar-right">
-									        <div class="form-group">
-									        	搜索：
-									          <input type="text" ng-model="search" class="form-control" placeholder="Search">
-									          
-									        </div>
-									       
-									      </form>				    
-									  </div>
-									</nav>
+				<div class="container-fluid">
+					<!--select pageSize-->
+					<div class="dropdown pagesize">
+						每页显示
+						<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+								{{pageSize}}
+								<span class="caret"></span>
+						</button> 条
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+							<li>
+								<a ng-click="selectedPageSize(alarm,5)">5</a>
+							</li>
+							<li>
+								<a ng-click="selectedPageSize(alarm,10)">10</a>
+							</li>
+							<li>
+								<a ng-click="selectedPageSize(alarm,20)">20</a>
+							</li>
+			
+						</ul>
+					</div>
+			
+					<!--search-->
+					<form class="navbar-form navbar-right">
+						<div class="form-group">
+							搜索：
+							<input type="text" ng-model="search" class="form-control" placeholder="Search">
+			
+						</div>
+			
+					</form>
+				</div>
+			</nav>
 		</div>
 	</div>
 	
@@ -45,19 +59,19 @@
 						序号
 					</th>
 					<th>
-						维保锅炉
+						告警锅炉
 					</th>
 					<th>
-						维保日期
+						监测参数
 					</th>
 					<th>
-						维保人员
+						优先级
 					</th>
 					<th>
-						维保状态
+						告警时间
 					</th>
 					<th>
-						简述
+						状态
 					</th>
 					<th>
 						操作
@@ -66,7 +80,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="d in productDataList">
+				<tr ng-repeat="d in dataList">
 					<td>
 						{{d.num}}
 					</td>
@@ -74,17 +88,17 @@
 						{{d.boiler}}
 					</td>
 					<td>
-						{{d.date}}
+						{{d.monitor}}
 					</td>
 					<td>
-						{{d.person}}
+						{{d.priority}}
 					</td>
 					
 					<td>
-						{{d.state}}
+						{{d.time}}
 					</td>
 					<td>
-						{{d.brief}}
+						{{d.state}}
 					</td>
 					<td>
 						{{d.operating}}
@@ -93,7 +107,7 @@
 			</tbody>
 			
 		</table>
-		<p ng-show="!maintain.length">记录为空</p>
+		<p ng-show="!alarm.length">记录为空</p>
 		
 		
 		<!--pagination-->

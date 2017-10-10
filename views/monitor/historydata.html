@@ -71,6 +71,29 @@
 	</div>
 	
 	<div class="historybody">
+		
+									
+									
+		<div class="">
+			<table class="table" border="0" >
+				<tr>
+					<th> </th>
+					<th>采样时间</th>
+					<th>蒸汽温度 ℃</th>
+					<th>排烟温度(低) ℃</th>
+				</tr>
+				<tr ng-repeat="h in dataList">
+					<td>{{h.num}}</td>
+					<td>{{h.time}}</td>
+					<td>{{h.steamTemp}}</td>
+					<td>{{h.exhaustGasTemp}}</td>
+				</tr>
+			</table>
+			
+			<p ng-show="!data.length">记录为空</p>
+			
+		</div>							
+									
 		<!--pagination-->
 									<nav aria-label="Page navigation">
 										<div class="float_left count_num">
@@ -104,30 +127,7 @@
 									      </a>
 									    </li>
 									  </ul>
-									</nav>
-									
-									
-		<div class="">
-			<table class="table" border="0" >
-				<tr>
-					<th> </th>
-					<th>采样时间</th>
-					<th>蒸汽温度 ℃</th>
-					<th>排烟温度(低) ℃</th>
-				</tr>
-				<tr ng-repeat="h in productDataList">
-					<td>{{h.num}}</td>
-					<td>{{h.time}}</td>
-					<td>{{h.steamTemp}}</td>
-					<td>{{h.exhaustGasTemp}}</td>
-				</tr>
-			</table>
-			
-			<p ng-show="!data.length">记录为空</p>
-			
-		</div>							
-									
-									
+									</nav>							
 									
 									
 	</div>

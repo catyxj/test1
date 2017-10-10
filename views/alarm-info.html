@@ -1,14 +1,22 @@
-<div ng-controller="alarmController" class="alarm">
+<div ng-controller="alarmInfoController" class="alarm_info">
 	
 	<div class="data_header">
-		<div class="clearfix">
-			<div class="subscription">
-				订阅推送
+		<div class="clearfix data_top">
+			<h4 class="float_left">
+				<span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
+				告警列表
+			</h4>
+			<div class="float_right">
+				<span class="glyphicon glyphicon-resize-full" aria-hidden="true"></span>
 			</div>
+		</div>
+		
+		<div class="clearfix">
+			
 			<div class="">
 				<ul class="nav nav-tabs">
-				  <li role="presentation" class="active"><a href="">当前告警列表</a></li>
-				  <li role="presentation"><a href="">历史告警列表</a></li>
+				  <li role="presentation" ng-class="{'active':alarmMode === 'current'}" ><a href="" ng-click="setAlarm('current')">当前告警列表</a></li>
+				  <li role="presentation" ng-class="{'active':alarmMode === 'history'}"><a href="" ng-click="setAlarm('history')">历史告警列表</a></li>
 				 
 				</ul>
 			</div>

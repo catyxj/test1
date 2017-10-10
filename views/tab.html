@@ -1,0 +1,38 @@
+<div class="select_container">
+
+	<select ng-model="selectedModel" ng-options="item for item in productData | orderBy:'model' | unique:'model'">
+		<option selected="selected" value="">选择型号</option>
+		<!--<option  			
+			 value="{{item.model}}">{{item}}</option>-->
+	</select>
+	
+	
+	<select ng-model="selectedFuel" ng-options="item for item in productData | orderBy:'fuel' | unique:'fuel'">
+		<option selected="selected" value="">选择燃烧类型</option>
+		<!--<option ng-repeat="item in productData | orderBy:'fuel' | unique:'fuel'" value="{{item.fuel}}">{{item}}</option>-->
+	</select>
+
+	
+
+</div>
+
+<div ng-controller="tabController" class="main_console">
+	<ul class="nav nav-tabs">
+		<li ui-sref-active="active" ng-class="{active:isActiveTag(tab.productview)}">
+			<a href="" ui-sref=".productview">图文模式</a>
+		</li>
+		<li ui-sref-active="active" ng-class="{active:isActiveTag(tab.productlist)}">
+			<a href="" ui-sref=".productlist">列表模式</a>
+		</li>
+
+	</ul>
+	<div class="tab-content">
+
+		<div class="">
+			<div ui-view=""></div>
+		</div>
+
+		
+	</div>
+</div>
+							

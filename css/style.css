@@ -13,7 +13,10 @@
 .inline{
 	display: inline;
 }
-
+.blue{
+	background-color: #3598dc;
+	color: #FFFFFF;
+}
 
 /*header*/
 .navbar-fixed-top{
@@ -84,11 +87,94 @@
 .sidebar a .glyphicon{
 	text-indent: 10px;
 }
-.sidebar a:hover{
+.sidebar a:hover,.sidebar li.active a{
 	background-color: #122B40;
 	text-decoration: none;
 	color: #FFFFFF;
 }
+.sidebar .navbar-collapse{
+	padding-left: 0;
+	padding-right: 0;
+}
+
+
+
+
+/*dashboard*/
+.blue{
+	background-color: #3598dc;
+	color: #FFFFFF;
+}
+.red{
+	background-color: #e7505a;
+	color: #FFFFFF;
+}
+.green{
+	background-color: #32c5d2;
+	color: #FFFFFF;
+}
+.stat{
+	margin: 20px 0;		
+}
+.stat .panel{	
+	height: 120px;
+	overflow: hidden;
+}
+.stat_data{
+	text-align: right;
+	padding-right: 10px;
+	padding-top: 15px;
+	height: 90px;
+}
+.stat_data_d{
+	font-size: 34px;
+}
+.stat_more{
+	display: block;
+	width: 100%;
+	height: 30px;
+	line-height: 30px;	
+	font-size: 12px;
+	color: #FFFFFF;	
+	padding-left: 10px;
+	padding-right: 10px;
+	opacity: 0.6;	
+}
+
+.stat_more span{
+	float: right;
+	padding-top: 8px;
+}
+.stat_more:hover{
+	color: #FFFFFF;
+	opacity: 0.9;	
+}
+.blue .stat_more{
+	background-color: #258fd7;
+}
+.red .stat_more{
+	background-color: #e53e49;
+}
+.green .stat_more{
+	background-color: #2bb8c4;
+}
+
+.stat_header{
+	border-bottom: 1px solid #EEEEEE;
+	padding:0 20px;	
+}
+.stat_header .full{
+	margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -368,6 +454,19 @@
 .flash_view{
 	padding-top: 25px;
 }
+
+
+/*警告列表*/
+
+.data_top{
+	/*border-bottom: 1px solid #EEEEEE;*/
+	padding: 10px;
+}
+
+
+
+
+
 
 
 
