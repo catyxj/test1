@@ -100,43 +100,48 @@ mainApp.controller("productController",function($scope,productData, $filter,$sta
 	};
 	
 	
+	var newDataList = [];	
+	$scope.modelSelectFn = function(model){			
+		if(model == null){
+			newDataList = $scope.productData;			
+		}else{
+			
+			for(i=0; i<$scope.productData.length; i++){
+				if($scope.productData[i].model == model){
+					newDataList.push($scope.productData[i]);
+				}
+			}
+		}
+		$scope.refreshPage(newDataList);
+	};
 	
-	
-	
-	
-//	$scope.selectedpage = 1;
-//	$scope.pageSize = 5;
-//	
+	$scope.fuelSelectFn = function(fuel){	
+		if(fuel == null){
+			newDataList = $scope.productData;			
+		}else{
+			
+			for(i=0; i<$scope.productData.length; i++){
+				if($scope.productData[i].fuel == fuel){
+					newDataList.push($scope.productData[i]);
+				}
+			}
+		}
+		$scope.refreshPage(newDataList);
+	};
 
-	
-	
-//	$scope.selectCategory = function(newCategory){
-//		selectedCategory = newCategory;
-//		$scope.selectedpage = 1;
-//	}
-//	
-//	$scope.selectPage = function(newPage){
-//		$scope.selectedpage = newPage;
-//	}
-//	
-//	$scope.modelFilterFn = function(product){
-//		selectedCategory = $scope.selectedModel;
-//		
-//		return selectedCategory == null ||
-//		 product.model == selectedCategory;
-//	}
-//	
-//	$scope.getCategoryClass = function(category){
-//		return selectedCategory == category?productListActiveClass:"";
-//	}
-//	
-//	
-//	$scope.getPageClass = function(page){
-//		return $scope.selectedpage == page ? productListActiveClass:""; 
-//	}
-//	
-	
-	
+	$scope.companySelectFn = function(company){	
+		if(company == null){
+			newDataList = $scope.productData;			
+		}else{
+			
+			for(i=0; i<$scope.productData.length; i++){
+				if($scope.productData[i].company == company){
+					newDataList.push($scope.productData[i]);
+				}
+			}
+		}
+		$scope.refreshPage(newDataList);
+	};
 	
 
 })

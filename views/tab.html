@@ -1,18 +1,21 @@
 <div class="select_container">
 
-	<select ng-model="selectedModel" ng-options="item for item in productData | orderBy:'model' | unique:'model'">
-		<option selected="selected" value="">选择型号</option>
+	<select ng-model="selectedModel" ng-change="modelSelectFn(selectedModel)" ng-options="item for item in productData | orderBy:'model' | unique:'model'">
+		<option selected="selected" value="">型号不限</option>
 		<!--<option  			
 			 value="{{item.model}}">{{item}}</option>-->
 	</select>
 	
 	
-	<select ng-model="selectedFuel" ng-options="item for item in productData | orderBy:'fuel' | unique:'fuel'">
-		<option selected="selected" value="">选择燃烧类型</option>
+	<select ng-model="selectedFuel" ng-change="fuelSelectFn(selectedFuel)" ng-options="item for item in productData | orderBy:'fuel' | unique:'fuel'">
+		<option selected="selected" value="">燃料不限</option>
 		<!--<option ng-repeat="item in productData | orderBy:'fuel' | unique:'fuel'" value="{{item.fuel}}">{{item}}</option>-->
 	</select>
 
-	
+	<select ng-model="selectedCompany" ng-change="companySelectFn(selectedCompany)" ng-options="item for item in productData | orderBy:'company' | unique:'company'">
+		<option selected="selected" value="">企业不限</option>
+		<!--<option ng-repeat="item in productData | orderBy:'fuel' | unique:'fuel'" value="{{item.fuel}}">{{item}}</option>-->
+	</select>
 
 </div>
 

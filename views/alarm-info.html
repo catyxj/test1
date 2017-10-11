@@ -28,14 +28,14 @@
 									  	<div class="dropdown pagesize">
 									  		每页显示
 										  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-										    {{itemsPerPage}}
+										    {{pageSize}}
 										    <span class="caret"></span>
 										  </button>
 										 	 条
 										  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-										    <li><a ng-click="p_size(5,productData)">5</a></li>
-										    <li><a ng-click="p_size(10,productData)">10</a></li>
-										    <li><a ng-click="p_size(20,productData)">20</a></li>
+										    <li><a ng-click="selectedPageSize(alarmInfo,5)">5</a></li>
+										    <li><a ng-click="selectedPageSize(alarmInfo,10)">10</a></li>
+										    <li><a ng-click="selectedPageSize(alarmInfo,20)">20</a></li>
 										   
 										  </ul>
 										</div>
@@ -83,7 +83,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="d in productDataList">
+				<tr ng-repeat="d in dataList">
 					<td>
 						{{d.num}}
 					</td>
@@ -104,13 +104,14 @@
 						{{d.state}}
 					</td>
 					<td>
-						{{d.operating}}
+						<button type="button" class="btn btn-primary btn-sm">回复</button>
+						<button ng-click="removeData(d.num)" type="button" class="btn btn-default btn-sm"> 删除</button>
 					</td>
 				</tr>
 			</tbody>
 			
 		</table>
-		<p ng-show="!alarm.length">记录为空</p>
+		<p ng-show="!alarmInfo.length">记录为空</p>
 		
 		
 		<!--pagination-->

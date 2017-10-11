@@ -52,7 +52,10 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
         })
         .state("advisory", {
             url: "/advisory",
-            templateUrl: "views/advisory.html"
+            templateUrl: "views/advisory.html",
+            resolve:{
+            	
+            }
         })
         .state("maintain-info", {
             url: "/maintain-info",

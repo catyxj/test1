@@ -122,35 +122,58 @@ $scope.selectedPageSize($scope.maintain,6);
 
 
 mainApp.controller("alarmInfoController",function($scope){
-	$scope.alarmInfo = [];
+	$scope.alarmInfo = [
+		{
+			num:1,
+			boiler:"5555",
+			monitor:"test",
+			priority:1,
+			time:"2017-09-22 12:43:48",
+			state:1
+		},
+		{
+			num:2,
+			boiler:"dddd",
+			monitor:"test",
+			priority:1,
+			time:"2017-09-22 12:43:48",
+			state:1
+		},
+		{
+			num:3,
+			boiler:"5555",
+			monitor:"test",
+			priority:1,
+			time:"2017-09-22 12:43:48",
+			state:1
+		}
+	];
 //	$scope.p_size(6,$scope.alarmInfo);
-$scope.selectedPageSize($scope.alarmInfo,6);
+	$scope.selectedPageSize($scope.alarmInfo,6);
 	$scope.alarmMode = "current";
 	$scope.setAlarm = function(m){
 		$scope.alarmMode = m;
 	};
+	
+	
+	$scope.removeData = function(id){
+		for(var i = 0; i < $scope.alarmInfo.length; i++){
+			if($scope.alarmInfo[i].num == id){
+				$scope.alarmInfo.splice(i,1);
+				$scope.refreshPage($scope.alarmInfo);
+//				break;
+			}
+		}
+	}
+	
+	
+	
+	
+	
+	
 })
 
-mainApp.controller("advisoryController",function($scope){
-	$scope.advisory = [
-		{
-			num:1,
-			time:"2017-09-22 12:43:48",
-			content:"test",
-			company:"系统",
-			state:"已回复"
-		},
-		{
-			num:2,
-			time:"2017-09-22 12:43:48",
-			content:"test",
-			company:"系统",
-			state:"新咨询"
-		}
-	];
-//	$scope.p_size(6,$scope.advisory);
-	$scope.selectedPageSize($scope.advisory,6);
-})
+
 
 
 
@@ -165,7 +188,7 @@ mainApp.controller("maintainInfoController",function($scope){
 			state:"1"
 		}
 	];
-//	$scope.p_size(6,$scope.maintainInfo);
+
 	$scope.selectedPageSize($scope.maintainInfo,6);	
 })
 

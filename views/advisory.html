@@ -1,3 +1,5 @@
+
+
 <div ng-controller="advisoryController" class="advisory">
 	
 	<div class="data_header">
@@ -20,23 +22,23 @@
 		
 		<div class="data_nav_h">
 			<nav>
-				<div ng-controller="modalController" class="container-fluid">
+				<div class="container-fluid">
 					<!--select pageSize-->
 					<div class="dropdown pagesize">
 						每页显示
 						<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-							{{itemsPerPage}}
+							{{pageSize}}
 							<span class="caret"></span>
 						</button> 条
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
 							<li>
-								<a ng-click="p_size(5,productData)">5</a>
+								<a ng-click="selectedPageSize(advisory,5)">5</a>
 							</li>
 							<li>
-								<a ng-click="p_size(10,productData)">10</a>
+								<a ng-click="selectedPageSize(advisory,10)">10</a>
 							</li>
 							<li>
-								<a ng-click="p_size(20,productData)">20</a>
+								<a ng-click="selectedPageSize(advisory,20)">20</a>
 							</li>
 			
 						</ul>
@@ -44,7 +46,7 @@
 			
 					<button style="margin-left: 20px; margin-top: 8px;" ng-click="openModal()" type="button" class="btn btn-info">添加</button>
 			
-					<script type="text/ng-template" id="modal.html">
+					<script type="text/ng-template" id="advisory.html">
 						<div>
 							<div class="modal-header">
 								<button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times;</span></button>
@@ -55,11 +57,11 @@
 								<form action="" method="post">
 									<div class="form-group">
 										<label>咨询标题：</label>
-										<input class="form-control" type="text" name="" id="" value="" placeholder="咨询标题" />
+										<input class="form-control" ng-model="advisoryTitle" type="text" name="" id="" value="" placeholder="咨询标题" />
 									</div>
 									<div class="form-group">
 										<label>咨询内容：</label>
-										<textarea class="form-control" name="" rows="5" cols="" placeholder="在这里输入内容"></textarea>
+										<textarea class="form-control" ng-model="advisoryContent" name="" rows="5" cols="" placeholder="在这里输入内容"></textarea>
 									</div>
 									
 								</form>
@@ -117,7 +119,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="d in productDataList">
+				<tr ng-repeat="d in dataList">
 					<td>
 						{{d.num}}
 					</td>
@@ -136,7 +138,7 @@
 					</td>
 					<td>
 						<button type="button" class="btn btn-primary btn-sm">回复</button>
-						<button type="button" class="btn btn-default btn-sm"> 删除</button>
+						<button ng-click="removeData(d.num)" type="button" class="btn btn-default btn-sm"> 删除</button>
 					</td>
 				</tr>
 			</tbody>
@@ -185,6 +187,7 @@
 	
 	
 </div>
+
 
 
 
