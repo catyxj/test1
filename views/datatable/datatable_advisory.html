@@ -1,0 +1,57 @@
+<div class="">
+
+	<table class="table" border="0" >
+			<thead>
+				<tr>
+					<th>
+						序号
+					</th>
+					<th>
+						咨询时间
+					</th>
+					<th>
+						咨询内容 
+					</th>
+					<th>
+						咨询企业
+					</th>
+					<th>
+						回复状态
+					</th>
+					
+					<th>
+						操作
+					</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="d in dataList">
+					<td>
+						{{d.num}}
+					</td>
+					<td>
+						{{d.time}}
+					</td>
+					<td>
+						{{d.content}}
+					</td>
+					<td>
+						{{d.company}}
+					</td>
+										
+					<td ng-class="{'text-primary':d.state==='已回复','text-success':d.state==='新咨询'}" >
+						{{d.state}}
+					</td>
+					<td>
+						<button type="button" class="btn btn-primary btn-sm">回复</button>
+						<button ng-click="removeData(d.num)" type="button" class="btn btn-default btn-sm"> 删除</button>
+					</td>
+				</tr>
+			</tbody>
+			
+		</table>
+		<p ng-show="!advisory.length">记录为空</p>
+		
+	
+</div>

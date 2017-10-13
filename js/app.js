@@ -1,5 +1,5 @@
 
-var mainApp = angular.module("boiler",["ui.router" , "ui.bootstrap", "customFilter"]);
+var mainApp = angular.module("boiler",["ui.router" , "ui.bootstrap", "customFilter","oc.lazyLoad"]);
 
 mainApp.config(function ($stateProvider, $urlRouterProvider) {
 
@@ -12,15 +12,36 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
         })
         .state("dashboard", {
             url: "/dashboard",
-            templateUrl: "views/monitor/dashboard.html"
+            templateUrl: "views/monitor/dashboard.html",
+            resolve: { 
+    		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+             return $ocLazyLoad.load([
+             	'js/controllers/dashboardController.js'             	
+		             ]);
+		    }]
+		  }
         })
         .state("tab.productview", {
             url:"/productview",
-            templateUrl: "views/monitor/productview.html"
+            templateUrl: "views/monitor/productview.html",
+            resolve: { 
+    		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+             return $ocLazyLoad.load([
+             	'js/controllers/productViewController.js',            	
+		             ]);
+		    }]
+		  }
         })
         .state("tab.productlist", {
             url:"/productlist",
-            templateUrl: "views/monitor/productlist.html"
+            templateUrl: "views/monitor/productlist.html",
+            resolve: {
+    		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+             return $ocLazyLoad.load([
+             	'js/modal.js',            	
+		             ]);
+		    }]
+		  }
         })
         .state("boilerflash", {
             url:"/boilerflash",
@@ -32,11 +53,26 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
         })
         .state("boilerflash.runtimedata", {
             url:"/runtimedata",
-            templateUrl: "views/monitor/runtimedata.html"
+            templateUrl: "views/monitor/runtimedata.html",
+            resolve: { 
+    		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+             return $ocLazyLoad.load([
+             	'js/controllers/runtimeController.js',
+		             ]);
+		    }]
+		  }
         })
         .state("boilerflash.historydata", {
             url:"/historydata",
-            templateUrl: "views/monitor/historydata.html"
+            templateUrl: "views/monitor/historydata.html",
+            resolve: { 
+    		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+             return $ocLazyLoad.load([
+             	'js/controllers/historyController.js',
+             	'js/angular-locale_zh-cn.js'
+		             ]);
+		    }]
+		  }
         })
         .state("boilerflash.alarm", {
             url:"/alarm",
@@ -44,7 +80,14 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
         })
         .state("boilerflash.maintain", {
             url:"/maintain",
-            templateUrl: "views/monitor/maintain.html"
+            templateUrl: "views/monitor/maintain.html",
+            resolve: { 
+    		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+             return $ocLazyLoad.load([
+             	'js/controllers/maintainInfoController.js',            	
+		             ]);
+		    }]
+		  }
         })
         .state("alarm-info", {
             url: "/alarm-info",
@@ -53,16 +96,42 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
         .state("advisory", {
             url: "/advisory",
             templateUrl: "views/advisory.html",
-            resolve:{
-            	
-            }
+            resolve: { 
+    		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+             return $ocLazyLoad.load([            	
+             	'js/controllers/advisoryController.js'             	
+		             ]);
+		    }]
+		  }
         })
         .state("maintain-info", {
             url: "/maintain-info",
-            templateUrl: "views/maintain-info.html"
+            templateUrl: "views/maintain-info.html",
+            resolve: { 
+    		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+             return $ocLazyLoad.load([
+             	'js/controllers/maintainInfoController.js',            	
+		             ]);
+		    }]
+		  }
         })
         
 });
+
+
+
+//配置动态加载  
+mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterProvider",  
+    function($provide, $compileProvider, $controllerProvider, $filterProvider) {  
+        mainApp.controller = $controllerProvider.register;  
+        mainApp.directive = $compileProvider.directive;  
+        mainApp.filter = $filterProvider.register;  
+        mainApp.factory = $provide.factory;  
+        mainApp.service = $provide.service;  
+        mainApp.constant = $provide.constant;  
+    }  
+]); 
+
 
  mainApp.service("productData",function(){
 	return[
@@ -187,15 +256,82 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
 			evaporation:2
 		}
 	]
-})
+});
  
 
 
 
+mainApp.service("advisoryData",function(){
+	return [
+		{
+			num:1,
+			title:11,
+			time:"2017-09-22 12:43:48",
+			content:"test",
+			company:"系统",
+			state:"已回复"
+		},
+		{
+			num:2,
+			title:22,
+			time:"2017-09-22 12:43:48",
+			content:"test",
+			company:"系统",
+			state:"新咨询"
+		}
+	]
+});
+
+
+mainApp.service("alarmData",function(){
+	return [
+		{
+			num:1,
+			boiler:"5555",
+			monitor:"test",
+			priority:1,
+			time:"2017-09-22 12:43:48",
+			state:1
+		},
+		{
+			num:2,
+			boiler:"dddd",
+			monitor:"test",
+			priority:1,
+			time:"2017-09-22 12:43:48",
+			state:1
+		},
+		{
+			num:3,
+			boiler:"5555",
+			monitor:"test",
+			priority:1,
+			time:"2017-09-22 12:43:48",
+			state:1
+		}
+	]
+})
 
 
 
-
+mainApp.service("maintainData",function(){
+	return [
+		{
+			num:1,
+			time:"2017-09-22 12:43:48",
+			content:"test",
+			company:"系统",
+			state:"1"
+		},
+		{
+			num:2,
+			time:"2017-09-22 12:43:48",
+			content:"test",
+			company:"系统ee",
+			state:"2"
+		}
+	]
+});
 
 
 

@@ -1,26 +1,6 @@
-
-
-<div ng-controller="advisoryController" class="advisory">
+<div class="">
 	
-	<div class="data_header">
-		<div class="clearfix data_top">
-			<h4 class="float_left">
-				<span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
-				咨询列表
-			</h4>
-			<div class="float_right">
-				<span class="glyphicon glyphicon-resize-full" aria-hidden="true"></span>
-			</div>
-		</div>
-		
-		
-		
-						
-						
-		
-			
-		
-		<div class="data_nav_h">
+	<div class="data_nav_h">
 			<nav>
 				<div class="container-fluid">
 					<!--select pageSize-->
@@ -32,13 +12,13 @@
 						</button> 条
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
 							<li>
-								<a ng-click="selectedPageSize(advisory,5)">5</a>
+								<a ng-click="selectedPageSize(maintainInfo,5)">5</a>
 							</li>
 							<li>
-								<a ng-click="selectedPageSize(advisory,10)">10</a>
+								<a ng-click="selectedPageSize(maintainInfo,10)">10</a>
 							</li>
 							<li>
-								<a ng-click="selectedPageSize(advisory,20)">20</a>
+								<a ng-click="selectedPageSize(maintainInfo,20)">20</a>
 							</li>
 			
 						</ul>
@@ -46,38 +26,7 @@
 			
 					<button style="margin-left: 20px; margin-top: 8px;" ng-click="openModal()" type="button" class="btn btn-info">添加</button>
 			
-					<script type="text/ng-template" id="advisory.html">
-						<div>
-							<div class="modal-header">
-								<button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times;</span></button>
-								<h4 class="modal-title">开始咨询	</h4>
-			
-							</div>
-							<div class="modal-body">
-								<form action="" method="post">
-									<div class="form-group">
-										<label>咨询标题：</label>
-										<input ng-model="data.title" class="form-control" ng-model="advisoryTitle" type="text" name="" id="" value="" placeholder="咨询标题" />
-									</div>
-									<div class="form-group">
-										<label>咨询内容：</label>
-										<textarea ng-model="data.content" class="form-control" ng-model="advisoryContent" name="" rows="5" cols="" placeholder="在这里输入内容"></textarea>
-									</div>
-									
-								</form>
-							</div>
-							<div class="modal-footer">
-			
-								<button class="btn btn-primary" ng-click="ok()">
-								                提交
-								 </button>
-								<button class="btn btn-default" ng-click="cancel()">
-								                取消
-								</button>
-							</div>
-						</div>
-					</script>
-			
+							
 					<!--search-->
 					<form class="navbar-form navbar-right">
 						<div class="form-group">
@@ -90,11 +39,67 @@
 				</div>
 			</nav>
 		</div>
-	</div>
 	
-	<div class="maintain_body">
-		
-		<datatable-advisory></datatable-advisory>
+	
+	
+	<table class="table" border="0" >
+			<thead>
+				<tr>
+					<th>
+						序号
+					</th>
+					<th>
+						维保锅炉
+					</th>
+					<th>
+						维保日期 
+					</th>
+					<th>
+						维保人员
+					</th>
+					<th>
+						维保状态
+					</th>
+					<th>
+						简述
+					</th>
+					<th>
+						操作
+					</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="d in dataList">
+					<td>
+						{{d.num}}
+					</td>
+					<td>
+						{{d.company}}
+					</td>
+					<td>
+						{{d.time}}
+					</td>
+					<td>
+						{{d.content}}
+					</td>
+										
+					<td ng-class="{'text-primary':d.state==='已回复','text-success':d.state==='新咨询'}" >
+						{{d.state}}
+					</td>
+					<td>
+						{{d.company}}
+					</td>
+					
+					<td>
+						<button type="button" class="btn btn-primary btn-sm">编辑</button>
+						<button ng-click="removeData(d.num)" type="button" class="btn btn-default btn-sm"> 删除</button>
+					</td>
+				</tr>
+			</tbody>
+			
+		</table>
+		<p ng-show="!maintainInfo.length">记录为空</p>
 		
 		
 		<!--pagination-->
@@ -131,15 +136,5 @@
 									    </li>
 									  </ul>
 									</nav>
-									
-	</div>
-	
-	
-	
+		
 </div>
-
-
-
-
-
-

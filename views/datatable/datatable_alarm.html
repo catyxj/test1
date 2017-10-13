@@ -1,0 +1,152 @@
+<div class="">
+	<div class="clearfix">
+		<div ng-show="isShow('boilerflash.alarm')" class="subscription">
+			订阅推送
+		</div>
+		<ul class="nav nav-tabs">
+			<li role="presentation" ng-class="{'active':alarmMode === 'current'}">
+				<a href="" ng-click="setAlarm('current')">当前告警列表</a>
+			</li>
+			<li role="presentation" ng-class="{'active':alarmMode === 'history'}">
+				<a href="" ng-click="setAlarm('history')">历史告警列表</a>
+			</li>
+
+		</ul>
+	</div>
+
+	<div class="data_nav_h">
+		<nav>
+			<div class="container-fluid">
+				<!--select pageSize-->
+				<div class="dropdown pagesize">
+					每页显示
+					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+											    {{pageSize}}
+											    <span class="caret"></span>
+											  </button> 条
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+						<li>
+							<a ng-click="selectedPageSize(alarmInfo,5)">5</a>
+						</li>
+						<li>
+							<a ng-click="selectedPageSize(alarmInfo,10)">10</a>
+						</li>
+						<li>
+							<a ng-click="selectedPageSize(alarmInfo,20)">20</a>
+						</li>
+	
+					</ul>
+				</div>
+	
+				<!--search-->
+				<form class="navbar-form navbar-right">
+					<div class="form-group">
+						搜索：
+						<input type="text" ng-model="search" class="form-control" placeholder="Search">
+	
+					</div>
+	
+				</form>
+			</div>
+		</nav>
+	</div>
+
+
+	<table class="table" border="0">
+		<thead>
+			<tr>
+				<th>
+					序号
+				</th>
+				<th>
+					告警锅炉
+				</th>
+				<th>
+					监测参数
+				</th>
+				<th>
+					优先级
+				</th>
+				<th>
+					告警时间
+				</th>
+				<th>
+					状态
+				</th>
+				<th>
+					操作
+				</th>
+	
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="d in dataList">
+				<td>
+					{{d.num}}
+				</td>
+				<td>
+					{{d.boiler}}
+				</td>
+				<td>
+					{{d.monitor}}
+				</td>
+				<td>
+					{{d.priority}}
+				</td>
+	
+				<td>
+					{{d.time}}
+				</td>
+				<td>
+					{{d.state}}
+				</td>
+				<td>
+					<button type="button" class="btn btn-primary btn-sm">查看</button>
+					<button ng-click="removeData(d.num)" type="button" class="btn btn-default btn-sm"> 删除</button>
+				</td>
+			</tr>
+		</tbody>
+	
+	</table>
+	<p ng-show="!alarmInfo.length">记录为空</p>
+	
+	
+	<div class="clearfix">
+		<!--pagination-->
+		<nav aria-label="Page navigation">
+			<div class="float_left count_num">
+				共{{count}}条记录
+			</div>
+			<ul class="pagination">
+				<li>
+					<a ng-click="p_index()">
+						<span aria-hidden="true">首页</span>
+					</a>
+				</li>
+				<li>
+					<a ng-click="Previous()">
+						<span aria-hidden="true">上一页</span>
+					</a>
+				</li>
+				<li ng-repeat="page in pageList" ng-class="{active:isActivePage(page)}">
+					<a ng-click="selectPage(page)">
+						{{page}}
+					</a>
+				</li>
+		
+				<li>
+					<a ng-click="Next()">
+						<span aria-hidden="true">下一页</span>
+					</a>
+				</li>
+				<li>
+					<a ng-click="p_last()">
+						<span aria-hidden="true">尾页</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+	
+
+</div>

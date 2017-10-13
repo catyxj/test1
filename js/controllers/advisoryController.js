@@ -1,57 +1,27 @@
-mainApp.controller("advisoryController",function($scope, $rootScope, $modal){
-	$scope.advisory = [
-		{
-			num:1,
-			time:"2017-09-22 12:43:48",
-			content:"test",
-			company:"系统",
-			state:"已回复"
-		},
-		{
-			num:2,
-			time:"2017-09-22 12:43:48",
-			content:"test",
-			company:"系统",
-			state:"新咨询"
-		}
-	];
-//	$scope.p_size(6,$scope.advisory);
+
+mainApp.controller("advisoryController",function($scope, $rootScope, $modal,advisoryData){
+	
+	
+	$scope.advisory = advisoryData;
 	$scope.selectedPageSize($scope.advisory,6);
 	
 	
-	var count = 2;
-//						$scope.addData = function(id, advisoryTitle , advisoryContent){
-//								var addedItem = false;
-//								for(var i = 0; i < $scope.advisory.length; i++){
-//									if($scope.advisory[i].num == id){
-//										addedItem = true;
-//										break;
-//									}
-//								}
-//								if(!addedItem){
-//									$scope.advisory.push(
-//										{
-//											num:count+1,
-//											time:"2017-09-22 12:43:48",
-//											content:advisoryContent,
-//											company:advisoryTitle,
-//											state:"新咨询"
-//										}
-//									);
-//								}
-//								return $scope.advisory;
-//							}
+	var count = 3;
+
 						
-		
-        $scope.openModal = function() {
+		var newdata = {};
+        $scope.openModal = function() {       	
                 var modalInstance = $modal.open({
                     templateUrl : 'advisory.html',//script标签中定义的id
                     controller : 'advisoryCtrl',//modal对应的Controller
                     size: 'lg', //大小配置 
                     resolve : {
                         data : function() {//data作为modal的controller传入的参数
-                       	
-                             return $scope.advisory;//用于传递数据
+                        	newdata.num = 2;                        	
+                       		newdata.time="2017-09-22 12:43:48";
+							newdata.company = "test";
+							newdata.state="新咨询";		
+                             return newdata;//用于传递数据
                         }
                     }
                 })
@@ -81,14 +51,31 @@ mainApp.controller("advisoryController",function($scope, $rootScope, $modal){
 	
 })
 
-mainApp.controller('advisoryCtrl', function($scope, $modalInstance, data) {
+mainApp.controller('advisoryCtrl', function($scope,$rootScope, $modalInstance, data,advisoryData) {
           $scope.data= data;
-
+		  var advisory = advisoryData;
+		  advisory.push($scope.data);
           //在这里处理要进行的操作
           $scope.ok = function() {
-              $modalInstance.close();
+              $modalInstance.close(
+              	console.log(advisoryData)
+              );
           };
           $scope.cancel = function() {
               $modalInstance.dismiss('cancel');
           }
     });
+    
+
+
+
+//module.directive( "addAdvisoryData", [ 'advisoryData', function( advisoryData ) {
+//  return {
+//      restrict: "E",
+//          link: function( scope, element, attrs ) {
+//          element.bind( "click", function() {
+//              advisoryData.push( { title: "Star Wars", author: "George Lucas" } );
+//          });
+//      }
+//  }
+//}]);

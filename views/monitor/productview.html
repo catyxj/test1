@@ -8,8 +8,8 @@
 							<span>{{data.model}} </span>
 						</a>
 						
-						<div ng-controller="modalController" class="inline">
-							<a href="" ng-click="openModal()">测算</a>
+						<div class="inline">
+							<a href="" ng-click="openModal(data)">测算</a>
 
 			<script type="text/ng-template" id="modal.html">
 				<div>
@@ -32,21 +32,21 @@
 								<div class="form-group col-md-6">
 									<label class="" for="">排烟热损失计算系数 m</label>
 									<div class="">
-										<input type="text" class="form-control" id="" placeholder="0">
+										<input ng-model="data.model" type="text" class="form-control" id="" placeholder="0">
 									</div>									
 								</div>
 								
 								<div class="form-group col-md-6">
 									<label class="" for="">排烟热损失计算系数 n</label>
 									<div class="">
-										<input type="text" class="form-control" id="" placeholder="0">
+										<input ng-model="data.evaporation" type="text" class="form-control" id="" placeholder="0">
 									</div>									
 								</div>
 								
 								<div class="form-group col-md-12">
 									<label class="" for="">燃料收到基低位发热量</label>
 									<div class="">
-										<input type="text" class="form-control" id="" placeholder="0">
+										<input ng-model="data.evaporation" type="text" class="form-control" id="" placeholder="0">
 									</div>
 									
 								</div>
@@ -59,19 +59,19 @@
 								<div class="form-group col-md-4">
 									<label class="" for="">排烟温度</label>
 									<div class="">
-										<input type="text" class="form-control" id="" placeholder="0" disabled>
+										<input ng-model="data.evaporation" type="text" class="form-control" id="" placeholder="0" disabled>
 									</div>
 								</div>
 								<div class="form-group col-md-4">
 									<label class="" for="">送风温度</label>
 									<div class="">
-										<input type="text" class="form-control" id="" placeholder="0" disabled>
+										<input ng-model="data.evaporation" type="text" class="form-control" id="" placeholder="0" disabled>
 									</div>
 								</div>
 								<div class="form-group col-md-4">
 									<label class="" for="">排烟氧量</label>
 									<div class="">
-										<input type="text" class="form-control" id="" placeholder="0" disabled>
+										<input ng-model="data.evaporation" type="text" class="form-control" id="" placeholder="0" disabled>
 									</div>
 								</div>
 							</div>
@@ -83,7 +83,7 @@
 								<div class="form-group col-md-6">
 									<label class="" for="">排烟热损失(q2)</label>
 									<div class="">
-										<input type="text" class="form-control" id="" placeholder="0">
+										<input ng-model="data.evaporation" type="text" class="form-control" id="" placeholder="0">
 									</div>
 								</div>
 								<div class="form-group col-md-6">
@@ -95,19 +95,19 @@
 								<div class="form-group col-md-6">
 									<label class="" for="">散热损失(q5)</label>
 									<div class="">
-										<input type="text" class="form-control" id="" placeholder="0">
+										<input ng-model="data.evaporation" type="text" class="form-control" id="" placeholder="0">
 									</div>
 								</div>
 								<div class="form-group col-md-6">
 									<label class="" for="">过量空气系数</label>
 									<div class="">
-										<input type="text" class="form-control" id="" placeholder="0">
+										<input ng-model="data.evaporation" type="text" class="form-control" id="" placeholder="0">
 									</div>
 								</div>
 								<div class="form-group col-md-12">
 									<label class="" for="">参数修改后锅炉效率</label>
 									<div class="">
-										<input type="text" class="form-control" id="" placeholder="0">
+										<input ng-model="data.evaporation" type="text" class="form-control" id="" placeholder="0">
 									</div>
 								</div>
 							</div>
