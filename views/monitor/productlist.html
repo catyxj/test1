@@ -17,13 +17,13 @@
 				</button> 条
 				<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
 					<li>
-						<a ng-click="selectedPageSize(productData,5)">5</a>
+						<a ng-click="setPageSize(5)">5</a>
 					</li>
 					<li>
-						<a ng-click="selectedPageSize(productData,10)">10</a>
+						<a ng-click="setPageSize(10)">10</a>
 					</li>
 					<li>
-						<a ng-click="selectedPageSize(productData,20)">20</a>
+						<a ng-click="setPageSize(20)">20</a>
 					</li>
 
 				</ul>
@@ -72,7 +72,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="product in dataList | filter:search | orderBy: order+orderType | filter:categoryFilterFn | range:selectedpage:pageSize">
+			<tr ng-repeat="product in productData | filter:search | orderBy: order+orderType | filter:modelFilterFn | filter:fuelFilterFn | filter:companyFilterFn | range:selectedpage:pageSize |limitTo:5 ">
 
 				<td>
 					{{product.num}}
@@ -92,6 +92,8 @@
 				<td>
 					{{product.state}}
 				</td>
+				
+				
 			</tr>
 
 		</tbody>
@@ -100,37 +102,45 @@
 	<p ng-show="!productData.length">记录为空</p>
 
 	<!--pagination-->
+	
+	
 	<nav aria-label="Page navigation">
 		<div class="float_left count_num">
-			共{{count}}条记录
+			共{{datacount}}条记录
 		</div>
 		<ul class="pagination">
-			<li>
+			<!--<li>
 				<a ng-click="p_index()">
 					<span aria-hidden="true">首页</span>
 				</a>
-			</li>
+			</li>-->
 			<li>
-				<a ng-click="Previous()">
+				<a ng-click="pagePre()">
 					<span aria-hidden="true">上一页</span>
 				</a>
 			</li>
-			<li ng-repeat="page in pageList" ng-class="{active:isActivePage(page)}">
+			<!--<li ng-repeat="page in pageList" ng-class="{active:isActivePage(page)}">
 				<a ng-click="selectPage(page)">
 					{{page}}
-				</a>
+				</a>								
+			</li>-->
+			<li ng-repeat="page in productData | filter:search | filter:modelFilterFn | filter:fuelFilterFn | filter:companyFilterFn | pageCount:pageSize" 
+				ng-class="{active:getPageClass($index + 1)}" class="">
+						<a ng-click="selectPage($index + 1)" >
+							{{$index+1}}
+						</a>
+						
 			</li>
-
 			<li>
-				<a ng-click="Next()">
+				<a ng-click="pageNext()">
 					<span aria-hidden="true">下一页</span>
 				</a>
 			</li>
-			<li>
+			<!--<li>
 				<a ng-click="p_last()">
 					<span aria-hidden="true">尾页</span>
 				</a>
-			</li>
+			</li>-->
 		</ul>
 	</nav>
 

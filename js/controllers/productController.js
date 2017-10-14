@@ -23,6 +23,7 @@ mainApp.controller("productController",function($scope,productData, $filter,$sta
 		$scope.showPages = $scope.pages > 5 ? 5: $scope.pages;
 		$scope.pageList =[];//页码
 		$scope.currentPage = 1;
+		$scope.dataList = data.slice(0,$scope.pageSize);
 		
 		
 		
@@ -30,16 +31,13 @@ mainApp.controller("productController",function($scope,productData, $filter,$sta
 		$scope.setData = function(){
 			$scope.dataList = data.slice($scope.pageSize*($scope.currentPage - 1),($scope.pageSize*$scope.currentPage));			
 		};
-		$scope.dataList = data.slice(0,$scope.pageSize);
 		
-		
-		
+						
 		//分页数组
 		for(var i = 0; i < $scope.showPages; i++){
 			$scope.pageList.push(i+1);
 		};
-		
-		
+				
 		
 		//选择页码
 		$scope.selectPage = function(page){
@@ -100,49 +98,117 @@ mainApp.controller("productController",function($scope,productData, $filter,$sta
 	};
 	
 	
-	var newDataList = [];	
-	$scope.modelSelectFn = function(model){			
-		if(model == null){
-			newDataList = $scope.productData;			
-		}else{
-			
-			for(i=0; i<$scope.productData.length; i++){
-				if($scope.productData[i].model == model){
-					newDataList.push($scope.productData[i]);
-				}
-			}
-		}
-		$scope.refreshPage(newDataList);
-	};
+//	var newDataList = [];	
+//	$scope.modelSelectFn = function(model){			
+//		if(model == null){
+//			newDataList = $scope.productData;			
+//		}else{
+//			
+//			for(i=0; i<$scope.productData.length; i++){
+//				if($scope.productData[i].model == model){
+//					newDataList.push($scope.productData[i]);
+//				}
+//			}
+//		}
+//		$scope.refreshPage(newDataList);
+//	};
+//	
+//	$scope.fuelSelectFn = function(fuel){	
+//		if(fuel == null){
+//			newDataList = $scope.productData;			
+//		}else{
+//			
+//			for(i=0; i<$scope.productData.length; i++){
+//				if($scope.productData[i].fuel == fuel){
+//					newDataList.push($scope.productData[i]);
+//				}
+//			}
+//		}
+//		$scope.refreshPage(newDataList);
+//	};
+//
+//	$scope.companySelectFn = function(company){	
+//		if(company == null){
+//			newDataList = $scope.productData;			
+//		}else{
+//			
+//			for(i=0; i<$scope.productData.length; i++){
+//				if($scope.productData[i].company == company){
+//					newDataList.push($scope.productData[i]);
+//				}
+//			}
+//		}
+//		$scope.refreshPage(newDataList);
+//	};
 	
-	$scope.fuelSelectFn = function(fuel){	
-		if(fuel == null){
-			newDataList = $scope.productData;			
-		}else{
-			
-			for(i=0; i<$scope.productData.length; i++){
-				if($scope.productData[i].fuel == fuel){
-					newDataList.push($scope.productData[i]);
-				}
-			}
-		}
-		$scope.refreshPage(newDataList);
-	};
 
-	$scope.companySelectFn = function(company){	
-		if(company == null){
-			newDataList = $scope.productData;			
-		}else{
-			
-			for(i=0; i<$scope.productData.length; i++){
-				if($scope.productData[i].company == company){
-					newDataList.push($scope.productData[i]);
-				}
-			}
-		}
-		$scope.refreshPage(newDataList);
+	var selectedModel = null;
+	var selectedFuel = null;
+	var selectedCompany = null;
+	$scope.pageSize = 6;
+	$scope.selectedpage = 1;
+	
+
+	$scope.datacount= $scope.productData.length;
+
+	
+	$scope.selectModel = function(newCategory){
+		selectedModel = newCategory;
+		$scope.selectedpage = 1;
+	}
+	$scope.selectFuel = function(newCategory){
+		selectedFuel = newCategory;
+		$scope.selectedpage = 1;
+	}
+	$scope.selectCompany = function(newCategory){
+		selectedCompany = newCategory;
+		$scope.selectedpage = 1;
+	}
+	$scope.selectPage = function(newPage){
+		$scope.selectedpage = newPage;
+	}
+	$scope.pageIndex = function(){
+		$scope.selectedpage = 1;
+	}
+	$scope.pagePre = function(){
+		$scope.selectPage($scope.selectedpage - 1);
 	};
 	
+	$scope.pageNext = function () {
+		$scope.selectPage($scope.selectedpage + 1);
+	};
+	
+//	$scope.p_last = function(){
+//		$scope.selectPage($scope.pages);
+//	};
+//	
+	
+	$scope.modelFilterFn = function(product){
+		return selectedModel == null ||
+		 product.model == selectedModel;
+	}
+
+	$scope.fuelFilterFn = function(product){
+		return selectedFuel == null ||
+		 product.fuel == selectedFuel;
+	}
+	$scope.companyFilterFn = function(product){
+		return selectedCompany == null ||
+		 product.company == selectedCompany;
+	}
+	
+	$scope.setPageSize = function(pagesize){
+		$scope.pageSize = pagesize;
+	}
+	
+	
+	$scope.getPageClass = function(page){
+		return $scope.selectedpage == page; 
+	}
+
+	
+
+
 
 })
 

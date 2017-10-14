@@ -25,8 +25,7 @@ angular.module("customFilter",[])
  			if(data.length < start_index){
  				return [];
  			}else{
- 				return data.slice(start_index,end_index);
- 				
+ 				return data.slice(start_index,end_index);				
  			}
  		}else{
  			return data;
@@ -46,6 +45,8 @@ angular.module("customFilter",[])
  		}
  	}
  })
+ 
+ 
  
 
 

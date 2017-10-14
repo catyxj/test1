@@ -44,8 +44,20 @@ mainApp.controller("DatepickerDemoCtrl", ["$scope", function($scope){
 
 
  mainApp.controller("productList",function($scope,productData){
-	$scope.selected = 6;
-	$scope.selectedPageSize(productData,6);
+//	$scope.selected = 6;
+//	$scope.selectedPageSize(productData,6);
+	
+	$scope.productData = productData;	
+	$scope.p_index = function(){
+		$scope.selectedpage = 1;
+	}
+	$scope.Previous = function(){
+		$scope.selectPage($scope.selectedpage - 1);
+	};
+	
+	$scope.Next = function () {
+		$scope.selectPage($scope.selectedpage + 1);
+	};
 	
 	
 })

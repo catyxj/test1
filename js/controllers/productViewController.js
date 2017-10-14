@@ -5,7 +5,7 @@
 		
 	   $scope.openModal = function(data) {
                 var modalInstance = $modal.open({
-                    templateUrl : 'modal.html',//script标签中定义的id
+                    templateUrl : 'views/monitor/modal-view.html',//script标签中定义的id
                     controller : 'viewModalCtrl',//modal对应的Controller
                     size: 'lg', //大小配置 
                     resolve : {
