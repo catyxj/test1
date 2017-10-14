@@ -72,7 +72,7 @@ mainApp.controller("maintainController",function($scope){
 })
 
 
-mainApp.controller("alarmInfoController",function($scope,alarmData,$state){
+mainApp.controller("alarmInfoController",function($scope,alarmData,$state,$modal){
 	$scope.alarmInfo = alarmData ;
 	$scope.selectedPageSize($scope.alarmInfo,6);
 	$scope.alarmMode = "current";
@@ -97,12 +97,37 @@ mainApp.controller("alarmInfoController",function($scope,alarmData,$state){
 	}
 	
 	
+	$scope.openModal = function(data) {
+                var modalInstance = $modal.open({
+                    templateUrl : 'views/monitor/modal-alarm.html',//script标签中定义的id
+                    controller : 'alarmModalCtrl',//modal对应的Controller
+                    size: 'lg', //大小配置 
+                    resolve : {
+                        data : function() {//data作为modal的controller传入的参数
+                       	
+                             return data;//用于传递数据
+                        }
+                    }
+                })
+            }
+	
 	
 })
 
 
 
+//模态框对应的Controller
+mainApp.controller('alarmModalCtrl', function($scope, $modalInstance, data) {
+          $scope.data= data;
 
+          //在这里处理要进行的操作
+          $scope.ok = function() {
+              $modalInstance.close();
+          };
+          $scope.cancel = function() {
+              $modalInstance.dismiss('cancel');
+          }
+    });
 
 
 
