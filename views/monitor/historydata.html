@@ -1,26 +1,25 @@
 
 
 <div ng-controller="historyController" class="historydata">
-	<div class="data_header">
+	<div class="data_header row">
 		<div ng-controller="DatepickerDemoCtrl" class="col-md-5">
 			
 			<div class="col-md-5">
 				<p class="input-group">
-				    <input type="text" class="form-control"  datepicker-popup="{{format}}" 
-			           ng-model="startTime" 
-			           is-open="startopened" 
+				    <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="startTime" 
+			           is-open="popup1.opened" 
 			           min-date="minDate" 
 			           max-date="'2018-06-22'"
 			           datepicker-options="dateOptions" 
 			           date-disabled="disabled(date, mode)" 
 			           ng-required="true" 
 			           close-text="关闭" 
-			           clear-text="清空"
+			           clear-text="清空"			           
 			           readonly
 			           ng-click="open($event)"
-			            current-text="今天"/>
+			            current-text="今天" />
 				    <span class="input-group-btn">
-				    　　<button type="button" class="btn btn-default" ng-click="startopen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+				        <button type="button" class="btn btn-default" ng-click="startopen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
 				    </span>
 				</p>
 			</div>
@@ -30,8 +29,8 @@
 			</div>
 			<div class="col-md-5">
 				<p class="input-group">
-				    <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="endTime" 
-			           is-open="endopened" 
+				    <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="endTime" 
+			           is-open="popup2.opened" 
 			           min-date="minDate" 
 			           max-date="'2018-06-22'"
 			           datepicker-options="dateOptions" 
@@ -48,8 +47,7 @@
 				</p>
 			</div>
 			
-			
-			
+						
 			
 		</div>
 		
@@ -61,7 +59,7 @@
 		
 		<div class="col-md-3 ">
 			<span>
-			共找到{{count}}条记录
+			共找到{{totalItems}}条记录
 			</span>
 			
 			<button type="button" class="btn btn-info float_right">导出</button>
@@ -82,7 +80,7 @@
 					<th>蒸汽温度 ℃</th>
 					<th>排烟温度(低) ℃</th>
 				</tr>
-				<tr ng-repeat="h in dataList">
+				<tr ng-repeat="h in data">
 					<td>{{h.num}}</td>
 					<td>{{h.time}}</td>
 					<td>{{h.steamTemp}}</td>
@@ -95,7 +93,24 @@
 		</div>							
 									
 		<!--pagination-->
-									<nav aria-label="Page navigation">
+		
+		<div >
+		
+         <div class="float_left count_num">
+			第{{selectedpage}}页   共{{totalPage}} 页
+		</div>
+         <div class="pagination">       	       	
+            <ul uib-pagination boundary-links="true" total-items="totalItems" boundary-link-numbers="true"
+                        ng-model="selectedpage"  ng-change="setPageSize(pageSize)"
+                        items-per-page="pageSize"
+                        max-size="maxSize"  num-pages="totalPage"
+                        previous-text="&lt;	" next-text="&gt;"
+                        first-text="&laquo;" last-text="&raquo;">
+            </ul>
+         </div>
+    </div>
+		
+									<!--<nav aria-label="Page navigation">
 										<div class="float_left count_num">
 											第{{currentPage}} 页  共{{pages}}页
 										</div>
@@ -127,7 +142,7 @@
 									      </a>
 									    </li>
 									  </ul>
-									</nav>							
+									</nav>							-->
 									
 									
 	</div>

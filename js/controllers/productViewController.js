@@ -1,10 +1,13 @@
- mainApp.controller("viewCtrl",function($scope,productData, $modal){
+mainApp.controller("viewCtrl",function($scope,productData,$uibModal){
 
-	$scope.selectedPageSize(productData,4);
+//	$scope.selectedPageSize(productData,4);
 	$scope.productData = productData;
-		
-	   $scope.openModal = function(data) {
-                var modalInstance = $modal.open({
+	$scope.pageSize = 4;
+	$scope.totalItems = $scope.productData.length;
+	
+	
+	$scope.openModal = function(data) {
+                var modalInstance = $uibModal.open({
                     templateUrl : 'views/monitor/modal-view.html',//script标签中定义的id
                     controller : 'viewModalCtrl',//modal对应的Controller
                     size: 'lg', //大小配置 
@@ -22,15 +25,14 @@
 })
 
 //模态框对应的Controller
-mainApp.controller('viewModalCtrl', function($scope, $modalInstance, data) {
+mainApp.controller('viewModalCtrl', function($scope, $uibModalInstance, data) {
           $scope.data= data;
 
           //在这里处理要进行的操作
           $scope.ok = function() {
-              $modalInstance.close();
+              $uibModalInstance.close();
           };
           $scope.cancel = function() {
-              $modalInstance.dismiss('cancel');
+              $uibModalInstance.dismiss('cancel');
           }
     });
-

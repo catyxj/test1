@@ -2,6 +2,10 @@
 	<div class="clearfix">
 		<div ng-show="isShow('boilerflash.alarm')" class="subscription">
 			订阅推送
+			<label class="switch switch-lg">
+		        <input type="checkbox" checked="checked">
+		       <span></span>
+		    </label>
 		</div>
 		<ul class="nav nav-tabs">
 			<li role="presentation" ng-class="{'active':alarmMode === 'current'}">
@@ -20,7 +24,13 @@
 				<!--select pageSize-->
 				<div class="dropdown pagesize">
 					每页显示
-					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					<select class="input-sm  w-sm inline v-middle"
+                        ng-model="pageSize" 
+                        ng-options="o as o for o in placement.options"
+                        ng-change="setPageSize(pageSize)">
+	               </select>
+	               	条
+					<!--<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 											    {{pageSize}}
 											    <span class="caret"></span>
 											  </button> 条
@@ -35,7 +45,7 @@
 							<a ng-click="selectedPageSize(alarmInfo,20)">20</a>
 						</li>
 	
-					</ul>
+					</ul>-->
 				</div>
 	
 				<!--search-->
@@ -80,7 +90,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="d in dataList">
+			<tr ng-repeat="d in alarmInfo">
 				<td>
 					{{d.num}}
 				</td>
@@ -113,7 +123,7 @@
 	
 	<div class="clearfix">
 		<!--pagination-->
-		<nav aria-label="Page navigation">
+		<!--<nav aria-label="Page navigation">
 			<div class="float_left count_num">
 				共{{count}}条记录
 			</div>
@@ -145,7 +155,24 @@
 					</a>
 				</li>
 			</ul>
-		</nav>
+		</nav>-->
+		
+	<div >
+		
+         <div class="float_left count_num">
+			共{{totalItems}} 条记录
+		</div>
+         <div class="pagination">       	       	
+            <ul uib-pagination boundary-links="true" total-items="totalItems"
+                        ng-model="selectedpage"  ng-change="setPageSize(pageSize)"
+                        items-per-page="pageSize"
+                        max-size="maxSize"  num-pages="totalPage"
+                        previous-text="上一页" next-text="下一页"
+                        first-text="首页" last-text="尾页">
+            </ul>
+         </div>
+    </div>
+	
 	</div>
 	
 

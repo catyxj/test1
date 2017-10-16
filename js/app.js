@@ -27,7 +27,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
-             	'js/controllers/productViewController.js',            	
+             	'js/controllers/productViewController.js'           	
 		             ]);
 		    }]
 		  }

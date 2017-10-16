@@ -12,21 +12,31 @@ mainApp.controller("DatepickerDemoCtrl", ["$scope", function($scope){
   
  // grab today and inject into field
  
-//  $scope.startTime = new Date();
-//  $scope.endTime = new Date();
+    $scope.startTime = new Date();
+    $scope.endTime = new Date();
   	$scope.format = "yyyy-MM-dd";
+
+
+	$scope.altInputFormats = ['yyyy/M!/d!'];
+	
+	  $scope.popup1 = {
+	  	opened: false
+	  };
+	  $scope.popup2 = {
+	  	opened: false
+	  };
   
 
   // open min-cal
-  $scope.startopen = function($event) {
-    $event.preventDefault();
-    $event.stopPropagation();
-    $scope.startopened = true;
-  };
+	$scope.startopen = function($event) {
+	  	$event.preventDefault();
+   		 $event.stopPropagation();
+	  	$scope.popup1.opened = true;
+	  };
   $scope.endopen = function($event) {
     $event.preventDefault();
     $event.stopPropagation();
-    $scope.endopened = true;
+    $scope.popup2.opened = true;
   };
   
   
@@ -43,22 +53,13 @@ mainApp.controller("DatepickerDemoCtrl", ["$scope", function($scope){
 
 
 
- mainApp.controller("productList",function($scope,productData){
-//	$scope.selected = 6;
+ mainApp.controller("productList",function($scope,productData,$filter){
+
 //	$scope.selectedPageSize(productData,6);
 	
 	$scope.productData = productData;	
-	$scope.p_index = function(){
-		$scope.selectedpage = 1;
-	}
-	$scope.Previous = function(){
-		$scope.selectPage($scope.selectedpage - 1);
-	};
-	
-	$scope.Next = function () {
-		$scope.selectPage($scope.selectedpage + 1);
-	};
-	
+	$scope.totalItems = $scope.productData.length;
+	$scope.pageSize = 10;
 	
 })
 
@@ -66,15 +67,17 @@ mainApp.controller("DatepickerDemoCtrl", ["$scope", function($scope){
 
 
 
-mainApp.controller("maintainController",function($scope){
-	$scope.maintain = [];
-	$scope.selectedPageSize($scope.maintain,6);
-})
+//mainApp.controller("maintainController",function($scope){
+//	$scope.maintain = [];
+//	$scope.selectedPageSize($scope.maintain,6);
+//})
 
 
-mainApp.controller("alarmInfoController",function($scope,alarmData,$state,$modal){
+mainApp.controller("alarmInfoController",function($scope,alarmData,$state,$uibModal){
 	$scope.alarmInfo = alarmData ;
-	$scope.selectedPageSize($scope.alarmInfo,6);
+//	$scope.selectedPageSize($scope.alarmInfo,6);
+	$scope.pageSize = 10;
+	$scope.totalItems = $scope.alarmInfo.length;
 	$scope.alarmMode = "current";
 	$scope.setAlarm = function(m){
 		$scope.alarmMode = m;
@@ -85,8 +88,7 @@ mainApp.controller("alarmInfoController",function($scope,alarmData,$state,$modal
 		for(var i = 0; i < $scope.alarmInfo.length; i++){
 			if($scope.alarmInfo[i].num == id){
 				$scope.alarmInfo.splice(i,1);
-				$scope.refreshPage($scope.alarmInfo);
-//				break;
+				break;
 			}
 		}
 	}
@@ -98,7 +100,7 @@ mainApp.controller("alarmInfoController",function($scope,alarmData,$state,$modal
 	
 	
 	$scope.openModal = function(data) {
-                var modalInstance = $modal.open({
+                var modalInstance = $uibModal.open({
                     templateUrl : 'views/monitor/modal-alarm.html',//script标签中定义的id
                     controller : 'alarmModalCtrl',//modal对应的Controller
                     size: 'lg', //大小配置 
@@ -117,15 +119,15 @@ mainApp.controller("alarmInfoController",function($scope,alarmData,$state,$modal
 
 
 //模态框对应的Controller
-mainApp.controller('alarmModalCtrl', function($scope, $modalInstance, data) {
+mainApp.controller('alarmModalCtrl', function($scope, $uibModalInstance, data) {
           $scope.data= data;
 
           //在这里处理要进行的操作
           $scope.ok = function() {
-              $modalInstance.close();
+              $uibModalInstance.close();
           };
           $scope.cancel = function() {
-              $modalInstance.dismiss('cancel');
+              $uibModalInstance.dismiss('cancel');
           }
     });
 

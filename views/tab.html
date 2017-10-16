@@ -1,28 +1,55 @@
 <div class="select_container">
-
-	<select ng-model="selectedModel" ng-change="selectModel(selectedModel)" ng-options="item for item in productData | orderBy:'model' | unique:'model'">
-		<option selected="selected" value="">型号不限</option>
-		<!--<option  			
-			 value="{{item.model}}">{{item}}</option>-->
-	</select>
+	<div class="row">
+		
+		<div class="col-md-6">
+			<div class="col-md-6">
+				<select  class="form-control"
+					 ng-model="selectedCompany" ng-change="selectCompany(selectedCompany)" ng-options="item for item in productData | orderBy:'company' | unique:'company'">
+					<option selected="selected" value="">企业不限</option>			
+				</select>
+			</div>
+			
+			<div class="col-md-3">
+				<select class="form-control"
+					 ng-model="selectedModel" ng-change="selectModel(selectedModel)" ng-options="item for item in productData | orderBy:'model' | unique:'model'">
+					<option selected="selected" value="">型号不限</option>		
+				</select>
+			</div>
+			
+			<div class="col-md-3">
+				<select class="form-control"
+					 ng-model="selectedFuel" ng-change="selectFuel(selectedFuel)" ng-options="item for item in productData | orderBy:'fuel' | unique:'fuel'">
+					<option selected="selected" value="">燃料不限</option>		
+				</select>
+			</div>
+		</div>
+		
+		<div class="col-md-6">
+			<!--停燃
+			<label class="switch switch-lg">
+		        <input type="checkbox" checked="checked">
+		       <span></span>
+		    </label>
+	          燃烧-->
+	          <input type="text" class="form-control"  name="" id="" value="" />
+	          
+		</div>
+	</div>
+	
+	<div class="row">
+		
+	</div>
 	
 	
-	<select ng-model="selectedFuel" ng-change="selectFuel(selectedFuel)" ng-options="item for item in productData | orderBy:'fuel' | unique:'fuel'">
-		<option selected="selected" value="">燃料不限</option>
-		<!--<option ng-repeat="item in productData | orderBy:'fuel' | unique:'fuel'" value="{{item.fuel}}">{{item}}</option>-->
-	</select>
-
-	<select ng-model="selectedCompany" ng-change="selectCompany(selectedCompany)" ng-options="item for item in productData | orderBy:'company' | unique:'company'">
-		<option selected="selected" value="">企业不限</option>
-		<!--<option ng-repeat="item in productData | orderBy:'fuel' | unique:'fuel'" value="{{item.fuel}}">{{item}}</option>-->
-	</select>
 	
-	停燃
-	<label class="switch switch-lg">
-        <input type="checkbox" checked="checked">
-       <span></span>
-    </label>
-          燃烧
+	
+	
+	
+	
+	
+	
+	
+	
 
 </div>
 

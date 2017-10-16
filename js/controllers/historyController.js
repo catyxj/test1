@@ -30,8 +30,12 @@ mainApp.controller("historyController",function($scope){
 			exhaustGasTemp:33.4
 		}
 	];
-//	$scope.p_size(6,$scope.data);
-$scope.selectedPageSize($scope.data,6);
+
+	//$scope.selectedPageSize($scope.data,6);
+	
+	$scope.pageSize = 10;
+	$scope.totalItems = $scope.data.length;
+	
 })
 
 

@@ -1,14 +1,29 @@
-mainApp.controller("maintainInfoController",function($scope, $modal,maintainData){
+mainApp.controller("maintainInfoController",function($scope, $uibModal,maintainData){
 	$scope.maintainInfo = maintainData;
-
-	$scope.selectedPageSize($scope.maintainInfo,6);	
+	$scope.pageSize = 10;
+	$scope.totalItems = $scope.maintainInfo.length;
+//	$scope.selectedPageSize($scope.maintainInfo,6);	
+	
+	
 	
 	var data = [];
 	
-	$scope.openModal = function() {
-                var modalInstance = $modal.open({
+	$scope.openModal = function(data) {
+                var modalInstance = $uibModal.open({
                     templateUrl : 'views/modal-maintain.html',//script标签中定义的id
                     controller : 'modalCtrl',//modal对应的Controller
+                    size: 'lg', //大小配置 
+                    resolve : {
+                        data : function() {//data作为modal的controller传入的参数                      		
+                             return data;//用于传递数据
+                        }
+                    }
+                })
+          };
+    $scope.addOpenModal = function() {
+                var modalInstance = $uibModal.open({
+                    templateUrl : 'views/modal-maintain.html',//script标签中定义的id
+                    controller : 'addModalCtrl',//modal对应的Controller
                     size: 'lg', //大小配置 
                     resolve : {
                         data : function() {//data作为modal的controller传入的参数
@@ -18,12 +33,14 @@ mainApp.controller("maintainInfoController",function($scope, $modal,maintainData
                     }
                 })
           };
-           
+    
+    
 	$scope.removeData = function(id){
 		for(var i = 0; i < $scope.maintainInfo.length; i++){
 			if($scope.maintainInfo[i].num == id){
 				$scope.maintainInfo.splice(i,1);
-				$scope.refreshPage($scope.maintainInfo);
+				$scope.totalItems = $scope.maintainInfo.length;
+//				$scope.refreshPage($scope.maintainInfo);
 //				break;
 			}
 		}
@@ -35,14 +52,26 @@ mainApp.controller("maintainInfoController",function($scope, $modal,maintainData
 
 
 //模态框对应的Controller
-mainApp.controller('modalCtrl', function($scope, $modalInstance, data) {
+mainApp.controller('modalCtrl', function($scope, $uibModalInstance, data) {
           $scope.data= data;
 
           //在这里处理要进行的操作
           $scope.ok = function() {
-              $modalInstance.close();
+              $uibModalInstance.close();
           };
           $scope.cancel = function() {
-              $modalInstance.dismiss('cancel');
+              $uibModalInstance.dismiss('cancel');
+          }
+    });
+    
+mainApp.controller('addModalCtrl', function($scope, $uibModalInstance, data) {
+          $scope.data= data;
+
+          //在这里处理要进行的操作
+          $scope.ok = function() {
+              $uibModalInstance.close();
+          };
+          $scope.cancel = function() {
+              $uibModalInstance.dismiss('cancel');
           }
     });

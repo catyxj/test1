@@ -1,6 +1,6 @@
 <div ng-controller="viewCtrl" class="view">
 	<ul class="row">
-		<li ng-repeat="data in dataList | filter:modelFilterFn | filter:fuelFilterFn | filter:companyFilterFn " class="col-md-6 col-sm-12 col-xs-12">
+		<li ng-repeat="data in productData | range:selectedpage:pageSize | filter:modelFilterFn | filter:fuelFilterFn | filter:companyFilterFn " class="col-md-6 col-sm-12 col-xs-12">
 			<div class="view_box">
 				<div class="view_header">
 					<div class="float_left view_title">
@@ -10,12 +10,8 @@
 						
 						<div class="inline">
 							<a href="" ng-click="openModal(data)">测算</a>
-
-				
-					</div>
-						
-						
-
+						</div>
+												
 					</div>
 
 					<div class="float_right">
@@ -57,7 +53,7 @@
 	</ul>
 
 	<!--pagination-->
-	<nav aria-label="Page navigation">
+	<!--<nav aria-label="Page navigation">
 		<div class="float_left count_num">
 			共{{count}}条记录
 		</div>
@@ -89,6 +85,22 @@
 				</a>
 			</li>
 		</ul>
-	</nav>
+	</nav>-->
 
+	<div >
+		
+         <div class="float_left count_num">
+			共{{totalItems}} 条记录
+		</div>
+         <div class="pagination">       	       	
+            <ul uib-pagination boundary-links="true" total-items="totalItems"
+                        ng-model="selectedpage"  ng-change="setPageSize(pageSize)"
+                        items-per-page="pageSize"
+                        max-size="maxSize"  num-pages="totalPage"
+                        previous-text="上一页" next-text="下一页"
+                        first-text="首页" last-text="尾页">
+            </ul>
+         </div>
+    </div>
+	
 </div>
