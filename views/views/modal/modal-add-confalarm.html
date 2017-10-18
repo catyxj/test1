@@ -1,0 +1,114 @@
+<div>
+	<div class="modal-header">
+		<button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times;</span></button>
+		<h4 class="modal-title">新建告警规则	</h4>
+
+	</div>
+	<div class="modal-body">
+		<form action="" method="post">
+			
+			<div class="row">
+				<div class="col-md-6">
+					<label class="label_l">
+						监测参数
+					</label>
+					
+					<select class="form-control select_r" ng-model="data.Parameter.name" ng-options="item.Parameter.name for item in configAlarm.datasource">
+						
+					</select>
+				</div>
+
+				<div class="col-md-6">
+					<label class="label_l">
+						炉型
+					</label>
+					
+					<select class="form-control select_r">
+						<option value="">不限</option>
+					</select>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-6">
+					<label class="label_l">
+						介质
+					</label>
+					<select class="form-control select_r" >
+						<option value="">默认锅炉</option>
+					</select>
+				</div>
+
+				<div class="col-md-6">
+					<label class="label_l">
+						燃料
+					</label>
+					
+					<select class="form-control select_r">
+						<option value="">不限</option>
+					</select>
+				</div>
+			</div>
+			
+
+			<div class="row">
+				<div class="col-md-12">
+					<div class="input-group">
+						<label class="input-group-addon">额定蒸发量</label>						
+						<input ng-model="data.BoilerCapacityMin" type="text" class="form-control" style="width: 50%;" placeholder="最小值" >												
+						<input ng-model="data.BoilerCapacityMax" type="text" class="form-control" style="width: 50%;" placeholder="最大值" >												
+					</div>
+				</div>				
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<div class="input-group">
+						<label class="input-group-addon"> 告警阀值</label>						
+						<input ng-model="data.BoilerCapacityMin" type="text" class="form-control" style="width: 50%;" placeholder="基准值" >												
+						<input ng-model="data.BoilerCapacityMax" type="text" class="form-control" style="width: 50%;" placeholder="告警值" >												
+					</div>
+				</div>				
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<div class="input-group">
+						<label class="input-group-addon">告警延迟</label>						
+						<input ng-model="data.Delay" type="text" class="form-control" placeholder="">												
+						<span class="input_unit">分钟</span>											
+					</div>
+				</div>				
+			</div>
+			
+			<div class="row">
+				<div class="col-md-12">
+					<div class="btn-group">
+			            <label ng-class="{'btn-info':data.priortyText=='低'}" class="btn btn-default" ng-model="data.priortyText" uib-btn-radio="'低'">低优先级</label>
+			            <label ng-class="{'btn-warning':data.priortyText=='中'}" class="btn btn-default active" ng-model="data.priortyText" uib-btn-radio="'中'">中优先级</label>
+			            <label ng-class="{'btn-danger':data.priortyText=='高'}" class="btn btn-default" ng-model="data.priortyText" uib-btn-radio="'高'">高优先级</label>
+			        </div>
+				</div>				
+			</div>
+			
+			<div class="row">
+				<div class="col-md-12">
+					<div class="input-group">
+						<label class="input-group-addon">告警描述</label>						
+						<input ng-model="data.Description" type="text" class="form-control" placeholder="描述">																											
+					</div>
+				</div>				
+			</div>
+			
+		</form>
+	</div>
+	<div class="modal-footer">
+
+		<button class="btn btn-primary" ng-click="ok()">
+				保存
+		</button>
+		<button class="btn btn-default" ng-click="cancel()">
+				取消
+		</button>
+	</div>
+</div>

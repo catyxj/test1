@@ -29,7 +29,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="d in productData | orderBy: order+orderType| range:selectedpage:pageSize">
+				<tr ng-repeat="d in productData | orderBy: order+orderType| range:selectedpage:pageSize | filter:search">
 					<td>
 						{{d.num}}
 						

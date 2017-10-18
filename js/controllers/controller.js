@@ -58,7 +58,7 @@ mainApp.controller("DatepickerDemoCtrl", ["$scope", function($scope){
 //	$scope.selectedPageSize(productData,6);
 	
 	$scope.productData = productData;	
-	$scope.totalItems = $scope.productData.length;
+//	$scope.totalItems = $scope.productData.length;
 	$scope.pageSize = 10;
 	
 })

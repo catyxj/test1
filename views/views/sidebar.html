@@ -63,14 +63,14 @@
 							<li>
 								系统设置
 							</li>
-							<li>
-								<a href="">
+							<li ui-sref-active="active" ng-class="{active:isActiveTag('config-runtime-alarm')}">
+								<a href="" ui-sref="config-runtime-alarm">
 									<span class="glyphicon glyphicon-bell" aria-hidden="true"></span>
 									告警规则
 								</a>
 							</li>
-							<li>
-								<a href="">
+							<li ui-sref-active="active" ng-class="{active:isActiveTag('config-runtime-parameter')}">
+								<a href="" ui-sref="config-runtime-parameter">
 									<span class="glyphicon glyphicon-retweet" aria-hidden="true"></span>
 									运行参数
 								</a>
@@ -81,8 +81,8 @@
 									账号管理
 								</a>
 							</li>
-							<li>
-								<a href="">
+							<li ui-sref-active="active" ng-class="{active:isActiveTag('profile')}">
+								<a href="" ui-sref="profile">
 									<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 									用户信息
 								</a>

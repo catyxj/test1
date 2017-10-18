@@ -148,6 +148,39 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
 		    }]
 		  }
         })
+        .state("config-runtime-alarm", {
+            url: "/config-runtime-alarm",
+            templateUrl: "views/config-runtime-alarm.html",
+            resolve: { 
+    		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+             return $ocLazyLoad.load([
+             	'../js/controllers/configAlarmController.js',            	
+		             ]);
+		    }]
+		  }
+        })
+        .state("config-runtime-parameter", {
+            url: "/config-runtime-parameter",
+            templateUrl: "views/config-runtime-parameter.html",
+            resolve: { 
+    		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+             return $ocLazyLoad.load([
+             	'../js/controllers/configParamterController.js',            	
+		             ]);
+		    }]
+		  }
+        })
+        .state("profile", {
+            url: "/profile",
+            templateUrl: "views/profile/main.html",
+            resolve: { 
+    		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+             return $ocLazyLoad.load([
+             	'../js/controllers/profileController.js',            	
+		             ]);
+		    }]
+		  }
+        })
         
         
 });
@@ -498,6 +531,149 @@ mainApp.service("terminalData",function(){
 });
 
 
+mainApp.service("configAlarmData",function(){
+	return {	
+		datasource:[
+	 	{
+			num:1,
+			Parameter:{
+				name:"蒸汽温度",
+			},
+			mediumName:"默认",
+			fuelName:"不限",
+			BoilerCapacityMin:"",
+			BoilerCapacityMax:"",
+			capacity:"不限",
+			Normal:"0",
+			warning:">200",
+			Delay:"0",
+			priortyText:"中",
+			Description:""
+		},
+		{
+			num:2,
+			Parameter:{
+				name:"蒸汽压力",
+			},
+			mediumName:"默认",
+			fuelName:"不限",
+			BoilerCapacityMin:"",
+			BoilerCapacityMax:"",
+			capacity:"不限",
+			Normal:"0",
+			warning:">1.2",
+			Delay:"1",
+			priortyText:"高",
+			Description:""
+		},
+		{
+			num:3,
+			Parameter:{
+				name:"排烟温度(高)",
+			},
+			mediumName:"默认",
+			fuelName:"不限",
+			BoilerCapacityMin:"",
+			BoilerCapacityMax:"",
+			capacity:"不限",
+			Normal:"0",
+			warning:">300",
+			Delay:"5",
+			priortyText:"中",
+			Description:""
+		},
+		
+		{
+			num:4,
+			Parameter:{
+				name:"排烟温度(低)",
+			},
+			mediumName:"默认",
+			fuelName:"生物质",
+			BoilerCapacityMin:"0",
+			BoilerCapacityMax:"1",
+			capacity:"0-1",
+			Normal:"0",
+			warning:">230",
+			Delay:"5",
+			priortyText:"高",
+			Description:""
+		},
+		{
+			num:5,
+			Parameter:{
+				name:"烟气O2含量",
+			},
+			mediumName:"默认",
+			fuelName:"不限",
+			BoilerCapacityMin:"",
+			BoilerCapacityMax:"",
+			capacity:"不限",
+			Normal:"0",
+			warning:">100",
+			Delay:"5",
+			priortyText:"低",
+			Description:""
+		}
+		
+		
+		]
+		
+		
+	}
+});
+
+mainApp.service("configparamData",function(){
+	return {	
+		datasource:[
+		 	{
+				id:1001,
+				name:"蒸汽温度",
+				Scale:"0.1",
+				Unit:"℃",
+				Length:"2",
+				BoilerMediums:[
+					{
+						name:"蒸汽",
+					}
+				],
+				Remark:"实际值=寄存器值*0.1"
+			},
+			{
+				id:1002,
+				name:"蒸汽压力",
+				Scale:"0.001",
+				Unit:"MPa",
+				Length:"2",
+				BoilerMediums:[
+					{
+						name:"蒸汽",
+					}
+				],
+				Remark:""
+			},
+			{
+				id:1004,
+				name:"给水温度",
+				Scale:"0.1",
+				Unit:"℃",
+				Length:"2",
+				BoilerMediums:[
+					{
+						name:"蒸汽",
+					},
+					{
+						name:"热水",
+					}
+				],
+				Remark:""
+			},
+		
+		]
+		
+		
+	}
+});
 
 
 

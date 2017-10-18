@@ -2,6 +2,7 @@
 	margin: 0;
 	padding: 0;
 	list-style: none;
+	font-family: arial,"微软雅黑";
 }
 
 .float_left{
@@ -34,7 +35,9 @@
 .select_address .col-md-4{
 	padding: 0;
 }
-
+.text_gray{
+	color: #999999;
+}
 
 
 /*.col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9{
@@ -44,6 +47,31 @@
 .btn-group{
 	display: block;
 }
+.select_r{
+	width: 75%;
+	float: right;
+}
+.label_l{
+	width: 25%;
+	text-align: center;
+	float: left;
+	line-height: 34px;
+	font-weight: normal;
+}
+.input_unit{
+	position: absolute;
+	right: 10px;
+	top: 8px;
+	z-index: 10;
+	color: #999999;	
+}
+.btn-group label{
+	width: 33.3%;
+}
+
+
+
+
 
 /*header*/
 .navbar-fixed-top{
@@ -556,6 +584,74 @@
 .maintain_body{
 	position: relative;
 }
+
+
+
+
+
+
+/*用户信息*/
+.profile-sidebar{
+	text-align: center;
+}
+.back_w{
+	background-color:#FFFFFF;
+}
+.profile-sidebar .back_w{
+	margin-bottom: 20px;
+}
+.profile_userpic{
+	padding-top:20px ;
+}
+.profile_userpic img{
+	width: 45%;
+}
+.profile_usertitle{
+	padding-top: 20px;
+	padding-bottom: 10px;
+}
+.profile_usertitle_name{
+	font-size: 20px;
+	color: #31708F;
+	font-weight: bold;
+	line-height: 40px;
+}
+.profile-usermenu{
+	line-height: 40px;
+	text-align: left;	
+}
+.profile-usermenu a{
+	display: block;
+	font-size: 16px;
+	color: #46B8DA;
+	border-left: 2px solid #46B8DA;
+	padding-left: 20px;
+}
+.profile_stat{
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.profile_stat_title{
+	font-family: arial;
+	font-size: 24px;
+	color: #31708F;
+}
+.profile_stat_text{
+	font-size: 12px;
+	font-weight: bold;
+	color: #66AFE9;
+}
+.profile_desc_text{
+	font-weight: bold;
+	color: #66AFE9;
+}
+
+.profile-content{
+	background-color: #FFFFFF;
+}
+
+
+
 
 
 

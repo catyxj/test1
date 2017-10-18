@@ -4,26 +4,26 @@
 			<a href="" ui-sref="dashboard">首页</a>
 		</li>
 		<li>
-			<a href="" ui-sref="terminal">终端管理</a>
+			<a href="" >参数设置</a>
+		</li>
+		<li>
+			<a href="" >告警设置</a>
 		</li>
 
 	</ol>
 </div>
 
-<div ng-controller="terminalController" class="page_content">
+<div ng-controller="configAlarmController" class="page_content">
 		<div class="data_header">
 			<div class="clearfix data_top">
 				<h4 class="float_left">
 					<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-					终端列表
+					规则列表
 				</h4>
 				<div class="float_right">
 					<span class="glyphicon glyphicon-resize-full" aria-hidden="true"></span>
 				</div>
-				<div class="float_right" style="margin-right: 10px;">
-					<button type="button" class="btn btn-info">终端列表</button>
-					<button type="button" class="btn btn-default">消息调试</button>					
-				</div>
+				
 				
 			</div>
 
@@ -48,7 +48,6 @@
 							<div class="form-group">
 								搜索：
 								<input type="text" ng-model="search" class="form-control" placeholder="Search">
-
 							</div>
 
 						</form>
@@ -60,7 +59,7 @@
 
 		<div class="maintain_body">
 		
-		<datatable-terminal></datatable-terminal>
+		<datatable-config-alarm></datatable-config-alarm>
 		
 		
 		<!--pagination-->									

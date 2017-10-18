@@ -92,7 +92,7 @@
 	<div >
 		
          <div class="float_left count_num">
-			共{{totalItems}} 条记录
+			共{{totalItems=(productData|filter:search| filter:modelFilterFn | filter:fuelFilterFn | filter:companyFilterFn).length}} 条记录		
 		</div>
          <div class="pagination">       	       	
             <ul uib-pagination boundary-links="true" total-items="totalItems" boundary-link-numbers="true"

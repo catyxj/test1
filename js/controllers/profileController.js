@@ -1,0 +1,3 @@
+mainApp.controller("profileController",function(){
+	
+})

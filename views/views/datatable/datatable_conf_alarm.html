@@ -1,0 +1,93 @@
+
+<div class="">
+
+	<table class="table" border="0" >
+			<thead>
+				<tr>
+					<th ng-click="changeOrder('num')" ng-class="{dropup:order===''}">
+						序号
+						<span ng-class="{orderColor:orderType==='num'}" class="caret"></span>
+					</th>
+					<th>
+						监测参数
+					</th>
+					<th>
+						介质
+					</th>
+					<th>
+						燃料
+					</th>
+					<th>
+						额定蒸发量
+					</th>
+					<th>
+						基准值
+					</th>
+					<th>
+						告警阀值
+					</th>
+					<th>
+						告警延迟(分)
+					</th>
+					<th>
+						优先级
+					</th>
+					<th>
+						描述
+					</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="d in configAlarm.datasource | orderBy: order+orderType| range:selectedpage:pageSize">
+					<td>
+						{{d.num}}
+						
+					</td>
+					<td>
+						{{d.Parameter.name}}
+					</td>
+					<td>
+						<span ng-class="{'text_gray':d.mediumName==='默认'}" class="">
+						{{d.mediumName}}
+						</span>
+					</td>
+					<td>
+						<span ng-class="{'text_gray':d.fuelName==='不限'}" class="">
+							{{d.fuelName}}
+						</span>
+						
+					</td>
+										
+					<td>
+						<span ng-class="{'text_gray':d.capacity==='不限'}">
+							{{d.capacity}}	
+						</span>
+																
+					</td>
+					<td>
+						{{d.Normal}}
+					</td>
+					<td>
+						{{d.warning}}
+					</td>
+					<td>
+						{{d.Delay}}
+					</td>
+					<td>
+						<span ng-class="{'label-info':d.priortyText==='低','label-warning':d.priortyText==='中','label-danger':d.priortyText==='高'}" class="label">
+							{{d.priortyText}}
+						</span>				
+					</td>
+					<td>
+                        {{d.Description}}
+                    </td>
+				</tr>
+			</tbody>
+			
+		</table>
+		<p ng-show="!configAlarm.datasource.length">记录为空</p>
+		
+	
+</div>
+

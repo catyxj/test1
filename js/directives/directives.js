@@ -47,3 +47,11 @@ mainApp
 		
  	}
 })
+.directive("datatableConfigAlarm",function(organizationData){
+	return {		
+   		restrict:"E",
+   		templateUrl:"views/datatable/datatable_conf_alarm.html",
+   		replace: true
+		
+ 	}
+})

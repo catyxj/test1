@@ -4,26 +4,26 @@
 			<a href="" ui-sref="dashboard">首页</a>
 		</li>
 		<li>
-			<a href="" ui-sref="terminal">终端管理</a>
+			<a href="" >参数管理</a>
+		</li>
+		<li>
+			<a href="" >运行时参数</a>
 		</li>
 
 	</ol>
 </div>
 
-<div ng-controller="terminalController" class="page_content">
+<div ng-controller="configParamController" class="page_content">
 		<div class="data_header">
 			<div class="clearfix data_top">
 				<h4 class="float_left">
 					<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-					终端列表
+					参数列表
 				</h4>
 				<div class="float_right">
 					<span class="glyphicon glyphicon-resize-full" aria-hidden="true"></span>
 				</div>
-				<div class="float_right" style="margin-right: 10px;">
-					<button type="button" class="btn btn-info">终端列表</button>
-					<button type="button" class="btn btn-default">消息调试</button>					
-				</div>
+				
 				
 			</div>
 
@@ -39,7 +39,9 @@
 							条
 						</div>
 
-						<button ng-click="openAddModal()" type="button" class="btn btn-info" style="margin-left: 20px; margin-top: 8px;">添加</button>
+						<!--<button ng-click="openAddModal()" type="button" class="btn btn-info" style="margin-left: 20px; margin-top: 8px;">
+							添加
+						</button>-->
 
 						
 							
@@ -48,7 +50,6 @@
 							<div class="form-group">
 								搜索：
 								<input type="text" ng-model="search" class="form-control" placeholder="Search">
-
 							</div>
 
 						</form>
@@ -59,8 +60,70 @@
 		</div>
 
 		<div class="maintain_body">
-		
-		<datatable-terminal></datatable-terminal>
+				
+			<div class="">			
+				<table class="table" border="0" >
+						<thead>
+							<tr>
+								<th ng-click="changeOrder('id')" ng-class="{dropup:order===''}">
+									参数代码
+									<span ng-class="{orderColor:orderType==='id'}" class="caret"></span>
+								</th>
+								<th>
+									参数名称
+								</th>
+								<th>
+									单位
+								</th>
+								<th>
+									长度
+								</th>
+								<th>
+									使用锅炉
+								</th>
+								<th>
+									备注
+								</th>
+								
+								
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="d in configparamData.datasource | orderBy: order+orderType| range:selectedpage:pageSize">
+								<td>
+									{{d.id}}
+									
+								</td>
+								<td>
+									{{d.name}}
+								</td>
+								<td>
+									{{d.Scale + d.Unit}}
+								</td>
+								
+								<td>
+									{{d.Length}}
+								</td>
+								<td>
+									<span ng-repeat="medium in d.BoilerMediums"
+										ng-class="{'label-default':medium.name=='默认','label-info':medium.name=='蒸汽','label-primary':medium.name=='热水'}"
+										class="label">
+										{{medium.name}}
+									</span>
+									
+								</td>																
+								<td>
+			                        {{d.Remark}}
+			                    </td>
+							</tr>
+						</tbody>
+						
+					</table>
+					<p ng-show="!configparamData.datasource.length">记录为空</p>
+									
+			</div>
+
+
 		
 		
 		<!--pagination-->									
