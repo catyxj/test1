@@ -12,28 +12,7 @@
 	               </select>
 	               	条
 				
-				<!--<select ng-model="selected" ng-change="selectedPageSize(productData,selected)">
-					
-					<option value="5">5</option>
-					<option value="10">10</option>
-					<option value="15">15</option>
-				</select>条-->
-				<!--<button class="btn btn-default btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-						{{pageSize}} 
-					<span class="caret"></span>
-				</button> 条
-				<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-					<li>
-						<a ng-click="setPageSize(5)">5</a>
-					</li>
-					<li>
-						<a ng-click="setPageSize(10)">10</a>
-					</li>
-					<li>
-						<a ng-click="setPageSize(20)">20</a>
-					</li>
-
-				</ul>-->
+				
 			</div>
 
 			<!--search-->
@@ -116,7 +95,7 @@
 			共{{totalItems}} 条记录
 		</div>
          <div class="pagination">       	       	
-            <ul uib-pagination boundary-links="true" total-items="totalItems"
+            <ul uib-pagination boundary-links="true" total-items="totalItems" boundary-link-numbers="true"
                         ng-model="selectedpage"  ng-change="setPageSize(pageSize)"                        
                         items-per-page="pageSize"
                         max-size="maxSize"  num-pages="totalPage"

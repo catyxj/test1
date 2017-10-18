@@ -1,0 +1,168 @@
+
+<div>
+	<div class="modal-header">
+		<button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times;</span></button>
+		<h4 class="modal-title">锅炉基本信息设置</h4>
+
+	</div>
+	<div class="modal-body">
+		<form action="" method="post">
+			<div class="data_header">
+				设备基本信息
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="input-group">
+						<label class="input-group-addon">锅炉名称</label>
+						<input ng-model="data.name" type="text" class="form-control" placeholder="输入锅炉名称">
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<div class="input-group">
+						<label class="input-group-addon">注册码</label>
+						<input ng-model="data.name" type="text" class="form-control" placeholder="输入注册码">
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="input-group">
+						<label class="input-group-addon">设备代码</label>
+						<input ng-model="data.Address.Address" type="text" class="form-control" placeholder="输入设备代码">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="input-group">
+						<label class="input-group-addon">锅炉型号</label>
+						<input ng-model="data.Address.Address" type="text" class="form-control" placeholder="输入锅炉型号">
+					</div>
+				</div>
+
+			</div>
+			
+			<div class="row">
+				<div class="col-md-6">
+					<div class="input-group">
+						<label class="input-group-addon">锅炉用途</label>
+						<input type="text" class="form-control" value="工业锅炉" placeholder="" disabled>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="input-group">
+						<label class="input-group-addon">锅炉介质</label>
+						<select class="form-control" name="">
+							<option value="">请选择...</option>
+						</select>
+					</div>
+				</div>
+
+			</div>
+			
+			<div class="row">
+				<div class="col-md-6">
+					<div class="input-group">
+						<label class="input-group-addon">锅炉燃料</label>
+						<select class="form-control" name="">
+							<option value="">请选择...</option>
+						</select>
+					</div>
+					
+				</div>
+				<div class="col-md-6">
+					<div class="input-group">
+						<label class="input-group-addon">锅炉型态</label>
+						<select class="form-control" name="">
+							<option value="">请选择...</option>
+						</select>
+					</div>
+				</div>
+
+			</div>
+			
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="input-group">
+						<label class="input-group-addon">额定蒸发量</label>
+						<input ng-model="data.Address.Address" type="text" class="form-control" placeholder="输入首页显示的企业标识" aria-describedby="basic-addon1">
+					</div>
+				</div>
+				
+			</div>
+			
+			
+			<div class="data_header row">
+				<div class="col-md-6">
+					注册信息
+				</div>
+				<div class="col-md-6">
+					企业信息
+				</div>				
+			</div>
+			
+			<div class="row">
+				<div class="col-md-6">
+					<div class="input-group">
+						<label class="input-group-addon">出厂编号</label>
+						<input type="text" class="form-control" placeholder="输入出厂编号">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="input-group">
+						<label class="input-group-addon">使用企业</label>
+						<select class="form-control" name="">
+							<option value="">请选择...</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-6">
+					<div class="input-group">
+						<label class="input-group-addon">登记机构</label>
+						<input type="text" class="form-control"  placeholder="输入登记机构">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="input-group">
+						<label class="input-group-addon">制造企业</label>
+						<select class="form-control" name="">
+							<option value="">请选择...</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-6">
+					<div class="input-group">
+						<label class="input-group-addon">使用证号</label>
+						<input type="text" class="form-control" value="工业锅炉" placeholder="输入使用证号">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="input-group">
+						<label class="input-group-addon">安装单位</label>
+						<select class="form-control" name="">
+							<option value="">请选择...</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			
+			
+		</form>
+	</div>
+	<div class="modal-footer">
+
+		<button class="btn btn-primary" ng-click="ok()">
+								                保存
+								 </button>
+		<button class="btn btn-default" ng-click="cancel()">
+								                取消
+								</button>
+	</div>
+</div>

@@ -1,0 +1,62 @@
+<div class="">
+
+	<table class="table" border="0" >
+			<thead>
+				<tr>
+					<th ng-click="changeOrder('num')" ng-class="{dropup:order===''}">
+						序号
+						<span ng-class="{orderColor:orderType=== 'num'}" class="caret"></span>
+					</th>
+					<th>
+						企业名称
+					</th>
+					<th>
+						区域
+					</th>
+					<th>
+						地址
+					</th>
+					<th>
+						企业类型
+					</th>
+					
+					<th>
+						操作
+					</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="d in organization| orderBy: order+orderType">
+					<td>
+						{{d.num}}
+						
+					</td>
+					<td>
+						{{d.name}}
+					</td>
+					<td>
+						{{d.Address.Location.LocationName}}
+					</td>
+					<td>
+						{{d.Address.Address}}
+					</td>
+										
+					<td>
+						<span ng-class="{'label-default':d.type==='默认机构','label-primary':d.type==='锅炉制造厂'}" class="label">
+							{{d.type}}
+						</span>
+						
+					</td>
+					<td>
+						<button type="button" class="btn btn-primary btn-sm">编辑</button>
+						<button ng-click="removeData(d.num)" type="button" class="btn btn-default btn-sm"> 删除</button>
+					</td>
+				</tr>
+			</tbody>
+			
+		</table>
+		<p ng-show="!organization.length">记录为空</p>
+		
+	
+</div>

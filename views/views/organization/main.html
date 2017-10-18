@@ -1,0 +1,92 @@
+<div class="">
+	<div class="page-bar">
+		<ol class="breadcrumb">
+			<li>
+				<a href="" ui-sref="monitor.dashboard">首页</a>
+			</li>
+			<li>
+				<a href="" ui-sref="monitor.thumb">企业信息</a>
+			</li>
+
+		</ol>
+	</div>
+
+	<div ng-controller="organizationController" class="page_content">
+		<div class="data_header">
+			<div class="clearfix data_top">
+				<h4 class="float_left">
+				<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+				企业总表
+			</h4>
+				<div class="float_right">
+					<span class="glyphicon glyphicon-resize-full" aria-hidden="true"></span>
+				</div>
+				<div class="float_right">
+					<button type="button" class="btn btn-info">所有企业</button>
+					<button type="button" class="btn btn-default">能用企业</button>
+					<button type="button" class="btn btn-default">锅炉制造厂</button>
+					<button type="button" class="btn btn-default">安装企业</button>
+					<button type="button" class="btn btn-default">政府机关</button>
+					<button type="button" class="btn btn-default">监管部门</button>
+				</div>
+			</div>
+
+			<div class="data_nav_h">
+				<nav>
+					<div class="container-fluid">
+						<!--select pageSize-->
+						<div class="dropdown pagesize">
+
+							每页显示
+							<select class="input-sm  w-sm inline v-middle" ng-model="pageSize" ng-options="o as o for o in placement.options" ng-change="setPageSize(pageSize)">
+							</select>
+							条
+						</div>
+
+						<button style="margin-left: 20px; margin-top: 8px;" ng-click="openModal()" type="button" class="btn btn-info">添加</button>
+
+						
+							
+						<!--search-->
+						<form class="navbar-form navbar-right">
+							<div class="form-group">
+								搜索：
+								<input type="text" ng-model="search" class="form-control" placeholder="Search">
+
+							</div>
+
+						</form>
+					</div>
+				</nav>
+			</div>
+
+		</div>
+
+		<div class="maintain_body">
+		
+		<datatable-organization></datatable-organization>
+		
+		
+		<!--pagination-->									
+		
+		<div >			
+	        <div class="float_left count_num">
+				共{{totalItems}} 条记录
+			</div>
+	         <div class="pagination">       	       	
+	            <ul uib-pagination boundary-links="true" total-items="totalItems"
+	                        ng-model="selectedpage"  ng-change="setPageSize(pageSize)"
+	                        items-per-page="pageSize"
+	                        max-size="maxSize"  num-pages="totalPage"
+	                        previous-text="上一页" next-text="下一页"
+	                        first-text="首页" last-text="尾页">
+	            </ul>
+	         </div>
+	    </div>
+			
+		</div>
+	
+	
+	</div>
+
+</div>

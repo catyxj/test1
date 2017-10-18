@@ -1,0 +1,63 @@
+<div class="">
+
+	<table class="table" border="0" >
+			<thead>
+				<tr>
+					<th ng-click="changeOrder('num')" ng-class="{dropup:order===''}">
+						序号
+						<span ng-class="{orderColor:orderType==='num'}" class="caret"></span>
+					</th>
+					<th>
+						锅炉名称
+					</th>
+					<th>
+						制造企业
+					</th>
+					<th>
+						注册码
+					</th>
+					<th>
+						型号
+					</th>
+					<th>
+						燃料
+					</th>
+					<th>
+						操作
+					</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="d in productData | orderBy: order+orderType| range:selectedpage:pageSize">
+					<td>
+						{{d.num}}
+						
+					</td>
+					<td>
+						{{d.name}}
+					</td>
+					<td>
+						{{d.company}}
+					</td>
+					<td>
+						{{d.registrationCode}}
+					</td>
+										
+					<td>
+						{{d.model}}											
+					</td>
+					<td>
+						{{d.fuel}}
+					</td>
+					<td>
+						<button type="button" class="btn btn-primary btn-sm">查看</button>						
+					</td>
+				</tr>
+			</tbody>
+			
+		</table>
+		<p ng-show="!productData.length">记录为空</p>
+		
+	
+</div>

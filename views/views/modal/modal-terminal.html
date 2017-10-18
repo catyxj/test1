@@ -1,0 +1,57 @@
+
+
+<div>
+	<div class="modal-header">
+		<button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times;</span></button>
+		<h4 class="modal-title">终端配置</h4>
+
+	</div>
+	<div class="modal-body">
+		<form action="" method="post">
+			
+			<div class="row">
+				<div class="col-md-6">
+					<div class="input-group">
+						<label class="input-group-addon">终端名称</label>
+						<input ng-model="data.name" type="text" class="form-control" placeholder="输入终端名称">
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<div class="input-group">
+						<label class="input-group-addon">终端编码</label>
+						<input ng-model="data.name" type="text" class="form-control" placeholder="输入终端编码">
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="input-group">
+						<label class="input-group-addon">物联网卡号</label>
+						<input ng-model="data.Address.Address" type="text" class="form-control" placeholder="输入十一位卡号">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="input-group">
+						<label class="input-group-addon">IP地址</label>
+						<input ng-model="data.Address.Address" type="text" class="form-control" placeholder="0.0.0.0">
+					</div>
+				</div>
+
+			</div>
+			
+			
+			
+		</form>
+	</div>
+	<div class="modal-footer">
+
+		<button class="btn btn-primary" ng-click="ok()">
+			提交
+		</button>
+		<button class="btn btn-default" ng-click="cancel()">
+			取消
+		</button>
+	</div>
+</div>

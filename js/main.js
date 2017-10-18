@@ -3,88 +3,88 @@ var mainApp = angular.module("boiler",["ui.router" , "ui.bootstrap", "customFilt
 
 mainApp.config(function ($stateProvider, $urlRouterProvider) {
 
-     $urlRouterProvider.when("", "/tab/productview");
+     $urlRouterProvider.when("", "/monitor/thumb");
 
      $stateProvider
-        .state("tab", {
-            url: "/tab",
-            templateUrl: "views/tab.html"
+        .state("monitor", {
+            url: "/monitor",
+            templateUrl: "views/monitor/main.html"
         })
         .state("dashboard", {
-            url: "/dashboard",
+            url: "/monitor/dashboard",
             templateUrl: "views/monitor/dashboard.html",
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
-             	'js/controllers/dashboardController.js'             	
+             	'../js/controllers/dashboardController.js'             	
 		             ]);
 		    }]
 		  }
         })
-        .state("tab.productview", {
-            url:"/productview",
-            templateUrl: "views/monitor/productview.html",
+        .state("monitor.thumb", {
+            url:"/thumb",
+            templateUrl: "views/monitor/thumb.html",
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
-             	'js/controllers/productViewController.js'           	
+             	'../js/controllers/productViewController.js'           	
 		             ]);
 		    }]
 		  }
         })
-        .state("tab.productlist", {
+        .state("monitor.productlist", {
             url:"/productlist",
             templateUrl: "views/monitor/productlist.html",
             resolve: {
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
-             	'js/modal.js',            	
+             	'../js/modal.js',            	
 		             ]);
 		    }]
 		  }
         })
-        .state("boilerflash", {
-            url:"/boilerflash",
-            templateUrl: "views/monitor/boilerflash.html"
+        .state("runtime", {
+            url:"/runtime",
+            templateUrl: "views/runtime/main.html"
         })
-        .state("boilerflash.animation", {
+        .state("runtime.dashboard", {
             url:"/animation",
-            templateUrl: "views/monitor/animation.html"
+            templateUrl: "views/runtime/dashboard.html"
         })
-        .state("boilerflash.runtimedata", {
+        .state("runtime.runtimedata", {
             url:"/runtimedata",
-            templateUrl: "views/monitor/runtimedata.html",
+            templateUrl: "views/runtime/runtimedata.html",
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
-             	'js/controllers/runtimeController.js',
+             	'../js/controllers/runtimeController.js',
 		             ]);
 		    }]
 		  }
         })
-        .state("boilerflash.historydata", {
+        .state("runtime.historydata", {
             url:"/historydata",
-            templateUrl: "views/monitor/historydata.html",
+            templateUrl: "views/runtime/historydata.html",
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
-             	'js/controllers/historyController.js',
-             	'js/angular-locale_zh-cn.js'
+             	'../js/controllers/historyController.js',
+             	'../js/asset/angular-locale_zh-cn.js'
 		             ]);
 		    }]
 		  }
         })
-        .state("boilerflash.alarm", {
+        .state("runtime.alarm", {
             url:"/alarm",
-            templateUrl: "views/monitor/alarm.html"
+            templateUrl: "views/runtime/alarm.html"
         })
-        .state("boilerflash.maintain", {
+        .state("runtime.maintain", {
             url:"/maintain",
-            templateUrl: "views/monitor/maintain.html",
+            templateUrl: "views/runtime/maintain.html",
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
-             	'js/controllers/maintainInfoController.js',            	
+             	'../js/controllers/maintainInfoController.js',            	
 		             ]);
 		    }]
 		  }
@@ -99,7 +99,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([            	
-             	'js/controllers/advisoryController.js'             	
+             	'../js/controllers/advisoryController.js'             	
 		             ]);
 		    }]
 		  }
@@ -110,11 +110,45 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
-             	'js/controllers/maintainInfoController.js',            	
+             	'../js/controllers/maintainInfoController.js',            	
 		             ]);
 		    }]
 		  }
         })
+        .state("organization", {
+            url: "/organization",
+            templateUrl: "views/organization/main.html",
+            resolve: { 
+    		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+             return $ocLazyLoad.load([
+             	'../js/controllers/organizationController.js',            	
+		             ]);
+		    }]
+		  }
+        })
+        .state("boiler", {
+            url: "/boiler",
+            templateUrl: "views/boiler/main.html",
+            resolve: { 
+    		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+             return $ocLazyLoad.load([
+             	'../js/controllers/boilerController.js',            	
+		             ]);
+		    }]
+		  }
+        })
+        .state("terminal", {
+            url: "/terminal",
+            templateUrl: "views/terminal/main.html",
+            resolve: { 
+    		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+             return $ocLazyLoad.load([
+             	'../js/controllers/terminalController.js',            	
+		             ]);
+		    }]
+		  }
+        })
+        
         
 });
 
@@ -137,7 +171,7 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 	return[
 		{
 			num:1,
-			name:"锅炉1",
+			name:"680064",
 			company:"东莞天鹿锅炉有限公司",
 			registrationCode:688888,
 			model:688888,
@@ -147,8 +181,8 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 		},
 		{
 			num:2,
-			name:"锅炉2",
-			company:"锅炉制造厂",
+			name:"680055",
+			company:"青岛胜利锅炉有限公司",
 			registrationCode:55555,
 			model:655555,
 			state:0,
@@ -167,10 +201,10 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 		},
 		{
 			num:4,
-			name:"锅炉4",
-			company:"锅炉制造厂测试5",
-			registrationCode:666666,
-			model:680064,
+			name:"680092",
+			company:"广州特种承压设备检测研究院",
+			registrationCode:680092,
+			model:680092,
 			state:1,
 			fuel:"燃油",
 			evaporation:2
@@ -254,6 +288,36 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 			state:0,
 			fuel:"燃气",
 			evaporation:2
+		},
+		{
+			num:13,
+			name:"680093 ",
+			company:"宏日新能源",
+			registrationCode:680093,
+			model:680093,
+			state:1,
+			fuel:"生物质",
+			evaporation:2
+		},
+		{
+			num:14,
+			name:"锅炉5",
+			company:"锅炉制造厂测试8",
+			registrationCode:22222,
+			model:680055,
+			state:1,
+			fuel:"燃气",
+			evaporation:2
+		},
+		{
+			num:15,
+			name:"万隆肉类锅炉 ",
+			company:"杭州振兴锅炉容器设备有限公司",
+			registrationCode:11203301102005030009,
+			model:"DZL4-1.25-AⅡ",
+			state:0,
+			fuel:"燃气",
+			evaporation:2
 		}
 	]
 });
@@ -333,6 +397,105 @@ mainApp.service("maintainData",function(){
 	]
 });
 
+mainApp.service("organizationData",function(){
+	return [
+		{
+			num:1,
+			name:"厚德能源",
+			Address: {
+				Location:{
+					LocationName:"浙江省 杭州市 滨江区"
+				},
+				Address:"滨文路32号"
+			} ,
+			type:"默认机构"
+		},
+		{
+			num:2,
+			name:"Test003",
+			Address: {
+				Location:{
+					LocationName:"浙江省 杭州市 滨江区"
+				},
+				Address:"Test0031"
+			} ,
+			type:"默认机构"
+		},
+		{
+			num:3,
+			name:"江苏威孚锅炉有限公司",
+			Address: {
+				Location:{
+					LocationName:"江苏省 镇江市 丹徒区"
+				},
+				Address:"镇江市丹徒区镇南工业园辛三路15号"
+			} ,
+			type:"锅炉制造厂"
+		}
+	]
+});
+
+
+mainApp.service("terminalData",function(){
+	return {	
+		datasource:[
+	 	{
+			num:1,
+			name:"佑康锅炉终端",
+			code:"010001",
+			online:"离线",
+			Boilers:[
+				{
+					name:"佑康锅炉#1",
+				},
+				{
+					name:"佑康锅炉#2",
+				}
+			],
+			simNum:"",
+			ip:""
+		},
+		{
+			num:2,
+			name:"大地印染锅炉采集终端",
+			code:"010022",
+			online:"离线",
+			Boilers:[
+				{
+					name:"大地印染锅炉",
+				}
+			],
+			simNum:"",
+			ip:"111.193.92.140"
+		},
+		{
+			num:3,
+			name:"航民热电采集终端",
+			code:"010027",
+			online:"在线",
+			Boilers:[
+				{
+					name:"航民热电1# ",
+				},
+				{
+					name:"航民热电2# ",
+				},
+				{
+					name:"航民热电3# ",
+				},
+				{
+					name:"航民热电4#",
+				}
+			],
+			simNum:"",
+			ip:""
+		}
+		
+		]
+		
+		
+	}
+});
 
 
 

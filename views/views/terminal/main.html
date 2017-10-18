@@ -1,0 +1,82 @@
+<div class="page-bar">
+	<ol class="breadcrumb">
+		<li>
+			<a href="" ui-sref="dashboard">首页</a>
+		</li>
+		<li>
+			<a href="" ui-sref="terminal">终端管理</a>
+		</li>
+
+	</ol>
+</div>
+
+<div ng-controller="terminalController" class="page_content">
+		<div class="data_header">
+			<div class="clearfix data_top">
+				<h4 class="float_left">
+					<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+					终端列表
+				</h4>
+				
+				
+			</div>
+
+			<div class="data_nav_h">
+				<nav>
+					<div class="container-fluid">
+						<!--select pageSize-->
+						<div class="dropdown pagesize">
+
+							每页显示
+							<select class="input-sm  w-sm inline v-middle" ng-model="pageSize" ng-options="o as o for o in placement.options" ng-change="setPageSize(pageSize)">
+							</select>
+							条
+						</div>
+
+						<button ng-click="openAddModal()" type="button" class="btn btn-info" style="margin-left: 20px; margin-top: 8px;">添加</button>
+
+						
+							
+						<!--search-->
+						<form class="navbar-form navbar-right">
+							<div class="form-group">
+								搜索：
+								<input type="text" ng-model="search" class="form-control" placeholder="Search">
+
+							</div>
+
+						</form>
+					</div>
+				</nav>
+			</div>
+
+		</div>
+
+		<div class="maintain_body">
+		
+		<datatable-terminal></datatable-terminal>
+		
+		
+		<!--pagination-->									
+		
+		<div >			
+	        <div class="float_left count_num">
+				共{{totalItems}} 条记录
+			</div>
+	         <div class="pagination">       	       	
+	            <ul uib-pagination boundary-links="true" total-items="totalItems"
+	                        ng-model="selectedpage"  ng-change="setPageSize(pageSize)"
+	                        items-per-page="pageSize"
+	                        max-size="maxSize"  num-pages="totalPage"
+	                        previous-text="上一页" next-text="下一页"
+	                        first-text="首页" last-text="尾页">
+	            </ul>
+	         </div>
+	    </div>
+			
+		</div>
+	
+	
+	</div>
+
+

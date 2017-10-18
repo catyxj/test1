@@ -1,3 +1,19 @@
+<div class="page-bar">
+	<ol class="breadcrumb">
+		<li>
+			<a href="" ui-sref="dashboard">首页</a>
+		</li>
+		<li>
+			<a href="" ui-sref="monitor.thumb">主控制台</a>
+		</li>
+
+	</ol>
+</div>
+
+
+<div class="page_content">
+	
+
 <div class="select_container">
 	<div class="row">
 		
@@ -55,10 +71,10 @@
 
 <div ng-controller="tabController" class="main_console">
 	<ul class="nav nav-tabs">
-		<li ui-sref-active="active" ng-class="{active:isActiveTag(tab.productview)}">
-			<a href="" ui-sref=".productview">图文模式</a>
+		<li ui-sref-active="active" ng-class="{active:isActiveTag(monitor.thumb)}">
+			<a href="" ui-sref=".thumb">图文模式</a>
 		</li>
-		<li ui-sref-active="active" ng-class="{active:isActiveTag(tab.productlist)}">
+		<li ui-sref-active="active" ng-class="{active:isActiveTag(monitor.productlist)}">
 			<a href="" ui-sref=".productlist">列表模式</a>
 		</li>
 
@@ -72,4 +88,5 @@
 		
 	</div>
 </div>
-							
+
+</div>

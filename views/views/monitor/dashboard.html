@@ -1,0 +1,159 @@
+
+
+<div ng-controller="dashboardController" class="">
+	<div class="page-bar">
+	<ol class="breadcrumb">
+		<li>
+			<a href="" ui-sref="dashboard">首页</a>
+		</li>
+		<li>
+			<a href="" ui-sref="monitor.thumb">主控制台</a>
+		</li>
+
+	</ol>
+</div>
+	
+	
+	<div class="page_content">
+		
+		
+		<div class="stat row">
+			<div class="col-md-3 ">
+				<div class="blue panel">
+					
+						<div class="">
+					
+						</div>
+						<div class="stat_data">
+							<div class="stat_data_d">
+								{{dashboardData.currentNum}}
+							</div>
+							<div class="">
+								新增实时数据
+							</div>
+							
+						</div>
+									
+						<a class="stat_more" href="">
+							查看详情 
+							<span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+						</a>
+					
+				
+				</div>
+							
+			</div>
+			
+			<div class="col-md-3 ">
+				<div class="red panel">
+					
+						<div class="">
+					
+						</div>
+						<div class="stat_data">
+							<div class="stat_data_d">
+								{{dashboardData.alarmNum}}
+							</div>
+							<div class="">
+								异常警报
+							</div>
+							
+						</div>
+									
+						<a class="stat_more" href="">
+							查看详情 
+							<span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+						</a>
+					
+				
+				</div>
+							
+			</div>
+			
+			
+			<div class="col-md-3 ">
+				<div class="green panel">
+					
+						<div class="">
+					
+						</div>
+						<div class="stat_data">
+							<div class="stat_data_d">
+								{{dashboardData.equipmentNum}}
+							</div>
+							<div class="">
+								在用设备
+							</div>
+							
+						</div>
+									
+						<a class="stat_more" href="">
+							查看详情 
+							<span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+						</a>
+					
+				
+				</div>
+							
+			</div>
+			
+			<div class="col-md-3 ">
+				<div class="blue panel">
+					
+						<div class="">
+					
+						</div>
+						<div class="stat_data">
+							<div class="stat_data_d">
+								{{dashboardData.totalNum}}
+								<span style="font-size: 14px;">
+									小时
+								</span>
+							</div>
+							<div class="">
+								平台设备运行总时间
+							</div>
+							
+						</div>
+									
+						<a class="stat_more" href="">
+							查看详情 
+							<span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+						</a>
+					
+				
+				</div>
+							
+			</div>
+			
+			
+		</div>
+		
+		<div class="row">
+			<div class="col-md-6">
+				<div class="stat_header">
+					<h4 class="float_left">热效率统计图</h4>
+					<div class="float_right full">
+						<span class="glyphicon glyphicon-resize-full" aria-hidden="true"></span>
+					</div>
+				</div>
+				<div class="">
+					
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="stat_header">
+					<h4 class="float_left">设备额定功率分布</h4>
+					<div class="float_right full">
+						<span class="glyphicon glyphicon-resize-full" aria-hidden="true"></span>
+					</div>
+				</div>
+				<div class="">
+					
+				</div>
+			</div>
+		</div>
+	
+	
+	</div>
+</div>

@@ -17,6 +17,25 @@
 	background-color: #3598dc;
 	color: #FFFFFF;
 }
+.label{
+	display: inline-block;
+	padding: 6px 8px;
+	font-weight: normal;
+	font-size: 14px;
+}
+.badge-danger{
+	background-color: #D9534F;
+}
+
+.row{
+	padding-top: 5px;
+	padding-bottom: 10px;
+}
+.select_address .col-md-4{
+	padding: 0;
+}
+
+
 
 /*.col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9{
 	padding-left: 5px;
@@ -104,7 +123,9 @@
 	padding-left: 0;
 	padding-right: 0;
 }
-
+.badge{
+	display: inline;
+}
 
 
 
@@ -174,6 +195,12 @@
 .stat_header .full{
 	margin-top: 10px;
 }
+
+
+
+
+
+
 
 
 /*开关*/

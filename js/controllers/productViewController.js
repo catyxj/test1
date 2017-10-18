@@ -1,6 +1,5 @@
 mainApp.controller("viewCtrl",function($scope,productData,$uibModal){
 
-//	$scope.selectedPageSize(productData,4);
 	$scope.productData = productData;
 	$scope.pageSize = 4;
 	$scope.totalItems = $scope.productData.length;

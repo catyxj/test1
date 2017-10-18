@@ -1,11 +1,21 @@
+<div class="page-bar">
+	<ol class="breadcrumb">
+		<li>
+			<a href="" ui-sref="dashboard">首页</a>
+		</li>
+		<li>
+			<a href="" >专家咨询</a>
+		</li>
 
+	</ol>
+</div>
 
-<div ng-controller="advisoryController" class="advisory">
+<div ng-controller="advisoryController" class="advisory page_content">
 	
 	<div class="data_header">
 		<div class="clearfix data_top">
 			<h4 class="float_left">
-				<span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
+				<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
 				咨询列表
 			</h4>
 			<div class="float_right">
@@ -29,22 +39,7 @@
                         ng-change="setPageSize(pageSize)">
 	               </select>
 	               	条
-						<!--<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-							{{pageSize}}
-							<span class="caret"></span>
-						</button> 条
-						<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-							<li>
-								<a ng-click="selectedPageSize(advisory,5)">5</a>
-							</li>
-							<li>
-								<a ng-click="selectedPageSize(advisory,10)">10</a>
-							</li>
-							<li>
-								<a ng-click="selectedPageSize(advisory,20)">20</a>
-							</li>
-			
-						</ul>-->
+						
 					</div>
 			
 					<button style="margin-left: 20px; margin-top: 8px;" ng-click="openModal()" type="button" class="btn btn-info">添加</button>
@@ -60,11 +55,11 @@
 								<form action="" method="post">
 									<div class="form-group">
 										<label>咨询标题：</label>
-										<input ng-model="data.title" class="form-control" ng-model="advisoryTitle" type="text" name="" id="" value="" placeholder="咨询标题" />
+										<input ng-model="data.title" class="form-control" type="text" name="" id="" value="" placeholder="咨询标题" />
 									</div>
 									<div class="form-group">
 										<label>咨询内容：</label>
-										<textarea ng-model="data.content" class="form-control" ng-model="advisoryContent" name="" rows="5" cols="" placeholder="在这里输入内容"></textarea>
+										<textarea ng-model="data.content" class="form-control" name="" rows="5" cols="" placeholder="在这里输入内容"></textarea>
 									</div>
 									
 								</form>
@@ -93,6 +88,8 @@
 				</div>
 			</nav>
 		</div>
+	
+	
 	</div>
 	
 	<div class="maintain_body">
