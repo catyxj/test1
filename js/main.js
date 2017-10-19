@@ -214,6 +214,17 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
 		    }]
 		  }
         })
+        .state("user-account", {
+            url: "/user-account",
+            templateUrl: "views/user-account.html",
+            resolve: { 
+    		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+             return $ocLazyLoad.load([
+             	'../js/controllers/userAccountController.js',            	
+		             ]);
+		    }]
+		  }
+        })
         
         
 });

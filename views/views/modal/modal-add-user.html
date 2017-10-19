@@ -1,0 +1,71 @@
+<div class="">
+	<div>
+		<div class="modal-header">
+			<button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times;</span></button>
+			<h4 class="modal-title">添加新用户	</h4>
+
+		</div>
+		<div class="modal-body">
+			<form action="" method="post">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="input-group">
+							<label class="input-group-addon">登录名</label>
+							<input ng-model="data.name" type="text" class="form-control" placeholder="请输入用户登录名">
+						</div>
+					</div>
+
+					<div class="col-md-6">
+						<div class="input-group">
+							<label class="input-group-addon">登录密码</label>
+							<input ng-model="data.name" type="text" class="form-control" placeholder="请输入初始密码">
+						</div>
+					</div>
+				</div>
+				
+				<br />
+				<div class="row">
+					<div class="col-md-6">
+						<div class="input-group">
+							<label class="input-group-addon" id="basic-addon1">真实名称</label>
+							<input ng-model="data.name" type="text" class="form-control" placeholder="请输入用户真实名称">
+						</div>
+					</div>
+
+					<div class="col-md-6">
+						<div class="input-group">
+							<label class="input-group-addon">用户角色</label>
+							<select class="form-control" >
+								<option value="">客服</option>
+								<option value="">监管员</option>
+								<option value="">机构管理员</option>
+								<option value="">用户</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-md-12">
+						<div class="input-group">
+							<label class="input-group-addon">所属企业</label>
+							<select class="form-control" >
+								<option value="">客服</option>								
+							</select>
+						</div>
+					</div>
+				</div>
+
+			</form>
+		</div>
+		<div class="modal-footer">
+
+			<button class="btn btn-primary" ng-click="ok()">
+									                提交
+									 </button>
+			<button class="btn btn-default" ng-click="cancel()">
+									                取消
+									</button>
+		</div>
+	</div>
+</div>
