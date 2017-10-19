@@ -54,7 +54,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="input-group">
-						<label class="input-group-addon">额定蒸发量</label>						
+						<label class="input-group-addon">额定蒸发量</label>	
 						<input ng-model="data.BoilerCapacityMin" type="text" class="form-control" style="width: 50%;" placeholder="最小值" >												
 						<input ng-model="data.BoilerCapacityMax" type="text" class="form-control" style="width: 50%;" placeholder="最大值" >												
 					</div>
@@ -64,9 +64,15 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="input-group">
-						<label class="input-group-addon"> 告警阀值</label>						
-						<input ng-model="data.BoilerCapacityMin" type="text" class="form-control" style="width: 50%;" placeholder="基准值" >												
-						<input ng-model="data.BoilerCapacityMax" type="text" class="form-control" style="width: 50%;" placeholder="告警值" >												
+						<label class="input-group-addon"> 告警阀值</label>
+						<div class="has-success" style="float: left; width: 50%;">
+							<input ng-model="data.BoilerCapacityMin" type="text" class="form-control" placeholder="基准值" >	
+						</div>
+						
+						<div class="has-error" style="float: left; width: 50%;">
+							<input ng-model="data.BoilerCapacityMax" type="text" class="form-control"  placeholder="告警值" >	
+						</div>
+																	
 					</div>
 				</div>				
 			</div>

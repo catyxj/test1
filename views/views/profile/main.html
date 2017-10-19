@@ -80,22 +80,29 @@
 	</div>	
 	
 	<div class="profile-content col-md-8">
-		<div class="data_top">
+		<div class="data_top clearfix">
 			<h5 class="float_left">
 				账户设置
 			</h5>
 			<div class="float_right">
-				<a href="">
-					个人信息
-				</a>
-				<a href="">
-					修改密码
-				</a>
+				<ul class="nav nav-tabs">
+					<li ui-sref-active="active" ng-class="{active:isActiveTag(profile.account)}">
+						<a href="" ui-sref=".account">
+							个人信息
+						</a>
+					</li>
+					<li ui-sref-active="active" ng-class="{active:isActiveTag(profile.password)}">
+						<a href="" ui-sref=".password">
+							修改密码
+						</a>
+					</li>
+				</ul>				
+				
 			</div>
 			
 		</div>
-		<div class="">
-			
+		<div class="portlet_body">
+			<div ui-view=""></div>
 		</div>
 	</div>
 

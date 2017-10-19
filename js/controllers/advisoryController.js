@@ -3,7 +3,6 @@ mainApp.controller("advisoryController",function($scope, $rootScope, $uibModal,a
 	
 	
 	$scope.advisory = advisoryData;
-//	$scope.selectedPageSize($scope.advisory,6);
 	$scope.pageSize = 10;
 	$scope.totalItems = $scope.advisory.length;
 	
@@ -15,12 +14,8 @@ mainApp.controller("advisoryController",function($scope, $rootScope, $uibModal,a
                     controller : 'advisoryCtrl',//modal对应的Controller
                     size: 'lg', //大小配置 
                     resolve : {
-                        data : function() {//data作为modal的controller传入的参数
-                        	                 	
-                       		newdata.time= new Date();
-							newdata.company = "test";
-							newdata.state="新咨询";		
-                             return newdata;//用于传递数据
+                        data : function() {//data作为modal的controller传入的参数                        	                	                       			
+                             return $scope.advisory;//用于传递数据
                         }
                     }
                 })
@@ -49,17 +44,12 @@ mainApp.controller("advisoryController",function($scope, $rootScope, $uibModal,a
 	
 })
 
-mainApp.controller('advisoryCtrl', function($scope,$rootScope, $uibModalInstance, data,advisoryData) {
+mainApp.controller('advisoryCtrl', function($scope,$rootScope, $uibModalInstance, data) {
           $scope.data= data;
-		  var advisory = advisoryData;
-		  $scope.selected = {
-            item : advisory[0]
-        };
+		  
           //在这里处理要进行的操作
           $scope.ok = function() {
-              $uibModalInstance.close(
-              	console.log($scope.selected.item)
-              );
+              $uibModalInstance.close();
           };
           $scope.cancel = function() {
               $uibModalInstance.dismiss('cancel');
@@ -68,14 +58,3 @@ mainApp.controller('advisoryCtrl', function($scope,$rootScope, $uibModalInstance
     
 
 
-
-//module.directive( "addAdvisoryData", [ 'advisoryData', function( advisoryData ) {
-//  return {
-//      restrict: "E",
-//          link: function( scope, element, attrs ) {
-//          element.bind( "click", function() {
-//              advisoryData.push( { title: "Star Wars", author: "George Lucas" } );
-//          });
-//      }
-//  }
-//}]);

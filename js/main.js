@@ -181,6 +181,39 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
 		    }]
 		  }
         })
+        .state("profile.account", {
+            url:"/account",
+            templateUrl: "views/profile/user-info.html",
+            resolve: { 
+    		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+             return $ocLazyLoad.load([
+             	'../js/controllers/productViewController.js'           	
+		             ]);
+		    }]
+		  }
+        })
+        .state("profile.password", {
+            url:"/account",
+            templateUrl: "views/profile/pass-change.html",
+            resolve: { 
+    		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+             return $ocLazyLoad.load([
+             	'../js/controllers/productViewController.js'           	
+		             ]);
+		    }]
+		  }
+        })
+        .state("wiki", {
+            url: "/wiki",
+            templateUrl: "views/wiki/main.html",
+            resolve: { 
+    		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+             return $ocLazyLoad.load([
+             	'../js/controllers/wikiController.js',            	
+		             ]);
+		    }]
+		  }
+        })
         
         
 });
