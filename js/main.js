@@ -30,8 +30,11 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
-             	'../js/asset/highcharts.js',
+//           	'../js/asset/jquery.min.js',
+//           	'../js/asset/highcharts.js',
+//           	'../js/asset/highcharts-3d.js',
              	'../js/controllers/dashboardController.js'
+             	
 		             ]);
 		    }]
 		  }
