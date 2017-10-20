@@ -18,12 +18,12 @@
 	<div class="row">
 		
 		<div class="col-md-6">
-			<div class="col-md-6">
+			<!--<div class="col-md-6">
 				<select  class="form-control"
 					 ng-model="selectedCompany" ng-change="selectCompany(selectedCompany)" ng-options="item for item in productData | orderBy:'company' | unique:'company'">
 					<option selected="selected" value="">企业不限</option>			
 				</select>
-			</div>
+			</div>-->
 			
 			<div class="col-md-3">
 				<select class="form-control"
@@ -49,11 +49,19 @@
 	          燃烧-->
 	          <input type="text" class="form-control"  name="" id="" value="" />
 	          
-		</div>
+		</div>		
 	</div>
 	
 	<div class="row">
-		
+		<div class="col-md-6">
+			<ui-select ng-model="selectedCompany"  ng-disabled="disabled">
+               <ui-select-match placeholder="">{{$select.selected.name}}</ui-select-match>
+               <ui-select-choices repeat="item for item in productData | orderBy:'company' | unique:'company'">
+                  <span ng-bind="item">  
+           		  </span> 
+               </ui-select-choices>
+            </ui-select>
+		</div>
 	</div>
 	
 	
@@ -74,8 +82,8 @@
 		<li ui-sref-active="active" ng-class="{active:isActiveTag(monitor.thumb)}">
 			<a href="" ui-sref=".thumb">图文模式</a>
 		</li>
-		<li ui-sref-active="active" ng-class="{active:isActiveTag(monitor.productlist)}">
-			<a href="" ui-sref=".productlist">列表模式</a>
+		<li ui-sref-active="active" ng-class="{active:isActiveTag(monitor.list)}">
+			<a href="" ui-sref=".list">列表模式</a>
 		</li>
 
 	</ul>

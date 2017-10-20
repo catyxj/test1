@@ -1,5 +1,12 @@
 
-var mainApp = angular.module("boiler",["ui.router" , "ui.bootstrap", "customFilter","oc.lazyLoad"]);
+var mainApp = angular.module("boiler",[
+	"ui.router" , 
+	"ui.bootstrap", 
+	"customFilter",
+	"oc.lazyLoad",
+	"ui.select", 
+	"ngSanitize",
+	]);
 
 mainApp.config(function ($stateProvider, $urlRouterProvider) {
 
@@ -8,7 +15,14 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
      $stateProvider
         .state("monitor", {
             url: "/monitor",
-            templateUrl: "views/monitor/main.html"
+            templateUrl: "views/monitor/main.html",
+            resolve: { 
+    		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+             return $ocLazyLoad.load([
+             	            	
+		             ]);
+		    }]
+		  }
         })
         .state("dashboard", {
             url: "/monitor/dashboard",
@@ -32,9 +46,9 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
 		    }]
 		  }
         })
-        .state("monitor.productlist", {
-            url:"/productlist",
-            templateUrl: "views/monitor/productlist.html",
+        .state("monitor.list", {
+            url:"/list",
+            templateUrl: "views/monitor/list.html",
             resolve: {
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
@@ -89,13 +103,13 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
 		    }]
 		  }
         })
-        .state("alarm-info", {
-            url: "/alarm-info",
-            templateUrl: "views/alarm-info.html"
+        .state("alarm", {
+            url: "/alarm",
+            templateUrl: "views/alarm.html"
         })
-        .state("advisory", {
-            url: "/advisory",
-            templateUrl: "views/advisory.html",
+        .state("dialogue", {
+            url: "/dialogue",
+            templateUrl: "views/dialogue.html",
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([            	
@@ -104,9 +118,9 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
 		    }]
 		  }
         })
-        .state("maintain-info", {
-            url: "/maintain-info",
-            templateUrl: "views/maintain-info.html",
+        .state("boiler-maintain", {
+            url: "/boiler-maintain",
+            templateUrl: "views/boiler-maintain.html",
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([

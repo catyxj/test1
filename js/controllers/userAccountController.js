@@ -14,6 +14,7 @@ mainApp.controller("userAccountController",function($scope, $rootScope, $uibModa
                     controller : 'userCtrl',//modal对应的Controller
                     size: '', //大小配置 
                     resolve : {
+                    	
                         data : function() {//data作为modal的controller传入的参数                        	                	                       			
                              return $scope.userAccount;//用于传递数据
                         }

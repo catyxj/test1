@@ -1,0 +1,185 @@
+@charset "UTF-8";
+/*bg*/
+.bg_primary{
+	background-color: #5d9cec;
+    color: #ffffff !important;
+}
+.bg_primary_dark{
+	background-color: #2f80e7;
+    color: #ffffff !important;
+}
+
+.bg_info_light{
+	background-color: #51c6ea;
+    color: #ffffff !important;
+}
+.bg_purple{
+	background-color: #7266ba;
+    color: #ffffff !important;
+}
+.bg_purple_dark{
+	background-color: #564aa3;
+    color: #ffffff !important;
+}
+.bg_purple_light{
+	background-color: #9289ca;
+    color: #ffffff !important;
+}
+.bg_green{
+	background-color: #37bc9b;
+    color: #ffffff !important;
+}
+.bg_green_dark{
+	background-color: #2b957a;
+    color: #ffffff !important;
+}
+
+
+
+/*button*/
+.btn_bc{
+	border-color: transparent; 
+}
+.btn_round{
+	border-radius: 20px;
+	-webkit-border-radius:20px;
+}
+.btn_green {
+    color: #ffffff;
+    background-color: #37bc9b;
+    border-color: transparent;
+}
+.btn_purple {
+    color: #ffffff;
+    background-color: #7266ba;
+    border-color: transparent;
+}
+.btn_pink {
+    color: #ffffff;
+    background-color: #f532e5;
+    border-color: transparent;
+}
+
+
+/*tab*/
+.tabbable-line>.nav-tabs li{
+	border-bottom: none;	 
+} 
+.tabbable-line>.nav-tabs>li>a{
+	border: none;
+}
+.tabbable-line>.nav-tabs>li.active>a{
+	border-bottom: 4px solid #36c6d3;
+}
+.tabbable-line>.nav-tabs>li.active>a:focus, .tabbable-line>.nav-tabs>li.active>a:hover{
+	border-bottom: 4px solid #9fe4ea;
+}
+
+/*margin*/
+.mb-sm{
+	margin-bottom: 5px;
+}
+
+
+
+
+
+/*animate*/
+.animated {
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both
+}
+@-webkit-keyframes fadeInUp {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate3d(0, 100%, 0);
+		transform: translate3d(0, 100%, 0)
+	}
+	100% {
+		opacity: 1;
+		-webkit-transform: none;
+		transform: none
+	}
+}
+
+@-moz-keyframes fadeInUp {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate3d(0, 100%, 0);
+		transform: translate3d(0, 100%, 0)
+	}
+	100% {
+		opacity: 1;
+		-webkit-transform: none;
+		transform: none
+	}
+}
+
+@keyframes fadeInUp {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate3d(0, 100%, 0);
+		transform: translate3d(0, 100%, 0)
+	}
+	100% {
+		opacity: 1;
+		-webkit-transform: none;
+		transform: none
+	}
+}
+
+.fadeInUp {
+	-moz-animation-name: fadeInUp;
+	-webkit-animation-name: fadeInUp;
+	animation-name: fadeInUp
+}
+
+@-webkit-keyframes fadeInDown {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate3d(0, -100%, 0);
+		transform: translate3d(0, -100%, 0)
+	}
+	100% {
+		opacity: 1;
+		-webkit-transform: none;
+		transform: none
+	}
+}
+@-moz-keyframes fadeInDown {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate3d(0, -100%, 0);
+		transform: translate3d(0, -100%, 0)
+	}
+	100% {
+		opacity: 1;
+		-webkit-transform: none;
+		transform: none
+	}
+}
+
+@keyframes fadeInDown {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate3d(0, -100%, 0);
+		transform: translate3d(0, -100%, 0)
+	}
+	100% {
+		opacity: 1;
+		-webkit-transform: none;
+		transform: none
+	}
+}
+
+.fadeInDown {
+	-webkit-animation-name: fadeInDown;
+	-moz-animation-name: fadeInDown;
+	animation-name: fadeInDown
+}
+
+
+
+
