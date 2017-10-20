@@ -4,8 +4,8 @@ var mainApp = angular.module("boiler",[
 	"ui.bootstrap", 
 	"customFilter",
 	"oc.lazyLoad",
-	"ui.select", 
-	"ngSanitize",
+//	"ngSanitize",
+//	"ui.select",
 	]);
 
 mainApp.config(function ($stateProvider, $urlRouterProvider) {
@@ -30,7 +30,8 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
-             	'../js/controllers/dashboardController.js'             	
+             	'../js/asset/highcharts.js',
+             	'../js/controllers/dashboardController.js'
 		             ]);
 		    }]
 		  }
