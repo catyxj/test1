@@ -12,33 +12,30 @@
 
 
 <div class="page_content">
-	
+
 
 <div class="select_container">
-	<div class="row">
-		
-		<div class="col-md-6">
-			<div class="col-md-6">
-				<select  class="form-control"
-					 ng-model="selectedCompany" ng-change="selectCompany(selectedCompany)" ng-options="item for item in productData | orderBy:'company' | unique:'company'">
-					<option selected="selected" value="">企业不限</option>			
-				</select>
-			</div>
-			
-			<div class="col-md-3">
-				<select class="form-control"
-					 ng-model="selectedModel" ng-change="selectModel(selectedModel)" ng-options="item for item in productData | orderBy:'model' | unique:'model'">
-					<option selected="selected" value="">型号不限</option>		
-				</select>
-			</div>
-			
-			<div class="col-md-3">
-				<select class="form-control"
-					 ng-model="selectedFuel" ng-change="selectFuel(selectedFuel)" ng-options="item for item in productData | orderBy:'fuel' | unique:'fuel'">
-					<option selected="selected" value="">燃料不限</option>		
-				</select>
-			</div>
+	<div class="row mt-md">
+		<div class="col-md-6 pl_n pr-lg">
+			<div class="col-md-8 pr-md select_address">
+				<div class="col-md-4">
+					<select required="" class="form-control" ng-model="address.province" ng-options="key as key for (key,value) in division" ng-change="address.city='';address.district='';">
+						<option value="">省</option>
+					</select>
+				</div>
+				<div class="col-md-4 p_n">
+					<select class="form-control" ng-model="address.city" ng-options="key as key for (key,value) in division[address.province]" ng-change="address.district='';">
+						<option value="">市</option>
+					</select>
+				</div>
+				<div class="col-md-4">
+					<select class="form-control" ng-model="address.district" ng-options="value as value for value in division[address.province][address.city]">
+						<option value="">区</option>
+					</select>
+				</div>
+			</div>			              
 		</div>
+		
 		
 		<div class="col-md-6">
 			<!--停燃
@@ -52,8 +49,32 @@
 		</div>		
 	</div>
 	
-	<div class="row">
+	<div class="row mt-md">
 		<div class="col-md-6">
+			<div class="col-md-4 pl_n pr-md">
+				<select  class="form-control"
+					 ng-model="selectedCompany" ng-change="selectCompany(selectedCompany)" ng-options="item for item in productData | orderBy:'company' | unique:'company'">
+					<option selected="selected" value="">企业不限</option>			
+				</select>
+			</div>
+			
+			<div class="col-md-4 pl_n pr-md">
+				<select class="form-control"
+					 ng-model="selectedModel" ng-change="selectModel(selectedModel)" ng-options="item for item in productData | orderBy:'model' | unique:'model'">
+					<option selected="selected" value="">型号不限</option>		
+				</select>
+			</div>
+			
+			<div class="col-md-4 pl_n pr_n">
+				<select class="form-control"
+					 ng-model="selectedFuel" ng-change="selectFuel(selectedFuel)" ng-options="item for item in productData | orderBy:'fuel' | unique:'fuel'">
+					<option selected="selected" value="">燃料不限</option>		
+				</select>
+			</div>
+		</div>
+				
+		<div class="col-md-6">
+			<input type="text" class="form-control" />
 			<!--<ui-select ng-model="selectedCompany"  ng-disabled="disabled">
                <ui-select-match placeholder="">{{$select.selected.name}}</ui-select-match>
                <ui-select-choices repeat="item for item in productData | orderBy:'company' | unique:'company'">
@@ -77,13 +98,19 @@
 
 </div>
 
-<div ng-controller="tabController" class="main_console">
+<div ng-controller="tabController" class="main_console tabtable-line">
 	<ul class="nav nav-tabs">
 		<li ui-sref-active="active" ng-class="{active:isActiveTag(monitor.thumb)}">
-			<a href="" ui-sref=".thumb">图文模式</a>
+			<a href="" ui-sref=".thumb">
+				<i class="fa fa-image"></i>
+				图文模式
+			</a>
 		</li>
 		<li ui-sref-active="active" ng-class="{active:isActiveTag(monitor.list)}">
-			<a href="" ui-sref=".list">列表模式</a>
+			<a href="" ui-sref=".list">
+				<i class="fa fa-list"></i>
+				列表模式
+			</a>
 		</li>
 
 	</ul>

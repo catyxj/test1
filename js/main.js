@@ -19,7 +19,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
-             	            	
+             	
 		             ]);
 		    }]
 		  }
@@ -32,7 +32,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
              return $ocLazyLoad.load([
 //           	'../js/asset/jquery.min.js',
 //           	'../js/asset/highcharts.js',
-//           	'../js/asset/highcharts-3d.js',
+             	'../js/asset/highcharts-3d.js',
              	'../js/controllers/dashboardController.js'
              	
 		             ]);
@@ -75,6 +75,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
+        
              	'../js/controllers/runtimeController.js',
 		             ]);
 		    }]
@@ -116,7 +117,8 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: "views/dialogue.html",
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
-             return $ocLazyLoad.load([            	
+             return $ocLazyLoad.load([ 
+             
              	'../js/controllers/advisoryController.js'             	
 		             ]);
 		    }]
@@ -128,6 +130,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
+             	
              	'../js/controllers/maintainInfoController.js',            	
 		             ]);
 		    }]
@@ -139,6 +142,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
+             	
              	'../js/controllers/organizationController.js',            	
 		             ]);
 		    }]
@@ -150,6 +154,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
+             	
              	'../js/controllers/boilerController.js',            	
 		             ]);
 		    }]
@@ -161,6 +166,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
+             	
              	'../js/controllers/terminalController.js',            	
 		             ]);
 		    }]
@@ -172,6 +178,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
+             	
              	'../js/controllers/configAlarmController.js',            	
 		             ]);
 		    }]
@@ -183,6 +190,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
+             	
              	'../js/controllers/configParamterController.js',            	
 		             ]);
 		    }]
@@ -194,6 +202,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
+             	
              	'../js/controllers/profileController.js',            	
 		             ]);
 		    }]
@@ -227,6 +236,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
+             
              	'../js/controllers/wikiController.js',            	
 		             ]);
 		    }]

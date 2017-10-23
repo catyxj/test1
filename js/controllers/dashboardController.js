@@ -24,7 +24,9 @@ mainApp.controller("dashboardController",function($scope){
 	        	text: ''
 	        },
 	        xAxis: {
-		        categories: ['D<=1', '1<D<=2', '1<D<=2', '1<D<=2', '1<D<=2']
+		        categories: [
+		        	'D<=1', '1<D<=2', '1<D<=2', '1<D<=2', '1<D<=2'
+		        ]
 		    },
 		    yAxis: {
 		        title: {
