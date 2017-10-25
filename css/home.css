@@ -72,10 +72,10 @@ ul,li{
 
 /*modal*/
 
-#login .modal-body{	
+.modal-body{	
 	padding: 30px;
 }
-#login .modal-body h5{
+.modal-body h5{
 	font-size: 26px;	
 }
 
@@ -109,7 +109,7 @@ ul,li{
 	display: block;
 	width: 120px;
 	margin: auto;
-	margin-top: 20px;
+	margin-top: 30px;
 	padding-top: 8px;
 	padding-bottom: 8px;
 	border: 1px solid #FFFFFF;
@@ -117,8 +117,10 @@ ul,li{
 }
 .banner .item .carousel-caption a:hover{
 	background-color: #FFFFFF;
-	color: #007FBB;
+	color: #2B3643;
 	text-decoration: none;
+	text-shadow: none;
+	cursor: pointer;
 }
 
 
@@ -237,6 +239,30 @@ ul,li{
 .nav_fo{
 	padding-top: 10px;
 }
+
+.socials{
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+.socials ul li{
+	float: left;
+	margin-right: 10px;
+}
+.socials ul li a{
+	display: block;
+	width: 40px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	background: #1e2226;
+    color: #54606b;
+    font-size: 18px;
+}
+.socials ul li a:hover{
+	background: #122B40;
+    color: #E5E5E5;
+}
+
 .address_fo li{
 	font-size: 16px;
 	line-height: 30px;
