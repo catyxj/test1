@@ -19,10 +19,15 @@ ul,li{
 	margin-bottom: 0;
 	line-height: 90px;
 }
-.navbar-brand{
+.header2 .navbar{
+	line-height: 68px;
+	box-shadow: 1px 0px 5px #CCCCCC;
+}
+
+.header .logo{
 	height: auto;
 }
-.navbar-brand img{
+.header .logo img{
 	width: 180px;
 }
 
@@ -30,10 +35,22 @@ ul,li{
 	.navbar-nav>li>a {
 		padding-top: 0;
 		padding-bottom: 0;
-	    line-height: 90px;
+	    line-height: 30px;
 	}
 }
+.header .nav li{
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
 .header .nav li a{
+	color: #333333;
+	font-weight: bold;	
+}
+.header2 .nav li{
+	padding-top: 19px;
+	padding-bottom: 19px;
+}
+.header2 .nav li a{
 	color: #333333;
 	font-weight: bold;
 }
@@ -42,6 +59,7 @@ ul,li{
 	color: #007FBB;
 }
 .header .collapse .btn{
+	height: 30px;
 	padding-left: 20px;
 	padding-right: 20px;
 }

@@ -10,11 +10,30 @@
 		<link rel="stylesheet" type="text/css" href="../css/home.css"/>
 		<script src="../js/asset/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/asset/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../js/asset/wow.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/asset/wow.js" type="text/javascript" charset="utf-8"></script>		
+		<!--<script type="text/javascript">
+			$(document).ready(function(){
+			  $(window).click(function(){
+			    $("p").hide();
+			  });
+			});
+		</script>-->
+		<script type="text/javascript">
+		    $(document).ready(function() {
+		        $(window).scroll(function(){
+		            var totop=$(document).scrollTop();
+		            if(totop>=90){
+		            	$("#header").addClass("header2");
+		            }else{
+		            	$("#header").removeClass("header2");
+		            }
+		        });
+		    });
+		</script>
 	</head>
 	<body>
 		
-		<div class="header">
+		<div class="header" id="header">
 			<nav class="navbar navbar-fixed-top">
 			  <div class="container">
 			    <!-- Brand and toggle get grouped for better mobile display -->
@@ -26,7 +45,7 @@
 			        <span class="icon-bar"></span>
 			      </button>
 			      
-			      <a class="navbar-brand" href="#">
+			      <a class="logo" href="#">
 			      	<img src="../images/normal-lu.png"/>
 			      </a>
 			    </div>
@@ -36,10 +55,10 @@
 			      <ul class="nav navbar-nav navbar-right">
 			        <li><a href="#">主页</a></li>
 			        <li class="">
-			          <button class="btn btn-default btn_round" data-toggle="modal" data-target="#login"> 
+			          <a class="btn btn-default btn_round" data-toggle="modal" data-target="#login"> 
 			          	<i class="fa fa-user-o"></i> &nbsp;
 			          	 登录
-			          </button>         
+			          </a>         
 			        </li>
 			      </ul>
 			    </div><!-- /.navbar-collapse -->
@@ -195,7 +214,7 @@
 						<p class="">
 							采用机器学习和人工智能的方式，对数据进行多次挖掘拟合，从数据中了解当前存在的问题，并逐步推演解决方案。
 						</p>
-					</div>					
+					</div>	
 				</div>				
 			</div>
 			
@@ -303,9 +322,7 @@
 		
 
 		<script type="text/javascript">
-			new WOW().init();			
-			
-			
+			new WOW().init();				
 		</script>		
 	</body>				
 </html>
