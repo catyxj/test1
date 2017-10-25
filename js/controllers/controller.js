@@ -67,11 +67,6 @@ mainApp.controller("DatepickerDemoCtrl", ["$scope", function($scope){
 
 
 
-//mainApp.controller("maintainController",function($scope){
-//	$scope.maintain = [];
-//	$scope.selectedPageSize($scope.maintain,6);
-//})
-
 
 mainApp.controller("alarmInfoController",function($scope,alarmData,$state,$uibModal){
 	$scope.alarmInfo = alarmData ;
@@ -101,7 +96,7 @@ mainApp.controller("alarmInfoController",function($scope,alarmData,$state,$uibMo
 	
 	$scope.openModal = function(data) {
                 var modalInstance = $uibModal.open({
-                    templateUrl : 'views/monitor/modal-alarm.html',//script标签中定义的id
+                    templateUrl : 'views/runtime/modal-alarm.html',//script标签中定义的id
                     controller : 'alarmModalCtrl',//modal对应的Controller
                     size: 'lg', //大小配置 
                     resolve : {

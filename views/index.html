@@ -3,7 +3,309 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/font-awesome-4.7.0/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/animate.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/global.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/home.css"/>
+		<script src="../js/asset/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/asset/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/asset/wow.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
-	</body>
+		
+		<div class="header">
+			<nav class="navbar navbar-fixed-top">
+			  <div class="container">
+			    <!-- Brand and toggle get grouped for better mobile display -->
+			    <div class="navbar-header">
+			      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </button>
+			      
+			      <a class="navbar-brand" href="#">
+			      	<img src="../images/normal-lu.png"/>
+			      </a>
+			    </div>
+			
+			    <!-- Collect the nav links, forms, and other content for toggling -->
+			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">            
+			      <ul class="nav navbar-nav navbar-right">
+			        <li><a href="#">主页</a></li>
+			        <li class="">
+			          <button class="btn btn-default btn_round" data-toggle="modal" data-target="#login"> 
+			          	<i class="fa fa-user-o"></i> &nbsp;
+			          	 登录
+			          </button>         
+			        </li>
+			      </ul>
+			    </div><!-- /.navbar-collapse -->
+			  </div><!-- /.container -->
+			</nav>
+		</div>
+		
+		
+		<!-- Modal -->
+		<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" style="width: 460px;" role="document">
+		    <div class="modal-content">
+		      <!--<div class="modal-header">
+		        
+		        <h4 class="modal-title" id="myModalLabel">用户登录</h4>
+		      </div>-->
+		      <div class="modal-body">
+		      	<div class="">
+		      		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
+		      	</div>
+		        <div class="">
+		        	<h5>用户登录</h5>
+		        	<p>欢迎回来，请填写你的用户名和密码进行登录。</p>		   
+		        </div>
+		        <div class="pb-md">
+		        	<form action="" method="post">
+		        		<div class="input-group-lg mt-lg">
+		        			<input type="text" class="form-control" placeholder="用户名"/>
+		        		</div>
+		        		<div class="input-group-lg mt-lg">
+		        			<input type="text" class="form-control" placeholder="密码"/>
+		        		</div>
+		        		<input class="btn btn-info btn-lg mt-lg" style="width: 120px;" type="button" value="登录"/>
+		        	</form>
+		        </div>
+		        <div class="pb-lg mt-lg">
+		        	<div class="text-center" style="font-size: 20px;">
+		        		第三方平台登录
+		        	</div>
+		        	<a class="btn btn-success mt-lg" style="width: 100%;" href="">
+		        		<i class="fa fa-weixin"></i>
+		        		微信
+		        	</a>
+		        </div>
+		        <div class="mt-lg clearfix">
+		        	<span class="pull-left">
+		        		还没有账户？
+		        	</span>
+		        	<a href="" class="btn btn-default pull-right">立即注册</a>
+		        	
+		        </div>
+		      </div>
+		      <!--<div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-primary">Save changes</button>
+		      </div>-->
+		    </div>
+		  </div>
+		</div>
+		
+		
+		<!--banner-->
+		<div class="banner">
+			<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+			  <!-- Indicators -->
+			  <ol class="carousel-indicators">
+			    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+			    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+			    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+			  </ol>
+			
+			  <!-- Wrapper for slides -->
+			  <div class="carousel-inner" role="listbox">
+			    <div class="item active">
+			      <img src="../images/500358501.jpg" alt="">
+			      <div class="carousel-caption wow bounceIn" data-wow-duration="1.5s">
+			         <div>
+			         	<h6>工业能源</h6>
+			         	<h6>集成管理</h6>
+			         </div>
+			      </div>
+			    </div>
+			    <div class="item">
+			      <img src="../images/240862_banner.jpg" alt="">
+			      <div class="carousel-caption wow zoomIn">
+			       		<div >
+			       			<h6>智能设备</h6>
+			       			<h6>一体化设计</h6>			       			
+			       		</div>
+			      </div>
+			    </div>
+			    <div class="item">
+			      <img src="../images/500302822_banner.jpg" alt="">		      
+			      <div class="carousel-caption wow bounceIn" data-wow-duration="1.5s">
+			        <h6>安全 快速 可靠</h6>
+			        <h6>无限的可能性</h6>
+			        <a class="wow fadeInUpBig">
+			        	马上注册
+			        </a>
+			      </div>
+			    </div>
+			  </div>
+			
+			  <!-- Controls -->
+			  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+			    <!--<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>-->
+			    <i class="fa fa-angle-left fa-4x" aria-hidden="true"></i>
+			    <span class="sr-only">Previous</span>
+			  </a>
+			  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+			    <!--<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>-->
+			    <i class="fa fa-angle-right fa-4x" aria-hidden="true"></i>
+			    <span class="sr-only">Next</span>
+			  </a>
+			</div>
+		</div>
+		
+		
+		
+		<!--main-->
+		<div class="main">
+			<div class="container">
+				<div class="row intro1">
+					<div class="col-md-4 wow fadeInUp">
+						<div class="">
+							 <div class="line_icon icon_screen_chart"></div>
+						</div>
+						<h3 class="">
+							实时监控
+						</h3>
+						<p class="">
+							通过全方位的物联网技术，实时观察和获取工业热机设备的各项运行时参数，随时了解设备的运行情况。
+						</p>
+					</div>
+					<div class="col-md-4 wow fadeInUp" data-wow-delay="0.3s">
+						<div class="">
+							<div class="line_icon icon_support"></div>
+						</div>
+						<h3 class="">
+							能效分析
+						</h3>
+						<p class="">
+							基于大量持续的数据采集，进行设备能耗和效率的详细分析，让数据精细明确、有价值，有产出。
+						</p>
+					</div>
+					<div class="col-md-4 wow fadeInUp" data-wow-delay="0.6s">
+						<div class="">
+							<div class="line_icon icon_bulb"></div>
+						</div>
+						<h3 class="">
+							策略演进
+						</h3>
+						<p class="">
+							采用机器学习和人工智能的方式，对数据进行多次挖掘拟合，从数据中了解当前存在的问题，并逐步推演解决方案。
+						</p>
+					</div>					
+				</div>				
+			</div>
+			
+			
+			
+			<div class="intro2">
+				<div class="container">
+					<div class="intro2_header">
+						<h4>
+						我们的客户
+						</h4>
+						<hr />
+					</div>					
+					<p>
+						<div id="carousel-text" class="carousel slide" data-ride="carousel">
+						  <!-- Indicators -->
+						  <ol class="carousel-indicators">
+						    <li data-target="#carousel-text" data-slide-to="0" class="active"></li>
+						    <li data-target="#carousel-text" data-slide-to="1"></li>						    
+						  </ol>
+						
+						  <!-- Wrapper for slides -->
+						  <div class="carousel-inner" role="listbox">
+						    <div class="item active">						    	
+						      	<div class="carousel-caption">
+						      		<p>
+						      			"通过平台和设备，软硬件同步的改造升级，我们可以为杭州地区的锅炉制造企业和用能企业提供更加完善和精准的监测服务。"
+						      		</p>
+						      		<span>杭州特种设备检测研究院</span>
+						      	</div>
+						    </div>
+						    <div class="item">						    	
+						      	<div class="carousel-caption">
+						       		 <p>
+						       		 	"周到持续的管理，帮助我们节省大量燃料开销，也规避了纯手工操作的风险。"
+						       		 </p>
+						       		 <span>知味观</span>
+						      	</div>
+						    </div>
+						    
+						  </div>
+						
+						  
+						</div>
+					</p>
+				</div>
+				
+			</div>
+			
+		</div>
+		
+		
+		<div class="footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<h5>
+							厚德 能源
+						</h5>
+						<p>
+							厚德能源是一家致力于智能能源管控和节能服务的新型能源公司，采用IoT和云技术，针对目前环境下的工业和用能情况，不断探究更加便捷有效的能源方案。
+						</p>
+						<div class="nav_fo">
+							<ul>
+								<li><a href="">主页</a></li>
+								<li><a href="">关于我们</a></li>
+								<li><a href="">节能平台</a></li>
+								<li><a href="">联系方式</a></li>
+							</ul>
+						</div>
+					</div>
+					
+					<div class="col-md-6">
+						<h5>
+							联系我们
+						</h5>
+						<div class="">
+							
+						</div>
+						<div class="address_fo">
+							<ul>
+								<li>
+									<i class="fa fa-map-marker"></i>
+									浙江省 宁波市
+								</li>
+								<li>
+									<i class="fa fa-phone"></i>
+									 +86-152 5829 1275
+								</li>
+								<li>
+									<i class="fa fa-envelope"></i>
+									contact@holderboiler.com
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				
+				<div class="bottom_fo">
+					2016 © 厚德能源（Holder Boiler） All Rights Reserved.
+				</div>
+			</div>
+			
+		</div>
+		
+
+		<script type="text/javascript">
+			new WOW().init();			
+			
+			
+		</script>		
+	</body>				
 </html>

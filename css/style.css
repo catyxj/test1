@@ -153,6 +153,9 @@ div{
 	display: block;
 	color: #b4bcc8;
 }
+.sidebar a i{
+	color: #606C7D;
+}
 .sidebar a:hover,.sidebar li.active a{
 	background-color: #122B40;
 	text-decoration: none;
