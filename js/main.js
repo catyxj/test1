@@ -4,8 +4,6 @@ var mainApp = angular.module("boiler",[
 	"ui.bootstrap", 
 	"customFilter",
 	"oc.lazyLoad",
-//	"ngSanitize",
-//	"ui.select",
 	]);
 
 mainApp.config(function ($stateProvider, $urlRouterProvider) {
@@ -16,9 +14,11 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
         .state("monitor", {
             url: "/monitor",
             templateUrl: "views/monitor/main.html",
-            resolve: { 
+            controller: "monitorController",
+           resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
+             	'../js/controllers/monitorController.js' ,
              	
 		             ]);
 		    }]
@@ -27,14 +27,12 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
         .state("dashboard", {
             url: "/monitor/dashboard",
             templateUrl: "views/monitor/dashboard.html",
-            resolve: { 
+            data: {pageTitle: "平台总览"}, 
+             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
-//           	'../js/asset/jquery.min.js',
-//           	'../js/asset/highcharts.js',
              	'../js/asset/highcharts-3d.js',
-             	'../js/controllers/dashboardController.js'
-             	
+             	'../js/controllers/dashboardController.js'             	
 		             ]);
 		    }]
 		  }
@@ -42,21 +40,24 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
         .state("monitor.thumb", {
             url:"/thumb",
             templateUrl: "views/monitor/thumb.html",
-            resolve: { 
-    		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
-             return $ocLazyLoad.load([
-             	'../js/controllers/productViewController.js'           	
-		             ]);
-		    }]
-		  }
+            data: {pageTitle: "设备图文"},   
+            
         })
         .state("monitor.list", {
             url:"/list",
             templateUrl: "views/monitor/list.html",
+            data: {pageTitle: "设备列表"},
+            
+        })
+        .state("monitor.map", {
+            url:"/map",
+            templateUrl: "views/monitor/map.html",
+            data: {pageTitle: '设备地图'},
+            controller: "mapController",
             resolve: {
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
-             	'../js/modal.js',            	
+             	          	
 		             ]);
 		    }]
 		  }
@@ -110,7 +111,14 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
         })
         .state("alarm", {
             url: "/alarm",
-            templateUrl: "views/alarm.html"
+            templateUrl: "views/alarm.html",
+            resolve: { 
+    		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+             return $ocLazyLoad.load([
+             	'../js/controllers/alarmController.js',            	
+		             ]);
+		    }]
+		  }
         })
         .state("dialogue", {
             url: "/dialogue",
@@ -282,7 +290,14 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 			model:688888,
 			state:1,
 			fuel:"燃气",
-			evaporation:2
+			evaporation:2,
+			Address: {
+				Location:{
+					LocationName:"浙江省 杭州市 滨江区"
+				},
+				Address:"滨文路32号"
+			} ,
+			
 		},
 		{
 			num:2,
@@ -292,7 +307,14 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 			model:655555,
 			state:0,
 			fuel:"燃气",
-			evaporation:2
+			evaporation:2,
+			Address: {
+				Location:{
+					LocationName:"浙江省 杭州市 滨江区"
+				},
+				Address:"滨文路32号"
+			} ,
+			
 		},
 		{
 			num:3,
@@ -302,7 +324,14 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 			model:33333,
 			state:1,
 			fuel:"燃气",
-			evaporation:2
+			evaporation:2,
+			Address: {
+				Location:{
+					LocationName:"浙江省 杭州市 滨江区"
+				},
+				Address:"滨文路32号"
+			} ,
+			
 		},
 		{
 			num:4,
@@ -312,7 +341,14 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 			model:680092,
 			state:1,
 			fuel:"燃油",
-			evaporation:2
+			evaporation:2,
+			Address: {
+				Location:{
+					LocationName:"浙江省 杭州市 滨江区"
+				},
+				Address:"滨文路32号"
+			} ,
+			
 		},
 		{
 			num:5,
@@ -322,7 +358,14 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 			model:680055,
 			state:1,
 			fuel:"燃气",
-			evaporation:2
+			evaporation:2,
+			Address: {
+				Location:{
+					LocationName:"浙江省 杭州市 滨江区"
+				},
+				Address:"滨文路32号"
+			} ,
+			
 		},
 		{
 			num:6,
@@ -332,7 +375,14 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 			model:688888,
 			state:0,
 			fuel:"燃气",
-			evaporation:2
+			evaporation:2,
+			Address: {
+				Location:{
+					LocationName:"浙江省 杭州市 滨江区"
+				},
+				Address:"滨文路32号"
+			} ,
+			
 		},
 		{
 			num:7,
@@ -342,7 +392,14 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 			model:655555,
 			state:0,
 			fuel:"燃煤",
-			evaporation:2
+			evaporation:2,
+			Address: {
+				Location:{
+					LocationName:"浙江省 杭州市 滨江区"
+				},
+				Address:"滨文路32号"
+			} ,
+			
 		},
 		{
 			num:8,
@@ -352,7 +409,14 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 			model:33333,
 			state:0,
 			fuel:"燃油",
-			evaporation:2
+			evaporation:2,
+			Address: {
+				Location:{
+					LocationName:"浙江省 杭州市 滨江区"
+				},
+				Address:"滨文路32号"
+			} ,
+			
 		},
 		{
 			num:9,
@@ -362,7 +426,14 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 			model:680064,
 			state:1,
 			fuel:"燃气",
-			evaporation:2
+			evaporation:2,
+			Address: {
+				Location:{
+					LocationName:"浙江省 杭州市 滨江区"
+				},
+				Address:"滨文路32号"
+			} ,
+			
 		},
 		{
 			num:10,
@@ -372,7 +443,14 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 			model:680055,
 			state:1,
 			fuel:"燃油",
-			evaporation:2
+			evaporation:2,
+			Address: {
+				Location:{
+					LocationName:"浙江省 杭州市 滨江区"
+				},
+				Address:"滨文路32号"
+			} ,
+			
 		},
 		{
 			num:11,
@@ -382,7 +460,14 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 			model:680055,
 			state:1,
 			fuel:"燃气",
-			evaporation:2
+			evaporation:2,
+			Address: {
+				Location:{
+					LocationName:"浙江省 杭州市 滨江区"
+				},
+				Address:"滨文路32号"
+			} ,
+			
 		},
 		{
 			num:12,
@@ -392,7 +477,14 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 			model:655555,
 			state:0,
 			fuel:"燃气",
-			evaporation:2
+			evaporation:2,
+			Address: {
+				Location:{
+					LocationName:"江苏省 镇江市 丹徒区"
+				},
+				Address:"镇江市丹徒区镇南工业园辛三路15号"
+			} ,
+			
 		},
 		{
 			num:13,
@@ -402,7 +494,14 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 			model:680093,
 			state:1,
 			fuel:"生物质",
-			evaporation:2
+			evaporation:2,
+			Address: {
+				Location:{
+					LocationName:"浙江省 杭州市 滨江区"
+				},
+				Address:"滨文路32号"
+			} ,
+			
 		},
 		{
 			num:14,
@@ -412,7 +511,14 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 			model:680055,
 			state:1,
 			fuel:"燃气",
-			evaporation:2
+			evaporation:2,
+			Address: {
+				Location:{
+					LocationName:"浙江省 杭州市 滨江区"
+				},
+				Address:"滨文路32号"
+			} ,
+			
 		},
 		{
 			num:15,
@@ -422,7 +528,14 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 			model:"DZL4-1.25-AⅡ",
 			state:0,
 			fuel:"燃气",
-			evaporation:2
+			evaporation:2,
+			Address: {
+				Location:{
+					LocationName:"浙江省 杭州市 滨江区"
+				},
+				Address:"滨文路32号"
+			} ,
+			
 		}
 	]
 });
@@ -453,32 +566,55 @@ mainApp.service("advisoryData",function(){
 
 
 mainApp.service("alarmData",function(){
-	return [
-		{
-			num:1,
-			boiler:"5555",
-			monitor:"test",
-			priority:1,
-			time:"2017-09-22 12:43:48",
-			state:1
-		},
-		{
-			num:2,
-			boiler:"dddd",
-			monitor:"test",
-			priority:1,
-			time:"2017-09-22 12:43:48",
-			state:1
-		},
-		{
-			num:3,
-			boiler:"5555",
-			monitor:"test",
-			priority:1,
-			time:"2017-09-22 12:43:48",
-			state:1
-		}
-	]
+	return{
+		datasource:[	
+			{
+				num:1,
+				boiler:"广州伯乐锅炉锅炉#1 ",
+				Enterprise:"",
+				monitor:"热效率",
+				priority:1,
+				StartText:"10/18 09:49",
+				DueText:"7天9时49分",
+				state:"新告警",
+				alarmMode:"current"
+			},
+			{
+				num:2,
+				boiler:"河南远大锅炉有限公司锅炉#3 ",
+				Enterprise:"",
+				monitor:"热效率",
+				priority:2,
+				StartText:"10/20 02:41",
+				DueText:"7天14时17分",
+				state:"新告警",
+				alarmMode:"current"
+			},
+			{
+				num:3,
+				boiler:"680093 ",
+				Enterprise:"赛诺菲制药有限公司",
+				monitor:"test",
+				priority:1,
+				StartText:"10/17 16:55",
+				DueText:"3天2时0分",
+				state:"新告警",
+				alarmMode:"current"
+			},
+			{
+				num:4,
+				boiler:"680093 ",
+				Enterprise:"",
+				monitor:"蒸汽压力",
+				priority:0,
+				StartText:"10/23 13:13",
+				DueText:"3天15时21分",
+				state:"历史告警",
+				alarmMode:"history"
+			}
+		]
+	}
+	
 })
 
 
@@ -513,6 +649,7 @@ mainApp.service("organizationData",function(){
 				},
 				Address:"滨文路32号"
 			} ,
+			Enterprise:"2",
 			type:"默认机构"
 		},
 		{
@@ -524,6 +661,7 @@ mainApp.service("organizationData",function(){
 				},
 				Address:"Test0031"
 			} ,
+			Enterprise:"",
 			type:"默认机构"
 		},
 		{
@@ -535,6 +673,7 @@ mainApp.service("organizationData",function(){
 				},
 				Address:"镇江市丹徒区镇南工业园辛三路15号"
 			} ,
+			Enterprise:"江苏威孚",
 			type:"锅炉制造厂"
 		}
 	]
@@ -746,6 +885,22 @@ mainApp.service("configparamData",function(){
 		
 	}
 });
+
+
+
+
+
+$(document).ready(function(){
+  $(".full_screen").click(function(){
+    $('.full').toggleClass("portlet-fullscreen");
+  });
+});
+
+
+
+
+
+
 
 
 

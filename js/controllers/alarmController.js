@@ -1,83 +1,19 @@
 
 
-
-
-mainApp.controller("tabController",function($scope){
-	
-})
-
-
-
-mainApp.controller("DatepickerDemoCtrl", ["$scope", function($scope){
-  
- // grab today and inject into field
- 
-    $scope.startTime = new Date();
-    $scope.endTime = new Date();
-  	$scope.format = "yyyy-MM-dd";
-
-
-	$scope.altInputFormats = ['yyyy/M!/d!'];
-	
-	  $scope.popup1 = {
-	  	opened: false
-	  };
-	  $scope.popup2 = {
-	  	opened: false
-	  };
-  
-
-  // open min-cal
-	$scope.startopen = function($event) {
-	  	$event.preventDefault();
-   		 $event.stopPropagation();
-	  	$scope.popup1.opened = true;
-	  };
-  $scope.endopen = function($event) {
-    $event.preventDefault();
-    $event.stopPropagation();
-    $scope.popup2.opened = true;
-  };
-  
-  
-
-}]);
-
-
-
-
-
-
-
-
-
-
-
- mainApp.controller("productList",function($scope,productData,$filter){
-
-//	$scope.selectedPageSize(productData,6);
-	
-	$scope.productData = productData;	
-//	$scope.totalItems = $scope.productData.length;
+mainApp.controller("alarmInfoController",function($scope,alarmData,$state,$uibModal){	
+	$scope.alarm = alarmData ;	
 	$scope.pageSize = 10;
-	
-})
-
-
-
-
-
-
-mainApp.controller("alarmInfoController",function($scope,alarmData,$state,$uibModal){
-	$scope.alarmInfo = alarmData ;
-//	$scope.selectedPageSize($scope.alarmInfo,6);
-	$scope.pageSize = 10;
-	$scope.totalItems = $scope.alarmInfo.length;
+//	$scope.totalItems = $scope.alarmInfo.length;
 	$scope.alarmMode = "current";
 	$scope.setAlarm = function(m){
 		$scope.alarmMode = m;
 	};
 	
+	$scope.alarm.priorityIcons = {
+        0: [0],
+        1: [0, 1],
+        2: [0, 1, 2]
+    };
 	
 	$scope.removeData = function(id){
 		for(var i = 0; i < $scope.alarmInfo.length; i++){
@@ -109,6 +45,11 @@ mainApp.controller("alarmInfoController",function($scope,alarmData,$state,$uibMo
             }
 	
 	
+	
+
+	
+	
+	
 })
 
 
@@ -123,8 +64,20 @@ mainApp.controller('alarmModalCtrl', function($scope, $uibModalInstance, data) {
           };
           $scope.cancel = function() {
               $uibModalInstance.dismiss('cancel');
-          }
+          };
+          
+          
+    
+    
+    
+    	
+    
+    
+    
+                        
+          
     });
-
+    
+    
 
 

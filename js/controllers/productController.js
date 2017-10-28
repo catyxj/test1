@@ -20,6 +20,7 @@ mainApp.controller("productController",function($scope,productData, $filter,$sta
 	};
 	
 	
+	
 
 	var selectedModel = null;
 	var selectedFuel = null;
@@ -52,21 +53,7 @@ mainApp.controller("productController",function($scope,productData, $filter,$sta
 	$scope.selectPage = function(newPage){
 		$scope.selectedpage = newPage;
 	}
-//	$scope.pageIndex = function(){
-//		$scope.selectedpage = 1;
-//	}
-//	$scope.pagePre = function(){
-//		$scope.selectPage($scope.selectedpage - 1);
-//	};
-//	
-//	$scope.pageNext = function () {
-//		$scope.selectPage($scope.selectedpage + 1);
-//	};
-	
-//	$scope.p_last = function(){
-//		$scope.selectPage($scope.pages);
-//	};
-//	
+
 	
 	$scope.modelFilterFn = function(product){
 		return selectedModel == null ||
@@ -98,8 +85,51 @@ mainApp.controller("productController",function($scope,productData, $filter,$sta
      
     
 
+	var pageState=false;
 
 })
+
+
+
+
+
+
+
+mainApp.controller("DatepickerDemoCtrl", ["$scope", function($scope){
+  
+ // grab today and inject into field
+ 
+    $scope.startTime = new Date();
+    $scope.endTime = new Date();
+  	$scope.format = "yyyy-MM-dd";
+
+
+	$scope.altInputFormats = ['yyyy/M!/d!'];
+	
+	  $scope.popup1 = {
+	  	opened: false
+	  };
+	  $scope.popup2 = {
+	  	opened: false
+	  };
+  
+
+  // open min-cal
+	$scope.startopen = function($event) {
+	  	$event.preventDefault();
+   		 $event.stopPropagation();
+	  	$scope.popup1.opened = true;
+	  };
+  $scope.endopen = function($event) {
+    $event.preventDefault();
+    $event.stopPropagation();
+    $scope.popup2.opened = true;
+  };
+  
+  
+
+}]);
+
 
 
 

@@ -6,19 +6,22 @@
 					<div class="float_left view_title">
 						<a ui-sref="runtime.dashboard" href="">
 							<i class="fa fa-database fa-lg"></i>
-							<span>{{data.model}} </span>
+							<span>{{data.name}} </span>
 						</a>
 						
 						<div class="inline">
-							<a href="" ng-click="openModal(data)">测算</a>
+							<a href="" ng-click="openModal(data)">
+								<i class="fa fa-wrench"></i>
+								测算
+							</a>
 						</div>
 												
 					</div>
 
 					<div class="float_right">
-						<button type="button" ng-class="{'btn-danger':data.state==1, 'btn-info':data.state==0,}" class="btn btn-sm ">终端状态</button>
-						<button type="button" ng-class="{'btn-danger':data.state==1, 'btn-info':data.state==0,}" class="btn btn-sm">燃烧状态</button>
-						<button type="button" class="btn btn-warning btn-sm">告警</button>
+						<button type="button" ng-class="{'btn-danger':data.state==1, 'btn-info':data.state==0,}" class="btn btn-sm btn_round btn_bc">终端状态</button>
+						<button type="button" ng-class="{'btn-danger':data.state==1, 'btn-info':data.state==0,}" class="btn btn-sm btn_round btn_bc">燃烧状态</button>
+						<button type="button" class="btn btn-warning btn-sm btn_round btn_bc">告警</button>
 					</div>
 				</div>
 

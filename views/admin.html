@@ -1,26 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="boiler">
 	<head>
 		<meta charset="utf-8" />
-		<title>Holder Boiler</title>
+		<title>Holder Boiler </title> 
 		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/font-awesome-4.7.0/css/font-awesome.min.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/global.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
 		<script src="../js/asset/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/asset/angular.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../js/asset/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/asset/ui-bootstrap-tpls-2.5.0.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/asset/angular-ui-router.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../js/asset/ocLazyLoad.min.js" type="text/javascript" charset="utf-8"></script>		
+		<script src="../js/asset/ocLazyLoad.min.js" type="text/javascript" charset="utf-8"></script>	
 		<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/filters/customFilter.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/directives/directives.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/controllers/productController.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../js/controllers/controller.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/asset/highcharts.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://api.map.baidu.com/api?v=2.0&ak=bDCh2N15YYodpt1wns4YPC7XFynjDx60" type="text/javascript"></script>
 	</head>
-	<body ng-app="boiler">
+	<body>
 		
 		<div  class="">
 			<!--header-->
@@ -42,17 +41,15 @@
 												
 					</div>
 					
-					<div class="col-xs-12 col-sm-3 col-md-2 credit">
-						<img src="../images/lu.png"/>
-					</div>
+					
 					
 					
 					
 					
 					<!--main-->
-					<div class="data_display col-xs-12 col-sm-9 col-md-10" ng-controller="productController">																		
-						<div class="" >														
-							<div ui-view></div>						
+					<div class="" ng-controller="productController">																		
+						<div >														
+							<div ui-view class="data_display col-xs-12 col-sm-9 col-md-10 animated fadeInUp"></div>						
 						</div>										
 					</div>
 					

@@ -15,7 +15,7 @@
 
 
 <div class="select_container">
-	<div class="row mt-md">
+	<div class="row">
 		<div class="col-md-6 pl_n pr-lg">
 			<div class="col-md-8 pr-md select_address">
 				<div class="col-md-4">
@@ -33,23 +33,27 @@
 						<option value="">区</option>
 					</select>
 				</div>
-			</div>			              
+			</div>	
+			
+			<div class="col-md-4">
+				停燃
+				<label class="switch switch-lg">
+			        <input type="checkbox" checked />
+			       <span></span>
+			    </label>
+		          燃烧
+			</div>
 		</div>
 		
 		
 		<div class="col-md-6">
-			<!--停燃
-			<label class="switch switch-lg">
-		        <input type="checkbox" checked="checked">
-		       <span></span>
-		    </label>
-	          燃烧-->
+			
 	          <input type="text" class="form-control"  name="" id="" value="" />
 	          
 		</div>		
 	</div>
 	
-	<div class="row mt-md">
+	<div class="row">
 		<div class="col-md-6">
 			<div class="col-md-4 pl_n pr-md">
 				<select  class="form-control"
@@ -57,6 +61,7 @@
 					<option selected="selected" value="">企业不限</option>			
 				</select>
 			</div>
+									
 			
 			<div class="col-md-4 pl_n pr-md">
 				<select class="form-control"
@@ -84,44 +89,42 @@
             </ui-select>-->
 		</div>
 	</div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 </div>
 
-<div ng-controller="tabController" class="main_console tabtable-line">
-	<ul class="nav nav-tabs">
-		<li ui-sref-active="active" ng-class="{active:isActiveTag(monitor.thumb)}">
-			<a href="" ui-sref=".thumb">
-				<i class="fa fa-image"></i>
-				图文模式
-			</a>
-		</li>
-		<li ui-sref-active="active" ng-class="{active:isActiveTag(monitor.list)}">
-			<a href="" ui-sref=".list">
-				<i class="fa fa-list"></i>
-				列表模式
-			</a>
-		</li>
 
-	</ul>
+
+<div class="main_console tabtable-line">
+	<div class="tab_head">
+		<ul class="nav nav-tabs">
+			<li ui-sref-active="active" ng-class="{active:isActiveTag(monitor.thumb)}">
+				<a href="" ui-sref=".thumb">
+					<i class="fa fa-image"></i>
+					图文模式
+				</a>
+			</li>
+			<li ui-sref-active="active" ng-class="{active:isActiveTag(monitor.list)}">
+				<a href="" ui-sref=".list">
+					<i class="fa fa-list"></i>
+					列表模式
+				</a>
+			</li>
+			<li ui-sref-active="active" ng-class="{active:isActiveTag(monitor.map)}">
+				<a href="" ui-sref=".map">
+					<i class="fa fa-map"></i>
+					地图模式
+				</a>
+			</li>
+		</ul>
+	</div>
+	
+	
 	<div class="tab-content">
-
 		<div class="">
 			<div ui-view=""></div>
-		</div>
-
-		
+		</div>		
 	</div>
 </div>
 
 </div>
+
