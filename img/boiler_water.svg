@@ -93,13 +93,13 @@
             <stop  offset="100%" stop-color="#000000"/>
         </linearGradient>
 
-        <image id="Image_image_24" x="0" y="0" width="80" height="227" xlink:href="/img/water/Image_image_24.png"/>
+        <image id="Image_image_24" x="0" y="0" width="80" height="227" xlink:href="../img/water/Image_image_24.png"/>
 
-        <image id="Image_image_25" x="0" y="0" width="131" height="129" xlink:href="/img/water/Image_image_25.png"/>
+        <image id="Image_image_25" x="0" y="0" width="131" height="129" xlink:href="../img/water/Image_image_25.png"/>
 
-        <image id="Image_image_26" x="0" y="0" width="80" height="227" xlink:href="/img/water/Image_image_26.png"/>
+        <image id="Image_image_26" x="0" y="0" width="80" height="227" xlink:href="../img/water/Image_image_26.png"/>
 
-        <image id="boiler_body" x="0" y="0" width="800" height="488" xlink:href="/img/module/boiler_water_body.svg"/>
+        <image id="boiler_body" x="0" y="0" width="800" height="488" xlink:href="../img/module/boiler_water_body.svg"/>
 
         <pattern id="Pattern_1" patternUnits="userSpaceOnUse" patternTransform="matrix( 0.5124969482421875, 0, 0, 0.4409332275390625, 632.9,-519.4) " width="80" height="227">
             <use xlink:href="#Image_image_24"/>

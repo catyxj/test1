@@ -93,37 +93,37 @@
             <stop  offset="100%" stop-color="#000000"/>
         </linearGradient>
 
-        <image id="boiler_body" x="0" y="0" width="800" height="480" xlink:href="/img/module/boiler_gas_body.svg"/>
+        <image id="boiler_body" x="0" y="0" width="800" height="480" xlink:href="../img/module/boiler_gas_body.svg"/>
 
-        <image id="sensor" x="-50" y="-50" width="100" height="100" xlink:href="/img/module/sensor.svg"/>
+        <image id="sensor" x="-50" y="-50" width="100" height="100" xlink:href="../img/module/sensor.svg"/>
 
-        <image id="valve" x="-50" y="-50" width="100" height="100" xlink:href="/img/module/valve.svg"/>
+        <image id="valve" x="-50" y="-50" width="100" height="100" xlink:href="../img/module/valve.svg"/>
 
-        <image id="water_tank" x="-100" y="-100" width="200" height="200" xlink:href="/img/module/water_tank.svg"/>
+        <image id="water_tank" x="-100" y="-100" width="200" height="200" xlink:href="../img/module/water_tank.svg"/>
 
-        <image id="Image_image_74" x="0" y="0" width="80" height="227" xlink:href="/img/images/Image_image_74.png"/>
+        <image id="Image_image_74" x="0" y="0" width="80" height="227" xlink:href="../img/images/Image_image_74.png"/>
 
-        <image id="Image_image_75" x="0" y="0" width="131" height="129" xlink:href="/img/images/Image_image_75.png"/>
+        <image id="Image_image_75" x="0" y="0" width="131" height="129" xlink:href="../img/images/Image_image_75.png"/>
 
-        <image id="Image_image_336" x="0" y="0" width="147" height="64" xlink:href="/img/images/Image_image_336.png"/>
+        <image id="Image_image_336" x="0" y="0" width="147" height="64" xlink:href="../img/images/Image_image_336.png"/>
 
-        <image id="Image_image_72" x="0" y="0" width="80" height="228" xlink:href="/img/images/Image_image_72.png"/>
+        <image id="Image_image_72" x="0" y="0" width="80" height="228" xlink:href="../img/images/Image_image_72.png"/>
 
-        <image id="Image_image_73" x="0" y="0" width="132" height="131" xlink:href="/img/images/Image_image_73.png"/>
+        <image id="Image_image_73" x="0" y="0" width="132" height="131" xlink:href="../img/images/Image_image_73.png"/>
 
-        <image id="Image_image_341" x="0" y="0" width="147" height="64" xlink:href="/img/images/Image_image_341.png"/>
+        <image id="Image_image_341" x="0" y="0" width="147" height="64" xlink:href="../img/images/Image_image_341.png"/>
 
-        <image id="Image_image_350" x="0" y="0" width="132" height="79" xlink:href="/img/images/Image_image_350.png"/>
+        <image id="Image_image_350" x="0" y="0" width="132" height="79" xlink:href="../img/images/Image_image_350.png"/>
 
-        <image id="Image_image_83" x="0" y="0" width="80" height="228" xlink:href="/img/images/Image_image_83.png"/>
+        <image id="Image_image_83" x="0" y="0" width="80" height="228" xlink:href="../img/images/Image_image_83.png"/>
 
-        <image id="Image_image_82" x="0" y="0" width="132" height="131" xlink:href="/img/images/Image_image_82.png"/>
+        <image id="Image_image_82" x="0" y="0" width="132" height="131" xlink:href="../img/images/Image_image_82.png"/>
 
-        <image id="Image_image_354" x="0" y="0" width="400" height="490" xlink:href="/img/images/Image_image_354.png"/>
+        <image id="Image_image_354" x="0" y="0" width="400" height="490" xlink:href="../img/images/Image_image_354.png"/>
 
-        <image id="Image_image_356" x="0" y="0" width="125" height="64" xlink:href="/img/images/Image_image_356.png"/>
+        <image id="Image_image_356" x="0" y="0" width="125" height="64" xlink:href="../img/images/Image_image_356.png"/>
 
-        <image id="Image_image_85" x="0" y="0" width="80" height="227" xlink:href="/img/images/Image_image_85.png"/>
+        <image id="Image_image_85" x="0" y="0" width="80" height="227" xlink:href="../img/images/Image_image_85.png"/>
 
         <pattern id="Pattern_3" patternUnits="userSpaceOnUse" patternTransform="matrix( 0.449951171875, 0, 0, 0.6201324462890625, 877.5,187.8) " width="80" height="227">
             <use xlink:href="#Image_image_74"/>

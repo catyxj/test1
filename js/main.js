@@ -347,7 +347,7 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 			isBurning:1,
 			Fuel:{
 				Type:{
-					Id:2,
+					Id:3,
 					name:"燃气",
 				}
 			},
@@ -375,7 +375,7 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 			isBurning:1,
 			Fuel:{
 				Type:{
-					Id:2,
+					Id:3,
 					name:"燃气",
 				}
 			},
@@ -403,7 +403,7 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 			isBurning:1,
 			Fuel:{
 				Type:{
-					Id:2,
+					Id:3,
 					name:"燃气",
 				}
 			},
@@ -431,7 +431,7 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 			isBurning:1,
 			Fuel:{
 				Type:{
-					Id:2,
+					Id:3,
 					name:"燃气",
 				}
 			},
@@ -459,7 +459,7 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 			isBurning:1,
 			Fuel:{
 				Type:{
-					Id:2,
+					Id:3,
 					name:"燃气",
 				}
 			},
@@ -487,7 +487,7 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 			isBurning:1,
 			Fuel:{
 				Type:{
-					Id:2,
+					Id:3,
 					name:"燃气",
 				}
 			},
@@ -515,7 +515,7 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 			isBurning:1,
 			Fuel:{
 				Type:{
-					Id:2,
+					Id:3,
 					name:"燃气",
 				}
 			},

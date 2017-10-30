@@ -28,8 +28,8 @@ mainApp.directive('boilerModule', function () {
 //      bModule.boiler = $rootScope.boiler;
 //      bModule.instants = $rootScope.instants;
 
-		bModule.boiler = productData[0];
-		
+		bModule.boiler = productData[1];
+		bModule.instants = [];
 		
         // console.error("Runtime initModule!", bModule.instants);
         var module = d3.select("#boiler_module");
