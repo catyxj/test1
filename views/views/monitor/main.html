@@ -72,7 +72,7 @@
 			
 			<div class="col-md-4 pl_n pr_n">
 				<select class="form-control"
-					 ng-model="selectedFuel" ng-change="selectFuel(selectedFuel)" ng-options="item for item in productData | orderBy:'fuel' | unique:'fuel'">
+					 ng-model="selectedFuel" ng-change="selectFuel(selectedFuel)" ng-options="item for item in productData | orderBy:'Fuel.Type.name' | unique:'Fuel.Type.name'">
 					<option selected="selected" value="">燃料不限</option>		
 				</select>
 			</div>

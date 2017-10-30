@@ -21,7 +21,7 @@
                     </div>
                     <span class="font-grey-gallery" style="font-size: 11px;">{{ boiler.Address ? boiler.Address.Location.LocationName + ' ' + boiler.Address.Address : '-' }}</span> <br>
                     <span class="label label-ent label-sm label-default"
-                          ng-style="{'font-size': (boiler.Enterprise.length >= 14 ? '9px' : '10px')}">{{ boiler.Enterprise}}</span>
+                          ng-style="{'font-size': (boiler.Enterprise.Name.length >= 14 ? '9px' : '10px')}">{{ boiler.Enterprise.Name}}</span>
                 </td>
             </tr>
             </tbody>

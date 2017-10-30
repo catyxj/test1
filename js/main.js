@@ -4,6 +4,7 @@ var mainApp = angular.module("boiler",[
 	"ui.bootstrap", 
 	"customFilter",
 	"oc.lazyLoad",
+	"angularMoment",
 	]);
 
 mainApp.config(function ($stateProvider, $urlRouterProvider) {
@@ -68,7 +69,15 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
         })
         .state("runtime.dashboard", {
             url:"/animation",
-            templateUrl: "views/runtime/dashboard.html"
+            templateUrl: "views/runtime/dashboard.html",
+            resolve: { 
+    		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+             return $ocLazyLoad.load([
+        
+             	'../js/directives/boiler_module.js',
+		             ]);
+		    }]
+		  }
         })
         .state("runtime.runtimedata", {
             url:"/runtimedata",
@@ -96,7 +105,14 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
         })
         .state("runtime.alarm", {
             url:"/alarm",
-            templateUrl: "views/runtime/alarm.html"
+            templateUrl: "views/runtime/alarm.html",
+            resolve: { 
+    		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+             return $ocLazyLoad.load([
+             	'../js/controllers/alarmController.js',            	
+		             ]);
+		    }]
+		  }
         })
         .state("runtime.maintain", {
             url:"/maintain",
@@ -284,12 +300,12 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 	return[
 		{
 			num:1,
+			Uid:1,
 			name:"680064",
 			company:"东莞天鹿锅炉有限公司",
 			registrationCode:688888,
 			model:688888,
 			state:1,
-			fuel:"燃气",
 			evaporation:2,
 			Address: {
 				Location:{
@@ -297,246 +313,216 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 				},
 				Address:"滨文路32号"
 			} ,
+			Enterprise:{
+				Name:"东莞天鹿锅炉有限公司",
+			},
+			isBurning:0,
+			Fuel:{
+				Type:{
+					Id:1,
+					name:"燃油",
+				}
+			},
+			alarmLevel:1,
 			
 		},
 		{
 			num:2,
+			Uid:2,
 			name:"680055",
 			company:"青岛胜利锅炉有限公司",
-			registrationCode:55555,
-			model:655555,
+			registrationCode:680055,
+			model:680055,
 			state:0,
-			fuel:"燃气",
 			evaporation:2,
 			Address: {
 				Location:{
-					LocationName:"浙江省 杭州市 滨江区"
+					LocationName:"山东省 临沂市 兰山区	"
 				},
-				Address:"滨文路32号"
+				Address:"山东省临沂市兰山区枣园镇永安路55号"
 			} ,
+			Enterprise:{
+				Name:"青岛胜利锅炉有限公司",
+			},
+			isBurning:1,
+			Fuel:{
+				Type:{
+					Id:2,
+					name:"燃气",
+				}
+			},
+			alarmLevel:2,
 			
 		},
 		{
 			num:3,
-			name:"锅炉3",
-			company:"锅炉制造厂测试3",
-			registrationCode:33333,
-			model:33333,
-			state:1,
-			fuel:"燃气",
-			evaporation:2,
-			Address: {
-				Location:{
-					LocationName:"浙江省 杭州市 滨江区"
-				},
-				Address:"滨文路32号"
-			} ,
-			
-		},
-		{
-			num:4,
+			Uid:3,
 			name:"680092",
 			company:"广州特种承压设备检测研究院",
 			registrationCode:680092,
 			model:680092,
-			state:1,
-			fuel:"燃油",
+			state:0,
 			evaporation:2,
 			Address: {
 				Location:{
-					LocationName:"浙江省 杭州市 滨江区"
+					LocationName:"广东省 东莞市"
 				},
-				Address:"滨文路32号"
+				Address:"东莞市莞城鸿裕一街1幢3楼10号"
 			} ,
+			Enterprise:{
+				Name:"广州特种承压设备检测研究院",
+			},
+			isBurning:1,
+			Fuel:{
+				Type:{
+					Id:2,
+					name:"燃气",
+				}
+			},
+			alarmLevel:2,
+			
+		},
+		{
+			num:4,
+			Uid:4,
+			name:"680100 ",
+			company:"长宏南雁锅炉01",
+			registrationCode:680100 ,
+			model:680100 ,
+			state:1,
+			evaporation:2,
+			Address: {
+				Location:{
+					LocationName:"湖南省 衡阳市 雁峰区"
+				},
+				Address:"湖南省衡阳市白沙洲工业园区工业大道3号"
+			} ,
+			Enterprise:{
+				Name:"长宏南雁锅炉01",
+			},
+			isBurning:1,
+			Fuel:{
+				Type:{
+					Id:2,
+					name:"燃气",
+				}
+			},
+			alarmLevel:2,
 			
 		},
 		{
 			num:5,
-			name:"锅炉5",
-			company:"锅炉制造厂测试8",
-			registrationCode:22222,
+			Uid:5,
+			name:"680055",
+			company:"青岛胜利锅炉有限公司",
+			registrationCode:680055,
 			model:680055,
-			state:1,
-			fuel:"燃气",
+			state:0,
 			evaporation:2,
 			Address: {
 				Location:{
-					LocationName:"浙江省 杭州市 滨江区"
+					LocationName:"山东省 临沂市 兰山区	"
 				},
-				Address:"滨文路32号"
+				Address:"山东省临沂市兰山区枣园镇永安路55号"
 			} ,
+			Enterprise:{
+				Name:"青岛胜利锅炉有限公司",
+			},
+			isBurning:1,
+			Fuel:{
+				Type:{
+					Id:2,
+					name:"燃气",
+				}
+			},
+			alarmLevel:2,
 			
 		},
 		{
 			num:6,
-			name:"锅炉1",
-			company:"锅炉制造厂测试",
-			registrationCode:688888,
-			model:688888,
+			Uid:6,
+			name:"680092",
+			company:"广州特种承压设备检测研究院",
+			registrationCode:680092,
+			model:680092,
 			state:0,
-			fuel:"燃气",
 			evaporation:2,
 			Address: {
 				Location:{
-					LocationName:"浙江省 杭州市 滨江区"
+					LocationName:"广东省 东莞市"
 				},
-				Address:"滨文路32号"
+				Address:"东莞市莞城鸿裕一街1幢3楼10号"
 			} ,
+			Enterprise:{
+				Name:"广州特种承压设备检测研究院",
+			},
+			isBurning:1,
+			Fuel:{
+				Type:{
+					Id:2,
+					name:"燃气",
+				}
+			},
+			alarmLevel:2,
 			
 		},
 		{
 			num:7,
-			name:"锅炉2",
-			company:"锅炉制造厂",
-			registrationCode:55555,
-			model:655555,
+			Uid:7,
+			name:"680055",
+			company:"青岛胜利锅炉有限公司",
+			registrationCode:680055,
+			model:680055,
 			state:0,
-			fuel:"燃煤",
 			evaporation:2,
 			Address: {
 				Location:{
-					LocationName:"浙江省 杭州市 滨江区"
+					LocationName:"山东省 临沂市 兰山区	"
 				},
-				Address:"滨文路32号"
+				Address:"山东省临沂市兰山区枣园镇永安路55号"
 			} ,
+			Enterprise:{
+				Name:"青岛胜利锅炉有限公司",
+			},
+			isBurning:1,
+			Fuel:{
+				Type:{
+					Id:2,
+					name:"燃气",
+				}
+			},
+			alarmLevel:2,
 			
 		},
 		{
 			num:8,
-			name:"锅炉3",
-			company:"锅炉制造厂测试3",
-			registrationCode:33333,
-			model:33333,
+			Uid:8,
+			name:"680092",
+			company:"广州特种承压设备检测研究院",
+			registrationCode:680092,
+			model:680092,
 			state:0,
-			fuel:"燃油",
 			evaporation:2,
 			Address: {
 				Location:{
-					LocationName:"浙江省 杭州市 滨江区"
+					LocationName:"广东省 东莞市"
 				},
-				Address:"滨文路32号"
+				Address:"东莞市莞城鸿裕一街1幢3楼10号"
 			} ,
+			Enterprise:{
+				Name:"广州特种承压设备检测研究院",
+			},
+			isBurning:1,
+			Fuel:{
+				Type:{
+					Id:2,
+					name:"燃气",
+				}
+			},
+			alarmLevel:2,
 			
 		},
-		{
-			num:9,
-			name:"锅炉4",
-			company:"锅炉制造厂测试5",
-			registrationCode:666666,
-			model:680064,
-			state:1,
-			fuel:"燃气",
-			evaporation:2,
-			Address: {
-				Location:{
-					LocationName:"浙江省 杭州市 滨江区"
-				},
-				Address:"滨文路32号"
-			} ,
-			
-		},
-		{
-			num:10,
-			name:"锅炉5",
-			company:"锅炉制造厂测试8",
-			registrationCode:22222,
-			model:680055,
-			state:1,
-			fuel:"燃油",
-			evaporation:2,
-			Address: {
-				Location:{
-					LocationName:"浙江省 杭州市 滨江区"
-				},
-				Address:"滨文路32号"
-			} ,
-			
-		},
-		{
-			num:11,
-			name:"锅炉5",
-			company:"锅炉制造厂测试8",
-			registrationCode:22222,
-			model:680055,
-			state:1,
-			fuel:"燃气",
-			evaporation:2,
-			Address: {
-				Location:{
-					LocationName:"浙江省 杭州市 滨江区"
-				},
-				Address:"滨文路32号"
-			} ,
-			
-		},
-		{
-			num:12,
-			name:"锅炉2",
-			company:"锅炉制造厂",
-			registrationCode:55555,
-			model:655555,
-			state:0,
-			fuel:"燃气",
-			evaporation:2,
-			Address: {
-				Location:{
-					LocationName:"江苏省 镇江市 丹徒区"
-				},
-				Address:"镇江市丹徒区镇南工业园辛三路15号"
-			} ,
-			
-		},
-		{
-			num:13,
-			name:"680093 ",
-			company:"宏日新能源",
-			registrationCode:680093,
-			model:680093,
-			state:1,
-			fuel:"生物质",
-			evaporation:2,
-			Address: {
-				Location:{
-					LocationName:"浙江省 杭州市 滨江区"
-				},
-				Address:"滨文路32号"
-			} ,
-			
-		},
-		{
-			num:14,
-			name:"锅炉5",
-			company:"锅炉制造厂测试8",
-			registrationCode:22222,
-			model:680055,
-			state:1,
-			fuel:"燃气",
-			evaporation:2,
-			Address: {
-				Location:{
-					LocationName:"浙江省 杭州市 滨江区"
-				},
-				Address:"滨文路32号"
-			} ,
-			
-		},
-		{
-			num:15,
-			name:"万隆肉类锅炉 ",
-			company:"杭州振兴锅炉容器设备有限公司",
-			registrationCode:11203301102005030009,
-			model:"DZL4-1.25-AⅡ",
-			state:0,
-			fuel:"燃气",
-			evaporation:2,
-			Address: {
-				Location:{
-					LocationName:"浙江省 杭州市 滨江区"
-				},
-				Address:"滨文路32号"
-			} ,
-			
-		}
+		
 	]
 });
  

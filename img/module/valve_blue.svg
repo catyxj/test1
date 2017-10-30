@@ -1,0 +1,177 @@
+<svg width="120px" height="126px" viewBox="27 24 120 126" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="96.9195141%" y1="17.1799794%" x2="1.50181076%" y2="17.1799787%" id="linearGradient-1">
+            <stop stop-color="#343A5A" offset="0%"></stop>
+            <stop stop-color="#626DA7" offset="23.5391422%"></stop>
+            <stop stop-color="#858EBB" offset="52.7998057%"></stop>
+            <stop stop-color="#565E85" offset="79.9286511%"></stop>
+            <stop stop-color="#333851" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-2" x="41" y="42" width="43" height="95"></rect>
+        <mask id="mask-3" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="-1" y="-1" width="45" height="97">
+            <rect x="40" y="41" width="45" height="97" fill="white"></rect>
+            <use xlink:href="#path-2" fill="black"></use>
+        </mask>
+        <rect id="path-4" x="66" y="70" width="48" height="34" rx="17"></rect>
+        <mask id="mask-5" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="-1" y="-1" width="50" height="36">
+            <rect x="65" y="69" width="50" height="36" fill="white"></rect>
+            <use xlink:href="#path-4" fill="black"></use>
+        </mask>
+        <linearGradient x1="49.2106616%" y1="100%" x2="49.2106616%" y2="0%" id="linearGradient-6">
+            <stop stop-color="#343A5A" offset="0%"></stop>
+            <stop stop-color="#626DA7" offset="23.5391422%"></stop>
+            <stop stop-color="#858EBB" offset="52.7998057%"></stop>
+            <stop stop-color="#565E85" offset="79.9286511%"></stop>
+            <stop stop-color="#333851" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-7" x="84" y="56" width="11" height="61"></rect>
+        <mask id="mask-8" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="-1" y="-1" width="13" height="63">
+            <rect x="83" y="55" width="13" height="63" fill="white"></rect>
+            <use xlink:href="#path-7" fill="black"></use>
+        </mask>
+        <rect id="path-9" x="96" y="58" width="8" height="57"></rect>
+        <mask id="mask-10" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="-1" y="-1" width="10" height="59">
+            <rect x="95" y="57" width="10" height="59" fill="white"></rect>
+            <use xlink:href="#path-9" fill="black"></use>
+        </mask>
+        <rect id="path-11" x="105" y="72" width="25" height="30"></rect>
+        <mask id="mask-12" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="-1" y="-1" width="27" height="32">
+            <rect x="104" y="71" width="27" height="32" fill="white"></rect>
+            <use xlink:href="#path-11" fill="black"></use>
+        </mask>
+        <linearGradient x1="51.475805%" y1="0%" x2="51.475805%" y2="100%" id="linearGradient-13">
+            <stop stop-color="#414041" offset="0%"></stop>
+            <stop stop-color="#E8E4EA" offset="15.4833766%"></stop>
+            <stop stop-color="#818181" offset="37.610002%"></stop>
+            <stop stop-color="#C4C3C4" offset="64.528245%"></stop>
+            <stop stop-color="#323232" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-14" x="104" y="82" width="27" height="10"></rect>
+        <mask id="mask-15" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="27" height="10" fill="white">
+            <use xlink:href="#path-14"></use>
+        </mask>
+        <rect id="path-16" x="130" y="82" width="12" height="10"></rect>
+        <mask id="mask-17" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="12" height="10" fill="white">
+            <use xlink:href="#path-16"></use>
+        </mask>
+        <rect id="path-18" x="139" y="43" width="8" height="88"></rect>
+        <mask id="mask-19" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="8" height="88" fill="white">
+            <use xlink:href="#path-18"></use>
+        </mask>
+        <rect id="path-20" x="32" y="25" width="10" height="23.7616218"></rect>
+        <mask id="mask-21" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="-1" y="-1" width="12" height="25.7616218">
+            <rect x="31" y="24" width="12" height="25.7616218" fill="white"></rect>
+            <use xlink:href="#path-20" fill="black"></use>
+        </mask>
+        <rect id="path-22" x="32" y="125" width="10" height="23.7616218"></rect>
+        <mask id="mask-23" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="-1" y="-1" width="12" height="25.7616218">
+            <rect x="31" y="124" width="12" height="25.7616218" fill="white"></rect>
+            <use xlink:href="#path-22" fill="black"></use>
+        </mask>
+        <rect id="path-24" x="57" y="25" width="10" height="23.7616218"></rect>
+        <mask id="mask-25" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="-1" y="-1" width="12" height="25.7616218">
+            <rect x="56" y="24" width="12" height="25.7616218" fill="white"></rect>
+            <use xlink:href="#path-24" fill="black"></use>
+        </mask>
+        <rect id="path-26" x="57" y="125" width="10" height="23.7616218"></rect>
+        <mask id="mask-27" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="-1" y="-1" width="12" height="25.7616218">
+            <rect x="56" y="124" width="12" height="25.7616218" fill="white"></rect>
+            <use xlink:href="#path-26" fill="black"></use>
+        </mask>
+        <rect id="path-28" x="82" y="25" width="10" height="23.7616218"></rect>
+        <mask id="mask-29" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="-1" y="-1" width="12" height="25.7616218">
+            <rect x="81" y="24" width="12" height="25.7616218" fill="white"></rect>
+            <use xlink:href="#path-28" fill="black"></use>
+        </mask>
+        <rect id="path-30" x="82" y="125" width="10" height="23.7616218"></rect>
+        <mask id="mask-31" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="-1" y="-1" width="12" height="25.7616218">
+            <rect x="81" y="124" width="12" height="25.7616218" fill="white"></rect>
+            <use xlink:href="#path-30" fill="black"></use>
+        </mask>
+        <rect id="path-32" x="28" y="29" width="67" height="10"></rect>
+        <mask id="mask-33" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="-1" y="-1" width="69" height="12">
+            <rect x="27" y="28" width="69" height="12" fill="white"></rect>
+            <use xlink:href="#path-32" fill="black"></use>
+        </mask>
+        <rect id="path-34" x="28" y="134" width="67" height="10"></rect>
+        <mask id="mask-35" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="-1" y="-1" width="69" height="12">
+            <rect x="27" y="133" width="69" height="12" fill="white"></rect>
+            <use xlink:href="#path-34" fill="black"></use>
+        </mask>
+        <rect id="path-36" x="28" y="39" width="67" height="6"></rect>
+        <mask id="mask-37" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="-1" y="-1" width="69" height="8">
+            <rect x="27" y="38" width="69" height="8" fill="white"></rect>
+            <use xlink:href="#path-36" fill="black"></use>
+        </mask>
+        <rect id="path-38" x="28" y="128" width="67" height="6"></rect>
+        <mask id="mask-39" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="-1" y="-1" width="69" height="8">
+            <rect x="27" y="127" width="69" height="8" fill="white"></rect>
+            <use xlink:href="#path-38" fill="black"></use>
+        </mask>
+    </defs>
+    <g id="Rectangle-30" stroke="none" fill="none">
+        <use fill="url(#linearGradient-1)" fill-rule="evenodd" xlink:href="#path-2"></use>
+        <use stroke="#000000" mask="url(#mask-3)" stroke-width="2" xlink:href="#path-2"></use>
+    </g>
+    <g id="Rectangle-46" stroke="none" fill="none">
+        <use fill="#343A5A" fill-rule="evenodd" xlink:href="#path-4"></use>
+        <use stroke="#000000" mask="url(#mask-5)" stroke-width="2" xlink:href="#path-4"></use>
+    </g>
+    <g id="Rectangle-35" stroke="none" fill="none">
+        <use fill="url(#linearGradient-6)" fill-rule="evenodd" xlink:href="#path-7"></use>
+        <use stroke="#000000" mask="url(#mask-8)" stroke-width="2" xlink:href="#path-7"></use>
+    </g>
+    <g id="Rectangle-36" stroke="none" fill="none">
+        <use fill="url(#linearGradient-6)" fill-rule="evenodd" xlink:href="#path-9"></use>
+        <use stroke="#000000" mask="url(#mask-10)" stroke-width="2" xlink:href="#path-9"></use>
+    </g>
+    <g id="Rectangle-37" stroke="none" fill="none">
+        <use fill="url(#linearGradient-6)" fill-rule="evenodd" xlink:href="#path-11"></use>
+        <use stroke="#000000" mask="url(#mask-12)" stroke-width="2" xlink:href="#path-11"></use>
+    </g>
+    <use id="Rectangle-38" stroke="#4A4A4A" mask="url(#mask-15)" stroke-width="2" fill="url(#linearGradient-13)" fill-rule="evenodd" xlink:href="#path-14"></use>
+    <use id="Rectangle-38-Copy" stroke="#4A4A4A" mask="url(#mask-17)" stroke-width="2" fill="url(#linearGradient-13)" fill-rule="evenodd" xlink:href="#path-16"></use>
+    <use id="Rectangle-39" stroke="#4A4A4A" mask="url(#mask-19)" stroke-width="2" fill="url(#linearGradient-13)" fill-rule="evenodd" xlink:href="#path-18"></use>
+    <g id="Rectangle-40" stroke="none" fill="none">
+        <use fill="#343A5A" fill-rule="evenodd" xlink:href="#path-20"></use>
+        <use stroke="#000000" mask="url(#mask-21)" stroke-width="2" xlink:href="#path-20"></use>
+    </g>
+    <g id="Rectangle-40-Copy-3" stroke="none" fill="none">
+        <use fill="#343A5A" fill-rule="evenodd" xlink:href="#path-22"></use>
+        <use stroke="#000000" mask="url(#mask-23)" stroke-width="2" xlink:href="#path-22"></use>
+    </g>
+    <g id="Rectangle-40-Copy" stroke="none" fill="none">
+        <use fill="#343A5A" fill-rule="evenodd" xlink:href="#path-24"></use>
+        <use stroke="#000000" mask="url(#mask-25)" stroke-width="2" xlink:href="#path-24"></use>
+    </g>
+    <g id="Rectangle-40-Copy-4" stroke="none" fill="none">
+        <use fill="#343A5A" fill-rule="evenodd" xlink:href="#path-26"></use>
+        <use stroke="#000000" mask="url(#mask-27)" stroke-width="2" xlink:href="#path-26"></use>
+    </g>
+    <g id="Rectangle-40-Copy-2" stroke="none" fill="none">
+        <use fill="#343A5A" fill-rule="evenodd" xlink:href="#path-28"></use>
+        <use stroke="#000000" mask="url(#mask-29)" stroke-width="2" xlink:href="#path-28"></use>
+    </g>
+    <g id="Rectangle-40-Copy-5" stroke="none" fill="none">
+        <use fill="#343A5A" fill-rule="evenodd" xlink:href="#path-30"></use>
+        <use stroke="#000000" mask="url(#mask-31)" stroke-width="2" xlink:href="#path-30"></use>
+    </g>
+    <g id="Rectangle-31" stroke="none" fill="none">
+        <use fill="url(#linearGradient-1)" fill-rule="evenodd" xlink:href="#path-32"></use>
+        <use stroke="#000000" mask="url(#mask-33)" stroke-width="2" xlink:href="#path-32"></use>
+    </g>
+    <g id="Rectangle-31-Copy-2" stroke="none" fill="none">
+        <use fill="url(#linearGradient-1)" fill-rule="evenodd" xlink:href="#path-34"></use>
+        <use stroke="#000000" mask="url(#mask-35)" stroke-width="2" xlink:href="#path-34"></use>
+    </g>
+    <g id="Rectangle-31-Copy" stroke="none" fill="none">
+        <use fill="url(#linearGradient-1)" fill-rule="evenodd" xlink:href="#path-36"></use>
+        <use stroke="#000000" mask="url(#mask-37)" stroke-width="2" xlink:href="#path-36"></use>
+    </g>
+    <g id="Rectangle-31-Copy-3" stroke="none" fill="none">
+        <use fill="url(#linearGradient-1)" fill-rule="evenodd" xlink:href="#path-38"></use>
+        <use stroke="#000000" mask="url(#mask-39)" stroke-width="2" xlink:href="#path-38"></use>
+    </g>
+</svg>

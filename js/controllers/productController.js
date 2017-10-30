@@ -21,6 +21,9 @@ mainApp.controller("productController",function($scope,productData, $filter,$sta
 	
 	
 	
+	
+	
+	
 
 	var selectedModel = null;
 	var selectedFuel = null;
@@ -62,7 +65,7 @@ mainApp.controller("productController",function($scope,productData, $filter,$sta
 
 	$scope.fuelFilterFn = function(product){
 		return selectedFuel == null ||
-		 product.fuel == selectedFuel;
+		 product.Fuel.Type.name == selectedFuel;
 	}
 	$scope.companyFilterFn = function(product){
 		return selectedCompany == null ||

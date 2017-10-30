@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="348px" height="69px" viewBox="0 0 348 69" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.5.1 (25234) - http://www.bohemiancoding.com/sketch -->
+    <title>蒸汽</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="锅锅大作战" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="TYPE1" sketch:type="MSArtboardGroup" transform="translate(-332.000000, -181.000000)" fill="#FFFFFF">
+            <g id="蒸汽" sketch:type="MSLayerGroup" transform="translate(332.000000, 181.000000)">
+                <path d="M294.975452,37 L331.505661,37 C336.185608,37 340,33.1944204 340,28.5 C340,23.8151318 336.196955,20 331.505661,20 L217.494339,20 C212.814392,20 209,23.8055796 209,28.5 C209,33.1848682 212.803045,37 217.494339,37 L232.022689,37 C230.174861,38.5592154 229,40.8924941 229,43.5 C229,48.1848682 232.803488,52 237.495329,52 L289.504671,52 C294.191976,52 298,48.1944204 298,43.5 C298,40.8960511 296.824961,38.560796 294.975452,37 Z M176,60.5 C176,55.8055796 179.814392,52 184.494339,52 L298.505661,52 C303.196955,52 307,55.8151318 307,60.5 C307,65.1944204 303.185608,69 298.505661,69 L184.494339,69 C179.803045,69 176,65.1848682 176,60.5 Z" id="Rectangle-147" fill-opacity="0.651494565" sketch:type="MSShapeGroup"></path>
+                <circle id="Oval-4" fill-opacity="0.70983356" sketch:type="MSShapeGroup" cx="340" cy="54" r="8"></circle>
+                <circle id="Oval-4-Copy-2" fill-opacity="0.70983356" sketch:type="MSShapeGroup" cx="193" cy="13" r="8"></circle>
+                <rect id="Rectangle-150" fill-opacity="0.606006567" sketch:type="MSShapeGroup" x="77" y="0" width="78" height="16" rx="10"></rect>
+                <rect id="Rectangle-151" fill-opacity="0.606006567" sketch:type="MSShapeGroup" x="0" y="20" width="127" height="15" rx="10"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

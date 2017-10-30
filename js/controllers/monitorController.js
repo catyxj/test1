@@ -50,8 +50,8 @@ mainApp.controller('viewModalCtrl', function($scope, $uibModalInstance, data) {
 
 
 
-mainApp.controller("mapController",function($scope,organizationData){
-	$scope.data = organizationData;
+mainApp.controller("mapController",function($scope,productData){
+	$scope.data = productData;
 	
 	var map = new BMap.Map("map-container"); 
 	
