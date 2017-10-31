@@ -80,9 +80,9 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
 		    }]
 		  }
         })
-        .state("runtime.runtimedata", {
-            url:"/runtimedata",
-            templateUrl: "views/runtime/runtimedata.html",
+        .state("runtime.stats", {
+            url:"/stats",
+            templateUrl: "views/runtime/stats.html",
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
@@ -896,12 +896,12 @@ mainApp.service("configparamData",function(){
 
 
 
-
-$(document).ready(function(){
-  $(".full_screen").click(function(){
-    $('.full').toggleClass("portlet-fullscreen");
-  });
-});
+mainApp.controller("sidebarCtrl",function($scope){
+	$scope.currentPage = "monitor";
+	$scope.setPage = function(m){
+		$scope.currentPage = m;
+	};
+})
 
 
 

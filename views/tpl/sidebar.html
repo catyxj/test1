@@ -1,17 +1,17 @@
-<div class="">
+<div ng-controller="sidebarCtrl" class="">
 	<div class="nav nav-stacked ">
 		<ul >
 			<li class="heading">
 				主控制台				
 			</li>
-			<li ui-sref-active="active" ng-class="{active:isActiveTag('dashboard')}" class="nav-item">
-				<a href="" ui-sref="dashboard">
+			<li ng-class="{'active':currentPage === 'dashboard'}" class="nav-item">
+				<a href="" ui-sref="dashboard" ng-click="setPage('dashboard')">
 					<i class="fa fa-area-chart"></i>
 					 能效统计
 				</a>
 			</li>
-			<li ui-sref-active="active" ng-class="{active:isActiveTag('monitor')}" class="nav-item">
-				<a href="" ui-sref="monitor.thumb">
+			<li ng-class="{'active':currentPage === 'monitor'}" class="nav-item">
+				<a href="" ui-sref="monitor.thumb" ng-click="setPage('monitor')">
 					<i class="fa fa-tachometer"></i>
 					 设备概览
 				</a>
@@ -19,22 +19,22 @@
 			<li class="heading">
 				常用功能
 			</li>
-			<li ui-sref-active="active" ng-class="{active:isActiveTag('alarm')}" class="nav-item">
-				<a href="" ui-sref="alarm">
+			<li ng-class="{'active':currentPage === 'alarm'}" class="nav-item">
+				<a href="" ui-sref="alarm" ng-click="setPage('alarm')">
 					<i class="fa fa-warning"></i>
 					 告警信息
 					<span class="badge badge-danger pull-right">14</span>
 				</a>
 
 			</li>
-			<li ui-sref-active="active" ng-class="{active:isActiveTag('dialogue')}" class="nav-item">
-				<a href="" ui-sref="dialogue">
+			<li ng-class="{'active':currentPage === 'dialogue'}" class="nav-item">
+				<a href="" ui-sref="dialogue" ng-click="setPage('dialogue')">
 					<i class="fa fa-comment"></i>
 					专家咨询
 				</a>
 			</li>
-			<li ui-sref-active="active" ng-class="{active:isActiveTag('boiler-maintain')}" class="nav-item">
-				<a href="" ui-sref="boiler-maintain">
+			<li ng-class="{'active':currentPage === 'boiler-maintain'}" class="nav-item">
+				<a href="" ui-sref="boiler-maintain" ng-click="setPage('boiler-maintain')">
 					<i class="fa fa-calendar-plus-o"></i>
 					维保记录
 				</a>
@@ -42,20 +42,20 @@
 			<li class="heading">
 				信息维护
 			</li>
-			<li ui-sref-active="active" ng-class="{active:isActiveTag('organization')}" class="nav-item">
-				<a href="" ui-sref="organization">
+			<li ng-class="{'active':currentPage === 'organization'}" class="nav-item">
+				<a href="" ui-sref="organization" ng-click="setPage('organization')">
 					<i class="fa fa-home"></i> 
 					企业信息
 				</a>
 			</li>
-			<li ui-sref-active="active" ng-class="{active:isActiveTag('boiler')}"  class="nav-item">
-				<a href="" ui-sref="boiler">
+			<li ng-class="{'active':currentPage === 'boiler'}"  class="nav-item">
+				<a href="" ui-sref="boiler" ng-click="setPage('boiler')">
 					<i class="fa fa-industry"></i>
 					锅炉信息
 				</a>
 			</li>
-			<li ui-sref-active="active" ng-class="{active:isActiveTag('terminal')}"  class="nav-item">
-				<a href="" ui-sref="terminal">
+			<li ng-class="{'active':currentPage === 'terminal'}" class="nav-item">
+				<a href="" ui-sref="terminal" ng-click="setPage('terminal')">
 					<i class="fa fa-terminal"></i> 
 					终端管理
 				</a>
@@ -63,32 +63,32 @@
 			<li class="heading">
 				系统设置
 			</li>
-			<li ui-sref-active="active" ng-class="{active:isActiveTag('config-runtime-alarm')}"  class="nav-item">
-				<a href="" ui-sref="config-runtime-alarm">
+			<li ng-class="{'active':currentPage === 'config-runtime-alarm'}"  class="nav-item">
+				<a href="" ui-sref="config-runtime-alarm" ng-click="setPage('config-runtime-alarm')">
 					<i class="fa fa-bell-o"></i>
 					告警规则
 				</a>
 			</li>
-			<li ui-sref-active="active" ng-class="{active:isActiveTag('config-runtime-parameter')}"  class="nav-item">
-				<a href="" ui-sref="config-runtime-parameter">
+			<li ng-class="{'active':currentPage === 'config-runtime-parameter'}"  class="nav-item">
+				<a href="" ui-sref="config-runtime-parameter" ng-click="setPage('config-runtime-parameter')">
 					<i class="fa fa-bar-chart"></i>
 					运行参数
 				</a>
 			</li>
-			<li ui-sref-active="active" ng-class="{active:isActiveTag('user-account')}"  class="nav-item">
-				<a href="" ui-sref="user-account">
+			<li ng-class="{'active':currentPage === 'user-account'}"  class="nav-item">
+				<a href="" ui-sref="user-account" ng-click="setPage('user-account')">
 					<i class="fa fa-users"></i> 
 					账号管理
 				</a>
 			</li>
-			<li ui-sref-active="active" ng-class="{active:isActiveTag('profile')}"  class="nav-item">
-				<a href="" ui-sref="profile.account">
+			<li ng-class="{'active':currentPage === 'profile'}"  class="nav-item">
+				<a href="" ui-sref="profile.account" ng-click="setPage('profile')">
 					<i class="fa fa-user"></i>
 					用户信息
 				</a>
 			</li>
-			<li ui-sref-active="active" ng-class="{active:isActiveTag('wiki')}"  class="nav-item">
-				<a href="" ui-sref="wiki">
+			<li ng-class="{'active':currentPage === 'wiki'}"  class="nav-item">
+				<a href="" ui-sref="wiki" ng-click="setPage('wiki')">
 					<i class="fa fa-info-circle"></i>
 					系统帮助
 				</a>
