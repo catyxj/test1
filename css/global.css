@@ -268,6 +268,13 @@
 
 
 
+/*table*/
+thead th{
+	text-align: center;
+}
+tbody{
+	text-align: center;
+}
 
 
 /*animate*/

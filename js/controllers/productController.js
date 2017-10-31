@@ -39,6 +39,26 @@ mainApp.controller("productController",function($scope,productData, $filter,$sta
     $scope.placement = {
         options: [5,10,20],                   
     };
+	//燃料类型		
+    $scope.fuelSelect = [
+    	{
+    		Id:1,
+			name:"燃煤",	
+    	},
+    	{
+    		Id:2,
+			name:"燃油",	
+    	},
+    	{
+    		Id:3,
+			name:"燃气",
+    	},
+    	{
+			Id:4,
+			name:"生物质",
+		}
+    ];
+	
 	
 	
 	$scope.selectModel = function(newCategory){
@@ -65,7 +85,7 @@ mainApp.controller("productController",function($scope,productData, $filter,$sta
 
 	$scope.fuelFilterFn = function(product){
 		return selectedFuel == null ||
-		 product.Fuel.Type.name == selectedFuel;
+		 product.Fuel.Type.name == selectedFuel.name;
 	}
 	$scope.companyFilterFn = function(product){
 		return selectedCompany == null ||

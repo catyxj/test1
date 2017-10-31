@@ -4,6 +4,8 @@
 	list-style: none;
 	font-family: arial,"微软雅黑";
 }
+
+
 div{
 	 transition: all linear 0.3s;
 }
@@ -28,9 +30,8 @@ div{
 	background-color: #EE5F5B;
 }
 
-.row{
-	/*padding-top: 5px;*/
-	padding-bottom: 10px;
+.col-sm-12,.col-xs-12,.col-md-12{
+	padding-bottom: 15px;
 }
 .select_address .col-md-4{
 	padding: 0;
@@ -38,12 +39,15 @@ div{
 .text_gray{
 	color: #999999;
 }
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+	vertical-align: middle;
+}
 .tab-pane{
 	padding: 10px;
 }
-.table{
-	
-}
+
+
 .table .caret{
 	color: #888888;
 	float: right;
@@ -375,6 +379,7 @@ div{
 .full_screen.fa{
 	color: #888888;
 	cursor: pointer;
+	padding-top: 10px;
 }
 .full_screen.fa:hover{
 	color: #122B40;
@@ -389,6 +394,7 @@ div{
 }
 .stat_header .full_screen.btn{
 	padding: 5px;
+	line-height: 1;
 }
 .stat_header .full_screen:hover{
 	color: #122B40;
@@ -533,12 +539,57 @@ div{
 }
 
 
+
+
+
+
+
+/*map*/
+.font-grey-cascade {
+    color: #95A5A6!important;
+}
+
+.font-green-jungle {
+    color: #26C281!important;
+}
+
+table#boiler_list_table{
+	min-width: 254px;
+} 
+table#boiler_list_table td {
+    font-size: 13px;
+    text-align: left;
+}    
+table#boiler_list_table div.status-icon {
+	display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+}
+table.table-boiler div.status-icon.success {
+    background-color: #32c5d2;
+}
+table.table-boiler div.status-icon.danger {
+    background-color: #f0868e;
+}
+table.table-boiler div.status-icon.default{
+    background-color: #bac3d0;
+}
+
+
+
+
+
+
+
+
 /*alarm*/
 .priority_icon{
 	width: 12px;
 	height: 12px;
 	border-radius: 5px;
-	float: left;
+	/*float: left;*/
+	display: inline-block;
 	margin-right: 2px;
 }
 .priority_icon.danger{

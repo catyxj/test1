@@ -32,6 +32,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
              resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
+             	
              	'../js/asset/highcharts-3d.js',
              	'../js/controllers/dashboardController.js'             	
 		             ]);
@@ -143,7 +144,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([ 
              
-             	'../js/controllers/advisoryController.js'             	
+             	'../js/controllers/dialogueController.js'             	
 		             ]);
 		    }]
 		  }
@@ -323,7 +324,7 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 					name:"燃油",
 				}
 			},
-			alarmLevel:1,
+			alarmLevel:-1,
 			
 		},
 		{
@@ -351,13 +352,13 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 					name:"燃气",
 				}
 			},
-			alarmLevel:2,
+			alarmLevel:-1,
 			
 		},
 		{
 			num:3,
 			Uid:3,
-			name:"680092",
+			name:"68009211111",
 			company:"广州特种承压设备检测研究院",
 			registrationCode:680092,
 			model:680092,
@@ -379,7 +380,7 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 					name:"燃气",
 				}
 			},
-			alarmLevel:2,
+			alarmLevel:-1,
 			
 		},
 		{
@@ -403,17 +404,17 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 			isBurning:1,
 			Fuel:{
 				Type:{
-					Id:3,
-					name:"燃气",
+					Id:4,
+					name:"生物质",
 				}
 			},
-			alarmLevel:2,
+			alarmLevel:-1,
 			
 		},
 		{
 			num:5,
 			Uid:5,
-			name:"680055",
+			name:"东南毛纺织染锅炉",
 			company:"青岛胜利锅炉有限公司",
 			registrationCode:680055,
 			model:680055,
@@ -428,14 +429,14 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 			Enterprise:{
 				Name:"青岛胜利锅炉有限公司",
 			},
-			isBurning:1,
+			isBurning:0,
 			Fuel:{
 				Type:{
-					Id:3,
-					name:"燃气",
+					Id:4,
+					name:"生物质",
 				}
 			},
-			alarmLevel:2,
+			alarmLevel:-1,
 			
 		},
 		{
@@ -447,23 +448,23 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 			model:680092,
 			state:0,
 			evaporation:2,
-			Address: {
-				Location:{
-					LocationName:"广东省 东莞市"
-				},
-				Address:"东莞市莞城鸿裕一街1幢3楼10号"
-			} ,
+//			Address: {
+//				Location:{
+//					LocationName:""
+//				},
+//				Address:""
+//			} ,
 			Enterprise:{
 				Name:"广州特种承压设备检测研究院",
 			},
-			isBurning:1,
+			isBurning:0,
 			Fuel:{
 				Type:{
 					Id:3,
 					name:"燃气",
 				}
 			},
-			alarmLevel:2,
+			alarmLevel:-1,
 			
 		},
 		{
@@ -491,7 +492,7 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 					name:"燃气",
 				}
 			},
-			alarmLevel:2,
+			alarmLevel:-1,
 			
 		},
 		{
@@ -512,14 +513,14 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 			Enterprise:{
 				Name:"广州特种承压设备检测研究院",
 			},
-			isBurning:1,
+			isBurning:0,
 			Fuel:{
 				Type:{
-					Id:3,
-					name:"燃气",
+					Id:4,
+					name:"生物质",
 				}
 			},
-			alarmLevel:2,
+			alarmLevel:-1,
 			
 		},
 		
@@ -533,18 +534,38 @@ mainApp.service("advisoryData",function(){
 	return [
 		{
 			num:1,
-			title:11,
+			title:"hhhh",
 			time:"2017-09-22 12:43:48",
-			content:"test",
-			company:"系统",
+			content:[
+				{
+					contentText:"test",
+					time:"2017-09-22 12:43:48",
+					user:"ddd",
+				},
+				{
+					contentText:"hhhhh",
+					time:"2017-09-22 12:45:49",
+					user:"系统",
+				}
+			
+			],
+			orgName:"系统",
+			username:"system",
 			state:"已回复"
 		},
 		{
 			num:2,
-			title:22,
+			title:"a咨询hhh",
 			time:"2017-09-22 12:43:48",
-			content:"test",
-			company:"系统",
+			content:[
+				{
+					contentText:"咨询hhh",
+					time:"2017-09-22 12:43:48",
+					user:"ddd",
+				}			
+			],
+			orgName:"用户",
+			username:"天台的毒蜘蛛",
 			state:"新咨询"
 		}
 	]

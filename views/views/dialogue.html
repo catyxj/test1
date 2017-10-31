@@ -10,20 +10,17 @@
 	</ol>
 </div>
 
-<div ng-controller="advisoryController" class="advisory page_content">
+<div ng-controller="dialogueController" class="advisory page_content">
 	
 	<div class="data_header">
 		<div class="clearfix data_top">
 			<h4 class="float_left">
-				<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+				<i class="fa fa-cog"></i>
 				咨询列表
 			</h4>
-			<div class="float_right">
-				<span class="glyphicon glyphicon-resize-full" aria-hidden="true"></span>
-			</div>
-		</div>
-				
-		
+			<div class="float_right full_screen fa fa-expand"></div>
+			
+		</div>						
 	</div>
 	
 	<div class="maintain_body">
@@ -44,14 +41,16 @@
 						
 					</div>
 			
-					<button style="margin-left: 20px; margin-top: 8px;" ng-click="openModal()" type="button" class="btn btn-info">添加</button>
+					<button style="margin-left: 20px; margin-top: 8px;" ng-click="openNew()" type="button" class="btn btn-info">						
+						添加
+						<i class="fa fa-plus"></i>
+					</button>
 			
 					<script type="text/ng-template" id="advisory.html">
 						<div>
 							<div class="modal-header">
 								<button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times;</span></button>
-								<h4 class="modal-title">开始咨询	</h4>
-			
+								<h4 class="modal-title">开始咨询	</h4>			
 							</div>
 							<div class="modal-body">
 								<form action="" method="post">
@@ -97,39 +96,7 @@
 		
 		
 		<!--pagination-->
-									<!--<nav aria-label="Page navigation">
-										<div class="float_left count_num">
-											共{{count}}条记录
-										</div>
-									  <ul class="pagination">
-									  	<li>
-									      <a ng-click="p_index()">
-									        <span aria-hidden="true">首页</span>
-									      </a>
-									    </li>
-									    <li>
-									      <a ng-click="Previous()">
-									        <span  aria-hidden="true">上一页</span>
-									      </a>
-									    </li>
-									    <li ng-repeat="page in pageList"  ng-class="{active:isActivePage(page)}">
-									    	<a ng-click="selectPage(page)">
-									    		{{page}} 
-									    	</a>
-									    </li>
-									    
-									    <li>
-									      <a ng-click="Next()">
-									        <span aria-hidden="true">下一页</span>
-									      </a>
-									    </li>
-									    <li>
-									      <a ng-click="p_last()">
-									        <span aria-hidden="true">尾页</span>
-									      </a>
-									    </li>
-									  </ul>
-									</nav>-->
+	
 		
 		<div >			
 	        <div class="float_left count_num">

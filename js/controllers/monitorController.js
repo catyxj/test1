@@ -59,12 +59,12 @@ mainApp.controller("mapController",function($scope,productData){
 	map.centerAndZoom(point, 15);  
 	map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
 	map.addControl(new BMap.NavigationControl()); 
+
 	
 	$scope.bdGEO = function(boiler){
 		var newAddress=boiler.Address.Location.LocationName + boiler.Address.Address;
 		var city = boiler.Address.Location.LocationName;
 		geocodeSearch(newAddress,city);
-
 	}
 	
 	// 创建地址解析器实例     
@@ -74,9 +74,9 @@ mainApp.controller("mapController",function($scope,productData){
 	function geocodeSearch(add,city){		
 		myGeo.getPoint(add, function(point){      
 	    if (point) { 
-	    	point = new BMap.Point(point.lng, point.lat);
-	    	map.centerAndZoom(point, 15);   	             
-			
+	    	map.centerAndZoom(point, 15);   
+	    	var marker = new BMap.Marker(point);        // 创建标注    
+			map.addOverlay(marker);                     // 将标注添加到地图中 
 	    }      
 	 }, 
 	"city");

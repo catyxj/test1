@@ -1,22 +1,27 @@
 <div class="">
 
-	<table class="table table-hover" border="0" >
+	<table class="table table-hover table-bordered">
 			<thead>
 				<tr>
-					<th>
+					<th ng-click="changeOrder('num')" ng-class="{dropup:order===''}">						
 						序号
+						<span ng-class="{orderColor:orderType==='num'}" class="caret"></span>
 					</th>
-					<th>
+					<th  ng-click="changeOrder('time')" ng-class="{dropup:order===''}">
 						咨询时间
+						<span ng-class="{orderColor:orderType==='time'}" class="caret"></span>
 					</th>
-					<th>
+					<th ng-click="changeOrder('content')" ng-class="{dropup:order===''}">
 						咨询内容 
+						<span ng-class="{orderColor:orderType==='content'}" class="caret"></span>
 					</th>
-					<th>
+					<th ng-click="changeOrder('company')" ng-class="{dropup:order===''}">
 						咨询企业
+						<span ng-class="{orderColor:orderType==='company'}" class="caret"></span>
 					</th>
-					<th>
+					<th ng-click="changeOrder('state')" ng-class="{dropup:order===''}">
 						回复状态
+						<span ng-class="{orderColor:orderType==='state'}" class="caret"></span>
 					</th>
 					
 					<th>
@@ -26,26 +31,37 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="d in advisory">
+				<tr ng-repeat="d in advisory| filter:search | orderBy: order+orderType">
 					<td>
 						{{d.num}}
 					</td>
 					<td>
-						{{d.time}}
+						{{d.time |date:'yyyy-MM-dd hh:mm:ss'}}
 					</td>
 					<td>
-						{{d.content}}
+						{{d.title}}
 					</td>
 					<td>
-						{{d.company}}
+						{{d.orgName}}<br />
+						<span class="label label-sm label-default" >
+							{{d.username}}
+						</span>
 					</td>
 										
-					<td ng-class="{'text-primary':d.state==='已回复','text-success':d.state==='新咨询'}" >
-						{{d.state}}
+					<td>
+						<span ng-class="{'label-success':d.state==='已回复','label-warning':d.state==='新咨询'}" class="label">
+							{{d.state}}
+						</span>						
 					</td>
 					<td>
-						<button type="button" class="btn btn-primary btn-sm">回复</button>
-						<button ng-click="removeData(d.num)" type="button" class="btn btn-default btn-sm"> 删除</button>
+						<button ng-click="openModal(d)" type="button" class="btn view btn-outline btn-circle green">
+							<i class="fa fa-reply"></i>
+							回复
+						</button>
+						<button ng-click="removeData(d.num)" type="button" class="btn view btn-outline btn-circle red"> 
+							<i class="fa fa-trash"></i>
+							删除
+						</button>
 					</td>
 				</tr>
 			</tbody>
@@ -55,3 +71,6 @@
 		
 	
 </div>
+
+
+

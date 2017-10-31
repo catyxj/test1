@@ -11,8 +11,7 @@
                         ng-change="setPageSize(pageSize)">
 	               </select>
 	               	条
-				
-				
+								
 			</div>
 
 			<!--search-->
@@ -20,15 +19,13 @@
 				<div class="form-group">
 					搜索：
 					<input type="text" ng-model="search" class="form-control" placeholder="Search">
-
 				</div>
-
 			</form>
 		</div>
 	</nav>
 
 	<!--list-->
-	<table class="table table-hover" border="1" bordercolor="#dddddd">
+	<table class="table table-hover table-bordered">
 		<thead>
 			<tr>
 				<th ng-click="changeOrder('num')" ng-class="{dropup:order===''}">
@@ -58,7 +55,9 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="product in productData | filter:search | orderBy: order+orderType | filter:modelFilterFn | filter:fuelFilterFn | filter:companyFilterFn | range:selectedpage:pageSize ">
+			<tr ng-repeat="product in productData | filter:search 
+				| orderBy: order+orderType | filter:modelFilterFn | filter:fuelFilterFn | filter:companyFilterFn 
+				| range:selectedpage:pageSize">
 
 				<td>
 					{{product.num}}

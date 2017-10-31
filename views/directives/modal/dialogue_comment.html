@@ -1,0 +1,52 @@
+<div class="modal-header">
+    <div style="display:inline-block; text-align: right; margin-right: 15px; float: right;">
+        <span class="font-blue-madison">{{ data.orgName }} ({{ data.username }})</span>
+        <br>
+        <span style="font-size: 12px; color: #999;">{{ data.time |date:'yyyy-MM-dd hh:mm:ss' }}</span>
+    </div>
+    <h3 class="modal-title" id="modal-title" style="font-weight: bold;">{{data.num}} {{data.title}}</h3>
+</div>
+
+<div class="modal-body app-ticket app-ticket-details" id="modal-body">
+    <div class="portlet-body">
+        <!-- BEGIN: Comments -->
+        <div class="mt-comments">
+            <div class="mt-comment" ng-repeat="comment in data.content">
+                <div class="mt-comment-img">
+                	<i class="fa fa-user fa-2x"></i>   
+                </div>
+                <div class="mt-comment-body">
+                    <div class="mt-comment-info">
+                        <span class="mt-comment-author">{{ comment.user}}</span>
+                        <span class="mt-comment-date">{{ comment.time |date:'yyyy-MM-dd hh:mm:ss'}}</span>
+                    </div>
+                    <div class="mt-comment-text"> {{ comment.contentText }} </div>
+                   
+                </div>
+            </div>
+
+        </div>
+        <!-- END: Comments -->
+    </div>
+   
+
+    <div class="row">
+        <!--<div class="form-group col-md-12" ng-show="!$modal.dialogue">
+            <label><i class="fa fa-commenting-o"></i> 咨询标题：</label>
+            <input type="text" ng-model="data" class="form-control ng-pristine ng-valid ng-touched has-success" placeholder="咨询标题">
+
+        </div>-->
+        <div class="form-group col-md-12">
+            <label><i class="fa fa-reply"></i> 回复内容：</label>
+            <textarea ng-model="data.newcontent" class="form-control ng-pristine ng-valid ng-touched has-success" placeholder="在这里输入内容">
+
+            </textarea>
+        </div>
+    </div>
+
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary ladda-button" data-style="zoom-out" type="button" id="boiler_ok"
+            ng-click="ok()"><span class="ladda-label">提交</span></button>
+    <button class="btn btn-default" type="button" ng-click="cancel()">取消</button>
+</div>

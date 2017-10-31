@@ -7,7 +7,6 @@ mainApp.directive('boilerModule', function () {
         templateUrl: "directives/boiler_module.html",
         controller: "BoilerModuleController",
         controllerAs: "module"
-        //bindToController: true
     };
 }).controller("BoilerModuleController", function ($rootScope, $scope, $http, $location, $timeout, $log, $document, moment ,productData) {
     var bModule = this;
