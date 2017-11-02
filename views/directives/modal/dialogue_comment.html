@@ -13,7 +13,8 @@
         <div class="mt-comments">
             <div class="mt-comment" ng-repeat="comment in data.content">
                 <div class="mt-comment-img">
-                	<i class="fa fa-user fa-2x"></i>   
+                	<i class="fa fa-user fa-2x"></i> 
+                	
                 </div>
                 <div class="mt-comment-body">
                     <div class="mt-comment-info">
@@ -31,11 +32,7 @@
    
 
     <div class="row">
-        <!--<div class="form-group col-md-12" ng-show="!$modal.dialogue">
-            <label><i class="fa fa-commenting-o"></i> 咨询标题：</label>
-            <input type="text" ng-model="data" class="form-control ng-pristine ng-valid ng-touched has-success" placeholder="咨询标题">
 
-        </div>-->
         <div class="form-group col-md-12">
             <label><i class="fa fa-reply"></i> 回复内容：</label>
             <textarea ng-model="data.newcontent" class="form-control ng-pristine ng-valid ng-touched has-success" placeholder="在这里输入内容">

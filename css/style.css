@@ -6,9 +6,6 @@
 }
 
 
-div{
-	 transition: all linear 0.3s;
-}
 .float_left{
 	float: left;
 }
@@ -19,7 +16,9 @@ div{
 	display: inline;
 }
 
-
+.nav>li>a:focus, .nav>li>a:hover {
+    background-color: initial;
+}
 .label{
 	display: inline-block;
 	padding: 6px 8px;
@@ -90,8 +89,13 @@ div{
 
 
 /*header*/
+.page-header{
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
 .navbar-fixed-top{
-	z-index: 999;
+	z-index: 99;
 }
 .navbar{
 	border-radius: 0;
@@ -106,7 +110,7 @@ div{
 	padding-right: 10px;
 }
 .navbar .dropdown:hover .dropdown-toggle{
-	background-color: #122B40;
+	background-color: #3f4f62;
 }
 .header .dropdown:hover .dropdown-menu{
 	display: block;
@@ -135,7 +139,7 @@ div{
 /*sidebar*/
 .sidebar{
 	position: fixed;
-	z-index: 99;
+	z-index: 9;
 	top: 50px;
 	bottom: 0px;	
 	padding-left: 0;
@@ -223,7 +227,7 @@ div{
 	position: fixed; 
 	left: 0px; 
 	bottom: 0px; 
-	z-index: 999; 
+	z-index: 99; 
 	background-color: #2B3643;
 	line-height: 50px;
 }
@@ -233,13 +237,29 @@ div{
 
 
 /*main*/
+.page-content-wrapper{
+	
+}
 .data_display{
 	margin-top: 50px;
 	float: right;	
 	padding: 0;
 	background-color: #eef1f5;
+	/*width: 100%;*/
 /*	overflow: hidden;*/
 }
+/*@media (min-width: 992px){
+	.data_display{
+	    width: 83.33333333%;
+	}
+}
+@media (min-width: 768px){
+	.data_display{
+    	width: 75%;
+	}
+}*/
+
+
 
 .breadcrumb{
 	background-color: #FFFFFF;
@@ -352,7 +372,9 @@ div{
     filter: alpha(opacity=15);
 }
 /*full screen*/
-.portlet-fullscreen {
+
+
+/*.portlet-fullscreen {
     margin: 0;
     position: fixed;
     top: 0;
@@ -369,13 +391,13 @@ div{
 	height: 100%;
 	padding: 20px;
 	margin: 0;
-}
-.portlet-fullscreen .full{
+}*/
+/*.portlet-fullscreen .full{
 	width: 100%;
 }
 .portlet-fullscreen.page_content{
 	overflow: visible;
-}
+}*/
 .full_screen.fa{
 	color: #888888;
 	cursor: pointer;
@@ -559,20 +581,20 @@ table#boiler_list_table{
 table#boiler_list_table td {
     font-size: 13px;
     text-align: left;
-}    
-table#boiler_list_table div.status-icon {
+}
+div.status-icon {
 	display: inline-block;
     width: 10px;
     height: 10px;
     border-radius: 3px;
 }
-table.table-boiler div.status-icon.success {
+table div.status-icon.success {
     background-color: #32c5d2;
 }
-table.table-boiler div.status-icon.danger {
+table div.status-icon.danger {
     background-color: #f0868e;
 }
-table.table-boiler div.status-icon.default{
+table div.status-icon.default{
     background-color: #bac3d0;
 }
 
@@ -701,6 +723,7 @@ table.table-boiler div.status-icon.default{
 
 .data_box{
 	border: 1px solid #DDDDDD;
+	margin-bottom: 10px;
 }
 .runtime_container .data_box{	
 	min-height: 250px;

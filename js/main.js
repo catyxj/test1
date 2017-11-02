@@ -42,7 +42,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
         .state("monitor.thumb", {
             url:"/thumb",
             templateUrl: "views/monitor/thumb.html",
-            data: {pageTitle: "设备图文"},   
+            data: {pageTitle: "设备图文"},
             
         })
         .state("monitor.list", {
@@ -66,16 +66,23 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
         })
         .state("runtime", {
             url:"/runtime",
-            templateUrl: "views/runtime/main.html"
+            templateUrl: "views/runtime/main.html",
+            resolve: { 
+    		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+             return $ocLazyLoad.load([        
+             	
+		             ]);
+		    }]
+		  }
         })
         .state("runtime.dashboard", {
             url:"/animation",
             templateUrl: "views/runtime/dashboard.html",
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
-             return $ocLazyLoad.load([
-        
+             return $ocLazyLoad.load([        
              	'../js/directives/boiler_module.js',
+             	
 		             ]);
 		    }]
 		  }
@@ -85,9 +92,10 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: "views/runtime/stats.html",
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
-             return $ocLazyLoad.load([
-        
+             return $ocLazyLoad.load([        		             	
              	'../js/controllers/runtimeController.js',
+             	'../js/directives/chart_steam.js',
+             	'../js/directives/chart_temperature.js',
 		             ]);
 		    }]
 		  }
@@ -894,6 +902,25 @@ mainApp.service("configparamData",function(){
 });
 
 
+
+mainApp.controller("mainCtrl", function($scope) {
+	$scope.options = [
+		{
+			name: "默认",
+			value: ""
+		},
+		{
+			name: "天蓝色",
+			value: "../css/theme-a.css"
+		},
+		{
+			name: "绿色",
+			value: "../css/theme-b.css"
+		}
+	];
+	//默认选择第一个样式
+	$scope.theme = "";
+})
 
 
 mainApp.controller("sidebarCtrl",function($scope){

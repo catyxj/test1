@@ -55,27 +55,29 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="product in productData | filter:search 
+			<tr ng-repeat="boiler in productData | filter:search
 				| orderBy: order+orderType | filter:modelFilterFn | filter:fuelFilterFn | filter:companyFilterFn 
 				| range:selectedpage:pageSize">
 
 				<td>
-					{{product.num}}
+					{{boiler.num}}
 				</td>
 				<td>
-					{{product.name}}
+					{{boiler.name}}
 				</td>
 				<td>
-					{{product.company}}
+					{{boiler.company}}
 				</td>
 				<td>
-					{{product.registrationCode}}
+					{{boiler.registrationCode}}
 				</td>
 				<td>
-					{{product.model}}
+					{{boiler.model}}
 				</td>
 				<td>
-					{{product.state}}
+					<div class="status-icon" ng-class="{'success': true}"></div>
+					<div class="status-icon" ng-class="{'success': boiler.isBurning, 'danger': !boiler.isBurning}"></div>
+					<div class="status-icon" ng-class="[{'success': boiler.alarmLevel == 0}, {'warning': boiler.alarmLevel == 1}, {'danger': boiler.alarmLevel == 2}, {'default': boiler.alarmLevel == -1}]"></div>
 				</td>
 				
 				

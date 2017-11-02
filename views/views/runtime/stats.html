@@ -4,7 +4,10 @@
 					<div class="col-md-4  runtime_data1">
 						<div class="data_box">
 							<div class="runtime_d_header">
-								<h3>运行时参数</h3>
+								<h3>
+									<i class="fa fa-bar-chart-o"></i>
+									运行时参数
+								</h3>
 								<div class="float_right runtime_date">
 									<span>采样时间: 2017-09-19 17:18:09</span>
 								</div>
@@ -36,29 +39,12 @@
 							
 						</div>
 						
-					</div>
-					<div class="col-md-8 runtime_data2">					
 						<div class="data_box">
 							<div class="runtime_d_header">
-								<h4>蒸汽温度</h4>
-								<div class="float_right full">
-									<span class="glyphicon glyphicon-resize-full" aria-hidden="true"></span>
-								</div>
-							</div>
-							<div class="">
-								
-							</div>
-							
-						</div>
-						
-					</div>
-				</div>
-				
-				<div class="row">
-					<div class="col-md-4 col-sm-12 col-xs-12 runtime_data1">
-						<div class="data_box">
-							<div class="runtime_d_header">
-								<h3>基本信息</h3>
+								<h3>
+									<i class="fa fa-info-circle"></i>
+									基本信息
+								</h3>
 								<div class="float_right">
 									<a class="btn btn-sm btn_lightblue" href="#" role="button">查看详情</a>
 								</div>
@@ -100,20 +86,48 @@
 							
 						</div>
 						
+						
+						
 					</div>
-					<div class="col-md-8 col-sm-12 col-xs-12 runtime_data2">
+					<div class="col-md-8 runtime_data2">					
 						<div class="data_box">
-							<div class="runtime_d_header">
+							<!--<div class="runtime_d_header">
+								<h4>蒸汽温度</h4>
+								<div class="float_right full">
+									<span class="glyphicon glyphicon-resize-full" aria-hidden="true"></span>
+								</div>
+							</div>-->
+							<div class="">								
+                				<chart-steam></chart-steam>            					
+							</div>							
+						</div>
+						
+						<div class="data_box">
+							<!--<div class="runtime_d_header">
 								<h4>排烟温度（低）</h4>
 								<div class="float_right  full">
 									<span class="glyphicon glyphicon-resize-full" aria-hidden="true"></span>
 								</div>
-							</div>
-							
+							</div>-->
+							<div class="">
+								<!--<newfile></newfile>-->
+								<chart-temperature></chart-temperature>
+							</div>							
 						</div>
+						
+						
 						
 					</div>
 				</div>
+				
+				<!--<div class="row">
+					<div class="col-md-4 col-sm-12 col-xs-12 runtime_data1">
+						
+					</div>
+					<div class="col-md-8 col-sm-12 col-xs-12 runtime_data2">
+						
+					</div>
+				</div>-->
 				
 				
 			</div>
