@@ -521,6 +521,9 @@ tbody {
     background: #fff;
 }
 
+
+
+
 .portlet > .portlet-title > .actions > .btn, .portlet > .portlet-title > .actions > .btn-group > .btn, .portlet > .portlet-title > .actions > .btn-group > .btn.btn-sm, .portlet > .portlet-title > .actions > .btn.btn-sm {
     padding: 4px 10px;
     font-size: 13px;
@@ -563,12 +566,35 @@ tbody {
 .portlet > .portlet-title > .tools > a:hover {
     text-decoration: none;
 }
-
+.portlet>.portlet-title>.actions {
+    float: right;
+    display: inline-block;
+    padding: 6px 0;
+}
+.portlet>.portlet-title>.actions .btn-icon-only.btn-default.fullscreen {
+    font-family: FontAwesome;
+    color: #a0a0a0;
+    padding-top: 3px;
+}
+.portlet.light>.portlet-title>.actions .btn-icon-only {
+    height: 27px;
+    width: 27px;
+}
+.portlet>.portlet-title>.actions .btn-icon-only.btn-default {
+    padding: 4px 6px 2px;
+}
 .portlet > .portlet-title > .tools > a.fullscreen:before {
     content: "\f065";
 }
 
 .portlet > .portlet-title > .actions .btn-icon-only.btn-default.fullscreen.on:before {
+    content: "\f066";
+}
+
+.portlet>.portlet-title>.actions .btn-icon-only.btn-default.fullscreen:before {
+    content: "\f065";
+}
+.portlet>.portlet-title>.actions .btn-icon-only.btn-default.fullscreen.on:before {
     content: "\f066";
 }
 

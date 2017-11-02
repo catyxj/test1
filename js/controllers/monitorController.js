@@ -1,15 +1,15 @@
 mainApp.controller("monitorController",function($scope){
-	
+
 })
 
 
 
-mainApp.controller("viewCtrl",function($scope,productData,$uibModal,$state){
+mainApp.controller("viewCtrl",function($scope,productData,$uibModal){
 
 	$scope.productData = productData;
 	$scope.pageSize = 4;
 	$scope.totalItems = $scope.productData.length;
-	
+
 	
 	$scope.openModal = function(data) {
                 var modalInstance = $uibModal.open({
@@ -43,16 +43,18 @@ mainApp.controller('viewModalCtrl', function($scope, $uibModalInstance, data) {
 
 
 
- mainApp.controller("productList",function($scope,productData,$filter,$state){	
+ mainApp.controller("productList",function($scope,productData,$filter){
 	$scope.productData = productData;
 	$scope.pageSize = 10;
+
 })
 
 
 
 mainApp.controller("mapController",function($scope,productData){
 	$scope.data = productData;
-	
+
+
 	var map = new BMap.Map("map-container"); 
 	
 	var point = new BMap.Point(116.404, 39.915); 

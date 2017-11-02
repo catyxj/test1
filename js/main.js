@@ -903,7 +903,7 @@ mainApp.service("configparamData",function(){
 
 
 
-mainApp.controller("mainCtrl", function($scope) {
+mainApp.controller("mainCtrl", function($scope,$state) {
 	$scope.options = [
 		{
 			name: "默认",
@@ -920,14 +920,17 @@ mainApp.controller("mainCtrl", function($scope) {
 	];
 	//默认选择第一个样式
 	$scope.theme = "";
+
+
+
 })
 
 
-mainApp.controller("sidebarCtrl",function($scope){
-	$scope.currentPage = "monitor";
-	$scope.setPage = function(m){
-		$scope.currentPage = m;
-	};
+mainApp.controller("sidebarCtrl",function($scope,$state){
+    $scope.currentPage = "monitor";
+    $scope.setPage = function(m){
+        $scope.currentPage = m;
+    };
 })
 
 
