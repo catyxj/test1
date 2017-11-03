@@ -33,7 +33,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
              	
-             	'../js/asset/highcharts-3d.js',
+//           	'../js/asset/highcharts-3d.js',
              	'../js/controllers/dashboardController.js'             	
 		             ]);
 		    }]
@@ -129,7 +129,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
-             	'../js/controllers/maintainInfoController.js',            	
+             	'../js/controllers/BoilerMaintainController.js',            	
 		             ]);
 		    }]
 		  }
@@ -164,7 +164,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
              	
-             	'../js/controllers/maintainInfoController.js',            	
+             	'../js/controllers/BoilerMaintainController.js',            	
 		             ]);
 		    }]
 		  }
@@ -247,7 +247,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
-             	'../js/controllers/productViewController.js'           	
+             	          	
 		             ]);
 		    }]
 		  }
@@ -258,7 +258,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
-             	'../js/controllers/productViewController.js'           	
+             	          	
 		             ]);
 		    }]
 		  }
@@ -638,17 +638,77 @@ mainApp.service("maintainData",function(){
 	return [
 		{
 			num:1,
-			time:"2017-09-22 12:43:48",
-			content:"test",
-			company:"系统",
-			state:"1"
+			Boiler:{
+				Name:"Test680344",
+				Enterprise:{
+					Name:"测试企业2001",
+				},
+			},				
+			InspectDate:"2017-09-22",
+			CreatedBy:{
+				Name:"厚德能源测试",
+			},
+			content:"test",						
+			maintainDetail:{
+				burner:[0,0,0,0,0,0,0],
+				importGrate:[0,0,0,0,0,0,0],
+				waterSoftener:[0,0,0],
+				waterPump:[0,0,0,0],
+				boilerBody:[0,0,0,0,0,0],
+				energySaver:[0,0,0],
+				airPreHeater:[0,0,0],
+				dustCatcher:[0,0,0],
+				draughtFan:[0,0,0],
+			},
+			summary:"",
+			status:{
+				burner:[0,0,0,0,0,0,0],
+				importGrate:[0,0,0,0,0,0,0],
+				waterSoftener:[0,0,0],
+				waterPump:[0,0,0,0],
+				boilerBody:[0,0,0,0,0,0],
+				energySaver:[0,0,0],
+				airPreHeater:[0,0,0],
+				dustCatcher:[0,0,0],
+				draughtFan:[0,0,0],
+			},
 		},
 		{
 			num:2,
-			time:"2017-09-22 12:43:48",
-			content:"test",
-			company:"系统ee",
-			state:"2"
+			Boiler:{
+				Name:"哈尔滨红光锅炉集团有限公司锅炉#2 ",
+				Enterprise:{
+					Name:"",
+				},
+			},
+			InspectDate:"2017-09-22",
+			CreatedBy:{
+				Name:"红光锅炉",
+			},
+			content:"test",					
+			maintainDetail:{
+				burner:[1,0,0,0,0,0,0],
+				importGrate:[0,0,0,0,0,0,0],
+				waterSoftener:[0,0,0],
+				waterPump:[0,0,0,0],
+				boilerBody:[0,0,0,0,0,0],
+				energySaver:[0,0,0],
+				airPreHeater:[0,0,0],
+				dustCatcher:[0,0,0],
+				draughtFan:[0,0,0],
+			},
+			summary:"haha",
+			status:{
+				burner:[1,0,0,0,0,0,0],
+				importGrate:[0,0,0,0,0,0,0],
+				waterSoftener:[0,0,0],
+				waterPump:[0,0,0,0],
+				boilerBody:[0,0,0,0,0,0],
+				energySaver:[0,0,0],
+				airPreHeater:[0,0,0],
+				dustCatcher:[0,0,0],
+				draughtFan:[0,0,0],
+			}, 
 		}
 	]
 });

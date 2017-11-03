@@ -680,7 +680,10 @@ table div.status-icon.default{
 	border-radius: 0;
 }
 
-
+.modal-body .pagination {
+    margin: 0;
+    float: none;
+}
 
 
 
@@ -783,6 +786,23 @@ table div.status-icon.default{
 .flash_view{
 	padding-top: 25px;
 }
+
+
+
+/*维保记录*/
+table div.status-line {
+    height: 8px;
+    line-height: 8px;
+    margin-bottom: 2px;
+    text-align: left;
+}
+.status-line .status-icon{
+	width: 10px;
+    height: 8px;
+	margin-right: 2px;
+}
+
+
 
 
 /*警告列表*/

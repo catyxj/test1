@@ -12,34 +12,21 @@
 	                        ng-change="setPageSize(pageSize)">
 		               </select>
 		               	条
-						
-						<!--<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-							{{pageSize}}
-							<span class="caret"></span>
-						</button> 条
-						<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-							<li>
-								<a ng-click="selectedPageSize(maintainInfo,5)">5</a>
-							</li>
-							<li>
-								<a ng-click="selectedPageSize(maintainInfo,10)">10</a>
-							</li>
-							<li>
-								<a ng-click="selectedPageSize(maintainInfo,20)">20</a>
-							</li>
-			
-						</ul>-->
+												
 					</div>
 			
-					<button style="margin-left: 20px; margin-top: 8px;" ng-click="addOpenModal()" type="button" class="btn btn-info">添加</button>
+					<button style="margin-left: 20px; margin-top: 8px;" 
+						ng-click="addOpenModal()" type="button" class="btn btn-info">
+						添加
+						<i class="fa fa-plus"></i>
+					</button>
 			
 							
 					<!--search-->
 					<form class="navbar-form navbar-right">
 						<div class="form-group">
 							搜索：
-							<input type="text" ng-model="search" class="form-control" placeholder="Search">
-			
+							<input type="text" ng-model="search" class="form-control" placeholder="Search">			
 						</div>
 			
 					</form>
@@ -49,7 +36,7 @@
 	
 	
 	
-	<table class="table" border="0" >
+	<table class="table table-hover table-bordered">
 			<thead>
 				<tr>
 					<th>
@@ -77,30 +64,64 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="d in maintainInfo">
+				<tr ng-repeat="data in maintainInfo">
 					<td>
-						{{d.num}}
+						{{data.num}}
 					</td>
 					<td>
-						{{d.company}}
+						<a href="">{{data.Boiler.Name}}</a> <br />
+						<span class="label label-sm label-default"> {{data.Boiler.Enterprise.Name}} </span>
+						
 					</td>
 					<td>
-						{{d.time}}
+						{{data.InspectDate}}
 					</td>
 					<td>
-						{{d.content}}
+						{{data.CreatedBy.Name}}
 					</td>
 										
-					<td ng-class="{'text-primary':d.state==='已回复','text-success':d.state==='新咨询'}" >
-						{{d.state}}
+					<td>
+						<div class="status-line">
+							<div ng-repeat="st in data.status.burner track by $index" class="status-icon" ng-class="[{'success': st == 0}, {'danger': st == 1}, {'warning': st == 2}]"></div>
+						</div>
+						<div class="status-line">
+							<div ng-repeat="st in data.status.importGrate track by $index" class="status-icon" ng-class="[{'success': st == 0}, {'danger': st == 1}, {'warning': st == 2}]"></div>
+						</div>
+						<div class="status-line">
+							<div ng-repeat="st in data.status.waterSoftener track by $index" class="status-icon" ng-class="[{'success': st == 0}, {'danger': st == 1}, {'warning': st == 2}]"></div>
+						</div>
+						<div class="status-line">
+							<div ng-repeat="st in data.status.waterPump track by $index" class="status-icon" ng-class="[{'success': st == 0}, {'danger': st == 1}, {'warning': st == 2}]"></div>
+						</div>
+						<div class="status-line">
+							<div ng-repeat="st in data.status.boilerBody track by $index" class="status-icon" ng-class="[{'success': st == 0}, {'danger': st == 1}, {'warning': st == 2}]"></div>
+						</div>
+						<div class="status-line">
+							<div ng-repeat="st in data.status.energySaver track by $index" class="status-icon" ng-class="[{'success': st == 0}, {'danger': st == 1}, {'warning': st == 2}]"></div>
+						</div>
+						<div class="status-line">
+							<div ng-repeat="st in data.status.airPreHeater track by $index" class="status-icon" ng-class="[{'success': st == 0}, {'danger': st == 1}, {'warning': st == 2}]"></div>
+						</div>
+						<div class="status-line">
+							<div ng-repeat="st in data.status.dustCatcher track by $index" class="status-icon" ng-class="[{'success': st == 0}, {'danger': st == 1}, {'warning': st == 2}]"></div>
+						</div>
+						<div class="status-line">
+							<div ng-repeat="st in data.status.draughtFan track by $index" class="status-icon" ng-class="[{'success': st == 0}, {'danger': st == 1}, {'warning': st == 2}]"></div>
+						</div>
 					</td>
 					<td>
-						{{d.company}}
+						{{data.summary}}
 					</td>
 					
 					<td>
-						<button ng-click="openModal(d)" type="button" class="btn btn-primary btn-sm">编辑</button>
-						<button ng-click="removeData(d.num)" type="button" class="btn btn-default btn-sm"> 删除</button>
+						<button ng-click="openModal(data)" type="button" class="btn btn-outline btn-circle green">
+							<i class="fa fa-edit"></i>
+							编辑
+						</button>
+						<button ng-click="removeData(data.num)" type="button" class="btn btn-outline btn-circle red"> 
+							<i class="fa fa-trash"></i>
+							删除
+						</button>
 					</td>
 				</tr>
 			</tbody>
@@ -127,38 +148,6 @@
 		
 		
 		
-									<!--<nav aria-label="Page navigation">
-										<div class="float_left count_num">
-											共{{count}}条记录
-										</div>
-									  <ul class="pagination">
-									  	<li>
-									      <a ng-click="p_index()">
-									        <span aria-hidden="true">首页</span>
-									      </a>
-									    </li>
-									    <li>
-									      <a ng-click="Previous()">
-									        <span  aria-hidden="true">上一页</span>
-									      </a>
-									    </li>
-									    <li ng-repeat="page in pageList"  ng-class="{active:isActivePage(page)}">
-									    	<a ng-click="selectPage(page)">
-									    		{{page}} 
-									    	</a>
-									    </li>
-									    
-									    <li>
-									      <a ng-click="Next()">
-									        <span aria-hidden="true">下一页</span>
-									      </a>
-									    </li>
-									    <li>
-									      <a ng-click="p_last()">
-									        <span aria-hidden="true">尾页</span>
-									      </a>
-									    </li>
-									  </ul>
-									</nav>-->
+								
 		
 </div>

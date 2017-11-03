@@ -519,6 +519,7 @@ tbody {
     width: 100%;
     height: 100%;
     background: #fff;
+    padding: 20px;
 }
 
 
@@ -553,6 +554,7 @@ tbody {
     font-size: 13px;
     font-family: FontAwesome;
     color: #ACACAC;
+    margin-top: 10px;
 }
 
 .portlet > .portlet-title > .tools > a {

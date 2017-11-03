@@ -1,0 +1,209 @@
+<div>
+	<div class="modal-header">
+		<button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times;</span></button>
+		<h4 class="modal-title">维保记录编辑	</h4>
+
+	</div>
+	<div class="modal-body">
+		<form action="" method="post">
+
+			<div class="row">
+				<div class="form-group col-md-6">
+					<label>维保日期：</label>
+					<input ng-model="data.InspectDate" class="form-control" type="text" name="" id="" value="" placeholder="咨询标题" />
+				</div>
+				<div class="form-group col-md-6">
+					<label>维保锅炉：</label>
+					<input ng-model="data.Boiler.Name" class="form-control" type="text" name="" id="" value="" placeholder="输入锅炉名称" />
+				</div>
+			</div>
+			<div class="" ng-show="data.detailindex == 1">
+				<div class="row">
+					<div class="col-md-4 col-sm-6 col-xs-12 ">
+						<label>燃烧器冷却水温度是否过高</label>
+						<div class="btn-group">
+							<label uib-btn-radio="0" ng-class="{'btn-success':data.maintainDetail.burner[0]=='0'}" class="btn btn-default" ng-model="data.maintainDetail.burner[0]">正常</label>
+							<label uib-btn-radio="2" ng-class="{'btn-warning':data.maintainDetail.burner[0]=='2'}" class="btn btn-default" ng-model="data.maintainDetail.burner[0]">过低</label>
+							<label uib-btn-radio="1" ng-class="{'btn-danger':data.maintainDetail.burner[0]=='1'}" class="btn btn-default" ng-model="data.maintainDetail.burner[0]">过高</label>
+						</div>
+					</div>
+
+					<div class="col-md-4 col-sm-6 col-xs-12 ">
+						<label>燃烧器炉膛耐火砖是否有脱落</label>
+						<div class="btn-group">
+							<label uib-btn-radio="0" ng-class="{'btn-success':data.maintainDetail.burner[1]=='0'}" class="btn btn-default" ng-model="data.maintainDetail.burner[1]">无脱落</label>
+							<label uib-btn-radio="1" ng-class="{'btn-success':data.maintainDetail.burner[1]=='1'}" class="btn btn-default" ng-model="data.maintainDetail.burner[1]">有脱落</label>
+						</div>
+					</div>
+
+					<div class="col-md-4 col-sm-6 col-xs-12">
+						<label>燃烧器火口是否有变形</label>
+						<div class="btn-group">
+							<label uib-btn-radio="0" ng-class="{'btn-success':data.maintainDetail.burner[2]=='0'}" class="btn btn-default" ng-model="data.maintainDetail.burner[2]">无变形</label>
+							<label uib-btn-radio="1" ng-class="{'btn-success':data.maintainDetail.burner[2]=='1'}" class="btn btn-default" ng-model="data.maintainDetail.burner[2]">有变形</label>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="row">
+
+					<div class="col-md-4 col-sm-6 col-xs-12">
+						<label>进料蛟龙运转是否有异响</label>
+						<div class="btn-group">
+							<label uib-btn-radio="0" ng-class="{'btn-success':data.maintainDetail.burner[3]=='0'}" class="btn btn-default" ng-model="data.maintainDetail.burner[3]">无异响</label>
+							<label uib-btn-radio="1" ng-class="{'btn-success':data.maintainDetail.burner[3]=='1'}" class="btn btn-default" ng-model="data.maintainDetail.burner[3]">有异响</label>
+						</div>
+					</div>
+
+					<div class="col-md-4 col-sm-6 col-xs-12">
+						<label>鼓风机转动是否有异响</label>
+						<div class="btn-group">
+							<label uib-btn-radio="0" ng-class="{'btn-success':data.maintainDetail.burner[4]=='0'}" class="btn btn-default" ng-model="data.maintainDetail.burner[4]">无异响</label>
+							<label uib-btn-radio="1" ng-class="{'btn-success':data.maintainDetail.burner[4]=='1'}" class="btn btn-default" ng-model="data.maintainDetail.burner[4]">有异响</label>
+						</div>
+					</div>
+
+					<div class="col-md-4 col-sm-6 col-xs-12 ">
+						<label>风料连锁控制情况是否正常</label>
+						<div class="btn-group">
+							<label uib-btn-radio="0" ng-class="{'btn-success':data.maintainDetail.burner[5]=='0'}" class="btn btn-default" ng-model="data.maintainDetail.burner[5]">正常</label>
+							<label uib-btn-radio="1" ng-class="{'btn-success':data.maintainDetail.burner[5]=='1'}" class="btn btn-default" ng-model="data.maintainDetail.burner[5]">异常</label>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="row">
+					<div class="col-md-4 col-sm-6 col-xs-12">
+						<label>燃烧器差压传感器是否稳定</label>
+						<div class="btn-group">
+							<label uib-btn-radio="0" ng-class="{'btn-success':data.maintainDetail.burner[6]=='0'}" class="btn btn-default" ng-model="data.maintainDetail.burner[6]">很稳定</label>
+							<label uib-btn-radio="1" ng-class="{'btn-success':data.maintainDetail.burner[6]=='1'}" class="btn btn-default" ng-model="data.maintainDetail.burner[6]">不稳定</label>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="" ng-show="data.detailindex == 2">
+				<div class="row">
+					<div class="col-md-4 col-sm-6 col-xs-12">
+						<label>斗提机运转是否正常</label>
+						<div class="btn-group">
+							<label uib-btn-radio="0" ng-class="{'btn-success':data.maintainDetail.importGrate[0]=='0'}" class="btn btn-default" ng-model="data.maintainDetail.importGrate[0]">正常</label>
+							<label uib-btn-radio="1" ng-class="{'btn-warning':data.maintainDetail.importGrate[0]=='1'}" class="btn btn-default" ng-model="data.maintainDetail.importGrate[0]">异常</label>
+
+						</div>
+					</div>
+
+					<div class="col-md-4 col-sm-6 col-xs-12">
+						<label>星型给料器给料情况是否匹配</label>
+						<div class="btn-group">
+							<label uib-btn-radio="0" ng-class="{'btn-success':data.maintainDetail.importGrate[1]=='0'}" class="btn btn-default" ng-model="data.maintainDetail.importGrate[1]">匹配</label>
+							<label uib-btn-radio="1" ng-class="{'btn-success':data.maintainDetail.importGrate[1]=='1'}" class="btn btn-default" ng-model="data.maintainDetail.importGrate[1]">异常</label>
+						</div>
+					</div>
+
+					<div class="col-md-4 col-sm-6 col-xs-12">
+						<label>炉排运转数度调节是否与负荷匹配</label>
+						<div class="btn-group">
+							<label uib-btn-radio="0" ng-class="{'btn-success':data.maintainDetail.importGrate[2]=='0'}" class="btn btn-default" ng-model="data.maintainDetail.importGrate[2]">匹配</label>
+							<label uib-btn-radio="1" ng-class="{'btn-success':data.maintainDetail.importGrate[2]=='1'}" class="btn btn-default" ng-model="data.maintainDetail.importGrate[2]">异常</label>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="row">
+
+					<div class="col-md-4 col-sm-6 col-xs-12">
+						<label>炉排漏料是否过多</label>
+						<div class="btn-group">
+							<label uib-btn-radio="0" ng-class="{'btn-success':data.maintainDetail.importGrate[3]=='0'}" class="btn btn-default" ng-model="data.maintainDetail.importGrate[3]">正常</label>
+							<label uib-btn-radio="1" ng-class="{'btn-success':data.maintainDetail.importGrate[3]=='1'}" class="btn btn-default" ng-model="data.maintainDetail.importGrate[3]">过多</label>
+						</div>
+					</div>
+
+					<div class="col-md-4 col-sm-6 col-xs-12 ">
+						<label>燃料燃尽与炉排速度匹配度</label>
+						<div class="btn-group">
+							<label uib-btn-radio="0" ng-class="{'btn-success':data.maintainDetail.importGrate[4]=='0'}" class="btn btn-default" ng-model="data.maintainDetail.importGrate[4]">匹配</label>
+							<label uib-btn-radio="1" ng-class="{'btn-success':data.maintainDetail.importGrate[4]=='1'}" class="btn btn-default" ng-model="data.maintainDetail.importGrate[4]">异常</label>
+						</div>
+					</div>
+
+					<div class=" col-md-4 col-sm-6 col-xs-12">
+						<label>风门是否可开合</label>
+						<div class="btn-group">
+							<label uib-btn-radio="0" ng-class="{'btn-success':data.maintainDetail.importGrate[5]=='0'}" class="btn btn-default" ng-model="data.maintainDetail.importGrate[5]">易开合</label>
+							<label uib-btn-radio="1" ng-class="{'btn-success':data.maintainDetail.importGrate[5]=='1'}" class="btn btn-default" ng-model="data.maintainDetail.importGrate[5]">难开合</label>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-4 col-sm-6 col-xs-12">
+						<label>风门开合与燃烧是否最优</label>
+						<div class="btn-group">
+							<label uib-btn-radio="0" ng-class="{'btn-success':data.maintainDetail.importGrate[6]=='0'}" class="btn btn-default" ng-model="data.maintainDetail.importGrate[6]">最优</label>
+							<label uib-btn-radio="1" ng-class="{'btn-success':data.maintainDetail.importGrate[6]=='1'}" class="btn btn-default" ng-model="data.maintainDetail.importGrate[6]">良好</label>
+							<label uib-btn-radio="2" ng-class="{'btn-success':data.maintainDetail.importGrate[6]=='2'}" class="btn btn-default" ng-model="data.maintainDetail.importGrate[6]">最差</label>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="btn-group col-md-12">
+					<ul class="pagination">
+						<li class="paginate_button" ng-class="{'active': data.detailindex === 1}">
+							<a href="" ng-click="data.setIndex(1)">燃烧器</a>
+						</li>
+						<li class="paginate_button" ng-class="{'active': data.detailindex === 2}">
+							<a href="" ng-click="data.setIndex(2)">进料及炉排</a>
+						</li>
+						<li class="paginate_button" ng-class="{'active': data.detailindex === 3}">
+							<a href="" ng-click="data.setIndex(3)">软水器</a>
+						</li>
+						<li class="paginate_button" ng-class="{'active': data.detailindex === 4}">
+							<a href="" ng-click="data.setIndex(4)">水泵</a>
+						</li>
+						<li class="paginate_button" ng-class="{'active': data.detailindex === 5}">
+							<a href="" ng-click="data.setIndex(5)">锅炉本体</a>
+						</li>
+						<li class="paginate_button" ng-class="{'active': data.detailindex === 6}">
+							<a href="" ng-click="data.setIndex(6)">节能器</a>
+						</li>
+						<li class="paginate_button" ng-class="{'active': data.detailindex === 7}">
+							<a href="" ng-click="data.setIndex(7)">空预器</a>
+						</li>
+						<li class="paginate_button" ng-class="{'active': data.detailindex === 8}">
+							<a href="" ng-click="data.setIndex(8)">除尘器</a>
+						</li>
+						<li class="paginate_button" ng-class="{'active': data.detailindex === 9}">
+							<a href="" ng-click="data.setIndex(9)">引风机</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12" style="margin-top: 6px;">
+					<label>记录摘要：</label>
+					<textarea class="form-control" name="" rows="2" cols="" placeholder="记录摘要"> </textarea>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="modal-footer">
+
+		<button class="btn btn-primary" ng-click="ok()">
+								                提交
+								 </button>
+		<button class="btn btn-default" ng-click="cancel()">
+								                取消
+								</button>
+	</div>
+</div>

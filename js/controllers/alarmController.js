@@ -3,7 +3,7 @@
 mainApp.controller("alarmInfoController",function($scope,alarmData,$state,$uibModal){	
 	$scope.alarm = alarmData ;	
 	$scope.pageSize = 10;
-//	$scope.totalItems = $scope.alarmInfo.length;
+
 	$scope.alarmMode = "current";
 	$scope.setAlarm = function(m){
 		$scope.alarmMode = m;

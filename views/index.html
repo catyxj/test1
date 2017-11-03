@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="home">
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
@@ -10,6 +10,7 @@
 		<link rel="stylesheet" type="text/css" href="../css/home.css"/>
 		<script src="../js/asset/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/asset/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/asset/angular.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/asset/wow.js" type="text/javascript" charset="utf-8"></script>				
 		<script type="text/javascript">
 		        $(window).scroll(function(){
@@ -58,9 +59,19 @@
 			</nav>
 		</div>
 		
-		
+		<style>
+			.ng-invalid{
+
+			}
+			.ng-valid{
+
+			}
+			span.error{
+				color: red;
+			}
+		</style>
 		<!-- Modal -->
-		<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div ng-controller="loginController" class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		  <div class="modal-dialog" style="width: 460px;" role="document">
 		    <div class="modal-content">
 		      <!--<div class="modal-header">
@@ -76,9 +87,10 @@
 		        	<p>欢迎回来，请填写你的用户名和密码进行登录。</p>		   
 		        </div>
 		        <div class="pb-md">
-		        	<form action="" method="post">
+		        	<form action="" method="post" name="login" novalidate>
 		        		<div class="input-group-lg mt-lg">
-		        			<input type="text" class="form-control" placeholder="用户名"/>
+		        			<input type="text" name="user" class="form-control" placeholder="用户名" required/>
+
 		        		</div>
 		        		<div class="input-group-lg mt-lg">
 		        			<input type="text" class="form-control" placeholder="密码"/>
