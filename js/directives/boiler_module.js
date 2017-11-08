@@ -27,7 +27,7 @@ mainApp.directive('boilerModule', function () {
 //      bModule.boiler = $rootScope.boiler;
 //      bModule.instants = $rootScope.instants;
 
-		bModule.boiler = productData[1];
+		bModule.boiler = productData[4];
 		bModule.instants = [];
 		
         // console.error("Runtime initModule!", bModule.instants);
@@ -47,6 +47,9 @@ mainApp.directive('boilerModule', function () {
         var svgName = "/img/boiler_coal_double.svg";
         bModule.moduleId = 1;
         switch (bModule.boiler.Fuel.Type.Id) {
+        	case 2:
+                bModule.moduleId = 2;
+                break;
             case 3:
                 bModule.moduleId = 3;
                 break;
@@ -63,6 +66,9 @@ mainApp.directive('boilerModule', function () {
         switch (bModule.moduleId) {
             case 1:
                 svgName = "../img/boiler_coal_double.svg";
+                break;
+            case 2:
+                svgName = "../img/boiler_coal_single.svg";
                 break;
             case 3:
                 svgName = "../img/boiler_gas.svg";

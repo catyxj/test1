@@ -329,7 +329,7 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 			Fuel:{
 				Type:{
 					Id:1,
-					name:"燃油",
+					name:"燃煤",
 				}
 			},
 			alarmLevel:-1,
@@ -437,11 +437,11 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 			Enterprise:{
 				Name:"青岛胜利锅炉有限公司",
 			},
-			isBurning:0,
+			isBurning:1,
 			Fuel:{
 				Type:{
-					Id:4,
-					name:"生物质",
+					Id:2,
+					name:"燃油",
 				}
 			},
 			alarmLevel:-1,
