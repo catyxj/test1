@@ -451,7 +451,7 @@ tbody {
 
 /*components*/
 
-.btn-circle {
+/*.btn-circle {
     border-radius: 25px !important;
     overflow: hidden;
 }
@@ -535,12 +535,12 @@ tbody {
     float: right;
     display: inline-block;
     padding: 6px 0;
-}
+}*/
 
 /*.portlet.light.portlet-fit>.portlet-title {
     padding: 0px 10px;
 }*/
-.portlet > .portlet-title > .tools {
+/*.portlet > .portlet-title > .tools {
     float: right;
     display: inline-block;
     margin-right: 10px;
@@ -659,6 +659,6 @@ tbody {
 .mt-comments .mt-comment .mt-comment-body .mt-comment-info:after, .mt-comments .mt-comment .mt-comment-body .mt-comment-info:before {
     content: " ";
     display: table;
-}
+}*/
 
 

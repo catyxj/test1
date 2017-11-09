@@ -1,4 +1,4 @@
-mainApp.controller("monitorController",function($scope){
+mainApp.controller("monitorController",function($rootScope,$scope){
 	
 })
 
