@@ -1,0 +1,50 @@
+<div>
+	<div class="modal-header">
+		<button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times;</span></button>
+		
+		<div class="float_right text-right">
+			<span class="font-blue-madison bold">
+				{{data.boiler}}
+			</span>
+			<br />
+			<span class="">
+				蒸汽温度过高 
+			</span>
+			<span style="font-size: 13px; color: #999999;">
+				2017-10-13 08:12 - 当前
+			</span>
+		</div>
+		
+		<h3 class="modal-title">告警详情</h3>
+	</div>
+
+	
+
+	<div class="modal-body">
+		<div class="portlet-body">
+			<div class="row">
+				<chart-alarm></chart-alarm>
+				
+			</div>			
+		</div>
+
+		
+		<div class="row">
+			<form class="form-group col-md-12" action="" method="post">
+				<label class="control-label"><i class="fa fa-edit"></i> 备注信息：</label>
+				<textarea class="form-control" name="" rows="6" cols="" placeholder="在这里输入内容"></textarea>
+	
+			</form>
+		</div>
+		
+	</div>
+	<div class="modal-footer">
+
+		<button class="btn btn-primary" ng-click="ok()">
+			 提交
+		</button>
+		<button class="btn btn-default" ng-click="cancel()">
+			取消
+		</button>
+	</div>
+</div>

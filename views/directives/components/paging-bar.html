@@ -1,0 +1,38 @@
+<!--
+        <div class="input-append">
+            <input type="text" ng-model="runtime.query" ng-change="runtime.search()" class="input-large search-query"
+                   placeholder="Search">
+            <span class="add-on"><i class="icon-search"></i></span>
+        </div>
+        -->
+
+<div class="row">
+    <div class="col-md-8 col-sm-8">
+        <div class="dataTables_paginate paging_bootstrap_full_number">
+            <ul class="pagination" style="visibility: visible;">
+                <li ng-class="['prev', {'disabled': dashboard.currentPage == 0}]">
+                    <a href ng-click="dashboard.setPage(1)" title="首页"><i class="fa fa-angle-double-left"></i></a>
+                </li>
+                <li ng-class="['prev', {'disabled': dashboard.currentPage == 0}]">
+                    <a href ng-click="dashboard.prevPage()" title="上一页"><i class="fa fa-angle-left"></i></a>
+                </li>
+                <li ng-repeat="n in dashboard.range()"
+                    ng-class="{'active': n == dashboard.currentPage + 1}"
+                    ng-click="dashboard.setPage(n)">
+                    <a href ng-bind="n"></a>
+                </li>
+                <li ng-class="{'disabled': currentPage == dashboard.pagedItems.length - 1}">
+                    <a href ng-click="dashboard.nextPage()" title="下一页"><i class="fa fa-angle-right"></i></a>
+                </li>
+                <li ng-class="{'disabled': currentPage == dashboard.pagedItems.length - 1}">
+                    <a href ng-click="dashboard.setPage(dashboard.pagedItems.length)" title="末页"><i
+                            class="fa fa-angle-double-right"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-4">
+        <div class="dataTables_info" style="margin-top: 20px;" role="status" aria-live="polite">第 {{dashboard.currentPage + 1}} 页 共 {{dashboard.pagedItems.length}} 页
+        </div>
+    </div>
+</div>

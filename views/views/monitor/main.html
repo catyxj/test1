@@ -1,7 +1,8 @@
 <div class="page-bar">
-	<ol class="breadcrumb">
+	<ol class="page-breadcrumb">
 		<li>
-			<a href="" ui-sref="dashboard">首页</a>
+			<a href="" ui-sref="monitor.dashboard">主页</a>
+			<i class="fa fa-circle"></i>
 		</li>
 
 		<li>
@@ -11,119 +12,47 @@
 	</ol>
 </div>
 
-
-<div class="page_content">
-
-
-<div class="select_container">
+<div class="page_content monitor_content">
+	<!-- BEGIN MAIN CONTENT -->
 	<div class="row">
-		<div class="col-md-6 col-sm-12 col-xs-12 pl_n pr-lg">
-			<div class="col-md-8 col-sm-8 col-xs-8 pr-md select_address">
-				<div class="col-md-4 col-sm-4 col-xs-4">
-					<select required="" class="form-control" ng-model="address.province" ng-options="key as key for (key,value) in division" ng-change="address.city='';address.district='';">
-						<option value="">省</option>
-					</select>
-				</div>
-				<div class="col-md-4 col-sm-4 col-xs-4 p_n">
-					<select class="form-control" ng-model="address.city" ng-options="key as key for (key,value) in division[address.province]" ng-change="address.district='';">
-						<option value="">市</option>
-					</select>
-				</div>
-				<div class="col-md-4 col-sm-4 col-xs-4">
-					<select class="form-control" ng-model="address.district" ng-options="value as value for value in division[address.province][address.city]">
-						<option value="">区</option>
-					</select>
-				</div>
-			</div>	
-			
-			<div class="col-md-4">
-				停燃
-				<label class="switch switch-lg">
-			        <input type="checkbox" checked />
-			       <span></span>
-			    </label>
-		          燃烧
-			</div>
-		</div>
-		
-		
-		<div class="col-md-6 col-sm-12 col-xs-12">
-			
-	          <input type="text" class="form-control"  name="" id="" value="" />
-	          
-		</div>		
-	</div>
-	
-	<div class="row">
-		<div class="col-md-6">
-			<div class="col-md-4 pl_n pr-md">
-				<select  class="form-control"
-					 ng-model="selectedCompany" ng-change="selectCompany(selectedCompany)" ng-options="item for item in productData | orderBy:'company' | unique:'company'">
-					<option selected="selected" value="">企业不限</option>			
-				</select>
-			</div>
-									
-			
-			<div class="col-md-4 pl_n pr-md">
-				<select class="form-control"
-					 ng-model="selectedModel" ng-change="selectModel(selectedModel)" ng-options="item for item in productData | orderBy:'model' | unique:'model'">
-					<option selected="selected" value="">型号不限</option>		
-				</select>
-			</div>
-			
-			<div class="col-md-4 pl_n pr_n">
-				<select class="form-control"
-					 ng-model="selectedFuel" ng-change="selectFuel(selectedFuel)" ng-options="item.name for item in fuelSelect">
-					<option selected="selected" value="">燃料不限</option>		
-				</select>
-			</div>
-		</div>
+		<div class="col-md-12">
+			<div class="portlet light">
 				
-		<div class="col-md-6">
-			<input type="text" class="form-control" />
-			<!--<ui-select ng-model="selectedCompany"  ng-disabled="disabled">
-               <ui-select-match placeholder="">{{$select.selected.name}}</ui-select-match>
-               <ui-select-choices repeat="item for item in productData | orderBy:'company' | unique:'company'">
-                  <span ng-bind="item">  
-           		  </span> 
-               </ui-select-choices>
-            </ui-select>-->
+				<filter-monitor ng-show="$state.current.name != 'monitor.dashboard'"></filter-monitor>
+
+				<div ng-show="$state.current.name != 'monitor.dashboard'" class="portlet-title tabbable-line">
+					<ul class="nav nav-tabs">
+						<li ng-class="{'active':isActiveTag('monitor.thumb')}">
+							<a href="" ui-sref=".thumb">
+								<i class="fa fa-puzzle-piece"></i> 图文模式
+							</a>
+						</li>
+						<li ng-class="{'active':isActiveTag('monitor.list')}">
+							<a href="" ui-sref=".list">
+								<i class="fa fa-navicon"></i> 列表模式
+							</a>
+						</li>
+						<li ng-class="{'active':isActiveTag('monitor.map')}">
+							<a href="" ui-sref=".map">
+								<i class="fa fa-map-marker"></i> 地图模式
+							</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="portlet-body">
+					<div ui-view class="profile-content fade-in-up"></div>
+				</div>
+
+			</div>
 		</div>
 	</div>
 
 </div>
 
 
-
-<div class="main_console tabtable-line">
-	<div class="tab_head">
-		<ul class="nav nav-tabs">
-			<li ui-sref-active="active" ng-class="{active:isActiveTag(monitor.thumb)}">
-				<a href="" ui-sref=".thumb">
-					<i class="fa fa-image"></i>
-					图文模式
-				</a>
-			</li>
-			<li ui-sref-active="active" ng-class="{active:isActiveTag(monitor.list)}">
-				<a href="" ui-sref=".list">
-					<i class="fa fa-list"></i>
-					列表模式
-				</a>
-			</li>
-			<li ui-sref-active="active" ng-class="{active:isActiveTag(monitor.map)}">
-				<a href="" ui-sref=".map">
-					<i class="fa fa-map"></i>
-					地图模式
-				</a>
-			</li>
-		</ul>
-	</div>
-	
-	
-	<div class="portlet-body">
-		<div ui-view class="profile-content animated fadeInUp"></div>
-	</div>
-</div>
-
-</div>
-
+<script src="../js/lib/amcharts/amcharts.js" type="text/javascript"></script>	
+<script src="../js/lib/amcharts/serial.js" type="text/javascript"></script>
+<script src="../js/lib/amcharts/pie.js" type="text/javascript"></script>
+<script src="../js/lib/amcharts/themes/light.js" type="text/javascript"></script>
+<script src="../js/lib/amcharts/lang/zh.js" type="text/javascript"></script>

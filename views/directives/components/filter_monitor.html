@@ -1,0 +1,95 @@
+
+<div class="input-append">
+    <div class="row">
+        <div class="form-location col-md-4 col-sm-4 col-xs-8">
+            <div class="form-group col-md-4 col-sm-4 col-xs-4">
+                <select required="" class="form-control" ng-model="address.province" ng-options="key as key for (key,value) in division" ng-change="address.city='';address.district='';">
+					<option value="">省</option>
+				</select>
+            </div>
+            <div class="form-group col-md-4 col-sm-4 col-xs-4">
+                <select class="form-control" ng-model="address.city" ng-options="key as key for (key,value) in division[address.province]" ng-change="address.district='';">
+					<option value="">市</option>
+				</select>
+            </div>
+            <div class="form-group col-md-4 col-sm-4 col-xs-4">
+                <select class="form-control" ng-model="address.district" ng-options="value as value for value in division[address.province][address.city]">
+					<option value="">区</option>
+				</select>
+            </div>
+        </div>
+        <div class="form-switch col-md-2 col-sm-2 col-xs-4">
+            <!--<div class="form-group">
+                <input bs-switch
+                       ng-model="dashboard.aBurning"
+                       ng-change="dashboard.filterBoilers()"
+                       type="checkbox"
+                       switch-on-text="燃烧"
+                       switch-off-text="停燃"
+                       switch-on-color="success"
+                       switch-off-color="danger"
+                       switch-animate="{{ true }}"
+                       switch-size="{{ size }}"
+                       switch-label="{{ label }}"
+                       switch-icon="{{ icon }}"
+                       switch-radio-off="{{ true }}"
+                       switch-label-width="auto"
+                       switch-handle-width="auto"
+                       switch-wrapper="{{ wrapper }}"
+                       switch-inverse="false"
+                       style="width: 100%">
+            </div>-->
+        		停燃
+				<label class="switch switch-lg">
+			        <input type="checkbox" checked />
+			       <span></span>
+			    </label> 
+			    燃烧
+        
+        </div>
+        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+            
+            <ui-select ng-model="dashboard.aOrg" ng-change="dashboard.filterBoilers()" theme="bootstrap">
+                <ui-select-match placeholder="输入企业名称或在列表中选择...">{{$select.selected.name}}</ui-select-match>
+                <ui-select-choices group-by="'type'" repeat="item in itemArray | filter:$select.search">
+                    <span ng-bind="item.name"></span>                   
+                </ui-select-choices>
+            </ui-select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-module col-md-6 col-sm-6 col-xs-12">
+            <div class="form-group first col-md-4 col-sm-4 col-xs-4">
+                <select class="form-control" ng-model="selectedModel" ng-change="selectModel(selectedModel)" ng-options="item for item in productData | orderBy:'model' | unique:'model'">
+					<option selected="selected" value="">型号不限</option>
+				</select>
+            </div>
+            <div class="form-group col-md-4 col-sm-4 col-xs-4">
+               <select class="form-control" ng-model="selectedFuel" ng-change="selectFuel(selectedFuel)" ng-options="item.name for item in fuelSelect">
+					<option selected="selected" value="">燃料不限</option>
+				</select>
+            </div>
+            <div class="form-group last col-md-4 col-sm-4 col-xs-4">
+                <select class="form-control" ng-model="selectedCompany" ng-change="selectCompany(selectedCompany)" ng-options="item for item in productData | orderBy:'company' | unique:'company'">
+					<option selected="selected" value="">企业不限</option>
+				</select>
+            </div>
+        </div>
+        <div class="form-info col-md-6 col-sm-6 col-xs-12">
+            <div class="form-group form-input col-md-9 col-sm-9 col-xs-10">
+                <input type="text" ng-model="dashboard.aQuery" ng-change="dashboard.filterBoilers()" class="form-control" placeholder="输入锅炉信息进行搜索">
+            </div>
+            <div class="form-group col-md-3 col-sm-3 col-xs-2
+">
+                <button type="button" ng-click="dashboard.initSearch(); dashboard.filterBoilers();" class="btn grey-cascade btn-outline btn-block sbold uppercase">
+                    <i class="fa fa-refresh"></i>
+                    重置
+                </button>
+            </div>
+        </div>
+    </div>
+    <!--
+    {{dashboard.needle}} {{dashboard.needleNull}} | {{dashboard.haystack}}, {{dashboard.needle}} | {{dashboard.filterLen}} | {{dashboard.matchNum}}
+    -->
+</div>

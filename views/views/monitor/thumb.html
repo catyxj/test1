@@ -1,63 +1,86 @@
-<div ng-controller="viewCtrl" class="view">
-	<ul class="row">
-		<li ng-repeat="data in productData | range:selectedpage:pageSize | filter:modelFilterFn | filter:fuelFilterFn | filter:companyFilterFn " class="col-md-6 col-sm-12 col-xs-12">
-			<div class="view_box">
-				<div class="view_header">
-					<div class="float_left view_title">
-						<a ui-sref="runtime.dashboard" href="">
-							<i class="fa fa-database fa-lg"></i>
-							<span>{{data.name}} </span>
-						</a>
-						
-						<div class="inline">
-							<a href="" ng-click="openModal(data)">
-								<i class="fa fa-wrench"></i>
-								测算
-							</a>
-						</div>
-												
+<div ng-controller="viewCtrl" class="view row">
+	<ul>
+		<li ng-repeat="boiler in productData | range:selectedpage:pageSize | filter:modelFilterFn | filter:fuelFilterFn | filter:companyFilterFn" 
+			class="col-md-6 col-sm-12 col-xs-12">
+			<!-- BEGIN PORTLET-->
+			<div class="portlet light bordered boiler-frame">
+				<div class="portlet-title">
+					<div class="view_title caption">
+						<a ui-sref="runtime.dashboard({boiler: boiler.Uid})">
+							<i ng-show="boiler.Fuel.Type.Id == 1" class="fa fa-cubes font-grey-cascade"></i>
+	                        <i ng-show="boiler.Fuel.Type.Id == 2" class="fa fa-tint font-grey-gallery"></i>
+	                        <i ng-show="boiler.Fuel.Type.Id == 3" class="fa fa-database font-blue-soft"></i>
+	                        <i ng-show="boiler.Fuel.Type.Id == 4" class="fa fa-leaf font-green-jungle"></i>
+	                        <i ng-show="boiler.Fuel.Type.Id > 4" class="fa fa-sun-o font-grey"></i>
+							<span class="caption-subject font-grey-mint bold uppercase">{{boiler.name}} </span>
+						</a>												
+						<a href="" ng-click="openModal(boiler)" class="caption-helper btn-outline btn-circle">
+							<i class="fa fa-wrench"></i>
+							测算
+						</a>																		
 					</div>
 
-					<div class="float_right">
-						<button type="button" ng-class="{'btn-danger':data.state==1, 'btn-info':data.state==0,}" class="btn btn-sm btn_round btn_bc">终端状态</button>
-						<button type="button" ng-class="{'btn-danger':data.state==1, 'btn-info':data.state==0,}" class="btn btn-sm btn_round btn_bc">燃烧状态</button>
-						<button type="button" class="btn btn-warning btn-sm btn_round btn_bc">告警</button>
+					<div class="actions">
+						<div class="btn-group btn-group-devided">
+							<a class="btn btn-outline btn-circle btn-sm active"
+	                           ng-class="[{'green': boiler.Terminal.IsOnline || boiler.isBurning}, { 'red': (!boiler.Terminal || !boiler.Terminal.IsOnline) && !boiler.isBurning}]">
+	                           	终端状态
+							</a>
+	                        <a ui-sref="runtime.dashboard({boiler: boiler.Uid})"
+	                           class="btn btn-outline btn-sm btn-circle active"
+	                           ng-class="[{'green': boiler.isBurning}, { 'red': !boiler.isBurning}]">燃烧状态</a>
+	                        <a ui-sref="runtime.alarm({boiler: boiler.Uid})" 
+	                        	ng-class="['btn', 'btn-outline', 'btn-sm', 'btn-circle', 'active', {'green': boiler.alarmLevel == 0}, { 'yellow-lemon': boiler.alarmLevel == 1}, { 'red': boiler.alarmLevel == 2}, { 'grey': boiler.alarmLevel == -1}]" >
+	                        	告警
+	                        </a>
+						</div>
+						<!--<button type="button" ng-class="{'btn-danger':boiler.state==1, 'btn-info':boiler.state==0,}" class="btn btn-sm btn_round btn_bc">终端状态</button>
+						<button type="button" ng-class="{'btn-danger':boiler.state==1, 'btn-info':boiler.state==0,}" class="btn btn-sm btn_round btn_bc">燃烧状态</button>
+						<button type="button" class="btn btn-warning btn-sm btn_round btn_bc">告警</button>-->
 					</div>
 				</div>
 
-				<div class="view_body">
-					<div class="col-md-6 col-sm-12">
-						<table border="0" cellspacing="" cellpadding="" width="100%">
-							<tr>
-								<th>热效率</th>
-								<th>蒸汽压力</th>
-							</tr>
-							<tr>
-								<td>{{data.num}}</td>
-								<td>{{data.model}}</td>
-							</tr>
-							<tr>
-								<th>排烟温度(低)</th>
-								<th>过量空气系数</th>
-							</tr>
-							<tr>
-								<td>Data</td>
-								<td>Data</td>
-							</tr>
-						</table>
+				<div class="portlet-body">
+					<div class="row">
+						<div class="col-md-6 col-sm-6 col-xs-6">
+							<table  class="table table-scrollable-borderless table-hover table-light">
+								<thead ng-repeat-start="rtms in boiler.runtime">
+									<tr class="uppercase">
+		                                <th ng-repeat="rtm in rtms">{{ rtm.name }}</th>
+		                            </tr>
+		                            
+								</thead>
+								<tbody ng-repeat-end>
+									<tr>
+		                                <td ng-repeat="rtm in rtms">
+		                                    <span ng-class="[{'label': boiler.isBurning}, {'label-lg': boiler.isBurning}, {'label-success': rtm.alarmLevel == 0}, { 'label-warning': rtm.alarmLevel == 1}, {'label-danger': rtm.alarmLevel == 2} ]" >{{rtm.value}}</span>
+		                                </td>
+		                            </tr>
+									
+								</tbody>
+								
+								
+							</table>
+						</div>
+						<div class="col-md-6 col-sm-6 col-xs-6">
+							
+							<a ui-sref="runtime.dashboard({boiler: boiler.Uid})">
+	                            <!--<img class="boiler-thumb" ng-src="../img/{{ boiler.img }}" />-->
+	                            <img class="boiler-thumb" src="../images/gasboiler.png" />
+	                        </a>
+						</div>
 					</div>
-					<div class="col-md-6 col-sm-12">
-						<img src="../images/gasboiler.png" />
-					</div>
+					
 				</div>
 
 			</div>
 		</li>
 
 	</ul>
+	<div class="clearfix"></div>
 
 	<!--pagination-->	
-
+	
 	<div >
 		
          <div class="float_left count_num">

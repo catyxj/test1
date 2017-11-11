@@ -1,0 +1,221 @@
+<div class="">
+	<div class="row" style="margin-top: -18px;">
+		<div class="col-md-6 col-sm-6">
+			<div ng-show="$state.current.name === 'runtime.alarm'"
+				 class="subscription form-group">
+				订阅推送
+				<label class="switch switch-lg">
+			       <input type="checkbox" checked="checked">
+			       <span></span>
+			    </label>
+			</div>		
+		</div>
+		<div class="col-md-6">
+			<div id="alarm_tabs"  class="tabbable-line">
+				<ul class="nav nav-tabs">
+					<li ng-class="{'active':alarmMode === 'current'}">				
+						<a href="" ng-click="setAlarm('current')"> 
+							<i class="fa fa-list"></i>
+							当前告警列表
+						</a>
+					</li>
+					<li ng-class="{'active':alarmMode === 'history'}">
+						<a href="" ng-click="setAlarm('history')">
+							<i class="fa fa-history"></i>
+							历史告警列表
+						</a>
+					</li>	
+				</ul>
+			</div>		
+		</div>
+	</div>
+	
+	<div class="row">
+		<!--select pageSize-->
+			<div class="col-sm-6">	
+				<label>
+					每页显示
+					<select class="input-sm  w-sm inline v-middle"
+	                        ng-model="pageSize" 
+	                        ng-options="o as o for o in placement.options"
+	                        ng-change="setPageSize(pageSize)">
+		            </select>
+	               	条
+				</label>												
+			</div>
+
+			<!--search-->
+			<form class="col-sm-6 form-inline text-right">
+				<label class="">
+					搜索：
+					<input type="text" ng-model="search" class="form-control input-sm" placeholder="Search">
+				</label>
+			</form>
+	</div>
+	
+	<div class="row" ng-init="setAlarm('current');">
+			
+	<!--current-->
+		<div ng-show="alarmMode === 'current'" class="col-md-12">
+			<table class="table table-striped table-hover table-bordered table-checkable table-boiler">
+				<thead>
+					<tr>
+						<th ng-click="changeOrder('num')" ng-class="{dropup:order===''}">
+							序号
+							<span ng-class="{orderColor:orderType==='num'}" class="caret"></span>
+						</th>
+						<th ng-click="changeOrder('boiler')" ng-class="{dropup:order===''}">
+							告警锅炉
+							<span ng-class="{orderColor:orderType==='boiler'}" class="caret"></span>
+						</th>
+						<th ng-click="changeOrder('monitor')" ng-class="{dropup:order===''}">
+							监测参数
+							<span ng-class="{orderColor:orderType==='monitor'}" class="caret"></span>
+						</th>
+						<th ng-click="changeOrder('priority')" ng-class="{dropup:order===''}">
+							优先级
+							<span ng-class="{orderColor:orderType==='priority'}" class="caret"></span>
+						</th>
+						<th ng-click="changeOrder('StartText')" ng-class="{dropup:order===''}">
+							告警时间
+							<span ng-class="{orderColor:orderType==='StartText'}" class="caret"></span>
+						</th>
+						<th ng-click="changeOrder('state')" ng-class="{dropup:order===''}">
+							状态
+							<span ng-class="{orderColor:orderType==='state'}" class="caret"></span>
+						</th>
+						<th>
+							操作
+						</th>
+		
+					</tr>
+				</thead>
+				
+				<tbody>
+					<tr ng-repeat="data in alarm.datasource|filter:alarmMode | filter:search | orderBy: order+orderType">
+						<td>
+							{{data.num}}
+						</td>
+						<td>
+							{{data.boiler}}<br />
+							<span ng-bind={{"data.Enterprise"}} class="label label-default label-sm">
+							</span>
+						</td>
+						<td>
+							{{data.monitor}}
+						</td>
+						<td>
+							<div ng-repeat="p in alarm.priorityIcons[data.priority]" 
+								class="priority_icon"
+								ng-class="[{'danger': data.priority >= 2}, {'warning': data.priority === 1}, {'info': data.priority <= 0}]">						
+							</div>							
+						</td>
+		
+						<td>
+							{{data.StartText}} - {{ data.isValid ? '当前' : data.EndText}}  <br />
+							<span class="label label-sm label-info">
+								{{data.DueText}}
+							</span>					
+						</td>
+						<td>
+							<span ng-class="{'label-warning':data.state=='新告警','label-default':data.state=='历史告警'}" class="label">
+								{{data.state}}
+							</span>
+		
+						</td>
+						<td>
+							<button type="button" ng-click="openModal(data)" class="btn btn-outline btn-circle blue">
+								<i class="fa fa-eye"></i> 
+								查看
+							</button>
+							<!--<button ng-click="removeData(d.num)" type="button" class="btn btn-default btn-sm"> 删除</button>-->
+						</td>
+					</tr>
+				</tbody>
+			</table>
+	
+	
+		</div>
+		
+	<!--history-->
+		<div ng-show="alarmMode === 'history'" class="col-md-12">
+			<table class="table table-striped table-hover table-bordered table-checkable table-boiler">
+				<thead>
+					<tr>
+						<th ng-click="changeOrder('num')" ng-class="{dropup:order===''}">
+							序号
+							<span ng-class="{orderColor:orderType==='num'}" class="caret"></span>
+						</th>
+						<th ng-click="changeOrder('boiler')" ng-class="{dropup:order===''}">
+							告警锅炉
+							<span ng-class="{orderColor:orderType==='boiler'}" class="caret"></span>
+						</th>
+						<th ng-click="changeOrder('monitor')" ng-class="{dropup:order===''}">
+							监测参数
+							<span ng-class="{orderColor:orderType==='monitor'}" class="caret"></span>
+						</th>
+						<th ng-click="changeOrder('priority')" ng-class="{dropup:order===''}">
+							优先级
+							<span ng-class="{orderColor:orderType==='priority'}" class="caret"></span>
+						</th>
+						<th ng-click="changeOrder('StartText')" ng-class="{dropup:order===''}">
+							告警时间
+							<span ng-class="{orderColor:orderType==='StartText'}" class="caret"></span>
+						</th>				
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="data in alarm.datasource|filter:alarmMode | filter:search | orderBy: order+orderType">
+						<td>
+							{{data.num}}
+						</td>
+						<td>
+							{{data.boiler}}<br />
+							<span ng-bind={{"data.Enterprise"}} class="label label-default label-xs">						
+							</span>
+						</td>
+						<td>
+							{{data.monitor}}
+						</td>
+						<td>
+							<div ng-repeat="p in alarm.priorityIcons[data.priority]" 
+								class="priority_icon"
+								ng-class="[{'danger': data.priority >= 2}, {'warning': data.priority === 1}, {'info': data.priority <= 0}]">						
+							</div>
+						</td>
+		
+						<td>
+							{{ data.StartText }} - {{ data.EndText }}  <br />
+							<span class="label label-sm label-default">
+								{{data.DueText}}
+							</span>	
+						</td>
+						
+					</tr>
+				</tbody>
+			</table>
+	
+
+		</div>
+			
+		<p ng-show="!totalItems">记录为空</p>
+	
+	
+	
+		<div class="clearfix">
+			<div>
+				<div class="float_left count_num">
+					共{{totalItems=(alarm.datasource|filter:alarmMode| filter:search).length}} 条记录
+				</div>
+				<div class="pagination">
+					<ul uib-pagination boundary-links="true" total-items="totalItems" ng-model="selectedpage" ng-change="setPageSize(pageSize)" items-per-page="pageSize" max-size="maxSize" num-pages="totalPage" previous-text="上一页" next-text="下一页" first-text="首页" last-text="尾页">
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</div>
+
+
+

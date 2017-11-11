@@ -1,4 +1,11 @@
 mainApp.controller("monitorController",function($rootScope,$scope){
+	$scope.itemArray= [{ id: 1, name: '东莞天鹿锅炉有限公司' },  
+                   {id: 2, name: '青岛胜利锅炉有限公司' },  
+                   {id: 3, name: '广州特种承压设备检测研究院' },  
+                   {id: 4, name: '长宏南雁锅炉01' },  
+                   {id: 5, name: '东南毛纺织染锅炉' }];  
+   $scope.selected = { value: $scope.itemArray[0] };  
+	
 	
 })
 

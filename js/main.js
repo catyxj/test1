@@ -5,6 +5,7 @@ var mainApp = angular.module("boiler",[
 	"customFilter",
 	"oc.lazyLoad",
 	"angularMoment",
+	"ui.select",
 	]);
 
 mainApp.config(function ($stateProvider, $urlRouterProvider) {
@@ -18,14 +19,15 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
             controller: "monitorController",
            resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
-             return $ocLazyLoad.load([
+             return $ocLazyLoad.load([				
              	'../js/controllers/monitorController.js' ,
+             	'../js/directives/components/filter_monitor.js',
              	
 		             ]);
 		    }]
 		  }
         })
-        .state("dashboard", {
+        .state("monitor.dashboard", {
             url: "/monitor/dashboard",
             templateUrl: "views/monitor/dashboard.html",
             data: {pageTitle: "平台总览"}, 
@@ -33,7 +35,6 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
              	
-//           	'../js/asset/highcharts-3d.js',
              	'../js/controllers/dashboardController.js'             	
 		             ]);
 		    }]
@@ -78,6 +79,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
         .state("runtime.dashboard", {
             url:"/animation",
             templateUrl: "views/runtime/dashboard.html",
+            data: {pageTitle: '炉型详图'},
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([        
@@ -90,6 +92,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
         .state("runtime.stats", {
             url:"/stats",
             templateUrl: "views/runtime/stats.html",
+            data: {pageTitle: '运行参数'},
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([        		             	
@@ -103,6 +106,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
         .state("runtime.historydata", {
             url:"/historydata",
             templateUrl: "views/runtime/historydata.html",
+            data: {pageTitle: '历史数据'},
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
@@ -115,6 +119,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
         .state("runtime.alarm", {
             url:"/alarm",
             templateUrl: "views/runtime/alarm.html",
+            data: {pageTitle: '锅炉告警'},
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
@@ -126,6 +131,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
         .state("runtime.maintain", {
             url:"/maintain",
             templateUrl: "views/runtime/maintain.html",
+            data: {pageTitle: '维保记录'},
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
@@ -137,6 +143,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
         .state("alarm", {
             url: "/alarm",
             templateUrl: "views/alarm.html",
+            data: {pageTitle: '告警信息'},
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
@@ -148,6 +155,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
         .state("dialogue", {
             url: "/dialogue",
             templateUrl: "views/dialogue.html",
+            data: {pageTitle: '专家咨询'},
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([ 
@@ -160,6 +168,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
         .state("boiler-maintain", {
             url: "/boiler-maintain",
             templateUrl: "views/boiler-maintain.html",
+            data: {pageTitle: '维保记录'},
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
@@ -172,6 +181,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
         .state("organization", {
             url: "/organization",
             templateUrl: "views/organization/main.html",
+            data: {pageTitle: '企业信息总览'},
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
@@ -184,6 +194,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
         .state("boiler", {
             url: "/boiler",
             templateUrl: "views/boiler/main.html",
+            data: {pageTitle: '企业信息总览'},
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
@@ -329,11 +340,33 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 			Fuel:{
 				Type:{
 					Id:1,
-					name:"燃煤",
+					name:"燃煤",					
 				}
 			},
-			alarmLevel:-1,
-			
+			alarmLevel:1,
+			runtime:[
+				[
+					{
+						name:"热效率",
+						value:"555",
+					},
+					{
+						name:"蒸汽压力",
+						value:"44",
+					},
+				],
+				[
+					{
+						name:"排烟温度(低)",
+						value:"28.2 ℃",
+					},
+					{
+						name:"蒸汽温度",
+						value:"41.1 ℃",
+					},
+				],
+				
+			],
 		},
 		{
 			num:2,
@@ -361,7 +394,33 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 				}
 			},
 			alarmLevel:-1,
-			
+			runtime:[
+				[
+					{
+						name:"热效率",
+						value:"555",
+						alarmLevel:0,
+					},
+					{
+						name:"蒸汽压力",
+						value:"44",
+						alarmLevel:1,
+					},
+				],
+				[
+					{
+						name:"排烟温度(低)",
+						value:"28.2 ℃",
+						alarmLevel:0,
+					},
+					{
+						name:"蒸汽温度",
+						value:"41.1 ℃",
+						alarmLevel:2,
+					},
+				],
+				
+			],
 		},
 		{
 			num:3,
@@ -386,10 +445,37 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 				Type:{
 					Id:3,
 					name:"燃气",
+					
 				}
 			},
-			alarmLevel:-1,
-			
+			alarmLevel:2,
+			runtime:[
+				[
+					{
+						name:"热效率",
+						value:"555",
+						alarmLevel:0,
+					},
+					{
+						name:"蒸汽压力",
+						value:"44",
+						alarmLevel:0,
+					},
+				],
+				[
+					{
+						name:"排烟温度(低)",
+						value:"28.2 ℃",
+						alarmLevel:0,
+					},
+					{
+						name:"蒸汽温度",
+						value:"41.1 ℃",
+						alarmLevel:2,
+					},
+				],
+				
+			],
 		},
 		{
 			num:4,
@@ -417,6 +503,34 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 				}
 			},
 			alarmLevel:-1,
+			runtime:[
+				[
+					{
+					name:"热效率",
+					value:"555",
+					alarmLevel:0,
+					},
+					{
+						name:"蒸汽压力",
+						value:"44",
+						alarmLevel:0,
+					},
+				],
+				[
+					{
+						name:"排烟温度(低)",
+						value:"28.2 ℃",
+						alarmLevel:0,
+					},
+					{
+						name:"蒸汽温度",
+						value:"41.1 ℃",
+						alarmLevel:0,
+					},
+				],
+				
+			],
+			
 			
 		},
 		{
@@ -444,8 +558,34 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 					name:"燃油",
 				}
 			},
-			alarmLevel:-1,
-			
+			alarmLevel:0,
+			runtime:[
+				[
+					{
+					name:"热效率",
+					value:"555",
+					alarmLevel:0,
+					},
+					{
+						name:"蒸汽压力",
+						value:"44",
+						alarmLevel:0,
+					},
+				],
+				[
+					{
+						name:"排烟温度(低)",
+						value:"28.2 ℃",
+						alarmLevel:0,
+					},
+					{
+						name:"蒸汽温度",
+						value:"41.1 ℃",
+						alarmLevel:0,
+					},
+				],
+				
+			],
 		},
 		{
 			num:6,
@@ -473,7 +613,33 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 				}
 			},
 			alarmLevel:-1,
-			
+			runtime:[
+				[
+					{
+						name:"热效率",
+						value:"555",
+						
+					},
+					{
+						name:"蒸汽压力",
+						value:"44",
+						
+					},
+				],
+				[
+					{
+						name:"排烟温度(低)",
+						value:"28.2 ℃",
+						
+					},
+					{
+						name:"蒸汽温度",
+						value:"41.1 ℃",
+						
+					},
+				],
+				
+			],
 		},
 		{
 			num:7,
@@ -501,7 +667,33 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 				}
 			},
 			alarmLevel:-1,
-			
+			runtime:[
+				[
+					{
+						name:"热效率",
+						value:"555",
+						alarmLevel:0,
+					},
+					{
+						name:"蒸汽压力",
+						value:"644",
+						alarmLevel:0,
+					},
+				],
+				[
+					{
+						name:"排烟温度(低)",
+						value:"28.2 ℃",
+						alarmLevel:0,
+					},
+					{
+						name:"蒸汽温度",
+						value:"41.1 ℃",
+						alarmLevel:0,
+					},
+				],
+				
+			],
 		},
 		{
 			num:8,
@@ -529,7 +721,33 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 				}
 			},
 			alarmLevel:-1,
-			
+			runtime:[
+				[
+					{
+						name:"热效率",
+						value:"555",					
+
+					},
+					{
+						name:"蒸汽压力",
+						value:"44",
+						
+					},
+				],
+				[
+					{
+						name:"排烟温度(低)",
+						value:"28.2 ℃",
+						
+					},
+					{
+						name:"蒸汽温度",
+						value:"41.1 ℃",
+						
+					},
+				],
+				
+			],
 		},
 		
 	]
@@ -590,7 +808,9 @@ mainApp.service("alarmData",function(){
 				monitor:"热效率",
 				priority:1,
 				StartText:"10/18 09:49",
+				EndText:"",
 				DueText:"7天9时49分",
+				isValid:true,
 				state:"新告警",
 				alarmMode:"current"
 			},
@@ -601,6 +821,8 @@ mainApp.service("alarmData",function(){
 				monitor:"热效率",
 				priority:2,
 				StartText:"10/20 02:41",
+				EndText:"",
+				isValid:true,
 				DueText:"7天14时17分",
 				state:"新告警",
 				alarmMode:"current"
@@ -612,7 +834,9 @@ mainApp.service("alarmData",function(){
 				monitor:"test",
 				priority:1,
 				StartText:"10/17 16:55",
+				EndText:"",
 				DueText:"3天2时0分",
+				isValid:true,
 				state:"新告警",
 				alarmMode:"current"
 			},
@@ -623,7 +847,9 @@ mainApp.service("alarmData",function(){
 				monitor:"蒸汽压力",
 				priority:0,
 				StartText:"10/23 13:13",
+				EndText:"10/22 09:49",
 				DueText:"3天15时21分",
+				isValid:false,
 				state:"历史告警",
 				alarmMode:"history"
 			}

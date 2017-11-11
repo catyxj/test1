@@ -10,7 +10,7 @@ mainApp
 .directive("datatableAlarm",function(alarmData){
 	return {		
    		restrict:"E",
-   		templateUrl:"views/datatable/datatable_alarm.html",
+   		templateUrl:"directives/datatable_alarm.html",
    		replace: true
 		
  	}
@@ -51,6 +51,14 @@ mainApp
 	return {		
    		restrict:"E",
    		templateUrl:"views/datatable/datatable_conf_alarm.html",
+   		replace: true
+		
+ 	}
+})
+.directive("chartAlarm",function(){
+	return {		
+   		restrict:"E",
+   		templateUrl:"directives/chart_alarm.html",
    		replace: true
 		
  	}

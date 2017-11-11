@@ -32,7 +32,7 @@ mainApp.controller("alarmInfoController",function($scope,alarmData,$state,$uibMo
 	
 	$scope.openModal = function(data) {
                 var modalInstance = $uibModal.open({
-                    templateUrl : 'views/runtime/modal-alarm.html',//script标签中定义的id
+                    templateUrl : 'directives/modal/boiler_alarm_feedback.html',//script标签中定义的id
                     controller : 'alarmModalCtrl',//modal对应的Controller
                     size: 'lg', //大小配置 
                     resolve : {

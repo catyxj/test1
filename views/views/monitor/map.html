@@ -1,17 +1,19 @@
-<div class="row mt-lg">
+<div class="row map">
     <div class="col-md-3 col-sm-4 col-xs-6"
          style="height: 500px; overflow-y: scroll; overflow-x: auto; padding-right: 0;">                  
-       	<table class="table table-striped table-bordered table-hover table-boiler" id="boiler_list_table" >
+       	<table class="table table-striped table-bordered table-hover table-boiler" 
+       		id="boiler_list_table" >
             <tbody>
-            <tr ng-repeat="boiler in data" >
+            <tr ng-repeat="boiler in data" id="b{{ boiler.num }}">
                 <td ng-click="bdGEO(boiler)">
                     <div class="row">
                         <div class="col-md-9 col-sm-9 col-xs-9" style="padding-right: 0;">
-                            <a>
+                            <a ui-sref="runtime.dashboard({boiler: boiler.Uid})">
                                 <span class="caption-subject font-grey-mint">{{ boiler.num }}. </span>
                             	<i ng-show="boiler.Fuel.Type.Id == 1" class="fa fa-cubes font-grey-cascade"></i>
                             	<i ng-show="boiler.Fuel.Type.Id == 3" class="fa fa-database"></i>
                             	<i ng-show="boiler.Fuel.Type.Id == 4" class="fa fa-leaf font-green-jungle"></i>
+                            	<i ng-show="boiler.Fuel.Type.Id > 4" class="fa fa-sun-o font-grey"></i>
                                 <span class="caption-subject font-grey-mint">{{ boiler.name }}</span>
                             </a>
                         </div>
@@ -19,7 +21,9 @@
                         <div class="col-md-3 col-sm-3 col-xs-3" style="padding-left: 0; text-align: right;">
                             <div class="status-icon" ng-class="{'success': true}"></div>
                             <div class="status-icon" ng-class="[{'success': boiler.isBurning}, {'danger': !boiler.isBurning}]"></div>
-                            <div class="status-icon" ng-class="[{'success': boiler.alarmLevel == 0}, {'warning': boiler.alarmLevel == 1}, {'danger': boiler.alarmLevel == 2}, {'default': boiler.alarmLevel == -1}]"></div>
+                            <div class="status-icon" 
+                            	ng-class="[{'success': boiler.alarmLevel == 0}, {'warning': boiler.alarmLevel == 1}, {'danger': boiler.alarmLevel == 2}, {'default': boiler.alarmLevel == -1}]">
+                            </div>
                         </div>
                     </div>
                     <span class="font-grey-gallery" style="font-size: 11px;">{{ boiler.Address ? boiler.Address.Location.LocationName + ' ' + boiler.Address.Address : '-' }}</span> <br>
@@ -30,9 +34,7 @@
             </tbody>
         </table>
     </div>
-    <div class="col-md-9 col-sm-8 col-xs-6">
-		
-		
+    <div class="col-md-9 col-sm-8 col-xs-6">				
         <div class="form-group" id="map-container" ng-init="dashboard.initBap()" style="width: 100%; height: 500px;"></div>
     </div>
 </div>
