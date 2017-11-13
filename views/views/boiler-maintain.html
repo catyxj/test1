@@ -1,34 +1,39 @@
 <div class="page-bar">
-	<ol class="breadcrumb">
+	<ol class="page-breadcrumb">
 		<li>
-			<a href="" ui-sref="dashboard">首页</a>
+			<a ui-sref="monitor.dashboard">主页</a>
+			<i class="fa fa-circle"></i>
 		</li>
 		<li>
-			<a href="">维保记录</a>
+			<a ui-sref="boiler-maintain">维保记录</a>
 		</li>
 
 	</ol>
 </div>
 
 <div ng-controller="BoilerMaintainController" class=" page_content">
-	<div class="portlet light bordered">
-	
-	<div class="data_header clearfix portlet-title">		
-		<h4 class="float_left">
-			<i class="fa fa-cog"></i>
-			记录列表
-		</h4>
-		<div class="tools ">
-			<a href="" class="fullscreen" data-original-title="全屏查看"> </a>
+	<!-- BEGIN MAIN CONTENT -->
+	<div class="row">
+		<div class="col-md-12">
+			<!-- BEGIN EXAMPLE TABLE PORTLET-->
+			<div class="portlet light bordered">	
+				<div class="portlet-title">		
+					<div class="caption font-dark">
+						<i class="fa fa-cog"></i>
+						<span class="caption-subject bold uppercase"> 记录列表 </span>
+					</div>
+					<div class="tools ">
+						<a href="" class="fullscreen" data-original-title="全屏查看"> </a>
+					</div>
+				
+				</div>
+				
+				<div class="portlet-body">
+					<datatable-maintain></datatable-maintain>							
+				</div>
+									
+			</div>	
 		</div>
-	
-	</div>
-	
-	<div class="maintain_body">
-		<datatable-maintain></datatable-maintain>							
-	</div>
-	
-		
 	</div>
 	
 </div>

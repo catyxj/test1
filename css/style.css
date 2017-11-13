@@ -351,6 +351,7 @@
 }
 .page-bar .page-breadcrumb>li>i {
     color: #aaa;
+    opacity: 0.4;
 }
 
 .page_content{
@@ -705,12 +706,45 @@ table div.status-icon.warning {
 }
 
 .modal-body .pagination {
-    margin: 0;
+    /*margin: 0;*/
     float: none;
 }
+div.detail-btn label {
+    display: inline-block;
+    background-color: #d5e0ea;
+    color: #fff;
+    margin: 0 3px;
+    width: 75px;
+}
 
+div.detail-btn label.detail-btn-green:hover {
+	background-color: #50ce81;
+	color: #fff;
+}
 
-
+div.detail-btn label.detail-btn-red:hover {
+	background-color: #eb7d7d;
+	color: #fff;
+}
+div.detail-btn label.detail-btn-yellow:hover {
+    background-color: #f3e777;
+    color: #fff;
+}
+div.detail-btn label.active.btn-green {
+    background-color: #26ce5c;
+    color: #fff;
+}
+div.detail-btn label.active.btn-yellow {
+    background-color: #f1d932;
+    color: #fff;
+}
+div.detail-btn label.active.btn-red {
+    background-color: #eb5d68;
+    color: #fff;
+}
+div.detail-btn label.btn-max {
+    width: 95px;
+}
 
 
 
@@ -824,6 +858,11 @@ table div.status-line {
 	width: 10px;
     height: 8px;
 	margin-right: 2px;
+}
+
+div.detail_button {
+    margin-left: -15px;
+    margin-right: -15px;
 }
 
 

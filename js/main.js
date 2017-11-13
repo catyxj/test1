@@ -147,7 +147,9 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
-             	'../js/controllers/alarmController.js',            	
+        		        		
+             	'../js/controllers/alarmController.js',   
+             	'../js/directives/chart_alarm.js', 
 		             ]);
 		    }]
 		  }

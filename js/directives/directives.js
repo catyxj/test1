@@ -1,8 +1,8 @@
 mainApp
-.directive("datatableAdvisory",function(advisoryData){
+.directive("datatableDialogue",function(advisoryData){
 	return {		
    		restrict:"E",
-   		templateUrl:"views/datatable/datatable_advisory.html",
+   		templateUrl:"views/datatable/datatable_dialogue.html",
    		replace: true
 		
  	}
@@ -18,7 +18,7 @@ mainApp
 .directive("datatableMaintain",function(maintainData){
 	return {		
    		restrict:"E",
-   		templateUrl:"views/datatable/datatable_maintain.html",
+   		templateUrl:"directives/datatable_maintain.html",
    		replace: true
 		
  	}
@@ -55,11 +55,11 @@ mainApp
 		
  	}
 })
-.directive("chartAlarm",function(){
-	return {		
-   		restrict:"E",
-   		templateUrl:"directives/chart_alarm.html",
-   		replace: true
-		
- 	}
-})
+//.directive("chartAlarm",function(){
+//	return {		
+// 		restrict:"E",
+// 		templateUrl:"directives/chart_alarm.html",
+// 		replace: true
+//		
+// 	}
+//})

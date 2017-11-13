@@ -1,103 +1,106 @@
 <div class="page-bar">
-	<ol class="breadcrumb">
+	<ol class="page-breadcrumb">
 		<li>
-			<a href="" ui-sref="dashboard">首页</a>
+			<a href="" ui-sref="monitor.dashboard">主页</a>
+			<i class="fa fa-circle"></i>
 		</li>
 		<li>
-			<a href="" >专家咨询</a>
+			<a href="dialogue" >专家咨询</a>
 		</li>
 
 	</ol>
 </div>
 
-<div ng-controller="dialogueController" class="advisory page_content">
+<div ng-controller="dialogueController" class="page_content dialogue">
 	
-	<div class="data_header">
-		<div class="clearfix data_top">
-			<h4 class="float_left">
-				<i class="fa fa-cog"></i>
-				咨询列表
-			</h4>
-			<div class="float_right full_screen fa fa-expand"></div>
-			
-		</div>						
-	</div>
-	
-	<div class="maintain_body">
-		
-		<div class="data_nav_h">
-			<nav>
-				<div class="container-fluid">
-					<!--select pageSize-->
-					<div class="dropdown pagesize">
-						
-						每页显示
-					<select class="input-sm  w-sm inline v-middle"
-                        ng-model="pageSize" 
-                        ng-options="o as o for o in placement.options"
-                        ng-change="setPageSize(pageSize)">
-	               </select>
-	               	条
-						
+	<div class="row">
+		<div class="col-md-12">
+			<div class="portlet light bordered">
+				<div class="portlet-title">
+					<div class="caption font-dark">
+						<i class="fa fa-cog"></i>
+						<span class="caption-subject bold uppercase">咨询列表</span>				
 					</div>
+					<div class="tools">
+						<a href="" class="fullscreen" data-original-title="全屏查看"> </a>
+					</div>
+				</div>
+				<div class="portlet-body">
+										
+					<div class="data_nav_h">
 			
-					<button style="margin-left: 20px; margin-top: 8px;" ng-click="openNew()" type="button" class="btn btn-info">						
-						添加
-						<i class="fa fa-plus"></i>
-					</button>
-			
-					<script type="text/ng-template" id="advisory.html">
-						<div>
-							<div class="modal-header">
-								<button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times;</span></button>
-								<h4 class="modal-title">开始咨询	</h4>			
-							</div>
-							<div class="modal-body">
-								<form action="" method="post">
-									<div class="form-group">
-										<label>咨询标题：</label>
-										<input ng-model="data.title" class="form-control" type="text" placeholder="咨询标题" />
-									</div>
-									<div class="form-group">
-										<label>咨询内容：</label>
-										<textarea ng-model="data.content" class="form-control" name="" rows="5" cols="" placeholder="在这里输入内容"></textarea>
-									</div>
+						<div class="row">
+							<div class="col-md-6">
+								<!--select pageSize-->
+								<div class="dropdown pagesize">								
+									每页显示
+									<select class="input-sm  w-sm inline v-middle"
+				                        ng-model="pageSize" 
+				                        ng-options="o as o for o in placement.options"
+				                        ng-change="setPageSize(pageSize)">
+					               </select>
+					               	条
 									
+								</div>
+						
+								<button ng-click="openNew()" type="button" class="btn btn-info"  style="margin-left: 20px; margin-top: 8px;">						
+									添加
+									<i class="fa fa-plus"></i>
+								</button>
+						
+								<script type="text/ng-template" id="advisory.html">
+									<div>
+										<div class="modal-header">
+											<button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times;</span></button>
+											<h4 class="modal-title">开始咨询	</h4>			
+										</div>
+										<div class="modal-body">
+											<form action="" method="post">
+												<div class="form-group">
+													<label>咨询标题：</label>
+													<input ng-model="data.title" class="form-control" type="text" placeholder="咨询标题" />
+												</div>
+												<div class="form-group">
+													<label>咨询内容：</label>
+													<textarea ng-model="data.content" class="form-control" name="" rows="5" cols="" placeholder="在这里输入内容"></textarea>
+												</div>
+												
+											</form>
+										</div>
+										<div class="modal-footer">
+						
+											<button class="btn btn-primary" ng-click="ok()">
+											                提交
+											 </button>
+											<button class="btn btn-default" ng-click="cancel()">
+											                取消
+											</button>
+										</div>
+									</div>
+								</script>
+						
+							</div>
+							
+							<div class="col-md-6">
+								<!--search-->
+								<form class="navbar-form navbar-right">
+									<div class="form-group">
+										搜索：
+										<input type="text" ng-model="search" class="form-control" placeholder="Search">					
+									</div>
+						
 								</form>
 							</div>
-							<div class="modal-footer">
-			
-								<button class="btn btn-primary" ng-click="ok()">
-								                提交
-								 </button>
-								<button class="btn btn-default" ng-click="cancel()">
-								                取消
-								</button>
-							</div>
+							
 						</div>
-					</script>
-			
-					<!--search-->
-					<form class="navbar-form navbar-right">
-						<div class="form-group">
-							搜索：
-							<input type="text" ng-model="search" class="form-control" placeholder="Search">
-			
-						</div>
-			
-					</form>
+					
 				</div>
-			</nav>
-		</div>
-	
-	
-		
-		<datatable-advisory></datatable-advisory>
 		
 		
-		<!--pagination-->
-	
+		<datatable-dialogue></datatable-dialogue>
 		
+		
+		<!--pagination-->	
 		<div >			
 	        <div class="float_left count_num">
 				共{{totalItems}} 条记录
@@ -113,7 +116,13 @@
 	         </div>
 	    </div>
 			
-		</div>
+				</div>
+				
+			</div>						
+		</div>						
+	</div>
+	
+	
 	
 	
 	

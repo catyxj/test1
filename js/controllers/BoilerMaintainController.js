@@ -70,11 +70,23 @@ mainApp.controller("BoilerMaintainController",function($scope, $uibModal,maintai
 
 //模态框对应的Controller
 mainApp.controller('modalCtrl', function($scope, $uibModalInstance, data) {
-          $scope.data= data;
-		$scope.data.detailindex=1;
-		$scope.data.setIndex=function(n){
-			$scope.data.detailindex=n;
-		}
+          	$scope.data= data;
+			$scope.data.detailindex=1;
+			$scope.data.setIndex=function(n){
+				$scope.data.detailindex=n;
+			}
+			//日期选择
+			$scope.dat = new Date();
+	        $scope.format = "yyyy/MM/dd";
+	        $scope.altInputFormats = ['yyyy/M!/d!'];
+	 
+	        $scope.popup2 = {
+	            opened: false
+	        };
+	        $scope.open2 = function () {
+	            $scope.popup2.opened = true;
+	        };
+		
           //在这里处理要进行的操作
           $scope.ok = function() {
               $uibModalInstance.close();

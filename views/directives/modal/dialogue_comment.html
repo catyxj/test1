@@ -1,10 +1,12 @@
 <div class="modal-header">
+	<button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times;</span></button>
     <div style="display:inline-block; text-align: right; margin-right: 15px; float: right;">
         <span class="font-blue-madison">{{ data.orgName }} ({{ data.username }})</span>
         <br>
         <span style="font-size: 12px; color: #999;">{{ data.time |date:'yyyy-MM-dd hh:mm:ss' }}</span>
     </div>
     <h3 class="modal-title" id="modal-title" style="font-weight: bold;">{{data.num}} {{data.title}}</h3>
+    
 </div>
 
 <div class="modal-body app-ticket app-ticket-details" id="modal-body">
