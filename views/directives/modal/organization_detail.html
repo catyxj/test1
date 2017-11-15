@@ -1,54 +1,58 @@
 <div>
 	<div class="modal-header">
 		<button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times;</span></button>
-		<h4 class="modal-title">新增企业信息	</h4>
+		<h4 class="modal-title"> {{data.title}}	</h4>
 
 	</div>
 	<div class="modal-body">
 		<form action="" method="post">
-
 			<div class="row">
-				<div class="col-md-6">
+				<div class="form-group col-md-6">
 					<div class="input-group">
-						<label class="input-group-addon" id="basic-addon1">企业名称</label>
-						<input ng-model="data.name" type="text" class="form-control" placeholder="输入名称" aria-describedby="basic-addon1">
+						<label class="input-group-addon" >企业名称</label>
+						<input ng-model="data.name" type="text" 
+							class="form-control" 
+							placeholder="输入名称">
 					</div>
 				</div>
 
-				<div class="col-md-6">
-					<select class="form-control" ng-model="data.type" ng-options="item for item in organization | unique:'type'">
+				<div class="form-group col-md-6">
+					<select class="form-control" ng-model="data.type" 
+						ng-options="item for item in organization | unique:'type'">
 						<option value="">企业类型(请选择)</option>
 					</select>
 				</div>
 			</div>
 
 			<div class="row">
-				<div class="col-md-6">
+				<div class="form-group col-md-6">
 					<div class="input-group">
-						<label class="input-group-addon" id="basic-addon1">企业地址</label>
-						<input ng-model="data.Address.Address" type="text" class="form-control" placeholder="输入地址详情" aria-describedby="basic-addon1">
+						<label class="input-group-addon">企业地址</label>
+						<input ng-model="data.Address.Address" type="text" 
+							class="form-control" placeholder="输入地址详情" >
 					</div>
 				</div>
 
-				<div class="col-md-6 select_address">
-					<div class="col-md-4">
+				<div class="form-location col-md-6 col-sm-6">
+					<div class="form-group col-md-4 col-sm-4">
 						<select class="form-control " ng-model="data.Address.Location.LocationName">
 							<option value="">所在区域</option>
 						</select>
 					</div>
-					<div class="col-md-4">
+					<div class="form-group col-md-4 col-sm-4">
 						<select class="form-control ">
 						</select>
 					</div>
-					<div class="col-md-4">
-						<select class="form-control col-md-4">
+					<div class="form-group col-md-4 col-sm-4">
+						<select class="form-control">
 						</select>
 					</div>
 
 				</div>
 
 			</div>
-
+			
+			<hr style="margin-top: 6px;">
 			<div class="row">
 				<div class="col-md-6">
 					显示企业标识
@@ -58,10 +62,11 @@
 				    </label>
 				</div>
 				
-				<div class="col-md-6">
+				<div class="form-group col-lg-6 col-md-6 col-sm-6">
 					<div class="input-group">
-						<label class="input-group-addon" id="basic-addon1">企业标识</label>
-						<input ng-model="data.Address.Address" type="text" class="form-control" placeholder="输入首页显示的企业标识" aria-describedby="basic-addon1">
+						<label class="input-group-addon" >企业标识</label>
+						<input ng-model="data.Address.Address" type="text" 
+							class="form-control" placeholder="输入首页显示的企业标识">
 					</div>
 				</div>
 				

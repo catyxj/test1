@@ -181,7 +181,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
 		  }
         })
         .state("organization", {
-            url: "/organization",
+            url: "/organization?:tid",
             templateUrl: "views/organization/main.html",
             data: {pageTitle: '企业信息总览'},
             resolve: { 
@@ -193,15 +193,49 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
 		    }]
 		  }
         })
+        .state("organization.overview", {
+            url: "/overview",
+            templateUrl: "views/organization/dashboard.html",
+            data: {pageTitle: '企业信息总览'}
+        })
+        
+        
         .state("boiler", {
             url: "/boiler",
             templateUrl: "views/boiler/main.html",
-            data: {pageTitle: '企业信息总览'},
+            data: {pageTitle: '锅炉信息总览'},
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
              	
              	'../js/controllers/boilerController.js',            	
+		             ]);
+		    }]
+		  }
+        })
+        .state("boiler.dashboard", {
+            url: "/dashboard",
+            templateUrl: "views/boiler/dashboard.html",
+            data: {pageTitle: '锅炉信息'},
+            resolve: { 
+    		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+             return $ocLazyLoad.load([
+             	
+             	           	
+		             ]);
+		    }]
+		  }
+        })
+        .state("boiler.info", {
+            url: "/info",
+            templateUrl: "views/boiler/info.html",
+            data: {pageTitle: '锅炉信息'},
+            params:{"bilierInfo":null},
+            resolve: { 
+    		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+             return $ocLazyLoad.load([
+             	
+             	           	
 		             ]);
 		    }]
 		  }
@@ -218,6 +252,19 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
 		    }]
 		  }
         })
+        .state("terminal.dashboard", {
+            url: "/dashboard",
+            templateUrl: "views/terminal/dashboard.html",
+            resolve: { 
+    		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+             return $ocLazyLoad.load([
+             	
+             	         	
+		             ]);
+		    }]
+		  }
+        })
+        
         .state("config-runtime-alarm", {
             url: "/config-runtime-alarm",
             templateUrl: "views/config-runtime-alarm.html",
@@ -953,7 +1000,11 @@ mainApp.service("organizationData",function(){
 				Address:"滨文路32号"
 			} ,
 			Enterprise:"2",
-			type:"默认机构"
+			Type:{
+				TypeId:0,
+				Name:"默认机构",
+			},
+				
 		},
 		{
 			num:2,
@@ -965,7 +1016,10 @@ mainApp.service("organizationData",function(){
 				Address:"Test0031"
 			} ,
 			Enterprise:"",
-			type:"默认机构"
+			Type:{
+				TypeId:0,
+				Name:"默认机构",
+			},
 		},
 		{
 			num:3,
@@ -977,7 +1031,10 @@ mainApp.service("organizationData",function(){
 				Address:"镇江市丹徒区镇南工业园辛三路15号"
 			} ,
 			Enterprise:"江苏威孚",
-			type:"锅炉制造厂"
+			Type:{
+				TypeId:1,
+				Name:"锅炉制造厂",
+			},
 		}
 	]
 });

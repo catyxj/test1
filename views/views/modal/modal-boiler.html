@@ -3,156 +3,155 @@
 	<div class="modal-header">
 		<button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times;</span></button>
 		<h4 class="modal-title">锅炉基本信息设置</h4>
-
 	</div>
 	<div class="modal-body">
-		<form action="" method="post">
-			<div class="data_header">
-				设备基本信息
-			</div>
+		<form action="" method="post">			
+			<h5 class="font-blue-hoki">设备基本信息</h5>			
 			<div class="row">
-				<div class="col-md-6">
-					<div class="input-group">
-						<label class="input-group-addon">锅炉名称</label>
-						<input ng-model="data.name" type="text" class="form-control" placeholder="输入锅炉名称">
+				<div class="form-group col-md-6">
+					<div class="input-group input-icon right">
+						<span class="input-group-addon">锅炉名称</span>
+						<i class="fa tooltips"
+                       ng-class="[{'fa-exclamation font-red-pink': !data.name || data.name.length < 4}, {'fa-check font-green': data.name.length >= 4}]"
+                       data-container="body"></i>
+						<input ng-model="data.name" type="text" class="form-control" placeholder="输入锅炉名称" required>
 					</div>
 				</div>
 
-				<div class="col-md-6">
-					<div class="input-group">
-						<label class="input-group-addon">注册码</label>
-						<input ng-model="data.name" type="text" class="form-control" placeholder="输入注册码">
+				<div class="form-group col-md-6">
+					<div class="input-group input-icon right">
+						<span class="input-group-addon">注册码</span>
+						<i class="fa tooltips"
+                       ng-class="[{'fa-exclamation font-red-pink': !data.registrationCode || data.registrationCode.length < 6}, {'fa-check font-green': data.registrationCode.length >= 6}]"
+                       data-container="body"></i>
+						<input ng-model="data.registrationCode" type="text" class="form-control" placeholder="输入注册码" required>
 					</div>
 				</div>
-			</div>
-
-			<div class="row">
-				<div class="col-md-6">
-					<div class="input-group">
-						<label class="input-group-addon">设备代码</label>
-						<input ng-model="data.Address.Address" type="text" class="form-control" placeholder="输入设备代码">
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="input-group">
-						<label class="input-group-addon">锅炉型号</label>
-						<input ng-model="data.Address.Address" type="text" class="form-control" placeholder="输入锅炉型号">
-					</div>
-				</div>
-
-			</div>
 			
-			<div class="row">
-				<div class="col-md-6">
-					<div class="input-group">
-						<label class="input-group-addon">锅炉用途</label>
+				<div class="form-group col-md-6">
+					<div class="input-group input-icon right">
+						<span class="input-group-addon">设备代码</span>
+						 <i class="fa tooltips"
+                       ng-class="[{'fa-exclamation font-red-pink': !data.deviceCode || data.deviceCode.length < 4}, {'fa-check font-green': data.deviceCode.length >= 4}]"
+                       data-container="body"></i>
+
+						<input ng-model="data.deviceCode" type="text" class="form-control" placeholder="输入设备代码" required>
+					</div>
+				</div>
+				<div class="form-group col-md-6">
+					<div class="input-group input-icon right">
+						<span class="input-group-addon">锅炉型号</span>
+						<i class="fa tooltips"
+                       ng-class="[{'fa-exclamation font-red-pink': !data.modelCode || data.modelCode.length < 4}, {'fa-check font-green': data.modelCode.length >= 4}]"
+                       data-container="body"></i>
+						<input ng-model="data.modelCode" type="text" class="form-control" placeholder="输入锅炉型号" required>
+					</div>
+				</div>
+
+			
+				<div class="form-group col-md-6">
+					<div class="input-group input-icon right">
+						<span class="input-group-addon">锅炉用途</span>
 						<input type="text" class="form-control" value="工业锅炉" placeholder="" disabled>
 					</div>
 				</div>
-				<div class="col-md-6">
-					<div class="input-group">
-						<label class="input-group-addon">锅炉介质</label>
+				<div class="form-group col-md-6">
+					<div class="input-group input-icon right">
+						<span class="input-group-addon">锅炉介质</span>
 						<select class="form-control" name="">
 							<option value="">请选择...</option>
 						</select>
 					</div>
 				</div>
 
-			</div>
 			
-			<div class="row">
-				<div class="col-md-6">
+				<div class="form-group col-md-6">
 					<div class="input-group">
-						<label class="input-group-addon">锅炉燃料</label>
+						<span class="input-group-addon">锅炉燃料</span>
 						<select class="form-control" name="">
 							<option value="">请选择...</option>
 						</select>
 					</div>
 					
 				</div>
-				<div class="col-md-6">
-					<div class="input-group">
-						<label class="input-group-addon">锅炉型态</label>
-						<select class="form-control" name="">
+				<div class="form-group col-md-6">
+					<div class="input-group input-icon right">
+						<span class="input-group-addon">锅炉型态</span>
+						<select class="form-control" >
 							<option value="">请选择...</option>
 						</select>
 					</div>
 				</div>
 
-			</div>
 			
-
-			<div class="row">
-				<div class="col-md-6">
-					<div class="input-group">
-						<label class="input-group-addon">额定蒸发量</label>
-						<input ng-model="data.Address.Address" type="text" class="form-control" placeholder="输入首页显示的企业标识" aria-describedby="basic-addon1">
+				<div class="form-group col-md-6">
+					<div class="input-group input-icon right">
+						<span class="input-group-addon">额定蒸发量</span>
+						<i class="fa tooltips"
+                       ng-class="[{'fa-exclamation font-red-pink': !data.evaporatingCapacity || data.evaporatingCapacity <= 0}, {'fa-check font-green': data.evaporatingCapacity > 0}]"
+                       data-container="body"></i>
+                   	 	<span class="unit" style="right: 30px;">t/h</span>
+						<input ng-model="data.evaporatingCapacity" type="text" class="form-control" placeholder="输入额定蒸发量" >
 					</div>
 				</div>
 				
 			</div>
 			
 			
-			<div class="data_header row">
+			<div class="row">
 				<div class="col-md-6">
-					注册信息
+					<h5 class="font-blue-hoki">注册信息</h5>
+                	<hr>
+                	<div class="form-group">
+                		<div class="input-group">
+							<span class="input-group-addon">出厂编号</span>
+							<input type="text" class="form-control" placeholder="输入出厂编号">
+						</div>
+                	</div>
+					<div class="form-group">
+						<div class="input-group">
+							<label class="input-group-addon">登记机构</label>
+							<input type="text" class="form-control"  placeholder="输入登记机构">
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<div class="input-group">
+							<label class="input-group-addon">使用证号</label>
+							<input type="text" class="form-control" value="工业锅炉" placeholder="输入使用证号">
+						</div>
+					</div>
+					
 				</div>
 				<div class="col-md-6">
-					企业信息
+					<h5 class="font-blue-hoki">企业信息</h5>	
+					<hr>
+					<div class="form-group">
+						<div class="input-group">
+							<label class="input-group-addon">使用企业</label>
+							<select class="form-control" name="">
+								<option value="">请选择...</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="input-group">
+							<label class="input-group-addon">制造企业</label>
+							<select class="form-control" name="">
+								<option value="">请选择...</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="input-group">
+							<label class="input-group-addon">安装单位</label>
+							<select class="form-control" name="">
+								<option value="">请选择...</option>
+							</select>
+						</div>
+					</div>					
 				</div>				
 			</div>
-			
-			<div class="row">
-				<div class="col-md-6">
-					<div class="input-group">
-						<label class="input-group-addon">出厂编号</label>
-						<input type="text" class="form-control" placeholder="输入出厂编号">
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="input-group">
-						<label class="input-group-addon">使用企业</label>
-						<select class="form-control" name="">
-							<option value="">请选择...</option>
-						</select>
-					</div>
-				</div>
-			</div>
-			
-			<div class="row">
-				<div class="col-md-6">
-					<div class="input-group">
-						<label class="input-group-addon">登记机构</label>
-						<input type="text" class="form-control"  placeholder="输入登记机构">
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="input-group">
-						<label class="input-group-addon">制造企业</label>
-						<select class="form-control" name="">
-							<option value="">请选择...</option>
-						</select>
-					</div>
-				</div>
-			</div>
-			
-			<div class="row">
-				<div class="col-md-6">
-					<div class="input-group">
-						<label class="input-group-addon">使用证号</label>
-						<input type="text" class="form-control" value="工业锅炉" placeholder="输入使用证号">
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="input-group">
-						<label class="input-group-addon">安装单位</label>
-						<select class="form-control" name="">
-							<option value="">请选择...</option>
-						</select>
-					</div>
-				</div>
-			</div>
-			
 			
 		</form>
 	</div>

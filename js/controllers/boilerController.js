@@ -7,8 +7,9 @@ mainApp.controller("boilerController",function($scope, $rootScope, $uibModal,pro
 	$scope.totalItems = $scope.productData.length;
 	
 						
-		var newdata = {};
-        $scope.openModal = function() {       	
+		
+        $scope.openModal = function() {  
+        		var newdata = {};
                 var modalInstance = $uibModal.open({
                     templateUrl : 'views/modal/modal-boiler.html',
                     controller : 'boilerCtrl',//modal对应的Controller
@@ -30,7 +31,7 @@ mainApp.controller("boilerController",function($scope, $rootScope, $uibModal,pro
 //      $state.go("boiler.info", {boiler: info.Uid, from: 'boiler-list'});
 //  };
 //	
-//	bInfo.viewInfo = function (data) {
+//	$scope.viewInfo = function (data) {
 //      console.warn("Boiler View Uid:", data);
 //      bInfo.currentData = data;
 //      bInfo.setMode('edit');
@@ -40,7 +41,10 @@ mainApp.controller("boilerController",function($scope, $rootScope, $uibModal,pro
 //  bInfo.setMode = function (mode) {
 //      bInfo.dataMode = mode;
 //  };
-	
+//var someClickHandler = function(info) {
+//      bInfo.message = info.Uid + ' - ' + info.Name;
+//      $state.go("boiler.info", {boiler: info.Uid, from: 'boiler-list'});
+//  };	
 	
 	
 	$scope.removeData = function(id){
@@ -69,15 +73,18 @@ mainApp.controller('boilerCtrl', function($scope,$rootScope, $uibModalInstance, 
     });
     
 
+mainApp.directive("tableBoilerInfo",function(){
+	return {		
+   		restrict:"E",
+   		templateUrl:"directives/table_boiler-info.html",
+   		replace: true
+		
+   	}
+})
 
 
-//module.directive( "addAdvisoryData", [ 'advisoryData', function( advisoryData ) {
-//  return {
-//      restrict: "E",
-//          link: function( scope, element, attrs ) {
-//          element.bind( "click", function() {
-//              advisoryData.push( { title: "Star Wars", author: "George Lucas" } );
-//          });
-//      }
-//  }
-//}]);
+mainApp.controller("boilerInfoCtrl",function($scope,$stateParams,productData){
+	$scope.info = $stateParams.bilierInfo;
+	
+})
+

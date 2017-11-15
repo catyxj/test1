@@ -7,10 +7,12 @@ mainApp.controller("organizationController",function($scope, $rootScope, $uibMod
 	$scope.totalItems = $scope.organization.length;
 	
 						
-		var newdata = {};
-        $scope.openModal = function() {       	
-                var modalInstance = $uibModal.open({
-                    templateUrl : 'views/modal/modal-add-organization.html',//script标签中定义的id
+		
+        $scope.openModal = function() {  
+        	var newdata = {};
+        	newdata.title="新增企业信息";
+            var modalInstance = $uibModal.open({
+                    templateUrl : 'directives/modal/organization_detail.html',//script标签中定义的id
                     controller : 'organizationCtrl',//modal对应的Controller
                     size: 'lg', //大小配置 
                     resolve : {
@@ -21,15 +23,46 @@ mainApp.controller("organizationController",function($scope, $rootScope, $uibMod
                 })
                 
                   
-//	            modalInstance.result.then(function(selectedItem) {
-//	              $scope.selected = selectedItem;
-//	            }, function() {
-//	              
-//	            });
+	            modalInstance.opened.then(function() {// 模态窗口打开之后执行的函数
+                     console.log('modal is opened');
+                 });
+                 modalInstance.result.then(function(result) {                   
+                    $scope.organization.push({
+						name:result.name,
+						Address: {						
+							Address:result.Address.Address,	
+	                  },
+						});
+//						console.log(result);
+	                 }, function(reason) {
+	                    console.log(reason);                                 
+	                 });
+                
                 
             }
 	
-		
+		$scope.editModal = function(data) { 
+				data.title="企业信息";
+                var modalInstance = $uibModal.open({
+                    templateUrl : 'directives/modal/organization_detail.html',//script标签中定义的id
+                    controller : 'organizationCtrl',//modal对应的Controller
+                    size: 'lg', //大小配置 
+                    resolve : {
+                        data : function() {//data作为modal的controller传入的参数                        		
+                             return data;//用于传递数据
+                        }
+                    }
+                })
+                
+                  
+	            modalInstance.result.then(function(selectedItem) {
+	              $scope.selected = selectedItem;
+	            }, function() {
+	              
+	            });
+                
+            }
+	
 	
 	$scope.removeData = function(id){
 		for(var i = 0; i < $scope.organization.length; i++){
@@ -50,12 +83,12 @@ mainApp.controller("organizationController",function($scope, $rootScope, $uibMod
 	
 })
 
-mainApp.controller('organizationCtrl', function($scope,$rootScope, $uibModalInstance, data,organizationData) {
+mainApp.controller('organizationCtrl', function($scope,$rootScope, $uibModalInstance, data) {
           $scope.data= data;
-		  $scope.organization = organizationData;
+		  
         //在这里处理要进行的操作
           $scope.ok = function() {
-              $uibModalInstance.close();                            
+              $uibModalInstance.close($scope.data);                            
           };
           $scope.cancel = function() {
               $uibModalInstance.dismiss('cancel');

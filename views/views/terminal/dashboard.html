@@ -1,0 +1,46 @@
+<div class="table-toolbar">
+	
+	<div class="row">
+		<div class="col-md-6">
+			<!--select pageSize-->
+			<div class="dropdown pagesize">
+
+				每页显示
+				<select class="input-sm  w-sm inline v-middle" ng-model="pageSize" ng-options="o as o for o in placement.options" ng-change="setPageSize(pageSize)">
+				</select>
+				条
+			</div>
+
+			<button ng-click="openAddModal()" type="button" class="btn btn-info" style="margin-left: 20px; margin-top: 8px;">
+				添加
+				<i class="fa fa-plus"></i>
+			</button>
+
+		</div>
+		<div class="col-md-6">
+			<!--search-->
+			<form class="navbar-form navbar-right">
+				<div class="form-group">
+					搜索：
+					<input type="text" ng-model="search" class="form-control" placeholder="Search">
+				</div>
+			</form>
+		</div>
+						
+	</div>
+	
+</div>
+
+<datatable-terminal></datatable-terminal>
+
+<!--pagination-->
+
+<div>
+	<div class="float_left count_num">
+		共{{totalItems}} 条记录
+	</div>
+	<div class="pagination">
+		<ul uib-pagination boundary-links="true" total-items="totalItems" ng-model="selectedpage" ng-change="setPageSize(pageSize)" items-per-page="pageSize" max-size="maxSize" num-pages="totalPage" previous-text="上一页" next-text="下一页" first-text="首页" last-text="尾页">
+		</ul>
+	</div>
+</div>

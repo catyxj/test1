@@ -1,0 +1,585 @@
+
+
+<div id="info" ng-init="info.refreshDataTables();" class="panel-group">
+	<style type="text/css">
+	    th {
+	        text-align: center;
+	    }
+	
+	    #info .table {
+	        margin-bottom: 0;
+	    }
+	
+	    #info .panel-body {
+	        padding: 0;
+	    }
+	
+	    .panel-heading .actions {
+	        float: right;
+	        margin-top: -5px;
+	    }
+	
+	    .panel-heading .actions button {
+	        padding: 4px 8px;
+	    }
+	
+	    #info .row {
+	        text-align: center;
+	    }
+	
+	    #info .btn-group {
+	        text-align: center;
+	        margin-top: 12px;
+	    }
+	
+	    #info .panel-body span.unit {
+	        left:auto;
+	        right:16px;
+	        top:8px;
+	        float:right;
+	        z-index: 10;
+	        color: grey;
+	    }
+	
+	    #info a.addon {
+	        z-index: 10;
+	        padding: 4px;
+	        width: 22px;
+	        height: 22px;
+	        font-size: 12px;
+	        line-height: 1em;
+	    }
+	</style>
+
+	
+    <div class="panel panel-info">
+        <div class="panel-heading">          
+            <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" data-target="#info_basic"> 常规信息 </a>
+            </h4>
+        </div>
+        <div id="info_basic" class="panel-collapse collapse in">
+            <div class="panel-body">
+                <form name="infoBasicForm" ng-submit="infoBasicForm.$valid && info.saveRow()">
+                    <table class="table table-striped table-bordered">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">设备基本信息</th>
+                            <th colspan="2">登记信息</th>
+                        </tr>
+                        <tr>
+                            <th style="width:16%">锅炉名称</th>
+                            <td style="width:34%">
+                                <span ng-show="!info.editing.basic">
+                                    {{ info.name }}
+                                </span>
+                                <input type="text" placeholder=""
+                                       ng-show="info.editing.basic"
+                                       ng-model="info.basic.Name"
+                                       class="form-control">
+                            </td>
+
+                            <th style="width:16%">注册码</th>
+                            <td style="width:34%">
+                                <span ng-show="!info.editing.basic">
+                                    {{ info.registrationCode }}
+                                </span>
+                                <input type="text" placeholder=""
+                                       ng-show="info.editing.basic"
+                                       ng-model="info.basic.RegisterCode"
+                                       class="form-control">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>设备代码</th>
+                            <td>
+                                <span ng-show="!info.editing.basic">
+                                    {{ info.DeviceCode }}
+                                </span>
+                                <input type="text" placeholder=""
+                                       ng-show="info.editing.basic"
+                                       ng-model="info.basic.DeviceCode"
+                                       class="form-control">
+                            </td>
+
+                            <th>出厂编号</th>
+                            <td>
+                                <span ng-show="!info.editing.basic">
+                                    {{ info.currentData.FactoryNumber }}
+                                </span>
+                                <input type="text" placeholder=""
+                                       ng-show="info.editing.basic"
+                                       ng-model="info.basic.FactoryNumber"
+                                       class="form-control">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>锅炉型号</th>
+                            <td>
+                                <span ng-show="!info.editing.basic">
+                                    {{ info.currentData.ModelCode }}
+                                </span>
+                                <input type="text" placeholder=""
+                                       ng-show="info.editing.basic"
+                                       ng-model="info.basic.ModelCode"
+                                       class="form-control">
+                            </td>
+
+                            <th>登记机构</th>
+                            <td>
+                                <span ng-show="!info.editing.basic">
+                                    {{ info.currentData.RegisterOrg.Name }}
+                                </span>
+                                <input type="text" placeholder=""
+                                       ng-show="info.editing.basic"
+                                       ng-model="info.basic.RegisterOrg.Name"
+                                       class="form-control">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>锅炉用途</th>
+                            <td>
+                                {{ info.currentData.Usage.Name }}
+                            </td>
+
+                            <th>使用证号</th>
+                            <td>
+                                <span ng-show="!info.editing.basic">
+                                    {{ info.currentData.CertificateNumber }}
+                                </span>
+                                <input type="text" placeholder=""
+                                       ng-show="info.editing.basic"
+                                       ng-model="info.basic.CertificateNumber"
+                                       class="form-control">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>锅炉介质</th>
+                            <td>
+                                <span ng-show="!info.editing.basic">
+                                    {{ info.currentData.Medium.Name }}
+                                </span>
+                                <select ng-show="info.editing.basic"
+                                        ng-model="info.basic.Medium.Uid"
+                                        ng-options="med.Uid as med.Name for med in info.mediums"
+                                        class="form-control">
+                                </select>
+                            </td>
+
+                            <th colspan="2">企业信息</th>
+                        </tr>
+                        <tr>
+                            <th>锅炉燃料</th>
+                            <td>
+                                <span ng-show="!info.editing.basic">
+                                    {{ info.Fuel.Name }}
+                                </span>
+                                <select ng-show="info.editing.basic"
+                                        ng-model="info.basic.Fuel.Uid"
+                                        ng-options="fl.Uid as fl.Name group by fl.Type.Name for fl in info.fuels"
+                                        class="form-control">
+                                </select>
+                            </td>
+
+                            <th>使用企业</th>
+                            <td>
+                                <span ng-show="!info.editing.basic">
+                                    {{ info.Enterprise.Name }}
+                                </span>
+                                <select ng-show="info.editing.basic"
+                                        ng-model="info.basic.Enterprise.Uid"
+                                        ng-options="org.Uid as org.Name for org in info.enterprises"
+                                        class="form-control">
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>锅炉型态</th>
+                            <td>
+                                <span ng-show="!info.editing.basic">
+                                    {{ info.currentData.Form.Name }}
+                                </span>
+                                <select ng-show="info.editing.basic"
+                                        ng-model="info.basic.Form.Uid"
+                                        ng-options="fm.Uid as fm.Name group by fm.Type.Name for fm in info.forms"
+                                        class="form-control">
+                                </select>
+                            </td>
+
+                            <th>制造企业</th>
+                            <td>
+                                <span ng-show="!info.editing.basic">
+                                    {{ info.currentData.Factory.Name }}
+                                </span>
+                                <select ng-show="info.editing.basic"
+                                        ng-model="info.basic.Factory.Uid"
+                                        ng-options="org.Uid as org.Name for org in info.factories"
+                                        class="form-control">
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>额定蒸发量</th>
+                            <td>
+                                <span class="unit">t/h</span>
+                                <span ng-show="!info.editing.basic">
+                                    {{ info.currentData.EvaporatingCapacity }}
+                                </span>
+                                <input type="text" placeholder=""
+                                       ng-show="info.editing.basic"
+                                       ng-model="info.basic.EvaporatingCapacity"
+                                       class="form-control"
+                                       style="width: 90%">
+                            </td>
+
+                            <th>安装单位</th>
+                            <td>
+                                <span ng-show="!info.editing.basic">
+                                    {{ info.currentData.Installed.Name }}
+                                </span>
+                                <select ng-show="info.editing.basic"
+                                        ng-model="info.basic.Installed.Uid"
+                                        ng-options="org.Uid as org.Name for org in info.installs"
+                                        class="form-control">
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr ng-show="info.dataMode == 'edit' && currentUser.Role.RoleId <= 10">
+                            <td colspan="4" align="center">
+                                
+                                <button ng-click="info.edit('basic')" class="btn btn-outline btn-circle blue">
+                                    <i class="fa fa-edit"></i> 编辑
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" href data-target="#info_address"> 地址信息 </a>
+            </h4>
+        </div>
+        <div id="info_address" class="panel-collapse collapse in">
+            <div class="panel-body">
+                <form name="infoAddressForm" ng-submit="infoAddressForm.$valid && info.saveRow()">
+                    <table class="table table-striped table-bordered">
+                        <tbody>
+                        <tr>
+                            <th>所在区域</th>
+                            <td>{{ info.currentData.Address.Location.LocationName }}</td>
+
+                            <td colspan="2" rowspan="4" width="50%"
+                                ng-init="info.initBap();"
+                                id="map-container"></td>
+                        </tr>
+                        <tr>
+                            <th>使用地址</th>
+                            <td>{{ info.currentData.Address.Address }}</td>
+                        </tr>
+                        <tr>
+                            <th>经度</th>
+                            <td>{{ info.currentData.Address.Longitude }}</td>
+                        </tr>
+                        <tr>
+                            <th>纬度</th>
+                            <td>{{ info.currentData.Address.Latitude }}</td>
+                        </tr>
+                        <tr ng-show="info.dataMode == 'edit' && currentUser.Role.RoleId <= 10">
+                            <td colspan="4" align="center">
+                                <button ng-click="info.edit('location')" class="btn btn-outline btn-circle blue">
+                                    <i class="fa fa-edit"></i> 编辑
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" href data-target="#info_maintain"> 维护信息 </a>
+            </h4>
+        </div>
+        <div id="info_maintain" class="panel-collapse collapse in">
+            <div class="panel-body">
+                <form name="infoAddressForm" ng-submit="infoAddressForm.$valid && info.saveRow()">
+                    <table class="table table-striped table-bordered">
+                        <tbody>
+                        <tr>
+                            <th colspan="4">联系信息</th>
+                        </tr>
+                        <tr>
+                            <th width="18%">联系人</th>
+                            <td width="32%">{{ info.currentData.Contact.Name }}</td>
+
+                            <th width="18%">联系电话（座机）</th>
+                            <td width="32%">{{ info.currentData.Contact.PhoneNumber }}</td>
+                        </tr>
+                        <tr>
+                            <th>移动电话</th>
+                            <td>{{ info.currentData.Contact.MobileNumber }}</td>
+
+                            <th>邮箱地址</th>
+                            <td>{{ info.currentData.Contact.Email }}</td>
+                        </tr>
+                        <tr>
+                            <th colspan="4">维护信息</th>
+                        </tr>
+                        <tr>
+                            <th>下次内部检测日期</th>
+                            <td>{{ info.currentData.InspectInnerDateNext | amDateFormat:'YYYY-MM-DD' }}</td>
+
+                            <th>下次安全阀检测日期</th>
+                            <td>{{ info.currentData.InspectValveDateNext | amDateFormat:'YYYY-MM-DD' }}</td>
+                        </tr>
+                        <tr>
+                            <th>下次外部检测日期</th>
+                            <td>{{ info.currentData.InspectOuterDateNext | amDateFormat:'YYYY-MM-DD' }}</td>
+
+                            <th>下次压力表检测日期</th>
+                            <td>{{ info.currentData.InspectGaugeDateNext | amDateFormat:'YYYY-MM-DD' }}</td>
+                        </tr>
+                        <!--
+                        <tr>
+                            <th>是否派单</th>
+                            <td><span ng-class="['label', {'label-success': true}]">是</span></td>
+                        </tr>
+                        -->
+                        <!--
+                        <tr>
+                            <th colspan="2">流程图信息</th>
+
+                            <th colspan="2">其他信息</th>
+                        </tr>
+                        <tr>
+                            <th>流程图模式</th>
+                            <td>模板模式</td>
+
+                            <th>登记日期</th>
+                            <td>{{ info.currentData.CreatedDate | amDateFormat:'YYYY-MM-DD' }}</td>
+                        </tr>
+                        <tr>
+                            <th>流程图模板</th>
+                            <td>{{ info.currentData.Template.Name }}</td>
+
+                            <th>备注</th>
+                            <td>{{ info.currentData.Remark }}</td>
+                        </tr>
+                        -->
+                        <tr ng-show="info.dataMode == 'edit' && currentUser.Role.RoleId <= 10">
+                            <td colspan="4" align="center">
+                                <button ng-click="info.edit('maintain')" class="btn btn-outline btn-circle blue">
+                                    <i class="fa fa-edit"></i> 编辑
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div ng-class="['panel', {'panel-success': info.currentData.Terminal}, {'panel-default': !info.currentData.Terminal}]">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a class="accordion-toggle" ng-show="info.currentData.Terminal"
+                   data-toggle="collapse" href
+                   data-target="#info_terminal"> 终端信息 {{ info.currentData.Terminal ? "" : "（未配置）" }}</a>
+                <span class="accordion-toggle" ng-show="!info.currentData.Terminal"> 终端信息（未配置）</span>
+                <a ng-show="!info.currentData.Terminal"
+                   ng-click="info.bindSet()"
+                   class="addon btn btn-outline btn-circle green">
+                    <i class="fa fa-plus"></i>
+                </a>
+            </h4>
+        </div>
+        <div id="info_terminal" class="panel-collapse collapse">
+            <div class="panel-body">
+                <form name="infoTerminalForm" ng-submit="infoTerminalForm.$valid && info.saveRow()">
+                    <table class="table table-striped table-bordered">
+                        <tbody>
+                        <tr>
+                            <th>终端编码</th>
+                            <td>{{ info.currentData.Terminal.tid }}</td>
+
+                            <th>终端状态</th>
+                            <td>
+                <span ng-class="['label', {'label-success': info.currentData.Terminal.IsOnline}, {'label-default': !info.currentData.Terminal.IsOnline}]">
+                    {{ info.currentData.Terminal.online }}
+                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>终端名称</th>
+                            <td>{{ info.currentData.Terminal.Name }}</td>
+
+                            <th>机组番号</th>
+                            <td>{{ info.currentData.TerminalSetId }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div ng-class="['panel', {'panel-success': info.currentData.Terminal}, {'panel-default': !info.currentData.Terminal}]">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a class="accordion-toggle" ng-show="info.currentData.Terminal"
+                   data-toggle="collapse" href
+                   data-target="#info_calc"> 计算参数 {{ info.currentData.Terminal ? "" : "（未配置）" }}</a>
+                <span class="accordion-toggle" ng-show="!info.currentData.Terminal"> 计算参数（未配置）</span>
+            </h4>
+        </div>
+        <div id="info_calc" class="panel-collapse collapse">
+            <div class="panel-body">
+                <form name="infoCalcForm" ng-submit="infoCalcForm.$valid && info.saveRow()">
+                    <table class="table table-striped table-bordered">
+                        <tbody>
+                        <tr>
+                            <th width="30%">QNETVAR燃料收到基低位发热量</th>
+                            <td width="20%">
+                                <span class="unit">kJ/kg</span>
+                                {{ info.currentData.calc.CoalQnetvar }}
+                            </td>
+
+                            <th width="30%">AAR燃料收到基灰分</th>
+                            <td width="20%">
+                                <span class="unit">%</span>
+                                {{ info.currentData.calc.CoalAar }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>MAR燃料收到基水分</th>
+                            <td>
+                                <span class="unit">%</span>
+                                {{ info.currentData.calc.CoalMar }}
+                            </td>
+
+                            <th>VDAF干燥无灰基挥发分</th>
+                            <td>
+                                <span class="unit">%</span>
+                                {{ info.currentData.calc.CoalVdaf }}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>CLZ炉渣可燃物含量</th>
+                            <td>
+                                <span class="unit">%</span>
+                                {{ info.currentData.calc.CoalClz }}
+                            </td>
+
+                            <th>CLM漏煤可燃物含量</th>
+                            <td>
+                                <span class="unit">%</span>
+                                {{ info.currentData.calc.CoalClm }}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>CFH飞灰可燃物含量</th>
+                            <td>
+                                <span class="unit">%</span>
+                                {{ info.currentData.calc.CoalCfh }}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>DED锅炉额定负荷</th>
+                            <td>
+                                <span class="unit">t/h</span>
+                                {{ info.currentData.calc.CoalDed }}
+                            </td>
+
+                            <th>DSC锅炉实测负荷</th>
+                            <td>
+                                <span class="unit">t/h</span>
+                                {{ info.currentData.calc.CoalDsc }}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>ALZ炉渣含灰量占入炉煤总灰量百分比</th>
+                            <td>
+                                <span class="unit">%</span>
+                                {{ info.currentData.calc.CoalAlz }}
+                            </td>
+
+                            <th>AFH飞灰含灰量占入炉煤总灰量百分比</th>
+                            <td>
+                                <span class="unit">%</span>
+                                {{ info.currentData.calc.CoalAfh }}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>ALM漏煤含灰量占入炉煤总灰量百分比</th>
+                            <td>
+                                <span class="unit">%</span>
+                                {{ info.currentData.calc.CoalAlm }}
+                            </td>
+
+                            <th>Q3气体未完全燃烧热损失</th>
+                            <td>
+                                <span class="unit">%</span>
+                                {{ info.currentData.calc.CoalQ3 }}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>CT_LZ炉渣焓</th>
+                            <td>
+                                <span class="unit">kJ/kg</span>
+                                {{ info.currentData.calc.CoalCtLz }}
+                            </td>
+
+                            <th>TLZ炉渣焓温度</th>
+                            <td>
+                                <span class="unit">℃</span>
+                                {{ info.currentData.calc.CoalTlz }}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>燃料计算系数m</th>
+                            <td>
+                                {{ info.currentData.calc.CoalM }}
+                            </td>
+
+                            <th>燃料计算系数n</th>
+                            <td>
+                                {{ info.currentData.calc.CoalN }}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="btn-group btn-group-devided" style="text-align: center">
+            <button ng-click="info.back()"
+                    class="btn btn-outline btn-circle grey-gallery">
+                <i class="fa fa-reply"></i> 返回
+            </button>
+            <button ng-show="info.dataMode == 'edit'"
+                    ng-click="info.delete()"
+                    class="btn btn-outline btn-circle red">
+                <i class="fa fa-trash-o"></i> 删除
+            </button>
+        </div>
+    </div>
+</div>

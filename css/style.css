@@ -51,9 +51,9 @@
 	color: red;
 }
 
-.btn-group{
+/*.btn-group{
 	display: block;
-}
+}*/
 .select_r{
 	width: 75%;
 	float: right;
@@ -78,7 +78,9 @@
 
 
 
-
+.portlet.portlet-fullscreen{
+	z-index: 99;
+}
 
 /*header*/
 .page-header{
@@ -93,7 +95,7 @@
     color: #FFFFFF;
 }
 .navbar-fixed-top{
-	z-index: 99;
+	z-index: 90;
 }
 .navbar-header{
 	
@@ -881,8 +883,27 @@ div.detail_button {
 }
 
 
+/*锅炉信息*/
+ .modal-body .input-group span.unit {
+        position: absolute;
+        left:auto;
+        right:16px;
+        top:8px;
+        float:right;
+        z-index: 10;
+        color: grey;
+    }
 
+    .modal-body h5 {
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
 
+    .modal-body hr {
+        margin-top: 4px;
+        margin-bottom: 12px;
+    }
 
 
 /*用户信息*/

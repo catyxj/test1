@@ -64,7 +64,7 @@
 					{{data.num}}
 				</td>
 				<td>
-					<a class="font-grey-mint" >{{data.Boiler.Name}}</a> <br />
+					<a ui-sref="runtime.maintain({boiler: data.Boiler.Uid})" class="font-grey-mint" >{{data.Boiler.Name}}</a> <br />
 					<span class="label label-sm label-default"> 
 						{{data.Boiler.Enterprise.Name}} 
 					</span>
