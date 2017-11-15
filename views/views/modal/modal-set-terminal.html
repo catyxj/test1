@@ -3,132 +3,103 @@
 <div>
 	<div class="modal-header">
 		<button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times;</span></button>
-		<h4 class="modal-title">
-			终端配置
-			{{data.code}}
-		</h4>
-
+    	<h3 class="modal-title" id="modal-title" style="display: inline-block;">终端配置</h3>
+		<span class="ticket-id bold font-blue font-lg" style="display: inline-block;">#{{data.code}}</span>
 	</div>
 	<div class="modal-body">
-		<form action="" method="post">
-			
+		<form action="" method="post">			
 			<div class="row">
-				<div class="col-md-6">
+				<div class="form-group col-md-6">
 					<div class="input-group">
 						<label class="input-group-addon">终端名称</label>
-						<input ng-model="data.name" type="text" class="form-control" placeholder="输入终端名称">
+						<input ng-model="data.name" type="text" class="form-control" 
+							placeholder="输入终端名称" required>
 					</div>
 				</div>
 
-				<div class="col-md-6">
+				<div class="form-group col-md-6">
 					<div class="input-group">
 						<label class="input-group-addon">终端编码</label>
-						<input ng-model="data.code" type="text" class="form-control" placeholder="输入终端编码">
+						<input ng-model="data.code" type="text" class="form-control" 
+							placeholder="输入终端编码" required>
 					</div>
 				</div>
-			</div>
-
-			<div class="row">
-				<div class="col-md-6">
+			
+				<div class="form-group col-md-6">
 					<div class="input-group">
 						<label class="input-group-addon">物联网卡号</label>
-						<input ng-model="data.simNum" type="text" class="form-control" placeholder="输入十一位卡号">
+						<input ng-model="data.simNum" type="text" class="form-control" 
+							placeholder="输入十一位卡号" required>
 					</div>
 				</div>
-				<div class="col-md-6">
+				<div class="form-group col-md-6">
 					<div class="input-group">
 						<label class="input-group-addon">IP地址</label>
-						<input ng-model="data.ip" type="text" class="form-control" placeholder="0.0.0.0">
+						<input ng-model="data.ip" type="text" class="form-control" 
+							placeholder="0.0.0.0" required>
 					</div>
 				</div>
 			</div>
 			
-			<div class="row">
-				<div class="col-md-6">
-					<div class="input-group">
-						<label class="input-group-addon">上报周期</label>
-						<input ng-model="data.simNum" type="text" class="form-control" placeholder="输入十一位卡号">
+			<div class="">
+					<hr />
+					<div class="row">
+						<div class="form-group form-selector col-md-6">
+							<div class="input-group">
+								<label class="input-group-addon">上报周期</label>
+								<span class="unit">秒</span>
+								<input ng-model="data.simNum" type="text" class="form-control" 
+									placeholder="45" >
+							</div>
+						</div>
+						<div class="form-group form-selector col-md-6">
+							<div class="input-group">
+								<label class="" style="margin-right: 12px;">终端启闭</label>
+								<label class="switch switch-lg">
+							        <input type="checkbox" checked="checked">
+							       <span></span>
+							    </label>
+							</div>
+						</div>
+						
 					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="input-group">
-						<label class="">终端启闭</label>
-						<label class="switch switch-lg">
-					        <input type="checkbox" checked="checked">
-					       <span></span>
-					    </label>
+					
+					<hr>
+					<div class="row">
+						<div ng-repeat="set in data.Boilers"  class="form-group col-md-6">
+							<div class="input-group">
+								 <span class="input-group-addon">机组{{ set.num }}</span>
+				                    <a ng-show="$modal.editing && set.num <= ($modal.deviceCount + 1)"
+				                       ng-click="$modal.bindSet(set)"
+				                       class="addon btn btn-outline btn-circle"
+				                       ng-class="[{'green': !set.hasDev && set.num == $modal.deviceCount + 1}, {'red': set.hasDev}]">
+				                        <i ng-class="['fa', {'fa-plus': !set.hasDev}, {'fa-minus': set.hasDev}]"></i>
+				                    </a>
+				                    <input type="text" ng-model="set.name" ng-disabled="true"
+				                           class="form-control "
+				                           placeholder="">
+							</div>
+						</div>
+						
+				
 					</div>
+					
 				</div>
-			</div>
 			
-			<div class="row">
-				<div class="col-md-6">
-					<div class="input-group">
-						<label class="input-group-addon">机组1</label>
-						<input ng-model="data.Boilers[0].name" type="text" class="form-control" placeholder="未配置">
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="input-group">
-						<label class="input-group-addon">机组2</label>
-						<input ng-model="data.Boilers[1].name" type="text" class="form-control" placeholder="未配置">
-					</div>
-				</div>
-			</div>
 			
-			<div class="row">
-				<div class="col-md-6">
-					<div class="input-group">
-						<label class="input-group-addon">机组3</label>
-						<input ng-model="data.Boilers[2].name" type="text" class="form-control" placeholder="未配置">
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="input-group">
-						<label class="input-group-addon">机组4</label>
-						<input ng-model="data.Boilers[3].name" type="text" class="form-control" placeholder="未配置">
-					</div>
-				</div>
-			</div>
-			
-			<div class="row">
-				<div class="col-md-6">
-					<div class="input-group">
-						<label class="input-group-addon">机组5</label>
-						<input ng-model="data.Boilers[4].name" type="text" class="form-control" placeholder="未配置">
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="input-group">
-						<label class="input-group-addon">机组6</label>
-						<input ng-model="data.Boilers[5].name" type="text" class="form-control" placeholder="未配置">
-					</div>
-				</div>
-			</div>
-			
-			<div class="row">
-				<div class="col-md-6">
-					<div class="input-group">
-						<label class="input-group-addon">机组7</label>
-						<input ng-model="data.Boilers[6].name" type="text" class="form-control" placeholder="未配置">
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="input-group">
-						<label class="input-group-addon">机组8</label>
-						<input ng-model="data.Boilers[7].name" type="text" class="form-control" placeholder="未配置">
-					</div>
-				</div>
-			</div>
 			
 			
 		</form>
 	</div>
 	<div class="modal-footer">
-		<button class="btn btn-danger" ng-click="cancel()">
+		<button class="btn yellow-crusta" type="button"  ng-click="$modal.reboot()" style="float: left">
+			重新启动
+		</button>
+		<button class="btn btn-danger" ng-click="">
 			删除
 		</button>
-		<button class="btn btn-primary" ng-click="ok()">
+		<button class="btn btn-primary" 
+			ng-click="ok()">
 			提交
 		</button>
 		<button class="btn btn-default" ng-click="cancel()">

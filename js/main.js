@@ -335,6 +335,31 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
 		    }]
 		  }
         })
+        .state("wiki.updateHistory", {
+            url: "/update",
+            templateUrl: "views/wiki/updateHistory.html",
+            resolve: { 
+    		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+             return $ocLazyLoad.load([
+             
+             	         	
+		             ]);
+		    }]
+		  }
+        })
+        .state("wiki.user", {
+            url: "/update",
+            templateUrl: "views/wiki/user.html",
+            resolve: { 
+    		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+             return $ocLazyLoad.load([
+             
+             	         	
+		             ]);
+		    }]
+		  }
+        })
+        
         .state("user-account", {
             url: "/user-account",
             templateUrl: "views/user-account.html",
@@ -1050,9 +1075,11 @@ mainApp.service("terminalData",function(){
 			online:"离线",
 			Boilers:[
 				{
+					num:1,
 					name:"佑康锅炉#1",
 				},
 				{
+					num:2,
 					name:"佑康锅炉#2",
 				}
 			],
@@ -1066,6 +1093,7 @@ mainApp.service("terminalData",function(){
 			online:"离线",
 			Boilers:[
 				{
+					num:1,
 					name:"大地印染锅炉",
 				}
 			],
@@ -1079,15 +1107,19 @@ mainApp.service("terminalData",function(){
 			online:"在线",
 			Boilers:[
 				{
+					num:1,
 					name:"航民热电1# ",
 				},
 				{
+					num:2,
 					name:"航民热电2# ",
 				},
 				{
+					num:3,
 					name:"航民热电3# ",
 				},
 				{
+					num:4,
 					name:"航民热电4#",
 				}
 			],

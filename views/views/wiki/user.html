@@ -1,0 +1,421 @@
+
+				<div class="tab-pane">
+					<uib-accordion close-others="true">
+						<div uib-accordion-group heading="1. 用户角色是如何划分的？" class="panel-success" is-open="true">
+							<p style="text-indent: 2em;">用户角色分为三类：管理员、机构用户（企业用户）、以及普通用户。</p>
+							<ul>
+								<li>管理员根据自己的权限区域，可以访问和管理大部分系统信息和用户信息，审核注册用户，并对用户进行权限分配。</li>
+								<li>机构用户根据所在机构的类型，分为锅炉制造厂用户和用能企业用户，可以查阅和维护所属机构的基本信息，以及机构所用使用的用能设备信息以及其运行情况（锅炉制造厂用户可以维护本厂所生产的用能设备），同时，企业用户可以管理所在机构的用户账户情况。</li>
+								<li>普通用户目前视为游客用户，仅可以查阅本平台的演示信息，可以测试和体验平台的功能。</li>
+							</ul>
+						</div>
+
+						<div uib-accordion-group heading="2. 用户角色各有什么权限？" class="panel-info">
+							<table class="table table-bordered table-hover table-checkable order-column table-boiler" id="wiki_user_permission_table">
+								<thead>
+									<tr>
+										<th colspan="2" class="active"> </th>
+										<th width="11.5%" class="warning">超级管理员</th>
+										<th width="11.5%" class="warning">管理员</th>
+										<th width="11.5%" class="warning">客服</th>
+										<th width="11.5%" class="info">机构管理员</th>
+										<th width="11.5%" class="info">机构用户</th>
+										<th width="11.5%">普通用户</th>
+										<th width="11.5%">未激活用户</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th rowspan="3" class="active">锅炉<br>监控</th>
+										<td class="active">锅炉基本信息</td>
+										<td class="warning">
+											<div class="tooltips" data-original-title="可查阅和维护所有信息">
+												<i class="fa fa-check font-green-jungle"></i>
+											</div>
+										</td>
+										<td class="warning">
+											<div class="tooltips" data-original-title="可查阅和维护所有信息">
+												<i class="fa fa-check font-green-jungle"></i>
+											</div>
+										</td>
+										<td class="warning">
+											<div class="tooltips" data-original-title="可查阅和维护服务范围内的信息">
+												<i class="fa fa-check-square-o font-blue-steel"></i>
+											</div>
+										</td>
+										<td class="info">
+											<div class="tooltips" data-original-title="可查阅和维护本机构信息">
+												<i class="fa fa-folder font-blue"></i>
+											</div>
+										</td>
+										<td class="info">
+											<div class="tooltips" data-original-title="可查阅和维护本机构信息">
+												<i class="fa fa-folder font-blue"></i>
+											</div>
+										</td>
+										<td>
+											<div class="tooltips" data-original-title="仅可查看演示信息">
+												<i class="fa fa-tv font-yellow-lemon"></i>
+											</div>
+										</td>
+										<td>
+											<div class="tooltips" data-original-title="仅可查看演示信息">
+												<i class="fa fa-tv font-yellow-lemon"></i>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td class="active">锅炉运行情况</td>
+										<td class="warning">
+											<div class="tooltips" data-original-title="可查阅和维护所有信息">
+												<i class="fa fa-check font-green-jungle"></i>
+											</div>
+										</td>
+										<td class="warning">
+											<div class="tooltips" data-original-title="可查阅和维护所有信息">
+												<i class="fa fa-check font-green-jungle"></i>
+											</div>
+										</td>
+										<td class="warning">
+											<div class="tooltips" data-original-title="可查阅和维护服务范围内的信息">
+												<i class="fa fa-check-square-o font-blue-steel"></i>
+											</div>
+										</td>
+										<td class="info">
+											<div class="tooltips" data-original-title="可查阅和维护本机构信息">
+												<i class="fa fa-folder font-blue"></i>
+											</div>
+										</td>
+										<td class="info">
+											<div class="tooltips" data-original-title="可查阅和维护本机构信息">
+												<i class="fa fa-folder font-blue"></i>
+											</div>
+										</td>
+										<td>
+											<div class="tooltips" data-original-title="仅可查看演示信息">
+												<i class="fa fa-tv font-yellow-lemon"></i>
+											</div>
+										</td>
+										<td>
+											<div class="tooltips" data-original-title="仅可查看演示信息">
+												<i class="fa fa-tv font-yellow-lemon"></i>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td class="active">锅炉告警信息</td>
+										<td class="warning">
+											<div class="tooltips" data-original-title="可查阅和维护所有信息">
+												<i class="fa fa-check font-green-jungle"></i>
+											</div>
+										</td>
+										<td class="warning">
+											<div class="tooltips" data-original-title="可查阅和维护所有信息">
+												<i class="fa fa-check font-green-jungle"></i>
+											</div>
+										</td>
+										<td class="warning">
+											<div class="tooltips" data-original-title="可查阅和维护服务范围内的信息">
+												<i class="fa fa-check-square-o font-blue-steel"></i>
+											</div>
+										</td>
+										<td class="info">
+											<div class="tooltips" data-original-title="可查阅和维护本机构信息">
+												<i class="fa fa-folder font-blue"></i>
+											</div>
+										</td>
+										<td class="info">
+											<div class="tooltips" data-original-title="可查阅和维护本机构信息">
+												<i class="fa fa-folder font-blue"></i>
+											</div>
+										</td>
+										<td>
+											<div class="tooltips" data-original-title="仅可查看演示信息">
+												<i class="fa fa-tv font-yellow-lemon"></i>
+											</div>
+										</td>
+										<td>
+											<div class="tooltips" data-original-title="仅可查看演示信息">
+												<i class="fa fa-tv font-yellow-lemon"></i>
+											</div>
+										</td>
+									</tr>
+							
+									<tr>
+										<th class="active">企业管理</th>
+										<td class="active">企业基本信息</td>
+										<td class="warning">
+											<div class="tooltips" data-original-title="可查阅和维护所有信息">
+												<i class="fa fa-check font-green-jungle"></i>
+											</div>
+										</td>
+										<td class="warning">
+											<div class="tooltips" data-original-title="可查阅和维护所有信息">
+												<i class="fa fa-check font-green-jungle"></i>
+											</div>
+										</td>
+										<td class="warning">
+											<div class="tooltips" data-original-title="可查阅和维护服务范围内的信息">
+												<i class="fa fa-check-square-o font-blue-steel"></i>
+											</div>
+										</td>
+										<td class="info">
+											<div class="tooltips" data-original-title="可查阅和维护本机构信息">
+												<i class="fa fa-folder font-blue"></i>
+											</div>
+										</td>
+										<td class="info">
+											<div class="tooltips" data-original-title="可查阅和维护本机构信息">
+												<i class="fa fa-folder font-blue"></i>
+											</div>
+										</td>
+										<td>
+											<div class="tooltips" data-original-title="仅可查看演示信息">
+												<i class="fa fa-tv font-yellow-lemon"></i>
+											</div>
+										</td>
+										<td>
+											<div class="tooltips" data-original-title="仅可查看演示信息">
+												<i class="fa fa-tv font-yellow-lemon"></i>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th rowspan="3" class="active">账号管理</th>
+										<td class="active">账号列表信息</td>
+										<td class="warning">
+											<div class="tooltips" data-original-title="可查阅和维护所有账号信息">
+												<i class="fa fa-check font-green-jungle"></i>
+											</div>
+										</td>
+										<td class="warning">
+											<div class="tooltips" data-original-title="可查阅和维护除管理员以外的所有账号信息">
+												<i class="fa fa-check-circle-o font-green-jungle"></i>
+											</div>
+										</td>
+										<td class="warning">
+											<div class="tooltips" data-original-title="可查阅和维护服务范围内的机构账号（机构管理员和机构用户）以及普通账号信息">
+												<i class="fa fa-check-square-o font-blue-steel"></i>
+											</div>
+										</td>
+										<td class="info">
+											<div class="tooltips" data-original-title="可查阅和维护本机构用户信息">
+												<i class="fa fa-folder font-blue"></i>
+											</div>
+										</td>
+										<td class="info">
+											<div class="tooltips" data-original-title="可查阅本机构用户信息">
+												<i class="fa fa-eye font-blue"></i>
+											</div>
+										</td>
+										<td>
+											<div class="tooltips" data-original-title="不可用">
+												<i class="fa fa-ban font-red"></i>
+											</div>
+										</td>
+										<td>
+											<div class="tooltips" data-original-title="不可用">
+												<i class="fa fa-ban font-red"></i>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td class="active">账号激活</td>
+										<td class="warning">
+											<div class="tooltips" data-original-title="可激活所有账号">
+												<i class="fa fa-check font-green-jungle"></i>
+											</div>
+										</td>
+										<td class="warning">
+											<div class="tooltips" data-original-title="可激活除管理员以外的所有账号">
+												<i class="fa fa-check-circle-o font-green-jungle"></i>
+											</div>
+										</td>
+										<td class="warning">
+											<div class="tooltips" data-original-title="可激活服务范围内的机构账号（机构管理员和机构用户）和普通账号">
+												<i class="fa fa-check-square-o font-blue-steel"></i>
+											</div>
+										</td>
+										<td class="info">
+											<div class="tooltips" data-original-title="可激活本机构用户账号">
+												<i class="fa fa-folder font-blue"></i>
+											</div>
+										</td>
+										<td class="info">
+											<div class="tooltips" data-original-title="不可用">
+												<i class="fa fa-ban font-red"></i>
+											</div>
+										</td>
+										<td>
+											<div class="tooltips" data-original-title="不可用">
+												<i class="fa fa-ban font-red"></i>
+											</div>
+										</td>
+										<td>
+											<div class="tooltips" data-original-title="不可用">
+												<i class="fa fa-ban font-red"></i>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td class="active">个人信息</td>
+										<td class="warning">
+											<div class="tooltips" data-original-title="可查阅和维护">
+												<i class="fa fa-check font-green-jungle"></i>
+											</div>
+										</td>
+										<td class="warning">
+											<div class="tooltips" data-original-title="可查阅和维护">
+												<i class="fa fa-check font-green-jungle"></i>
+											</div>
+										</td>
+										<td class="warning">
+											<div class="tooltips" data-original-title="可查阅和维护">
+												<i class="fa fa-check font-green-jungle"></i>
+											</div>
+										</td>
+										<td class="info">
+											<div class="tooltips" data-original-title="可查阅和维护">
+												<i class="fa fa-check font-green-jungle"></i>
+											</div>
+										</td>
+										<td class="info">
+											<div class="tooltips" data-original-title="可查阅和维护">
+												<i class="fa fa-check font-green-jungle"></i>
+											</div>
+										</td>
+										<td>
+											<div class="tooltips" data-original-title="可查阅和维护">
+												<i class="fa fa-check font-green-jungle"></i>
+											</div>
+										</td>
+										<td>
+											<div class="tooltips" data-original-title="可查阅和维护">
+												<i class="fa fa-check font-green-jungle"></i>
+											</div>
+										</td>
+									</tr>
+							
+									<tr>
+										<th class="active">终端管理</th>
+										<td class="active">终端信息</td>
+										<td class="warning">
+											<div class="tooltips" data-original-title="可查阅和维护所有终端">
+												<i class="fa fa-check font-green-jungle"></i>
+											</div>
+										</td>
+										<td class="warning">
+											<div class="tooltips" data-original-title="可查阅和维护所有终端">
+												<i class="fa fa-check font-green-jungle"></i>
+											</div>
+										</td>
+										<td class="warning">
+											<div class="tooltips" data-original-title="可查阅和维护服务范围内的终端">
+												<i class="fa fa-check-square-o font-blue-steel"></i>
+											</div>
+										</td>
+										<td class="info">
+											<div class="tooltips" data-original-title="可查阅和维护本机构终端">
+												<i class="fa fa-folder font-blue"></i>
+											</div>
+										</td>
+										<td class="info">
+											<div class="tooltips" data-original-title="可查阅本机构终端">
+												<i class="fa fa-eye font-blue"></i>
+											</div>
+										</td>
+										<td>
+											<div class="tooltips" data-original-title="仅可查看演示终端">
+												<i class="fa fa-tv font-yellow-lemon"></i>
+											</div>
+										</td>
+										<td>
+											<div class="tooltips" data-original-title="仅可查看演示终端">
+												<i class="fa fa-tv font-yellow-lemon"></i>
+											</div>
+										</td>
+									</tr>
+							
+									<tr>
+										<th rowspan="2" class="active">参数设置</th>
+										<td class="active">告警规则设置</td>
+										<td class="warning">
+											<div class="tooltips" data-original-title="可查阅和维护">
+												<i class="fa fa-check font-green-jungle"></i>
+											</div>
+										</td>
+										<td class="warning">
+											<div class="tooltips" data-original-title="可查阅和维护">
+												<i class="fa fa-check font-green-jungle"></i>
+											</div>
+										</td>
+										<td class="warning">
+											<div class="tooltips" data-original-title="可查阅和维护">
+												<i class="fa fa-check font-green-jungle"></i>
+											</div>
+										</td>
+										<td class="info">
+											<div class="tooltips" data-original-title="可查阅">
+												<i class="fa fa-eye font-blue"></i>
+											</div>
+										</td>
+										<td class="info">
+											<div class="tooltips" data-original-title="可查阅">
+												<i class="fa fa-eye font-blue"></i>
+											</div>
+										</td>
+										<td>
+											<div class="tooltips" data-original-title="可查阅">
+												<i class="fa fa-eye font-blue"></i>
+											</div>
+										</td>
+										<td>
+											<div class="tooltips" data-original-title="可查阅">
+												<i class="fa fa-eye font-blue"></i>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td class="active">运行时参数设置</td>
+										<td class="warning">
+											<div class="tooltips" data-original-title="可查阅和维护">
+												<i class="fa fa-check font-green-jungle"></i>
+											</div>
+										</td>
+										<td class="warning">
+											<div class="tooltips" data-original-title="可查阅">
+												<i class="fa fa-eye font-blue"></i>
+											</div>
+										</td>
+										<td class="warning">
+											<div class="tooltips" data-original-title="可查阅">
+												<i class="fa fa-eye font-blue"></i>
+											</div>
+										</td>
+										<td class="info">
+											<div class="tooltips" data-original-title="可查阅">
+												<i class="fa fa-eye font-blue"></i>
+											</div>
+										</td>
+										<td class="info">
+											<div class="tooltips" data-original-title="可查阅">
+												<i class="fa fa-eye font-blue"></i>
+											</div>
+										</td>
+										<td>
+											<div class="tooltips" data-original-title="可查阅">
+												<i class="fa fa-eye font-blue"></i>
+											</div>
+										</td>
+										<td>
+											<div class="tooltips" data-original-title="可查阅">
+												<i class="fa fa-eye font-blue"></i>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</uib-accordion>
+				</div>
+			
