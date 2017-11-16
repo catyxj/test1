@@ -1,113 +1,130 @@
 <div class="page-bar">
-	<ol class="breadcrumb">
+	<ol class="page-breadcrumb">
 		<li>
-			<a href="" ui-sref="dashboard">首页</a>
+			<a ui-sref="monitor.dashboard">主页</a>
+			<i class="fa fa-circle"></i>
 		</li>
 		<li>
-			<a href="" >用户信息</a>
+			<a ui-sref="profile.account">用户信息</a>
 		</li>
 
 	</ol>
 </div>
 
-<div ng-controller="profileController" class=" clearfix">
-	<div class="profile-sidebar col-md-4">
-		<div class="back_w">
-			<div class="profile_userpic">
-				<img src="../images/avatar0.png"/>
-			</div>
-			
-			<div class="profile_usertitle">
-				<div class="profile_usertitle_name">
-					厚德能源测试
+<div ng-controller="profileController" class="page_content profile">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="profile-sidebar">
+				<div class="portlet light profile-sidebar-portlet">
+					<div class="profile_userpic">
+						<img src="../images/avatar0.png" />
+					</div>
+
+					<div class="profile-usertitle">
+						<div class="profile-usertitle-name">
+							厚德能源测试
+						</div>
+						<div class="profile-usertitle-job">
+							<span class="label label-success">
+								管理员
+							</span>
+						</div>
+						<div class="profile-usertitle-job">
+							{{ currentUser.Organization.Name }}
+						</div>
+					</div>
+
+					<div class="profile-usermenu">
+						<ul class="nav">
+							<li>
+								<a ui-sref="profile.account">
+									<i class="fa fa-cog"></i> 
+									账户设置
+								</a>
+							</li>
+						</ul>
+						
+
+					</div>
+
 				</div>
-				<div class="profile_usertitle_job">
-					<span class="label label-info">
-						管理员
-					</span>					
+
+				<div class="portlet light">
+					<div class="row list-separated profile-stat">
+						<div class="col-md-4 col-sm-4 col-xs-6">
+							<div class="uppercase profile-stat-title">
+								<!--{{ boilers.length }} -->255
+							</div>
+							<div class="uppercase profile-stat-text">
+								在用锅炉
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-4 col-xs-6">
+							<div class="uppercase profile-stat-title">
+								<!--{{ organizations.length }} -->252
+							</div>
+							<div class="uppercase profile-stat-text">
+								机构企业
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-4 col-xs-6">
+							<div class="uppercase profile-stat-title">
+								61
+							</div>
+							<div class="uppercase profile-stat-text">
+								平台用户
+							</div>
+						</div>
+					</div>
+
+					<div class="row margin-top-20 profile-desc-link">
+						<div class="col-md-4 col-sm-4 col-xs-6" style="text-align: right">
+							<i ng-class="['fa', 'fa-weixin', {'font-green-jungle': profile.hasWeixin}]"></i>
+						</div>
+						<div class="col-md-8 col-sm-8 col-xs-6">
+							<a ng-click="profile.weixinClick()" class="profile-desc-text" style="padding-left: 12px;">
+								<!--{{ profile.weixinName }}-->
+								Onlycare
+							</a>
+						</div>
+					</div>
 				</div>
-				<div class="profile_usertitle_job">
-					
+
+			</div>
+			<div class="profile-content">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="portlet light">
+							<div class="portlet-title tabbable-line">
+								<div class="caption caption-md">
+									<i class="icon-globe theme-font hide"></i>
+									<span class="caption-subject font-blue-madison bold uppercase">账户设置</span>
+								</div>
+								<ul class="nav nav-tabs">
+									<li ui-sref-active="active">
+										<a href="" ui-sref=".account">
+											个人信息
+										</a>
+									</li>
+									<li ui-sref-active="active">
+										<a href="" ui-sref=".password">
+											修改密码
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="portlet_body">
+								<div ui-view="" class="tab-content"></div>
+							</div>
+						</div>
+					</div>
+
 				</div>
+
 			</div>
-			
-			<div class="profile-usermenu">				
-				<a href="">
-					账户设置
-				</a>
-				
-			</div>
-		
+
 		</div>
-		
-		<div class="back_w">
-			<div class="row profile_stat">
-				<div class="col-md-4 col-sm-4 col-xs-6">
-					<div class="profile_stat_title">
-						655
-					</div>
-					<div class="profile_stat_text">
-						在用锅炉
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-4 col-xs-6">
-					<div class="profile_stat_title">
-						455
-					</div>
-					<div class="profile_stat_text">
-						机构企业
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-4 col-xs-6">
-					<div class="profile_stat_title">
-						55
-					</div>
-					<div class="profile_stat_text">
-						平台用户
-					</div>
-				</div>				
-			</div>
-			
-			<div class="row">
-				<div class="">
-					
-				</div>
-				<div class="profile_desc_text">
-					阿杰
-				</div>
-			</div>
-		</div>
-	</div>	
-	
-	<div class="profile-content col-md-8">
-		<div class="data_top clearfix">
-			<h5 class="float_left">
-				账户设置
-			</h5>
-			<div class="float_right tabtable-line">
-				<ul class="nav nav-tabs">
-					<li ui-sref-active="active" ng-class="{active:isActiveTag(profile.account)}">
-						<a href="" ui-sref=".account">
-							个人信息
-						</a>
-					</li>
-					<li ui-sref-active="active" ng-class="{active:isActiveTag(profile.password)}">
-						<a href="" ui-sref=".password">
-							修改密码
-						</a>
-					</li>
-				</ul>				
-				
-			</div>
-			
-		</div>
-		<div class="portlet_body">
-			<div ui-view=""></div>
-		</div>
+
 	</div>
 
-		
-	
-	
 </div>
-

@@ -1,0 +1,106 @@
+<div class="row">
+    <div class="form-group col-md-6">
+        <div class="input-group">
+            <span class="input-group-addon">终端编码</span>
+            <input type="text"
+                   ng-model="terminal.msgData.code"
+                   class="form-control ng-pristine ng-valid ng-touched has-success"
+                   placeholder="输入六位终端号进行查询">
+            <span class="input-group-btn">
+                <button type="button" id="terminal_origin_messages"
+                        data-style="expand-right"
+                        class="btn ladda-button"
+                        ng-class="[{'blue-oleo': terminal.msgData.code.length !== 6}, {'btn-info': terminal.msgData.code.length === 6}]"
+                        ng-disabled="terminal.msgData.code.length !== 6"
+                        ng-click="terminal.getOriginMessages();">
+                    <span class="ladda-label"><i class="fa fa-arrow-down fa-fw"></i> 查询消息</span>
+                </button>
+            </span>
+        </div>
+    </div>
+    <div ng-show="!terminal.msgData.isEmpty"
+         class="form-group col-md-6"
+         style="vertical-align: middle; text-align: center; padding-top: 6px;">
+        <span class="bold font-blue-dark">最后收到消息时间：{{ terminal.msgData.datasource[0].TS | amDateFormat:'YYYY-MM-DD HH:mm:ss' }}</span>
+
+    </div>
+</div>
+
+<style type="text/css">
+    table#terminal_origin_messages_table th {
+        vertical-align: middle;
+    }
+
+    table#terminal_origin_messages_table td {
+        padding: 4px;
+        font-size: 10px;
+    }
+
+    table#terminal_origin_messages_table td.empty {
+        padding: 8px;
+        font-size: 14px;
+    }
+    table#terminal_origin_messages_table td.num{
+        font-size: 12px;
+    }
+</style>
+
+<hr style="margin-top: 6px;">
+
+<div class="row">
+    <table ng-init="terminal.initMsgData();" class="table table-striped table-bordered table-hover table-checkable order-column table-boiler" id="terminal_origin_messages_table">
+        <thead>
+        <tr>
+            <th rowspan="2" width="2%">  </th>
+            <th rowspan="2" width="8%"> 采样时间 </th>
+            <th width="30%" colspan="{{ terminal.temperCols.length }}">温度通道</th>
+            <th width="30%" colspan="{{ terminal.analogCols.length }}">模拟量通道</th>
+            <th width="30%" colspan="{{ terminal.calcCols.length }}">计算量通道</th>
+        </tr>
+        </thead>
+
+        <tbody  style="text-align: center">
+        <tr>
+            <td class="empty"
+                colspan="5">
+                没有有效的原始消息数据
+            </td>
+        </tr>
+        </tbody>
+        <!--<tbody ng-show="!terminal.msgData.isEmpty" style="text-align: center">
+        <tr>
+            <td></td>
+            <td> - </td>
+            <td width="3%" class="num"
+                ng-repeat="col in terminal.temperCols">
+                {{ $index + 1 }}
+            </td>
+            <td width="3%" class="num"
+                ng-repeat="col in terminal.analogCols">
+                {{ $index + 1 }}
+            </td>
+            <td width="3%" class="num"
+                ng-repeat="col in terminal.calcCols">
+                {{ $index + 1 }}
+            </td>
+        </tr>
+        <tr ng-repeat="d in terminal.msgData.datasource">
+            <td class="num"> {{ d.num }} </td>
+            <td> {{ d.TS | amDateFormat:'YYYY-MM-DD HH:mm:ss' }}</td>
+
+            <td width="3%" ng-class="[{'font-grey': d[col] <= 0}]"
+                ng-repeat="col in terminal.temperCols">
+                {{ d[col] }}
+            </td>
+            <td width="3%" ng-class="[{'font-grey': d[col] <= 0}]"
+                ng-repeat="col in terminal.analogCols">
+                {{ d[col] }}
+            </td>
+            <td width="3%" ng-class="[{'font-grey': d[col] <= 0}]"
+                ng-repeat="col in terminal.calcCols">
+                {{ d[col] }}
+            </td>
+        </tr>
+        </tbody>-->
+    </table>
+</div>

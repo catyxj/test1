@@ -55,6 +55,14 @@ mainApp
 		
  	}
 })
+.directive("datatableHistory",function(organizationData){
+	return {		
+   		restrict:"E",
+   		templateUrl:"directives/datatable_history.html",
+   		replace: true
+		
+ 	}
+})
 //.directive("chartAlarm",function(){
 //	return {		
 // 		restrict:"E",

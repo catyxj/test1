@@ -1,31 +1,23 @@
 
 mainApp.controller("userAccountController",function($scope, $rootScope, $uibModal){
-	
-	
+		
 	$scope.userAccount = [];
 	$scope.pageSize = 10;
-	$scope.totalItems = $scope.userAccount.length;
-	
-						
+	$scope.totalItems = $scope.userAccount.length;							
 		var newdata = {};
         $scope.openModal = function() {       	
                 var modalInstance = $uibModal.open({
                     templateUrl : 'views/modal/modal-add-user.html',//script标签中定义的id
                     controller : 'userCtrl',//modal对应的Controller
                     size: '', //大小配置 
-                    resolve : {
-                    	
+                    resolve : {                   	
                         data : function() {//data作为modal的controller传入的参数                        	                	                       			
                              return $scope.userAccount;//用于传递数据
                         }
                     }
                 })
             }
-	
-	
-	
-	
-	
+					
 	$scope.removeData = function(id){
 		for(var i = 0; i < $scope.advisory.length; i++){
 			if($scope.advisory[i].num == id){
@@ -33,9 +25,7 @@ mainApp.controller("userAccountController",function($scope, $rootScope, $uibModa
 				break;
 			}
 		}
-	}
-	
-	
+	}	
 	
 })
 

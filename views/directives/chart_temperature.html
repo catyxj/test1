@@ -6,17 +6,42 @@
 </style>
 <!-- BEGIN DYNAMIC CHART PORTLET-->
 <div class="portlet light portlet-fit bordered ">
-    <div class="portlet-title runtime_d_header">
-    	
-        <div class="">
-            <h4>排烟温度(低)</h4>
+    <div class="portlet-title">   	
+        <div class="caption font-dark">
+            <span class="caption-subject bold uppercase"> 排烟温度(低)</span>
         </div>
 
         <div class="tools fullscreen-hide">
             <a href class="fullscreen" data-original-title="全屏查看"> </a>
-
         </div>
-       
+       <div class="actions fullscreen-only" style="margin-left: 12px;">            
+            <a href class="btn btn-circle btn-icon-only btn-default fullscreen on"
+               ng-click="chartTemp.refreshChart(0);" data-original-title="" title=""> 
+            </a>
+        </div>
+        <div class="actions fullscreen-only">
+            <div class="btn-group btn-group-devided" data-toggle="buttons">
+                <button type="button" id="chartTemp1"
+                        class="btn btn-transparent blue-oleo btn-no-border btn-outline btn-circle btn-sm btn-primary ladda-button"
+                        data-style="expand-right" ng-class="{'active': chartTemp.range == 1}"
+                        ng-click="chartTemp.refreshChart(1);">
+                    <span class="ladda-label">当天</span>
+                </button>
+                <button type="button" id="chartTemp2"
+                        class="btn btn-transparent blue-oleo btn-no-border btn-outline btn-circle btn-sm btn-primary ladda-button"
+                        data-style="expand-right" ng-class="{'active': chartTemp.range == 2}"
+                        ng-click="chartTemp.refreshChart(2);">
+                    <span class="ladda-label">近三天</span>
+                </button>
+                <button type="button" id="chartTemp3"
+                        class="btn btn-transparent blue-oleo btn-no-border btn-outline btn-circle btn-sm btn-primary ladda-button"
+                        data-style="expand-right" ng-class="{'active': chartTemp.range == 3}"
+                        ng-click="chartTemp.refreshChart(3);">
+                    <span class="ladda-label">近一周</span>
+                </button>
+            </div>
+        </div>
+        
     </div>
     <div class="portlet-body">
         <div id="chart_temperature" class="chart-body"></div>

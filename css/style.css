@@ -38,7 +38,7 @@
 	vertical-align: middle;
 }
 .tab-pane{
-	padding: 10px;
+	
 }
 
 
@@ -55,7 +55,7 @@
 	display: block;
 }*/
 .select_r{
-	width: 75%;
+	width: 74%;
 	float: right;
 }
 .label_l{
@@ -907,60 +907,97 @@ div.detail_button {
 
 
 /*用户信息*/
-.profile-sidebar{
-	text-align: center;
+/*profile*/
+.profile.page_content{
+	background-color: transparent;
+	overflow: initial;
 }
-.back_w{
-	background-color:#FFFFFF;
-	padding-bottom:10px ;
+.profile-sidebar-portlet {
+    padding: 30px 0 0 0 !important;
 }
-.profile-sidebar .back_w{
-	margin-bottom: 20px;
+.profile-sidebar {
+    float: left;
+    width: 300px;
+    margin-right: 20px;
+    
 }
+.profile-content {
+  overflow: hidden; 
+}
+
+
 .profile_userpic{
 	padding-top:20px ;
+	text-align: center;
 }
 .profile_userpic img{
-	width: 45%;
+	width: 55%;
+	
 }
-.profile_usertitle{
-	padding-top: 20px;
+.profile-usertitle{
+	margin-top: 20px;
+	text-align: center;
+}
+
+.profile-usertitle-name {
+    color: #5a7391;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 7px;
+}
+.profile-usertitle-job {
+    text-transform: uppercase;
+    color: #5b9bd1;
+    font-size: 13px;
+    font-weight: 800;
+    margin-bottom: 7px;
+}
+
+
+
+.profile-usermenu {
+    margin-top: 30px;
+    padding-bottom: 20px;
+}
+
+.profile-usermenu ul li a{
+	color: #5b9bd1;
+    background-color: #f6f9fb;
+    border-left: 2px solid #5b9bd1;
+    margin-left: -2px;
+    font-size: 16px;
+}
+.profile-stat{
 	padding-bottom: 20px;
+	border-bottom: 1px solid #f0f4f7;
 }
-.profile_usertitle_name{
-	font-size: 20px;
-	color: #31708F;
-	font-weight: bold;
-	line-height: 40px;
+
+.profile-stat-title {
+    color: #7f90a4;
+    font-size: 25px;
+    text-align: center;
 }
-.profile-usermenu{
-	line-height: 40px;
-	text-align: left;	
+.profile-stat-text {
+    color: #5b9bd1;
+    font-size: 11px;
+    font-weight: 800;
+    text-align: center;
 }
-.profile-usermenu a{
-	display: block;
-	font-size: 16px;
-	color: #46B8DA;
-	border-left: 2px solid #46B8DA;
-	padding-left: 20px;
-}
-.profile_stat{
-	padding-top: 20px;
-	padding-bottom: 20px;
-}
-.profile_stat_title{
-	font-family: arial;
-	font-size: 24px;
-	color: #31708F;
-}
-.profile_stat_text{
-	font-size: 12px;
-	font-weight: bold;
-	color: #66AFE9;
-}
+
 .profile_desc_text{
-	font-weight: bold;
-	color: #66AFE9;
+	color: #7e8c9e;
+    font-size: 14px;
+}
+.profile-desc-link a {
+    font-size: 14px;
+    font-weight: 600;
+    color: #5b9bd1;
+}
+.profile-desc-link i {
+    width: 22px;
+    font-size: 19px;
+    color: #abb6c4;
+    margin-right: 5px;
 }
 
 .profile-content{
@@ -980,9 +1017,8 @@ div.detail_button {
 
 
 
-
 .wiki{
-	padding: 10px;
+	
 }
 
 

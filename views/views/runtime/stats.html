@@ -1,126 +1,226 @@
+<div ng-controller="runtimedataController" class="">
+	<style type="text/css">
+		.portlet-chart .portlet.light.portlet-fit>.portlet-title {
+			padding: 4px 8px;
+			min-height: 16px;
+			margin-bottom: 4px;
+		}
+		
+		.portlet-chart .portlet.light>.portlet-title>.caption {
+			padding: 0;
+		}
+		
+		.portlet-chart .portlet.light>.portlet-title>.tools {
+			padding: 4px 0 0;
+		}
+		
+		.portlet-chart .portlet.light>.portlet-title>.caption>.caption-subject {
+			font-size: 11px;
+		}
+		
+		.portlet-chart .portlet.light.portlet-fit>.portlet-body {
+			padding: 0 8px 4px;
+		}
+		
+		.portlet-chart .portlet {
+			margin-bottom: 10px;
+		}
+		
+		.portlet-state.col-md-4,
+		.portlet-chart .col-md-4,
+		.portlet-chart .col-md-6,
+		.portlet-chart .col-md-8,
+		.portlet-chart .col-md-12 {
+			padding-left: 0;
+			padding-right: 8px;
+		}
+		
+		.portlet-chart .caption-subject {
+			margin-left: 12px;
+		}
+		
+		div.portlet-chart {
+			padding-left: 0;
+			padding-right: 0;
+		}
+		
+		.portlet-chart .row {
+			margin-left: 0;
+			margin-right: 0;
+		}
+		
+		.portlet-chart .chart-body {
+			/*width: 100%;*/
+			height: 233px;
+		}
+		
+		.portlet-chart .portlet.portlet-fullscreen {
+			min-height: 480px;
+		}
+		
+		.portlet-chart .portlet.portlet-fullscreen.light>.portlet-title>.caption>.caption-subject {
+			font-size: 16px;
+		}
+		
+		.portlet-chart .portlet.portlet-fullscreen.light>.portlet-title>.caption {
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
+		
+		.portlet-chart .portlet.portlet-fullscreen.light>.portlet-title>.tools {
+			padding: 4px 0 0;
+		}
+		
+		.portlet-chart .portlet-fullscreen .chart-body {
+			min-height: 440px;
+		}
+		
+		.portlet-chart .portlet.light>.portlet-title>.fullscreen-only {
+			display: none;
+		}
+		
+		.portlet-chart .portlet.portlet-fullscreen.light>.portlet-title>.fullscreen-only {
+			display: inline-block;
+		}
+		
+		.portlet-chart .portlet.light>.portlet-title>.fullscreen-hide {
+			display: inline-block;
+		}
+		
+		.portlet-chart .portlet.portlet-fullscreen.light>.portlet-title>.fullscreen-hide {
+			display: none;
+		}
+	</style>
 
-			<div ng-controller="runtimedataController" class="runtime_view">
-				<div class="row">
-					<div class="col-md-4  runtime_data1">
-						<div class="data_box">
-							<div class="runtime_d_header">
-								<h3>
-									<i class="fa fa-bar-chart-o"></i>
-									运行时参数
-								</h3>
-								<div class="float_right runtime_date">
-									<span>采样时间: 2017-09-19 17:18:09</span>
-								</div>
-							</div>
-							
-							<div class="run_data_box">
-								<table class="table" border="0">
-									<tr>
-										<th>测量项目</th>
-										<th>测量值</th>
-										<th>单位</th>
-										<th>状态</th>
-									</tr>
-									<tr>
-										<td>蒸汽温度</td>
-										<td>38.6</td>
-										<td>℃</td>
-										<td><button type="button" class="btn btn-info btn-xs">正常</button></td>
-									</tr>
-									<tr>
-										<td>排烟温度(低)</td>
-										<td>38.6</td>
-										<td>℃</td>
-										<td><button type="button" class="btn btn-info btn-xs">正常</button></td>
-									</tr>
-								</table>
-							</div>
-							
-							
-						</div>
-						
-						<div class="data_box">
-							<div class="runtime_d_header">
-								<h3>
-									<i class="fa fa-info-circle"></i>
-									基本信息
-								</h3>
-								<div class="float_right">
-									<a class="btn btn-sm btn_lightblue" href="#" role="button">查看详情</a>
-								</div>
-							</div>
-							<div class="run_data_box">
-								<table class="table" border="0" >
-									<tr>
-										<th width="40%">注册码</th>
-										<td>{{data[0].registrationCode}}</td>
-									</tr>
-									<tr>
-										<th>锅炉型号</th>
-										<td>{{data[0].model}}</td>
-									</tr>
-									<tr>
-										<th>锅炉燃料</th>
-										<td>燃气</td>
-									</tr>
-									<tr>
-										<th>生产厂家</th>
-										<td>{{data[0].company}}</td>
-									</tr>
-									<tr>
-										<th>使用企业</th>
-										<td>{{data[0].company}}</td>
-									</tr>
-									<tr>
-										<th>额定蒸发量</th>
-										<td>2 t/h</td>
-									</tr>
-									<tr>
-										<th>对应终端</th>
-										<td>Data</td>
-									</tr>
-									
-								</table>
-								
-							</div>
-							
-						</div>
-						
-						
-						
+	<div class="row">
+		<div class="col-md-4  portlet-state">
+			<div class="portlet light portlet-fit bordered">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="fa fa-bar-chart-o font-green"></i>
+						<span class="caption-subject font-green bold uppercase">运行时参数</span>
 					</div>
-					<div class="col-md-8 runtime_data2">					
-						<div class="data_box">
-							<!--<div class="runtime_d_header">
+					<div class="actions">
+						<h6 class="font-grey-salsa">
+				                        采样时间:<!-- {{ runtime.instants[0].date | amDateFormat:'YYYY-MM-DD HH:mm:ss'}}-->
+				                        2017-09-19 17:18:09
+				                    </h6>
+					</div>
+				</div>
+
+				<div class="portlet-body">
+					<div class="table-scrollable table-scrollable-borderless">
+						<table class="table table-hover table-light">
+							<thead>
+								<tr>
+									<th>测量项目</th>
+									<th>测量值</th>
+									<th>单位</th>
+									<th>状态</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>蒸汽温度</td>
+									<td>38.6</td>
+									<td>℃</td>
+									<td><button type="button" class="btn btn-info btn-xs">正常</button></td>
+								</tr>
+								<tr>
+									<td>排烟温度(低)</td>
+									<td>38.6</td>
+									<td>℃</td>
+									<td><button type="button" class="btn btn-info btn-xs">正常</button></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+			<div class="portlet light portlet-fit bordered">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="fa fa-info-circle font-blue"></i>
+						<span class="caption-subject font-blue sbold uppercase">基本信息</span>
+					</div>
+					<div class="actions">
+						<a ui-sref="runtime.info({boiler: runtime.boiler.Uid, from: 'runtime'})" class="btn green btn-outline btn-block">
+							<i class="fa fa-book"></i> 查看详情
+						</a>
+					</div>
+				</div>
+				<div class="portlet-body">
+					<div class="table-scrollable table-scrollable-borderless">
+						<table class="table table-hover table-light">
+							<tbody>
+								<tr>
+									<td width="30%">注册码</th>
+									<td>{{data[0].registrationCode}}</td>
+								</tr>
+								<tr>
+									<td>锅炉型号</th>
+									<td>{{data[0].model}}</td>
+								</tr>
+								<tr>
+									<td>锅炉燃料</th>
+									<td>燃气</td>
+								</tr>
+								<tr>
+									<td>生产厂家</th>
+									<td>{{data[0].company}}</td>
+								</tr>
+								<tr>
+									<td>使用企业</th>
+									<td>{{data[0].company}}</td>
+								</tr>
+								<tr>
+									<td>额定蒸发量</th>
+									<td>2 t/h</td>
+								</tr>
+								<tr>
+									<td>对应终端</th>
+									<td>Data</td>
+								</tr>
+							</tbody>
+						</table>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+		<div class="portlet-chart col-md-8">
+			<div class="row">
+				<!--<div class="runtime_d_header">
 								<h4>蒸汽温度</h4>
 								<div class="float_right full">
 									<span class="glyphicon glyphicon-resize-full" aria-hidden="true"></span>
 								</div>
 							</div>-->
-							<div class="">								
-                				<chart-steam></chart-steam>            					
-							</div>							
-						</div>
-						
-						<div class="data_box">
-							<!--<div class="runtime_d_header">
+				<div class="col-md-12">
+					<chart-steam></chart-steam>
+				</div>
+			</div>
+
+			<div class="row">
+				<!--<div class="runtime_d_header">
 								<h4>排烟温度（低）</h4>
 								<div class="float_right  full">
 									<span class="glyphicon glyphicon-resize-full" aria-hidden="true"></span>
 								</div>
 							</div>-->
-							<div class="">
-								<!--<newfile></newfile>-->
-								<chart-temperature></chart-temperature>
-							</div>							
-						</div>
-						
-						
-						
-					</div>
+				<div class="col-md-12">
+					<chart-temperature></chart-temperature>
 				</div>
-				
-				<!--<div class="row">
+			</div>
+
+		</div>
+	</div>
+
+	<!--<div class="row">
 					<div class="col-md-4 col-sm-12 col-xs-12 runtime_data1">
 						
 					</div>
@@ -128,8 +228,7 @@
 						
 					</div>
 				</div>-->
-				
-				
-			</div>
-			
-		</div>
+
+</div>
+
+</div>

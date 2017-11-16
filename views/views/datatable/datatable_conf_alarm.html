@@ -1,7 +1,6 @@
 
 <div class="">
-
-	<table class="table" border="0" >
+	<table class="table table-striped table-bordered table-hover table-checkable order-column table-boiler">
 			<thead>
 				<tr>
 					<th ng-click="changeOrder('num')" ng-class="{dropup:order===''}">
@@ -34,15 +33,13 @@
 					</th>
 					<th>
 						描述
-					</th>
-					
+					</th>					
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="d in configAlarm.datasource | orderBy: order+orderType| range:selectedpage:pageSize">
+				<tr ng-repeat="d in configAlarm.datasource | orderBy: order+orderType| range:selectedpage:pageSize"  ng-click="openModal(d)">
 					<td>
-						{{d.num}}
-						
+						{{d.num}}						
 					</td>
 					<td>
 						{{d.Parameter.name}}
@@ -55,15 +52,13 @@
 					<td>
 						<span ng-class="{'text_gray':d.fuelName==='不限'}" class="">
 							{{d.fuelName}}
-						</span>
-						
+						</span>						
 					</td>
 										
 					<td>
 						<span ng-class="{'text_gray':d.capacity==='不限'}">
 							{{d.capacity}}	
-						</span>
-																
+						</span>																
 					</td>
 					<td>
 						{{d.Normal}}

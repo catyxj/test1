@@ -264,6 +264,18 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
 		    }]
 		  }
         })
+        .state("terminal.message", {
+            url: "/message",
+            templateUrl: "views/terminal/message.html",
+            resolve: { 
+    		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+             return $ocLazyLoad.load([
+             	
+             	         	
+		             ]);
+		    }]
+		  }
+        })
         
         .state("config-runtime-alarm", {
             url: "/config-runtime-alarm",
@@ -348,7 +360,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
 		  }
         })
         .state("wiki.user", {
-            url: "/update",
+            url: "/user",
             templateUrl: "views/wiki/user.html",
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {

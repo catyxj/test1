@@ -42,21 +42,24 @@ mainApp.controller("organizationController",function($scope, $rootScope, $uibMod
             }
 	
 		$scope.editModal = function(data) { 
-				data.title="企业信息";
+				var orgData = angular.copy(data);
+				orgData.title="企业信息";
                 var modalInstance = $uibModal.open({
                     templateUrl : 'directives/modal/organization_detail.html',//script标签中定义的id
                     controller : 'organizationCtrl',//modal对应的Controller
                     size: 'lg', //大小配置 
                     resolve : {
                         data : function() {//data作为modal的controller传入的参数                        		
-                             return data;//用于传递数据
+                             return orgData;//用于传递数据
                         }
                     }
                 })
                 
                   
 	            modalInstance.result.then(function(selectedItem) {
-	              $scope.selected = selectedItem;
+	              data.name = selectedItem.name;
+	              data.Address.Address=	selectedItem.Address.Address;	
+	                  
 	            }, function() {
 	              
 	            });

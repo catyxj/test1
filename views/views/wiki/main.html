@@ -11,7 +11,7 @@
 	</ol>
 </div>
 
-<div ng-controller="wikiController" class="page_content">
+<div ng-controller="wikiController" class="page_content wiki">
 	
 		<div class="row">
 			<div class="col-md-12">
@@ -34,6 +34,15 @@
 						</ul>
 					</div>
 					<div class="portlet-body">
+						<style>
+							.panel .panel-body {
+	                            font-size: 14px;
+	                        }
+	                       .wiki ul,.wiki li{
+	                        	list-style-type: disc;
+	                        	margin-left: 1em;
+	                        }
+						</style>
 						<div ui-view class="profile-content fade-in-up"></div>
 					</div>
 				</div>

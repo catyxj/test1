@@ -31,7 +31,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="d in terminal.datasource | orderBy: order+orderType| range:selectedpage:pageSize">
+			<tr ng-repeat="d in terminal.datasource | orderBy: order+orderType| range:selectedpage:pageSize" >
 				<td>
 					{{d.num}}
 

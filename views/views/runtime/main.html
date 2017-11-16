@@ -1,41 +1,73 @@
 <div class="page-bar">
-	<ol class="breadcrumb">
+	<ol class="page-breadcrumb">
 		<li>
-			<a href="" ui-sref="dashboard">首页</a>
-		</li>
-		<li>
-			<a href="" ui-sref="monitor.thumb">主控制台</a>
-		</li>
+            <a ui-sref="monitor.dashboard">主页</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a ui-sref="monitor.dashboard">主监控台</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a ui-sref="runtime.dashboard({boiler: runtime.boiler.Uid})">实时监控</a>
+            
+        </li>
 
 	</ol>
 </div>
 
 
-		<div class="runtime_container page_content">
-			<div class="runtime_header">
-				<div class="float_left">
-					<b>
-						6666666
-					</b>
-					<span>
-						6666666
-					</span>
-					<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-					<span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
-				</div>
-				<div class="float_right">
-					<a ui-sref-active="active" ng-class="{active:isActiveTag(runtime.dashboard)}" ui-sref=".dashboard" class="btn btn-sm btn-default" href="" role="button">动画监测</a>
-					<a ui-sref-active="active" ng-class="{active:isActiveTag(runtime.stats)}" ui-sref=".stats" class="btn btn-sm btn-default" href="" role="button">运行参数</a>
-					<a ui-sref-active="active" ng-class="{active:isActiveTag(runtime.historydata)}" ui-sref=".historydata" class="btn btn-default btn-sm" href="#" role="button">历史数据</a>
-					<a ui-sref-active="active" ng-class="{active:isActiveTag(runtime.alarm)}" ui-sref=".alarm" class="btn btn-default btn-sm" href="" role="button">锅炉警告</a>
-					<a ui-sref-active="active" ng-class="{active:isActiveTag(runtime.maintain)}" ui-sref=".maintain"  class="btn btn-default btn-sm" href="" role="button">维保记录</a>
-					<a class="btn btn-default btn-sm" href="" role="button">...</a>
+	<div class="page_content">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="portlet light portlet-fit bordered">
+					<div class="portlet-title">
+						<div class="caption">
+	                        <span class="caption-md font-red sbold uppercase"><i class="fa fa-cog"></i> 
+	                        	<!--{{runtime.boiler.Name}}-->
+	                        	4564454
+	                        </span>
+	                        <span class="caption-subject font-dark uppercase">
+	                        	<!--{{runtime.boiler.ModelCode}}-->
+	                        	11111
+	                        </span>　
+	                        <span class="caption-subject font-blue uppercase"><i class="fa fa-user font-blue-dark"></i> {{runtime.boiler.Contact.Name}}</span>　
+	                        <span class="caption-subject font-blue uppercase"><i class="fa fa-phone font-blue-dark"></i> {{runtime.boiler.Contact.MobileNumber}}</span>
+	                    </div>
+	                    <div class="actions">            	
+							<a ui-sref-active="active" ui-sref=".dashboard" 
+								class="btn blue btn-outline btn-circle btn-sm" href="" role="button">
+								动画监测
+							</a>
+							<a ui-sref-active="active" ui-sref=".stats" 
+								class="btn blue btn-outline btn-circle btn-sm" href="" role="button">
+								运行参数
+							</a>
+							<a ui-sref-active="active" ui-sref=".historydata" 
+								class="btn blue btn-outline btn-circle btn-sm" href="#" role="button">
+								历史数据
+							</a>
+							<a ui-sref-active="active" ui-sref=".alarm" 
+								class="btn blue btn-outline btn-circle btn-sm" href="" role="button">
+								锅炉警告
+							</a>
+							<a ui-sref-active="active" ui-sref=".maintain"  
+								class="btn blue btn-outline btn-circle btn-sm" href="" role="button">
+								维保记录
+							</a>
+							<a class="btn blue btn-outline btn-circle btn-sm" href="" role="button">...</a>
+						</div>
+					</div>
+					<div class="portlet-body">
+						<div ui-view class=" fade-in-up"></div>
+					</div>
 				</div>
 			</div>
-			<div class="flash_view portlet-body">
-				<div ui-view class="profile-content fade-in-up"></div>
-			</div>
-		</div>
+			
+		</div>	
+			
+			
+	</div>
 		
 		<script src="../js/lib/amcharts/amcharts.js" type="text/javascript"></script>
         <script src="../js/lib/amcharts/serial.js" type="text/javascript"></script>
