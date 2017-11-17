@@ -7,7 +7,7 @@
 				<label class="switch switch-lg">
 			       <input type="checkbox" checked="checked">
 			       <span></span>
-			    </label>
+			    </label>			    
 			</div>		
 		</div>
 		<div class="col-md-6">
@@ -92,22 +92,22 @@
 				</thead>
 				
 				<tbody>
-					<tr ng-repeat="data in alarm.datasource|filter:alarmMode | filter:search | orderBy: order+orderType">
+					<tr ng-repeat="data in alarm.datasource | filter:search | orderBy: order+orderType | range:selectedpage:pageSize">
 						<td>
 							{{data.num}}
 						</td>
 						<td>
-							{{data.boiler}}<br />
-							<span ng-bind={{"data.Enterprise"}} class="label label-default label-sm">
+							{{data.Boiler__Name}}<br />
+							<span ng-bind={{"data.Boiler__Enterprise__Name"}} class="label label-default label-sm">
 							</span>
 						</td>
 						<td>
-							{{data.monitor}}
+							{{data.Description}}
 						</td>
 						<td>
-							<div ng-repeat="p in alarm.priorityIcons[data.priority]" 
+							<div ng-repeat="p in alarm.priorityIcons[data.Priority]" 
 								class="priority_icon"
-								ng-class="[{'danger': data.priority >= 2}, {'warning': data.priority === 1}, {'info': data.priority <= 0}]">						
+								ng-class="[{'danger': data.Priority >= 2}, {'warning': data.Priority === 1}, {'info': data.Priority <= 0}]">						
 							</div>							
 						</td>
 		
@@ -118,9 +118,9 @@
 							</span>					
 						</td>
 						<td>
-							<span ng-class="{'label-warning':data.state=='新告警','label-default':data.state=='历史告警'}" class="label">
-								{{data.state}}
-							</span>
+							<span ng-class="['label', 'label-lg', {'label-default': data.State == 0 || data.State == 10}, {'label-warning': data.State == 1}, {'label-info': data.State == 2}, { 'label-success': data.State == 3}, {'label-danger': data.State == 4}, {'label-primary': data.State == 5} ]" >
+		                    	{{ alarm.statusTexts[data.State] }}
+		                    </span>
 		
 						</td>
 						<td>
@@ -134,6 +134,25 @@
 				</tbody>
 			</table>
 	
+			<p ng-show="!totalItems">记录为空</p>
+		
+		<div class="clearfix">
+			<div>
+				<div class="float_left count_num">
+					共{{totalItems=(alarm.datasource | filter:search).length}} 条记录
+				</div>
+				<div class="pagination">					       	       	
+		            <ul uib-pagination boundary-links="true" total-items="totalItems" boundary-link-numbers="true"
+		                        ng-model="selectedpage"  ng-change="setPageSize(pageSize)"                        
+		                        items-per-page="pageSize"
+		                        max-size="maxSize"  num-pages="totalPage"
+		                        previous-text="上一页" next-text="下一页"
+		                        first-text="首页" last-text="尾页">
+		            </ul>         
+				</div>
+			</div>
+		</div>
+		
 	
 		</div>
 		
@@ -195,24 +214,28 @@
 				</tbody>
 			</table>
 	
-
-		</div>
-			
-		<p ng-show="!totalItems">记录为空</p>
-	
-	
-	
-		<div class="clearfix">
+			<p ng-show="!totalHistoryItems">记录为空</p>
+		
+			<div class="clearfix">
 			<div>
 				<div class="float_left count_num">
-					共{{totalItems=(alarm.datasource|filter:alarmMode| filter:search).length}} 条记录
+					共{{totalHistoryItems=(alarm.historyData | filter:search).length}} 条记录
 				</div>
-				<div class="pagination">
-					<ul uib-pagination boundary-links="true" total-items="totalItems" ng-model="selectedpage" ng-change="setPageSize(pageSize)" items-per-page="pageSize" max-size="maxSize" num-pages="totalPage" previous-text="上一页" next-text="下一页" first-text="首页" last-text="尾页">
-					</ul>
+				<div class="pagination">					       	       	
+		            <ul uib-pagination boundary-links="true" total-items="totalHistoryItems" boundary-link-numbers="true"
+		                        ng-model="selectedpage"  ng-change="setPageSize(pageSize)"                        
+		                        items-per-page="pageSize"
+		                        max-size="maxSize"  num-pages="totalPage"
+		                        previous-text="上一页" next-text="下一页"
+		                        first-text="首页" last-text="尾页">
+		            </ul>         
 				</div>
 			</div>
 		</div>
+		
+		</div>
+			
+		
 	</div>
 	
 </div>

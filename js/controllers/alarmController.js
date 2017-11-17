@@ -1,19 +1,46 @@
 
+mainApp.controller("alarmInfoController",function($scope,$state,$uibModal,$http){
+	
+	$scope.alarm={};	
+	$http.get("boiler_alarm_list.json")
+	.then(function successCallback(response){
+			$scope.alarm.datasource = response.data;			
+			for (var i = 0; i <  $scope.alarm.datasource.length; i++) {
+                    var d =  $scope.alarm.datasource[i];
+                    d.num = i;
+             };             
+		}, function errorCallback(response){
+			 $scope.alarm.error = response.error;
+		});
 
-mainApp.controller("alarmInfoController",function($scope,alarmData,$state,$uibModal){	
-	$scope.alarm = alarmData ;	
+	
+	console.log($scope.alarm);
+//	$scope.alarm = alarmData ;	
 	$scope.pageSize = 10;
-
+	
 	$scope.alarmMode = "current";
 	$scope.setAlarm = function(m){
 		$scope.alarmMode = m;
 	};
 	
+	$scope.alarm.statusTexts = {
+        0: "默认",
+        1: "新告警",
+        2: "未查阅",
+        3: "已查阅",
+        4: "驳回",
+        5: "已审核",
+        10: "已关闭"
+    };
 	$scope.alarm.priorityIcons = {
         0: [0],
         1: [0, 1],
         2: [0, 1, 2]
     };
+    
+    
+    $scope.alarm.historyData=[];
+    
 	
 	$scope.removeData = function(id){
 		for(var i = 0; i < $scope.alarmInfo.length; i++){
