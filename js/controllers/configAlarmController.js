@@ -1,10 +1,35 @@
 
-mainApp.controller("configAlarmController",function($scope, $rootScope, $uibModal, configAlarmData){
+mainApp.controller("configAlarmController",function($scope, $rootScope, $uibModal, $http){
 	
 	
-	$scope.configAlarm = configAlarmData;
+	$scope.configAlarm = {};
+	$http.get("alarm_rule_list.json").then(function(res){
+		var datasource = res.data;
+				
+		var num = 0;
+        angular.forEach(datasource, function(d, key) {
+			d.num = ++num;
+			var priorityTexts = ["低", "中", "高"];
+			d.priortyText = priorityTexts[d.Priority];
+			d.formName = d.BoilerForm ? d.BoilerForm.Name : " - ";
+			d.mediumName = d.BoilerMedium ? d.BoilerMedium.Name.substring(0, d.BoilerMedium.Name.length - 2) : " - ";
+			d.fuelName = d.BoilerFuelType ? d.BoilerFuelType.Name : " - ";
+			d.warning = d.Warning > d.Normal ? " ＞ " + d.Warning : " ＜ " + d.Warning;
+			//d.danger = d.Danger > 0 ? d.Danger : " - ";
+			d.capacity = " 不限 ";
+			if(d.BoilerCapacityMax > d.BoilerCapacityMin) {
+				d.capacity = d.BoilerCapacityMin + " - " + d.BoilerCapacityMax;
+			} else if(d.BoilerCapacityMin > 0) {
+				d.capacity = d.BoilerCapacityMin;
+			}
+		});
+		
+		 $scope.configAlarm.datasource = datasource;
+		 $scope.totalItems = $scope.configAlarm.datasource.length;
+	})
+	
 	$scope.pageSize = 10;
-	$scope.totalItems = $scope.configAlarm.datasource.length;
+	
 	
 						
 		

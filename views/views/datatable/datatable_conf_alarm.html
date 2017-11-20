@@ -42,21 +42,21 @@
 						{{d.num}}						
 					</td>
 					<td>
-						{{d.Parameter.name}}
+						{{d.Parameter.Name}}
 					</td>
 					<td>
-						<span ng-class="{'text_gray':d.mediumName==='默认'}" class="">
+						<span ng-class="{'text_gray':d.BoilerMedium.Id == 0}" class="">
 						{{d.mediumName}}
 						</span>
 					</td>
 					<td>
-						<span ng-class="{'text_gray':d.fuelName==='不限'}" class="">
+						<span ng-class="{'text_gray':d.BoilerFuelType.Id == 0}" >
 							{{d.fuelName}}
 						</span>						
 					</td>
 										
 					<td>
-						<span ng-class="{'text_gray':d.capacity==='不限'}">
+						<span ng-class="{'text_gray':d.BoilerCapacityMin <= 0 && d.BoilerCapacityMax <= 0}">
 							{{d.capacity}}	
 						</span>																
 					</td>
