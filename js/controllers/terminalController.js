@@ -1,10 +1,34 @@
 
-mainApp.controller("terminalController",function($scope, $rootScope, $uibModal,terminalData){
+mainApp.controller("terminalController",function($scope, $rootScope, $uibModal,$http){
 	
 	
-	$scope.terminal = terminalData;
+	$scope.terminal = {};
+	$http.get("terminal_list.json").then(function(res){
+		var datasource = res.data;
+		var num = 0;               
+        angular.forEach(datasource, function (d, key) {
+                    d.num = ++num;
+                    d.code = d.TerminalCode.toString();
+                    if (d.code.length < 6) {
+                        for (var l = d.code.length; l < 6; l++) {
+                            d.code = "0" + d.code;
+                        }
+                    }
+                    d.simNum = d.SimNumber.length > 0 ? d.SimNumber : " - ";
+                    d.ip = d.LocalIp.length > 0 ? d.LocalIp : " - ";
+                    d.online = d.IsOnline ? "在线" : "离线";
+
+//                  if (currentData && currentData.Uid === d.Uid) {
+//                      currentData = d;
+//                  }
+                });
+
+		$scope.terminal.datasource = datasource;
+		$scope.totalItems = $scope.terminal.datasource.length;
+	});
+	
 	$scope.pageSize = 10;
-	$scope.totalItems = $scope.terminal.datasource.length;
+	
 	
 						
 		var newdata = {};

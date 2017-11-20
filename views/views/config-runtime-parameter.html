@@ -59,9 +59,9 @@
 						<table class="table table-striped table-bordered table-hover table-checkable order-column table-boiler">
 							<thead>
 								<tr>
-									<th ng-click="changeOrder('id')" ng-class="{dropup:order===''}">
+									<th ng-click="changeOrder('Id')" ng-class="{dropup:order===''}">
 										参数代码
-										<span ng-class="{orderColor:orderType==='id'}" class="caret"></span>
+										<span ng-class="{orderColor:orderType==='Id'}" class="caret"></span>
 									</th>
 									<th>
 										参数名称
@@ -83,7 +83,7 @@
 							<tbody>
 								<tr ng-repeat="d in configparamData.datasource | orderBy: order+orderType| range:selectedpage:pageSize">
 									<td>
-										{{d.id}}
+										{{d.Id}}
 
 									</td>
 									<td>
@@ -98,10 +98,9 @@
 									</td>
 									<td>
 										<span ng-repeat="medium in d.BoilerMediums" 
-											ng-class="{'label-default':medium.name=='默认','label-success':medium.name=='蒸汽','label-primary':medium.name=='热水'}" 
-											class="label"
+											ng-class="['label', {'label-default': medium.Id == 0}, {'label-success': medium.Id == 1}, {'label-primary': medium.Id == 2}, {'label-info': medium.Id == 4}, {'label-warning': medium.Id == 5}]" 
 											style="margin-right: 4px;">
-										{{medium.name}}
+										{{medium.Name}}
 									</span>
 
 									</td>
@@ -120,8 +119,14 @@
 							共{{totalItems}} 条记录
 						</div>
 						<div class="pagination">
-							<ul uib-pagination boundary-links="true" total-items="totalItems" ng-model="selectedpage" ng-change="setPageSize(pageSize)" items-per-page="pageSize" max-size="maxSize" num-pages="totalPage" previous-text="上一页" next-text="下一页" first-text="首页" last-text="尾页">
-							</ul>
+							<ul uib-pagination boundary-links="true" total-items="totalItems" boundary-link-numbers="true"
+		                        ng-model="selectedpage"  ng-change="setPageSize(pageSize)"                        
+		                        items-per-page="pageSize"
+		                        max-size="maxSize"  num-pages="totalPage"
+		                        previous-text="上一页" next-text="下一页"
+		                        first-text="首页" last-text="尾页">
+		            		</ul> 
+							
 						</div>
 					</div>
 				</div>

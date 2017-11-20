@@ -1,10 +1,25 @@
 
-mainApp.controller("configParamController",function($scope, $rootScope, $uibModal,configparamData){
+mainApp.controller("configParamController",function($scope, $rootScope, $uibModal,$http){
 	
 	
-	$scope.configparamData = configparamData;
+	$scope.configparamData = {};
+	$http.get("runtime_parameters.json").then(function(res){
+		var datasource = res.data;
+		
+		angular.forEach(datasource, function (d, key) {                   
+                    d.name = d.Name;
+                    angular.forEach(d.BoilerMediums, function (boiler, key) {
+                        boiler.Name = boiler.Name.substring(0, boiler.Name.length - 2);
+                    });
+                });
+		
+		$scope.configparamData.datasource=datasource;
+		$scope.totalItems = $scope.configparamData.datasource.length;
+	})
+	
+	
 	$scope.pageSize = 10;
-	$scope.totalItems = $scope.configparamData.datasource.length;
+	
 	
 						
 		var newdata = {};

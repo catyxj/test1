@@ -37,7 +37,7 @@
 
 				</td>
 				<td>
-					{{d.name}}
+					{{d.Name}}
 				</td>
 				<td>
 					{{d.code}}
@@ -48,8 +48,10 @@
 					</span>
 				</td>
 				<td>
-					<a ng-repeat="boiler in d.Boilers" class="label label-info label-sm" style="margin-right: 5px; margin-bottom: 5px;">
-						{{boiler.name}}
+					<a ng-repeat="boiler in d.Boilers" 
+						ui-sref="runtime.info({boiler: boiler.Uid, from: 'terminal'})"
+						class="label label-info label-sm" style="margin-right: 5px; margin-bottom: 5px;">
+						{{boiler.Name}}
 					</a>
 				</td>
 				<td>
