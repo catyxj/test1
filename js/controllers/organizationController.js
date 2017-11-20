@@ -1,12 +1,62 @@
 
-mainApp.controller("organizationController",function($scope, $rootScope, $uibModal,organizationData){
+mainApp.controller("organizationController",function($scope, $rootScope, $uibModal,$http,$location){
+	 organization = this;
+    organization.isDone = false;
+    organization.tid = 0;
+
+    $rootScope.orgTypes = [
+        {
+            id: -1,
+            name: "企业类型（请选择）"
+        }, {
+            id: 0,
+            name: "默认企业"
+        }, {
+            id: 1,
+            name: "锅炉制造厂"
+        }, {
+            id: 2,
+            name: "用能企业"
+        }, {
+            id: 3,
+            name: "安装企业"
+        }, {
+            id: 4,
+            name: "政府机关"
+        }, {
+            id: 5,
+            name: "监管部门"
+        }
+    ];
+
+    var p = $location.search();
+    if (!p['tid'] || p['tid'].length === 0) {
+        p['tid'] = "";
+    } else {
+        organization.tid = parseInt(p['tid']);
+    }
+	organization.titles = [
+        '企业总表',
+        '锅炉制造厂列表',
+        '用能企业列表',
+        '安装企业列表',
+        '政府机关列表',
+        '监管部门列表'
+    ];
+	
+	$scope.organization = [];
+	$http.get("organization_list.json").then(function(res){
+		$scope.organization = res.data;
+		$scope.totalItems = $scope.organization.length;	
+		var num = 0;
+        angular.forEach($scope.organization, function (d, key) {
+            d.num = ++num;
+        });
+	})
 	
 	
-	$scope.organization = organizationData;
 	$scope.pageSize = 10;
-	$scope.totalItems = $scope.organization.length;
-	
-						
+							
 		
         $scope.openModal = function() {  
         	var newdata = {};

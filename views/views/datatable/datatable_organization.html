@@ -27,12 +27,12 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="data in organization| orderBy: order+orderType">
+			<tr ng-repeat="data in organization| orderBy: order+orderType | range:selectedpage:pageSize">
 				<td>
 					{{data.num}}
 				</td>
 				<td>
-					{{data.name}}
+					{{data.Name}}
 				</td>
 				<td>
 					{{data.Address.Location.LocationName}}
@@ -45,7 +45,6 @@
 					<span ng-class="['label', {'label-default': data.Type.TypeId == 0}, {'label-primary': data.Type.TypeId == 1}, {'label-success': data.Type.TypeId == 2}, {'label-warning': data.Type.TypeId == 3}, {'label-danger': data.Type.TypeId == 4}, {'label-info': data.Type.TypeId == 5}]">
 						 	{{ data.Type.Name }}
 					</span>
-
 				</td>
 				<td>
 					<a ng-click="editModal(data)" class="btn edit btn-outline btn-circle btn-sm blue">

@@ -5,14 +5,14 @@
 				<li class="heading">
 					<h3 class="uppercase">主监控台</h3>
 				</li>
-				<li ng-class="{'active':currentPage === 'dashboard'}" class="nav-item">
-					<a href="" ui-sref="monitor.dashboard" ng-click="setPage('dashboard')">
+				<li ng-class="{'active':$state.current.name.indexOf('monitor.dashboard') != -1}" class="nav-item">
+					<a href="" ui-sref="monitor.dashboard" >
 						<i class="fa fa-area-chart"></i> 
 						<span class="title">能效统计</span>
 					</a>
 				</li>
-				<li ng-class="{'active':currentPage === 'monitor'}" class="nav-item">
-					<a href="" ui-sref="monitor.thumb" ng-click="setPage('monitor')">
+				<li ng-class="{'active':$state.current.name.indexOf('monitor') != -1 && ($state.current.name.indexOf('monitor.dashboard') == -1) ||($state.current.name.indexOf('runtime.') != -1)}" class="nav-item">
+					<a href="" ui-sref="monitor.thumb" >
 						<i class="fa fa-tachometer"></i> 
 						<span class="title">设备概览</span>
 					</a>
@@ -20,22 +20,22 @@
 				<li class="heading">
 		            <h3 class="uppercase">常用功能</h3>
 		        </li>
-				<li ng-class="{'active':currentPage === 'alarm'}" class="nav-item">
-					<a href="" ui-sref="alarm" ng-click="setPage('alarm')">
+				<li ng-class="{'active':$state.current.name.indexOf('alarm') != -1 && ($state.current.name.indexOf('config-runtime-alarm') == -1)}" class="nav-item">
+					<a href="" ui-sref="alarm" >
 						<i class="fa fa-warning"></i> 
 						<span class="title">告警信息</span>
 						<span class="badge badge-danger"> <!--{{ boilerAlarms.length }}--> 14</span>
 					</a>
 
 				</li>
-				<li ng-class="{'active':currentPage === 'dialogue'}" class="nav-item">
-					<a href="" ui-sref="dialogue" ng-click="setPage('dialogue')">
+				<li ng-class="{'active':$state.current.name.indexOf('dialogue') != -1}" class="nav-item">
+					<a href="" ui-sref="dialogue" >
 						<i class="fa fa-comment"></i> 
 						<span class="title">专家咨询</span>
 					</a>
 				</li>
-				<li ng-class="{'active':currentPage === 'boiler-maintain'}" class="nav-item">
-					<a href="" ui-sref="boiler-maintain" ng-click="setPage('boiler-maintain')">
+				<li ng-class="{'active':$state.current.name.indexOf('boiler-maintain') != -1}" class="nav-item">
+					<a href="" ui-sref="boiler-maintain">
 						<i class="fa fa-calendar-plus-o"></i>
 						<span class="title">维保记录</span>
 					</a>
@@ -43,20 +43,20 @@
 				<li class="heading">
 					<h3 class="uppercase">信息维护</h3>
 				</li>
-				<li ng-class="{'active':currentPage === 'organization'}" class="nav-item">
-					<a href="" ui-sref="organization.overview" ng-click="setPage('organization')">
+				<li ng-class="{'active':$state.current.name.indexOf('organization') != -1}" class="nav-item">
+					<a href="" ui-sref="organization.overview" >
 						<i class="fa fa-home"></i> 
 						<span class="title">企业信息</span>
 					</a>
 				</li>
-				<li ng-class="{'active':currentPage === 'boiler'}" class="nav-item">
-					<a href="" ui-sref="boiler.dashboard" ng-click="setPage('boiler')">
+				<li ng-class="{'active':$state.current.name.indexOf('boiler') != -1 && ($state.current.name.indexOf('boiler-maintain') == -1)}" class="nav-item">
+					<a href="" ui-sref="boiler.dashboard" >
 						<i class="fa fa-industry"></i> 
 						<span class="title">锅炉信息</span>
 					</a>
 				</li>
-				<li ng-class="{'active':currentPage === 'terminal'}" class="nav-item">
-					<a href="" ui-sref="terminal.dashboard" ng-click="setPage('terminal')">
+				<li ng-class="{'active':$state.current.name.indexOf('terminal') != -1}" class="nav-item">
+					<a href="" ui-sref="terminal.dashboard" >
 						<i class="fa fa-terminal"></i> 
 						<span class="title">终端管理</span>
 					</a>
@@ -64,32 +64,32 @@
 				<li class="heading">
 					<h3 class="uppercase">系统设置</h3>
 				</li>
-				<li ng-class="{'active':currentPage === 'config-runtime-alarm'}" class="nav-item">
-					<a href="" ui-sref="config-runtime-alarm" ng-click="setPage('config-runtime-alarm')">
+				<li ng-class="{'active':$state.current.name.indexOf('config-runtime-alarm') != -1}" class="nav-item">
+					<a href="" ui-sref="config-runtime-alarm">
 						<i class="fa fa-bell-o"></i> 
 						<span class="title">告警规则</span>
 					</a>
 				</li>
-				<li ng-class="{'active':currentPage === 'config-runtime-parameter'}" class="nav-item">
-					<a href="" ui-sref="config-runtime-parameter" ng-click="setPage('config-runtime-parameter')">
+				<li ng-class="{'active':$state.current.name.indexOf('config-runtime-parameter') != -1}" class="nav-item">
+					<a href="" ui-sref="config-runtime-parameter">
 						<i class="fa fa-bar-chart"></i> 
 						<span class="title">运行参数</span>
 					</a>
 				</li>
-				<li ng-class="{'active':currentPage === 'user-account'}" class="nav-item">
-					<a href="" ui-sref="user-account" ng-click="setPage('user-account')">
+				<li ng-class="{'active':$state.current.name.indexOf('user-account') != -1}" class="nav-item">
+					<a href="" ui-sref="user-account" >
 						<i class="fa fa-users"></i> 
 						<span class="title">账号管理</span>
 					</a>
 				</li>
-				<li ng-class="{'active':currentPage === 'profile'}" class="nav-item">
-					<a href="" ui-sref="profile.account" ng-click="setPage('profile')">
+				<li ng-class="{'active':$state.current.name.indexOf('profile') != -1}" class="nav-item">
+					<a href="" ui-sref="profile.account" >
 						<i class="fa fa-user"></i> 
 						<span class="title">用户信息</span>
 					</a>
 				</li>
-				<li ng-class="{'active':currentPage === 'wiki'}" class="nav-item">
-					<a href="" ui-sref="wiki.updateHistory" ng-click="setPage('wiki')">
+				<li ng-class="{'active':$state.current.name.indexOf('wiki') != -1}" class="nav-item">
+					<a href="" ui-sref="wiki.updateHistory" >
 						<i class="fa fa-info-circle"></i> 
 						<span class="title">系统帮助</span>
 						<span class="badge badge-info">7.10</span>
