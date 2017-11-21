@@ -12,7 +12,7 @@
 				<div class="form-group col-md-6">
 					<div class="input-group">
 						<label class="input-group-addon">终端名称</label>
-						<input ng-model="data.name" type="text" class="form-control" 
+						<input ng-model="data.Name" type="text" class="form-control" 
 							placeholder="输入终端名称" required>
 					</div>
 				</div>
@@ -75,7 +75,7 @@
 				                       ng-class="[{'green': !set.hasDev && set.num == $modal.deviceCount + 1}, {'red': set.hasDev}]">
 				                        <i ng-class="['fa', {'fa-plus': !set.hasDev}, {'fa-minus': set.hasDev}]"></i>
 				                    </a>
-				                    <input type="text" ng-model="set.name" ng-disabled="true"
+				                    <input type="text" ng-model="set.Name" ng-disabled="true"
 				                           class="form-control "
 				                           placeholder="">
 							</div>

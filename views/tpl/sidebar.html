@@ -20,7 +20,7 @@
 				<li class="heading">
 		            <h3 class="uppercase">常用功能</h3>
 		        </li>
-				<li ng-class="{'active':$state.current.name.indexOf('alarm') != -1 && ($state.current.name.indexOf('config-runtime-alarm') == -1)}" class="nav-item">
+				<li ng-class="{'active':$state.current.name.indexOf('alarm') != -1 && ($state.current.name.indexOf('config-runtime-alarm') == -1) && ($state.current.name.indexOf('runtime.alarm') == -1)}" class="nav-item">
 					<a href="" ui-sref="alarm" >
 						<i class="fa fa-warning"></i> 
 						<span class="title">告警信息</span>

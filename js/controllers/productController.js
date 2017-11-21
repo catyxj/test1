@@ -118,40 +118,6 @@ mainApp.controller("productController",function($scope,productData, $filter,$sta
 
 
 
-mainApp.controller("DatepickerDemoCtrl", ["$scope", function($scope){
-  
- // grab today and inject into field
- 
-    $scope.startTime = new Date();
-    $scope.endTime = new Date();
-  	$scope.format = "yyyy-MM-dd";
-
-
-	$scope.altInputFormats = ['yyyy/M!/d!'];
-	
-	  $scope.popup1 = {
-	  	opened: false
-	  };
-	  $scope.popup2 = {
-	  	opened: false
-	  };
-  
-
-  // open min-cal
-	$scope.startopen = function($event) {
-	  	$event.preventDefault();
-   		 $event.stopPropagation();
-	  	$scope.popup1.opened = true;
-	  };
-  $scope.endopen = function($event) {
-    $event.preventDefault();
-    $event.stopPropagation();
-    $scope.popup2.opened = true;
-  };
-  
-  
-
-}]);
 
 
 

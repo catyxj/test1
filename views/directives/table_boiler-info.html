@@ -71,7 +71,7 @@
                             <th style="width:16%">锅炉名称</th>
                             <td style="width:34%">
                                 <span ng-show="!info.editing.basic">
-                                    {{ info.name }}
+                                    {{ info.Name }}
                                 </span>
                                 <input type="text" placeholder=""
                                        ng-show="info.editing.basic"
@@ -82,7 +82,7 @@
                             <th style="width:16%">注册码</th>
                             <td style="width:34%">
                                 <span ng-show="!info.editing.basic">
-                                    {{ info.registrationCode }}
+                                    {{ info.RegisterCode }}
                                 </span>
                                 <input type="text" placeholder=""
                                        ng-show="info.editing.basic"
@@ -348,33 +348,7 @@
                             <th>下次压力表检测日期</th>
                             <td>{{ info.currentData.InspectGaugeDateNext | amDateFormat:'YYYY-MM-DD' }}</td>
                         </tr>
-                        <!--
-                        <tr>
-                            <th>是否派单</th>
-                            <td><span ng-class="['label', {'label-success': true}]">是</span></td>
-                        </tr>
-                        -->
-                        <!--
-                        <tr>
-                            <th colspan="2">流程图信息</th>
-
-                            <th colspan="2">其他信息</th>
-                        </tr>
-                        <tr>
-                            <th>流程图模式</th>
-                            <td>模板模式</td>
-
-                            <th>登记日期</th>
-                            <td>{{ info.currentData.CreatedDate | amDateFormat:'YYYY-MM-DD' }}</td>
-                        </tr>
-                        <tr>
-                            <th>流程图模板</th>
-                            <td>{{ info.currentData.Template.Name }}</td>
-
-                            <th>备注</th>
-                            <td>{{ info.currentData.Remark }}</td>
-                        </tr>
-                        -->
+                        
                         <tr ng-show="info.dataMode == 'edit' && currentUser.Role.RoleId <= 10">
                             <td colspan="4" align="center">
                                 <button ng-click="info.edit('maintain')" class="btn btn-outline btn-circle blue">

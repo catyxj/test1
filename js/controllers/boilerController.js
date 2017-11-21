@@ -1,10 +1,41 @@
 
-mainApp.controller("boilerController",function($scope, $rootScope, $uibModal,productData){
+mainApp.controller("boilerController",function($scope, $rootScope, $uibModal,$http){
 	
 	
-	$scope.productData = productData;
+	$scope.productData = [];
+	$http.get("boiler_list.json").then(function(res){
+		$scope.productData = res.data;
+		$scope.totalItems = $scope.productData.length;
+		var num = 0;
+        angular.forEach($scope.productData, function (d, key) {
+            d.num = ++num;
+            if (d.Terminal) {
+                d.Terminal.tid = d.Terminal.TerminalCode.toString();
+                if (d.Terminal.tid.length < 6) {
+                    for (var l = d.Terminal.tid.length; l < 6; l++) {
+                        d.Terminal.tid = "0" + d.Terminal.tid;
+                    }
+                }
+
+                d.Terminal.online = d.Terminal.IsOnline ? "在线" : "离线";
+            }
+
+            if (d.Calculate) {
+                d.calc = d.Calculate;
+            }
+
+//          if (p && p.length > 0 && d.Uid === p) {
+//              bInfo.currentData = d;
+//
+//              bInfo.reset();
+//          }
+        });
+
+       
+	});
+	
 	$scope.pageSize = 10;
-	$scope.totalItems = $scope.productData.length;
+	
 	
 						
 		
