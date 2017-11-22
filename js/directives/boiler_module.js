@@ -27,7 +27,7 @@ mainApp.directive('boilerModule', function () {
 //      bModule.boiler = $rootScope.boiler;
 //      bModule.instants = $rootScope.instants;
 
-		bModule.boiler = productData[4];
+		bModule.boiler = productData[1];
 		bModule.instants = [];
 		
         // console.error("Runtime initModule!", bModule.instants);
@@ -53,6 +53,9 @@ mainApp.directive('boilerModule', function () {
             case 3:
                 bModule.moduleId = 3;
                 break;
+            case 5:
+                bModule.moduleId = 5;
+                break;    
             default:
                 bModule.moduleId = 1;
                 break;
@@ -75,6 +78,9 @@ mainApp.directive('boilerModule', function () {
                 break;
             case 4:
                 svgName = "../img/boiler_water.svg";
+                break;
+            case 5:
+                svgName = "../img/electricity2.svg";
                 break;
             default:
                 svgName = "../img/boiler_coal_double.svg";
@@ -378,6 +384,9 @@ mainApp.directive('boilerModule', function () {
                         renderWaterDashes("#dash_container");
                         renderWaterValues();
                         break;
+                    case 5:
+                    	renderElectricDashes("#dash_container");
+                    	break;
                     default:
                         renderCoalDashes("#dash_container");
                 }
@@ -786,6 +795,41 @@ mainApp.directive('boilerModule', function () {
             });
         });
     };
+
+	var renderElectricDashes = function (id) {
+        var size = 6;
+        var sec = 4096;
+        var color = "#fff";
+
+        var dashModule = bModule.svg.select(id);
+        if (!dashModule) {
+            console.warn("There IS NO " + id + "!");
+            return;
+        }
+
+        var dashWater = function () {
+            dashModule.append("circle").attr("cx", 263).attr("cy", 270).attr("r", size / 2).style("fill", color)
+                .transition().duration(sec / 6).ease(d3.easeLinear).attr("cx", 294)
+                .transition().duration(sec / 2).ease(d3.easeLinear).attr("cy", 441)
+                .transition().duration(sec / 3).ease(d3.easeLinear).attr("cx", 400)
+                .remove();
+
+            dashModule.append("circle").attr("cx", 402).attr("cy", 540).attr("r", size / 2).style("fill", color)
+                .transition().duration(sec / 2).ease(d3.easeLinear).attr("cx", 260)                
+                .remove();           
+        };
+                
+        dashModule
+            .transition().on("start", function repeat() {
+            dashModule
+                .transition().delay(260).on("start", function () {              
+                dashWater();
+                repeat();
+            });
+        });
+    };
+
+
 
     var renderGasFire = function (id) {
         console.info("renderGasFire");
