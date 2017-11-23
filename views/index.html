@@ -1,17 +1,24 @@
 <!DOCTYPE html>
-<html ng-app="home">
+<html data-ng-app="BoilerHome">
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
+		<title>Holder Boiler | 主页</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/font-awesome-4.7.0/css/font-awesome.min.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/animate.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../js/lib/sweetalert2/dist/sweetalert2.min.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/global.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/home.css"/>
 		<script src="../js/asset/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../js/asset/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/asset/angular.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../js/asset/wow.js" type="text/javascript" charset="utf-8"></script>				
+		<script src="../js/asset/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/asset/ui-bootstrap-tpls-2.5.0.min.js" type="text/javascript" charset="utf-8"></script>		
+		<script src="../js/lib/sweetalert2/dist/sweetalert2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/asset/angular-cookies.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/asset/wow.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/home.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			$(window).scroll(function(){
 				var toTop=$(document).scrollTop();
@@ -24,7 +31,7 @@
 
 		</script>
 	</head>
-	<body>
+	<body ng-controller="HomeController as home">
 		
 		<div class="header" id="header">
 			<nav class="navbar navbar-fixed-top">
@@ -48,7 +55,7 @@
 			      <ul class="nav navbar-nav navbar-right">
 			        <li><a href="#">主页</a></li>
 			        <li class="">
-			          <a class="btn btn-default btn_round" data-toggle="modal" data-target="#login"> 
+			          <a class="btn btn-default btn_round" data-toggle="modal" data-target="#login-form"> 
 			          	<i class="fa fa-user-o"></i> &nbsp;
 			          	 登录
 			          </a>         
@@ -70,39 +77,48 @@
 				color: red;
 			}
 		</style>
-		<!-- Modal -->
-		<div ng-controller="loginController" class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		
+		<!-- Modal 登录-->
+		<div class="modal fade" id="login-form" tabindex="-1" role="dialog">
 		  <div class="modal-dialog" style="width: 460px;" role="document">
 		    <div class="modal-content">
-		      <!--<div class="modal-header">
-		        
-		        <h4 class="modal-title" id="myModalLabel">用户登录</h4>
+		      <!--<div class="modal-header">		        
+			        
 		      </div>-->
-		      <div class="modal-body">
-		      	<div class="">
-		      		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
-		      	</div>
-		        <div class="">
-		        	<h5>用户登录</h5>
-		        	<p>欢迎回来，请填写你的用户名和密码进行登录。</p>		   
-		        </div>
-		        <div class="pb-md">
-		        	<form action="" method="post" name="login" novalidate>
-		        		<div class="input-group-lg mt-lg">
-		        			<input type="text" name="user" class="form-control" placeholder="用户名" required/>
-
+		      <div class="modal-body">		      	
+			    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			    	<i class="fa fa-times"></i>
+			    </button>			     
+			    <div class="">
+			        <h5>用户登录</h5>
+			        <p>欢迎回来，请填写你的用户名和密码进行登录。</p>		   
+			    </div>
+		        <div class="pt-lg">
+		        	<form ng-submit="home.login();" name="loginForm" >
+		        		<div class="form-group">
+		        			<input type="text" ng-model="username" class="form-control input-lg" 
+		        				id="login-username" name="loginuser" placeholder="用户名" required/>
+		        			<span style="background: url(../images/sprite2.png) no-repeat;float: right;width: 25px;height: 25px;margin: -35px 8.5px;"
+                                      ng-show="loginForm.loginuser.$error.required"></span>
+                            <span style="background: url(../images/sprite.png) no-repeat;float: right;width: 25px;height: 25px;margin: -35px 8.5px;"
+                                      ng-show="loginForm.loginuser.$valid"></span>
 		        		</div>
-		        		<div class="input-group-lg mt-lg">
-		        			<input type="text" class="form-control" placeholder="密码"/>
+		        		<div class="form-group">
+		        			<input type="password" ng-model="password" class="form-control input-lg" 
+		        				id="login-password" placeholder="密码" name="loginpass" required/>
+		        			<span style="background: url(../images/sprite2.png) no-repeat;float: right;width: 25px;height: 25px;margin: -35px 8.5px;"
+                                      ng-show="loginForm.loginpass.$error.required"></span>
+                            <span style="background: url(../images/sprite.png) no-repeat;float: right;width: 25px;height: 25px;margin: -35px 8.5px;"
+                                      ng-show="loginForm.loginpass.$valid"></span>
 		        		</div>
-		        		<input class="btn btn-info btn-lg mt-lg" style="width: 120px;" type="button" value="登录"/>
+		        		<input id="login-submit" type="submit" class="btn btn-info btn-lg form-group" style="width: 120px;" value="登录"/>
 		        	</form>
 		        </div>
 		        <div class="pb-lg mt-lg">
 		        	<div class="text-center" style="font-size: 20px;">
 		        		第三方平台登录
 		        	</div>
-		        	<a class="btn btn-success mt-lg" style="width: 100%;" href="">
+		        	<a href="user_login_weixin/" class="btn btn-success mt-lg" style="width: 100%;">
 		        		<i class="fa fa-weixin"></i>
 		        		微信
 		        	</a>
@@ -111,7 +127,10 @@
 		        	<span class="pull-left">
 		        		还没有账户？
 		        	</span>
-		        	<a href="" data-dismiss="modal" data-toggle="modal" data-target="#register" class="register_btn btn btn-default pull-right">立即注册</a>		        	
+		        	<a data-dismiss="modal" data-toggle="modal" data-target="#signup-form" 
+		        		class="register_btn btn btn-default pull-right">
+		        		立即注册
+		        	</a>		        	
 		        	
 		        </div>
 		      </div>
@@ -159,7 +178,7 @@
 			      <div class="carousel-caption wow bounceIn" data-wow-duration="1.5s">
 			        <h6>安全 快速 可靠</h6>
 			        <h6>无限的可能性</h6>
-			        <a class="wow fadeInUpBig" data-toggle="modal" data-target="#register">
+			        <a class="wow fadeInUpBig" data-toggle="modal" data-target="#signup-form">
 			        	马上注册
 			        </a>
 			      </div>
@@ -167,13 +186,11 @@
 			  </div>
 			
 			  <!-- Controls -->
-			  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-			    <!--<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>-->
+			  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">			    
 			    <i class="fa fa-angle-left fa-4x" aria-hidden="true"></i>
 			    <span class="sr-only">Previous</span>
 			  </a>
 			  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-			    <!--<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>-->
 			    <i class="fa fa-angle-right fa-4x" aria-hidden="true"></i>
 			    <span class="sr-only">Next</span>
 			  </a>
@@ -181,7 +198,7 @@
 		</div>
 		
 		<!-- Modal 注册-->
-		<div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal fade" id="signup-form" tabindex="-1" role="dialog">
 		  <div class="modal-dialog" style="width: 460px;" role="document">
 		    <div class="modal-content">
 		      
@@ -194,23 +211,43 @@
 		        	<p>请填写以下注册信息</p>		   
 		        </div>
 		        <div class="pb-md">
-		        	<form action="" method="post">
+		        	<form action="" method="post" name="signupForm" ng-submit="home.register()">
 		        		<div class="input-group-lg mt-lg">
-		        			<input type="text" class="form-control" placeholder="用户名"/>
+		        			<input type="text" ng-model="username" class="form-control" 
+		        				id="signup-username" name="username" placeholder="用户名" required/>
+		        			<span style="background: url(../images/sprite2.png) no-repeat;float: right;width: 25px;height: 25px;margin: -35px 8.5px;"
+                                      ng-show="signupForm.username.$error.required"></span>
+                            <span style="background: url(../images/sprite.png) no-repeat;float: right;width: 25px;height: 25px;margin: -35px 8.5px;"
+                                      ng-show="signupForm.username.$valid"></span>
 		        		</div>
 		        		<div class="input-group-lg mt-lg">
-		        			<input type="text" class="form-control" placeholder="密码"/>
+		        			<input type="text" ng-model="password" class="form-control" 
+		        				id="signup-password" name="password" placeholder="密码" required/>
+		        			<span style="background: url(../images/sprite2.png) no-repeat;float: right;width: 25px;height: 25px;margin: -35px 8.5px;"
+                                      ng-show="signupForm.password.$error.required"></span>
+                            <span style="background: url(../images/sprite.png) no-repeat;float: right;width: 25px;height: 25px;margin: -35px 8.5px;"
+                                      ng-show="signupForm.password.$valid"></span>
 		        		</div>
 		        		<div class="input-group-lg mt-lg">
-		        			<input type="text" class="form-control" placeholder="手机号"/>
+		        			<input type="text" ng-model="mobile" class="form-control" 
+		        				ng-pattern="/^0?(13[0-9]|15[012356789]|17[013678]|18[0-9]|14[57])[0-9]{8}$/"
+		        				name="mobile" id="signup-mobile"
+		        				placeholder="手机号" required/>
+		        			<span style="background: url(../images/sprite2.png) no-repeat;float: right;width: 25px;height: 25px;margin: -35px 8.5px;"
+                                      ng-show="signupForm.mobile.$error.required"></span>
+                            <span style="background: url(../images/sprite3.png) no-repeat;float: right;width: 25px;height: 25px;margin: -35px 8.5px;"
+                                      ng-show="signupForm.mobile.$error.pattern"></span>
+                            <span style="background: url(../images/sprite.png) no-repeat;float: right;width: 25px;height: 25px;margin: -35px 8.5px;"
+                                      ng-show="signupForm.mobile.$valid"></span>	
 		        		</div>
 		        		<div class="mt-lg clearfix">
-		        			<input class="btn btn-info btn-lg pull-left" style="width: 120px;" type="button" value="注册"/>			        	
-				        	<a href="" class="pull-right" data-dismiss="modal" data-toggle="modal" data-target="#login" style="font-size: 16px; line-height: 50px;">
+		        			<input class="btn btn-info btn-lg pull-left" style="width: 120px;" type="submit"
+		        				ng-disabled="signupForm.mobile.$error.pattern || signupForm.mobile.$error.required || signupForm.password.$error.required || signupForm.username.$error.required"
+		        				value="注册"/>			        	
+				        	<a href="" class="pull-right" data-dismiss="modal" data-toggle="modal" data-target="#login-form" style="font-size: 16px; line-height: 50px;">
 				        		返回登录
 				        	</a>
-				        </div>
-		        		
+				        </div>		        		
 		        	</form>
 		        </div>
 		        
@@ -385,7 +422,25 @@
 			
 		</div>
 		
-
+		<!--返回顶部-->
+		<script type="text/javascript">
+			var $backToTopEle=$('<a href="javascript:void(0)" class="fa fa-angle-double-up toTop" title="返回顶部" alt="返回顶部" style="display:none"></a>').appendTo($("body")).click(function(){
+			$("html, body").animate({ scrollTop: 0 }, 120);
+		});
+		var $backToTopFun = function() {
+			var st = $(document).scrollTop(), winh = $(window).height();
+			(st > 0)? $backToTopEle.show(): $backToTopEle.hide();
+			/*IE6下的定位*/
+			if(!window.XMLHttpRequest){
+				$backToTopEle.css("top", st + winh - 166);
+			}
+		};
+		</script>
+		
+		<script type="text/javascript">
+			$(function(){$(window).on("scroll",$backToTopFun);$backToTopFun();});
+		</script>
+		<!--返回顶部-->
 		<script type="text/javascript">
 			new WOW().init();				
 		</script>		
