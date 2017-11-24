@@ -1,35 +1,5 @@
 mainApp.controller("historyController", function($scope,$http, $location,Excel) {
 
-//	$scope.data = [{
-//			num: 1,
-//			time: "2017-09-27 14:52:59",
-//			steamTemp: 41.1,
-//			exhaustGasTemp: 33.4
-//		},
-//		{
-//			num: 2,
-//			time: "2017-09-27 14:55:59",
-//			steamTemp: 43.7,
-//			exhaustGasTemp: 33.4
-//		},
-//		{
-//			num: 3,
-//			time: "2017-09-27 15:02:59",
-//			steamTemp: 41.1,
-//			exhaustGasTemp: 33.4
-//		},
-//		{
-//			num: 4,
-//			time: "2017-09-27 15:02:59",
-//			steamTemp: 41.1,
-//			exhaustGasTemp: 33.4
-//		}, {
-//			num: 5,
-//			time: "2017-09-27 15:02:59",
-//			steamTemp: 41.1,
-//			exhaustGasTemp: 33.4
-//		}
-//	];
 
 	bHistory = this;
 	bHistory.isDone = false;
@@ -88,38 +58,55 @@ mainApp.controller("historyController", function($scope,$http, $location,Excel) 
 
 			bHistory.datasource = [];
 			bHistory.parameters = res.data.parameter;
-						
+			bHistory.pids=[];
+			var pData = res.data.history[0].data;	
+			for (var m=0; m < pData.length; m++) {
+				var pid={};
+				pid.pID = pData[m].pid;						
+				for (var n=0; n<bHistory.parameters.length; n++) {
+					if(bHistory.parameters[n].Id == pid.pID){									
+						pid.Name=bHistory.parameters[n].Name;
+						pid.Unit=bHistory.parameters[n].Unit;
+					}
+				}
+			bHistory.pids.push(pid);
+			};
+			console.log(bHistory.pids);	
+			
 			for(var i = 0; i < res.data.history.length; i++){
 				var rtm = res.data.history[i];
                 var d = {};
                 d.num = i;
                 d.id = i;
                 d.date = rtm.date;                                	
-                	for(var j = 0; j < res.data.parameter.length; j++){
-						var ap = res.data.parameter[j];
-						var key = ap.Id.toString();
-		                var keyP = 'P' + ap.Id;
-		                var keyA = 'A' + ap.Id;
-//		                var value = ;
-		                 d[key] = {
+                	for(var j = 0; j < rtm.data.length; j++){
+						var ap = rtm.data[j];
+						var key = ap.pid.toString();
+		                d[key] = {
 	                            value: '-',
 	                            alarm: -1
-	                        };
-	                        for(var n = 0; n < rtm.data.length; n++){
-	                        	if (key == rtm.data[n].pid) {
-	                            d[key].value = rtm.data[n].val;
-	                        }
-	                        d[key].alarm = rtm.data[n].alm;
-	                        }
-	                       
-					
-                	
-                }
-				
+	                       };                      
+                		d[key].value = ap.val;
+	                    d[key].alarm = ap.alm;	                       					                	
+                }				
 				bHistory.datasource.push(d);
 			}
 			console.log(bHistory.datasource);									
 			$scope.totalItems = bHistory.datasource.length;
+			
+			
+			//表格样式
+					var scrollLeftTarget = angular.element(document.getElementById("cd-table"));
+					var scrollLeftBtn = angular.element(document.getElementsByClassName("cd-scroll-right"));
+					if(bHistory.pids.length >= 9){
+						scrollLeftTarget.addClass("table_responsive").removeClass("table-end");
+						scrollLeftBtn.css("display","block");
+					}else{
+						scrollLeftTarget.removeClass("table_responsive").addClass("table-end");
+						scrollLeftBtn.css("display","none");
+					};
+					
+					
 		});
 	};
 
@@ -210,7 +197,35 @@ mainApp.controller("historyController", function($scope,$http, $location,Excel) 
         };
 
 
+	var scLeft = angular.element(document.getElementsByClassName("cd-table-container")),
+	    cdTable = angular.element(document.querySelector('#cd-table')),
+		cdTableWrapper = angular.element(document.querySelector('.cd-table-wrapper'));
+	var scLeftArrow = angular.element(document.getElementsByClassName("cd-scroll-right"));	
+	scLeft.on("scroll", function(){ 				
+				//remove color gradient when table has scrolled to the end
+				var total_table_width = parseInt(cdTableWrapper.css('width').replace('px', '')),
+					table_viewport = parseInt(cdTable.css('width').replace('px', ''));
+				
+				if( scLeft.scrollLeft() >= total_table_width - table_viewport ) {
+					cdTable.addClass('table-end');
+					scLeftArrow.css("display","none");
+				} else {
+					cdTable.removeClass('table-end');
+					scLeftArrow.css("display","block");
+				}
+			});
+		
+	//scroll the table (scroll value equal to column width) when clicking on the .cd-scroll-right arrow		
+	scLeftArrow.on('click', function(){		 		
+		 		var column_width = scLeft.find('td').eq(2).css('width').replace('px', ''),
+		 			new_left_scroll = parseInt(scLeft.scrollLeft()) + parseInt(column_width); 		
+		 		scLeft.animate( {scrollLeft: new_left_scroll}, 200 );
+		 	});	
+
+	
+
 })
+
 
 
 
@@ -232,3 +247,23 @@ mainApp.controller("historyController", function($scope,$http, $location,Excel) 
             }
         };
     })
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

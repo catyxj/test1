@@ -60,18 +60,17 @@
 	</div>
 
 	<div class="historybody">
-		<div class="">
-			<table class="table table-striped table-bordered table-hover order-column table-boiler table-responsive" id="boiler_history_table">
+		<div id="cd-table" class="cd-table-container">
+			<table class="table table-striped table-bordered table-hover table-boiler cd-table-wrapper" id="boiler_history_table">
 				<thead>
 				<tr>
-					<th> </th>
-					<th>采样时间</th>
-					<th ng-repeat="param in history.parameters ">
+					<th width="50"> </th>
+					<th style="min-width: 100px;">采样时间</th>
+					<th ng-repeat="param in history.pids ">
 			            {{ param.Name }}
 			            {{ param.Unit }}
 			        </th>
-					<!--<th>蒸汽温度 ℃</th>
-					<th>排烟温度(低) ℃</th>-->
+					
 				</tr>	
 				</thead>
 				
@@ -86,20 +85,18 @@
 				<tbody ng-show="!history.isEmpty">
 				<tr ng-repeat="d in history.datasource| range:selectedpage:pageSize">
 					<td>{{d.num}}</td>
-					<td>{{d.date| amDateFormat:'YYYY-MM-DD HH:mm:ss' }}</td>
+					<td style="white-space: normal;">{{d.date| amDateFormat:'YYYY-MM-DD HH:mm:ss' }}</td>
 					<td ng-repeat="id in history.pids">
-			            <div ng-class="[{'border-danger': d[id].alarm >= 2}, {'border-warning': d[id].alarm === 1}]">{{ d[id].value }}</div>
+			            <div ng-class="[{'border-danger': d[id.pID].alarm >= 2}, {'border-warning': d[id.pID].alarm === 1}]">{{ d[id.pID].value }}</div>
 			        </td>
-					<!--<td>{{h.steamTemp}}</td>
-					<td>{{h.exhaustGasTemp}}</td>-->
+					
 				</tr>	
 				</tbody>
 				
 			</table>
 
-			
-
 		</div>
+		<em class="cd-scroll-right"></em>
 
 		<!--pagination-->
 		<div>
@@ -117,4 +114,6 @@
 
 	</div>
 
+	
 </div>
+
