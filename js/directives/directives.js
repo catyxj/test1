@@ -7,7 +7,7 @@ mainApp
 		
  	}
 })
-.directive("datatableAlarm",function(alarmData){
+.directive("datatableAlarm",function(){
 	return {		
    		restrict:"E",
    		templateUrl:"directives/datatable_alarm.html",
@@ -23,15 +23,8 @@ mainApp
 		
  	}
 })
-.directive("datatableOrganization",function(organizationData){
-	return {		
-   		restrict:"E",
-   		templateUrl:"views/datatable/datatable_organization.html",
-   		replace: true
-		
- 	}
-})
-.directive("datatableBoiler",function(organizationData){
+
+.directive("datatableBoiler",function(){
 	return {		
    		restrict:"E",
    		templateUrl:"views/datatable/datatable_boiler.html",
@@ -39,7 +32,7 @@ mainApp
 		
  	}
 })
-.directive("datatableTerminal",function(organizationData){
+.directive("datatableTerminal",function(){
 	return {		
    		restrict:"E",
    		templateUrl:"views/datatable/datatable_terminal.html",
@@ -47,7 +40,7 @@ mainApp
 		
  	}
 })
-.directive("datatableConfigAlarm",function(organizationData){
+.directive("datatableConfigAlarm",function(){
 	return {		
    		restrict:"E",
    		templateUrl:"views/datatable/datatable_conf_alarm.html",
@@ -55,7 +48,7 @@ mainApp
 		
  	}
 })
-.directive("datatableHistory",function(organizationData){
+.directive("datatableHistory",function(){
 	return {		
    		restrict:"E",
    		templateUrl:"directives/datatable_history.html",

@@ -1,6 +1,28 @@
 
 mainApp.controller("alarmInfoController",function($scope,$state,$uibModal,$http){
 	
+	
+	$scope.mode = "current";
+	$scope.setMode = function(mode){
+		$scope.mode = mode;
+	};
+	
+	$scope.statusTexts = {
+        0: "默认",
+        1: "新告警",
+        2: "未查阅",
+        3: "已查阅",
+        4: "驳回",
+        5: "已审核",
+        10: "已关闭"
+    };
+	$scope.priorityIcons = {
+        0: [0],
+        1: [0, 1],
+        2: [0, 1, 2]
+    };
+
+
 	$scope.alarm={};	
 	$http.get("boiler_alarm_list.json")
 	.then(function successCallback(response){
@@ -14,32 +36,35 @@ mainApp.controller("alarmInfoController",function($scope,$state,$uibModal,$http)
 		});
 
 	
-	console.log($scope.alarm);
-//	$scope.alarm = alarmData ;	
+	
 	$scope.pageSize = 10;
 	
-	$scope.alarmMode = "current";
-	$scope.setAlarm = function(m){
-		$scope.alarmMode = m;
-	};
 	
-	$scope.alarm.statusTexts = {
-        0: "默认",
-        1: "新告警",
-        2: "未查阅",
-        3: "已查阅",
-        4: "驳回",
-        5: "已审核",
-        10: "已关闭"
-    };
-	$scope.alarm.priorityIcons = {
-        0: [0],
-        1: [0, 1],
-        2: [0, 1, 2]
-    };
+	
+	
     
     
     $scope.alarm.historyData=[];
+    $scope.refreshHistory = function() {
+        var historyData = [];
+
+        $http.get('boiler_alarm_history_list.json/')
+            .then(function (res) {
+                console.warn("Get Alarm History List:", res);
+                historyData = res.data;
+
+                for (var i = 0; i < historyData.length; i++) {
+                    var d = historyData[i];
+                    d.num = i;
+                }
+
+                $scope.alarm.historyData = historyData;
+
+               
+            });
+    };
+    $scope.refreshHistory();
+    console.log($scope.alarm);
     
 	
 	$scope.removeData = function(id){

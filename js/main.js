@@ -40,9 +40,9 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
             controller: "monitorController",
            resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
-             return $ocLazyLoad.load([				
-             	'../js/controllers/monitorController.js' ,
+             return $ocLazyLoad.load([				             	
              	'../js/directives/components/filter_monitor.js',
+             	'../js/controllers/dashboardController.js'  
              	
 		             ]);
 		    }]
@@ -51,12 +51,14 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
         .state("monitor.dashboard", {
             url: "/monitor/dashboard",
             templateUrl: "views/monitor/dashboard.html",
+            controller: "DashboardController",
+            controllerAs: "dashboard",
             data: {pageTitle: "平台总览"}, 
              resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
              	
-             	'../js/controllers/dashboardController.js'             	
+             	           	
 		             ]);
 		    }]
 		  }
@@ -124,14 +126,14 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
 		    }]
 		  }
         })
-        .state("runtime.historydata", {
-            url:"/historydata",
-            templateUrl: "views/runtime/historydata.html",
+        .state("runtime.history", {
+            url:"/history",
+            templateUrl: "views/runtime/history.html",
             data: {pageTitle: '历史数据'},
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
-             	'../js/controllers/historyController.js',
+             	'../js/controllers/BoilerHistoryController.js',
              	'../js/asset/angular-locale_zh-cn.js'
 		             ]);
 		    }]
@@ -373,8 +375,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: "views/wiki/updateHistory.html",
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
-             return $ocLazyLoad.load([
-             
+             return $ocLazyLoad.load([            
              	         	
 		             ]);
 		    }]
@@ -907,68 +908,6 @@ mainApp.service("advisoryData",function(){
 });
 
 
-mainApp.service("alarmData",function(){
-	return{
-		datasource:[	
-			{
-				num:1,
-				boiler:"广州伯乐锅炉锅炉#1 ",
-				Enterprise:"",
-				monitor:"热效率",
-				priority:1,
-				StartText:"10/18 09:49",
-				EndText:"",
-				DueText:"7天9时49分",
-				isValid:true,
-				state:"新告警",
-				alarmMode:"current"
-			},
-			{
-				num:2,
-				boiler:"河南远大锅炉有限公司锅炉#3 ",
-				Enterprise:"",
-				monitor:"热效率",
-				priority:2,
-				StartText:"10/20 02:41",
-				EndText:"",
-				isValid:true,
-				DueText:"7天14时17分",
-				state:"新告警",
-				alarmMode:"current"
-			},
-			{
-				num:3,
-				boiler:"680093 ",
-				Enterprise:"赛诺菲制药有限公司",
-				monitor:"test",
-				priority:1,
-				StartText:"10/17 16:55",
-				EndText:"",
-				DueText:"3天2时0分",
-				isValid:true,
-				state:"新告警",
-				alarmMode:"current"
-			},
-			{
-				num:4,
-				boiler:"680093 ",
-				Enterprise:"",
-				monitor:"蒸汽压力",
-				priority:0,
-				StartText:"10/23 13:13",
-				EndText:"10/22 09:49",
-				DueText:"3天15时21分",
-				isValid:false,
-				state:"历史告警",
-				alarmMode:"history"
-			}
-		]
-	}
-	
-})
-
-
-
 mainApp.service("maintainData",function(){
 	return [
 		{
@@ -1048,58 +987,6 @@ mainApp.service("maintainData",function(){
 	]
 });
 
-mainApp.service("organizationData",function(){
-	return [
-		{
-			num:1,
-			name:"厚德能源",
-			Address: {
-				Location:{
-					LocationName:"浙江省 杭州市 滨江区"
-				},
-				Address:"滨文路32号"
-			} ,
-			Enterprise:"2",
-			Type:{
-				TypeId:0,
-				Name:"默认机构",
-			},
-				
-		},
-		{
-			num:2,
-			name:"Test003",
-			Address: {
-				Location:{
-					LocationName:"浙江省 杭州市 滨江区"
-				},
-				Address:"Test0031"
-			} ,
-			Enterprise:"",
-			Type:{
-				TypeId:0,
-				Name:"默认机构",
-			},
-		},
-		{
-			num:3,
-			name:"江苏威孚锅炉有限公司",
-			Address: {
-				Location:{
-					LocationName:"江苏省 镇江市 丹徒区"
-				},
-				Address:"镇江市丹徒区镇南工业园辛三路15号"
-			} ,
-			Enterprise:"江苏威孚",
-			Type:{
-				TypeId:1,
-				Name:"锅炉制造厂",
-			},
-		}
-	]
-});
-
-
 
 
 
@@ -1134,12 +1021,182 @@ mainApp.controller("SidebarController",function($scope,$state){
     
 })
 
-mainApp.run(["$rootScope", "settings", "$state", function($rootScope, settings, $state) {
+mainApp.run(["$rootScope", "settings", "$state","$stateParams","$http","$timeout", function($rootScope, settings, $state , $stateParams,$http,$timeout) {
     $rootScope.$state = $state; // state to be accessed from view
     $rootScope.$settings = settings; // state to be accessed from view
+    $rootScope.$stateParams = $stateParams;
+    
+    
+//  $rootScope.getBoilerList = function () {
+//      $rootScope.boilers = [];
+//          $http.get('boiler_list.json/')
+//              .then(function (res) {                  
+//                  $rootScope.boilers = res.data;
+//                  for (var i = 0; i < $rootScope.boilers.length; i++) {
+//                      var ab = $rootScope.boilers[i];
+//                      $rootScope.getBoilerCalculateParameter(ab);
+//                  }                  
+//              });
+//      };
+//      
+//	$rootScope.getBoilerCalculateParameter = function (boiler) {
+//          $http.get('/boiler_calculate_parameter/?boiler=' + boiler.Uid)
+//              .then(function (res) {
+//                  boiler.Calculate = res.data;
+//              });
+//      };
+    
+   	$rootScope.getAlarmList = function() {
+		$http.get('boiler_alarm_list.json/')
+			.then(function(res) {
+				if(res.data) {
+					$rootScope.boilerAlarms = res.data;
+				} else {
+					$rootScope.boilerAlarms = [];
+				}
+			});
+	};
+	
+	$http.get('organization_list.json/')
+            .then(function (res) {                
+                $rootScope.organizations = [];
+                for (var i = 0; i < res.data.length; i++) {
+                    var d = res.data[i];
+                    d.name = d.Name;
+                    d.type = d.Type.Name;
+                    $rootScope.organizations.push(d);
+                }
+            }, function (err) {
+                
+            });
+	
+    
+    $timeout(function () {
+        $rootScope.getAlarmList();
+        }, 2000);
+                    
+//   $rootScope.getBoilerList();                
+                    
+    
 }]);
 
 
+angular.module('BoilerAdmin').controller('ModalLoginCtrl', function ($uibModalInstance, $rootScope, $scope, $http) {
+    var $modal = this;
+    $modal.editing = false;
+    $modal.roleId = 20;
+    $modal.organizations = [];
+    setTimeout(function () {
+        $http.get('/organization_list/?scope=register')
+            .then(function (res) {
+                for (var i = 0; i < res.data.length; i++) {
+                    var d = res.data[i];
+                    d.name = d.Name;
+                    d.type = d.Type.Name;
+                    $modal.organizations.push(d);
+                }
+            }, function (err) {
+                console.log("Get Register OrgList Err: " + err);
+            });
+
+        $http.get(IP_JSON_URL).then(function (result) {
+            console.log("ip" + result.data.ip);
+            $modal.ip = result.data.ip;
+        }, function (e) {
+            console.error("Get IP Error:", e);
+        });
+    }, 0);
+
+    $modal.cancel = function () {
+        $uibModalInstance.dismiss('cancel');
+    };
+
+    $modal.gotoSignup = function () {
+        $uibModalInstance.dismiss('cancel');
+
+        header.openSignup();
+    };
+
+    $modal.gotoLogin = function () {
+        $uibModalInstance.dismiss('cancel');
+
+        header.openLogin();
+    };
+
+    $modal.signup = function() {
+        $http.post('/user_register_bind_third/', {
+            username: $modal.username,
+            password: $modal.password,
+            mobile: $modal.mobile,
+            role: $modal.roleId,
+            ip: $modal.ip
+        }).then(function (res) {
+            $('#signup-form').modal('hide');
+            swal({
+                title: "注册成功",
+                text: "您的平台账号 " + $modal.username + " 已经绑定微信，之后您可以通过用户名和密码进行登录，或者使用微信扫码直接登录平台，\n现在将转到该用户登录",
+                type: "success",
+                confirmButtonText: "好的",
+            }).then(function () {
+                $uibModalInstance.close('success');
+                $rootScope.currentUser.Status = 1;
+                header.refresh();
+            });
+        }, function (err) {
+            var message = err.data;
+            swal({
+                title: "注册失败",
+                text: message + "\n请返回重新填写",
+                type: "warning",
+                confirmButtonText: "确定 ",
+            });
+            this.remark = err.data;
+        });
+
+    };
+
+    $modal.login = function() {
+        var ip = "";
+        $http.get(IP_JSON_URL).then(function(result) {
+            console.log("ip" + result.data.ip);
+            ip = result.data.ip;
+        }, function(e) {
+            console.error("Get IP Error:", e);
+        }).then(function () {
+            $http.post('/user_login_bind_third/', {
+                username: $modal.username,
+                password: $modal.password,
+                ip: ip,
+            }).then(function (res) {
+                $rootScope.getCurrentUser(function () {
+                    header.refresh();
+                    var text = "欢迎回来，" + $rootScope.currentUser.Role.Name + " " + $rootScope.currentUser.Username + "。";
+                    text += "\n您的微信账号已经绑定成功，之后您可以通过微信扫码直接登录平台。"
+                    swal({
+                        title: "登录成功",
+                        text: text,
+                        type: "success",
+                        confirmButtonText: "好的",
+
+                    }).then(function () {
+                        $uibModalInstance.close('success');
+                        header.refresh();
+                    }, function (dismiss) {
+                    });
+                });
+            }, function (err) {
+                swal({
+                    title: "登录失败",
+                    text: err.data,
+                    type: "error",
+                    confirmButtonText: "确定",
+                });
+            });
+        });
+    };
+
+
+});
 
 
 

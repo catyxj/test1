@@ -1,131 +1,20 @@
-mainApp.controller("dashboardController",function($scope,$state){
+mainApp.controller("monitorController",function($scope){
+	$scope.itemArray= [{ id: 1, name: '东莞天鹿锅炉有限公司' },  
+                   {id: 2, name: '青岛胜利锅炉有限公司' },  
+                   {id: 3, name: '广州特种承压设备检测研究院' },  
+                   {id: 4, name: '长宏南雁锅炉01' },  
+                   {id: 5, name: '东南毛纺织染锅炉' }];  
+   $scope.selected = { value: $scope.itemArray[0] }; 
+
+
+})
+
+mainApp.controller("DashboardController",function($scope, $rootScope, $http, $filter, $state){
     bMonitor = this;
-	$scope.dashboard = {
-		runtimeCount:2226654,
-		alarmNum:256,
-		equipmentNum:554,
-        runningTotal:154445
-	};
+    bMonitor.isDone = false;
+    
 
-	
-//	$(function () {
-//	    $('#chart_am').highcharts({
-//	        chart: {
-//	            type: 'column',
-//	            margin: 75,
-//	            options3d: {
-//	                enabled: true,
-//	                alpha: 15,
-//	                beta: 10,
-//	                depth: 100,
-//	                fitToPlot: true
-//	            }
-//	        },
-//	        colors: ['#7cb5ec', '#e1ef6d'] ,
-//	        title:{
-//	        	text: ''
-//	        },
-//	        xAxis: {
-//	        	
-//		        categories: [
-//		        	'D≤1<br>(≥61%)', '1＜D≤2<br>(≥69%)', '2＜D≤8<br>(≥71%)', '8＜D≤20<br>(≥72%)', 'D＞20<br>(≥72%)', 'D≤2<br>(≥79%)', 'D＞2<br>(≥81%)'
-//		        ]
-//		    },
-//		    yAxis: {
-//		        title: {
-//		            text: '达标率'
-//		        }
-//		    },
-//	        plotOptions: {
-//	            column: {
-//	                depth: 25
-//	            }
-//	        },
-//	        series: [ 
-//		        {
-//		        	name: '燃煤锅炉、生物质锅炉',
-//		            data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6]
-//		       },
-//		        {
-//		            name: '燃油锅炉、燃气锅炉',
-//		            data: [83.6, 78.8, 98.5, 0, 106.0, 84.5, 105.0]
-//		        }
-//		        ],
-//	        credits:{
-//			     enabled:false // 禁用版权信息
-//			}
-//	    });
-//	});
-//
-//
-//	$(function () {
-//  $('#chart_pie').highcharts({
-//      chart: {
-//          type: 'pie',
-//          options3d: {
-//              enabled: true,
-//              alpha: 45,
-//              beta: 0
-//          }
-//      },
-//      title: {
-//          text: ''
-//      },
-//      tooltip: {
-//          pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-//      },
-//      plotOptions: {
-//          pie: {
-//              allowPointSelect: true,
-//              cursor: 'pointer',
-//              depth: 35,
-//              dataLabels: {
-//                  enabled: true,
-//                  format: '{point.name}'
-//              },
-//              point: {
-//                  events: {
-//                      click: function() {
-//                          console.log(this);
-//                          this.update({
-//                              sliced: true
-//                          })
-//                      }
-//                  }
-//              }
-//          }
-//      },
-//      series: [{
-//          type: 'pie',
-//          name: 'Browser share',
-//          data: [
-//              ['D＜1',   45.0],
-//              ['1＜D≤2',       26.8],
-//              {
-//                  name: '2＜D≤8',
-//                  y: 12.8,
-//                  sliced: true,
-//                  selected: true
-//              },
-//              ['8＜D≤20',    8.5],
-//              ['D＞20',     6.2]
-//             
-//          ]
-//      }],
-//      credits:{
-//			     enabled:false // 禁用版权信息
-//			}
-//  });
-//});
-//
-
-
-
-
-
-
-
-
+	//统计图表
     var ids = ['c0', 'c1', 'c2', 'c3', 'c4', 'g0', 'g1'];
     var evaporates = ['D≤1<br>(≥61%)', '1＜D≤2<br>(≥69%)', '2＜D≤8<br>(≥71%)', '8＜D≤20<br>(≥72%)', 'D＞20<br>(≥72%)', 'D≤2<br>(≥79%)', 'D＞2<br>(≥81%)'];
 
@@ -221,8 +110,6 @@ mainApp.controller("dashboardController",function($scope,$state){
         // if (!$rootScope.boilers || $rootScope.boilers.length === 0) {
         //     return;
         // }
-
-
             var chartData = [
                 {
                     "range": 'D＜1',
@@ -245,7 +132,6 @@ mainApp.controller("dashboardController",function($scope,$state){
                     "count": 50
                 }
             ];
-
 
             var chart = new AmCharts.AmPieChart();
             chart.type = "pie";
@@ -282,6 +168,186 @@ mainApp.controller("dashboardController",function($scope,$state){
 
 
 })
+
+
+
+mainApp.controller("viewCtrl",function($scope,productData,$uibModal){
+
+	$scope.productData = productData;
+	$scope.pageSize = 4;
+	$scope.totalItems = $scope.productData.length;
+
+	
+	$scope.openModal = function(data) {
+                var modalInstance = $uibModal.open({
+                    templateUrl : 'views/monitor/modal-view.html',//script标签中定义的id
+                    controller : 'viewModalCtrl',//modal对应的Controller
+                    size: 'lg', //大小配置 
+                    resolve : {
+                        data : function() {//data作为modal的controller传入的参数
+                       	
+                             return data;//用于传递数据
+                        }
+                    }
+                })
+            }
+	
+	
+})
+
+//模态框对应的Controller
+mainApp.controller('viewModalCtrl', function($scope, $uibModalInstance, data) {
+          $scope.data= data;
+
+          //在这里处理要进行的操作
+          $scope.ok = function() {
+              $uibModalInstance.close();
+          };
+          $scope.cancel = function() {
+              $uibModalInstance.dismiss('cancel');
+          }
+    });
+
+
+
+ mainApp.controller("productList",function($scope,productData,$filter){
+	$scope.productData = productData;
+	$scope.pageSize = 10;
+
+})
+
+
+
+mainApp.controller("mapController",function($scope,$location,productData){
+	$scope.data = productData;
+	var map = new BMap.Map("map-container"); // 创建地图
+	 
+	map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+	map.addControl(new BMap.NavigationControl()); 
+	map.addControl(new BMap.ScaleControl());
+    map.addControl(new BMap.OverviewMapControl());
+	
+	var long = 0;
+    var lat = 0;
+    var count = 0;
+    for (var i = 0; i < $scope.data.length; i++) {
+            var b = $scope.data[i];
+            if (!b.Address || b.Address.Longitude == 0 || b.Address.Latitude == 0) {
+                continue;
+            }
+            var longitude = b.Address.Longitude;
+            var latitude = b.Address.Latitude;
+            count ++;
+            long += longitude;
+            lat += latitude;
+            var point = new BMap.Point(longitude, latitude);
+            var marker = new BMap.Marker(point);
+            var label = new BMap.Label(i);
+            var offsetX = 0;
+            var fontSize = 12;
+            if (i < 10) {
+                offsetX = 5;
+            } else if (i < 100) {
+                offsetX = 1;
+            } else if (i < 1000) {
+                fontSize = 10;
+            }
+            label.setStyle({
+                'font-family': 'sans-serif',
+                'font-size': fontSize + 'px',
+                'text-align': 'center',
+                'color': '#fff',
+                'border': 'none',
+                'background-color': 'transparent'});
+            label.setOffset(new BMap.Size(offsetX, 2));
+            marker.setTitle(b.Name);
+            marker.setLabel(label);
+            marker.addEventListener("click", function(){
+                $location.hash('b' + b.num);
+            });
+            marker.addEventListener("dblclick", function(){
+                $state.go("runtime.dashboard", {boiler: b.Uid});
+            });
+            map.addOverlay(marker);
+            marker.setAnimation('BMAP_ANIMATION_DROP');
+        }
+        var cenLong = long / count;
+        var cenLat = lat / count;
+        console.warn("BMap Center", cenLong, cenLat, long, lat, count + "/" + $scope.data.length);
+        var center = new BMap.Point(cenLong, cenLat);
+		map.centerAndZoom(center, 15); 
+	
+	$scope.bdGEO = function(boiler){
+		var newAddress=boiler.Address.Location.LocationName + boiler.Address.Address;
+		var city = boiler.Address.Location.LocationName;
+		geocodeSearch(newAddress,city);
+	}
+	
+	// 创建地址解析器实例     
+	var myGeo = new BMap.Geocoder();      
+	// 将地址解析结果显示在地图上，并调整地图视野  
+	
+	function geocodeSearch(add,city){		
+		myGeo.getPoint(add, function(point){      
+	    if (point) { 
+	    	$scope.longitude = point.lng;
+            $scope.latitude = point.lat;
+	    	map.centerAndZoom(point, 15);   
+	    	var marker = new BMap.Marker(point);        // 创建标注    
+			map.addOverlay(marker);                     // 将标注添加到地图中 
+	    }      
+	 }, 
+	"city");
+	}
+
+
+	$scope.local = new BMap.LocalSearch(map, {
+            renderOptions: {
+                map: map,
+                panel: "results",
+                autoViewport: true,
+                selectFirstResult: true
+            },
+            pageCapacity: 8
+        });
+        
+ 		$scope.$watch('address', function () {
+            /**
+             * 查询输入的地址并显示在地图上、调整地图视野
+             */
+            $scope.local.search($scope.address);
+            /**
+             * 将输入的地址解析为经纬度
+             */
+//          myGeo.getPoint($scope.address, function (point) {
+//              if (point) {
+//                  /**
+//                   * 将地址解析为经纬度并赋值给$scope.longitude和$scope.latitude
+//                   */
+//                  $scope.longitude = point.lng;
+//                  $scope.latitude = point.lat;
+//              }
+//          });
+        });
+	
+	
+	bMonitor.mapRowClicked = function (boiler) {
+        // Unbind first in order to avoid any duplicate handler (see https://github.com/l-lin/angular-datatables/issues/87)
+        console.warn("Click Row:", boiler);
+        if (!boiler.Address) {
+            console.warn("Boiler Has No Address!");
+            return;
+        }
+
+        console.warn("Ready to Move:", boiler.Address.Longitude, boiler.Address.Latitude);
+        var point = new BMap.Point(boiler.Address.Longitude, boiler.Address.Latitude);
+        map.setZoom(14);
+        map.panTo(point);
+    };	
+	
+	
+})
+
 
 
 

@@ -1,7 +1,6 @@
 
 mainApp.controller("configAlarmController",function($scope, $rootScope, $uibModal, $http){
-	
-	
+		
 	$scope.configAlarm = {};
 	$http.get("alarm_rule_list.json").then(function(res){
 		var datasource = res.data;
@@ -75,9 +74,8 @@ mainApp.controller("configAlarmController",function($scope, $rootScope, $uibModa
 	
 })
 
-mainApp.controller('boilerCtrl', function($scope,$rootScope, $uibModalInstance, data,configAlarmData) {
-          $scope.data= data;
-		  $scope.configAlarmData=configAlarmData;	  
+mainApp.controller('boilerCtrl', function($scope,$rootScope, $uibModalInstance, data) {
+          $scope.data= data;		   
           //在这里处理要进行的操作
           $scope.ok = function() {
               $uibModalInstance.close($scope.data);

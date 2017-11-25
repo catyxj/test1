@@ -1,19 +1,6 @@
-
-
-<!--<div ng-controller="dashboardController" class="">
-	<div class="page-bar">
-	<ol class="breadcrumb">
-		<li>
-			<a href="" ui-sref="dashboard">首页</a>
-		</li>
-		<li>
-			<a href="" ui-sref="monitor.thumb">主控制台</a>
-		</li>
-	</ol>
-</div>-->
 	
 <!-- BEGIN DASHBOARD STATS -->
-	<div ng-controller="dashboardController" class="dashboard_content">		
+	<div ng-init="dashboard.getRuntimeCount(); dashboard.fetchTotal();" class="dashboard_content">		
 		<div class="row stat">
 			<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 				<div class="dashboard-stat blue">					
@@ -42,10 +29,10 @@
 					</div>
 					<div class="details">
 						<div class="number">
-							{{dashboard.alarmNum}}
+							{{ boilerAlarms.length}}
 						</div>
 						<div class="desc">
-							异常警报
+							异常报警
 						</div>							
 					</div>									
 					<a class="more" ui-sref="alarm">
@@ -63,7 +50,7 @@
 					</div>
 					<div class="details">
 						<div class="number">
-							{{dashboard.equipmentNum}}
+							{{dashboard.datasource.length}}
 						</div>
 						<div class="desc">
 							在用设备
@@ -150,8 +137,7 @@
 							</a>
 						</div>
 					</div>
-					<div class="portlet-body">
-						<!--<div class="high_chart" id="chart_pie" style=" min-width:400px;height:400px"></div>-->
+					<div class="portlet-body">						
 						<div id="dashboard_amchart_pie" class="CSSAnimationChart"></div>
 					</div>
 
@@ -164,3 +150,4 @@
 	
 </div>
 
+		

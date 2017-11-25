@@ -1,0 +1,27 @@
+<div class="row" ng-init="developer.getBoilerConfig()">
+    <div class="form-group col-md-6 col-sm-6">
+        <label class="control-label" style="font-size: 15px; margin-right: 6px;">数据模拟</label>
+        <input bs-switch
+               ng-model="developer.isGenerateData"
+               ng-change="developer.setConfig('IsGenerateData')"
+               type="checkbox"
+               switch-on-text="打开"
+               switch-off-text="关闭"
+               switch-on-color="success"
+               switch-off-color="default"
+               switch-animate="{{ true }}"
+               switch-size="{{ size }}"
+               switch-label="{{ label }}"
+               switch-icon="{{ icon }}"
+               switch-radio-off="{{ true }}"
+               switch-label-width="auto"
+               switch-handle-width="auto"
+               switch-wrapper="{{ wrapper }}"
+               switch-inverse="false"
+               style="width: 100%">
+    </div>
+    <div class="form-group col-md-3 col-sm-3">
+        <a ng-click="developer.testMessage();"
+           class="btn blue-steel btn-outline btn-circle">告警推送测试</a>
+    </div>
+</div>
