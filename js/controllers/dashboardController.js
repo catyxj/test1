@@ -4,8 +4,15 @@ mainApp.controller("monitorController",function($scope){
                    {id: 3, name: '广州特种承压设备检测研究院' },  
                    {id: 4, name: '长宏南雁锅炉01' },  
                    {id: 5, name: '东南毛纺织染锅炉' }];  
-   $scope.selected = { value: $scope.itemArray[0] }; 
-
+   	$scope.selected = { value: $scope.itemArray[0] }; 
+	$scope.evaporates = [
+            {id: 0, Text: '额定蒸发量（不限）'},
+            {id: 1, Text: 'D≤1'},
+            {id: 2, Text: '1<D≤2'},
+            {id: 3, Text: '2<D≤8'},
+            {id: 4, Text: '8<D≤20'},
+            {id: 5, Text: 'D>20'}
+        ];
 
 })
 
@@ -177,21 +184,25 @@ mainApp.controller("viewCtrl",function($scope,productData,$uibModal){
 	$scope.pageSize = 4;
 	$scope.totalItems = $scope.productData.length;
 
-	
+	var boiler = $scope.productData;
 	$scope.openModal = function(data) {
-                var modalInstance = $uibModal.open({
-                    templateUrl : 'views/monitor/modal-view.html',//script标签中定义的id
-                    controller : 'viewModalCtrl',//modal对应的Controller
-                    size: 'lg', //大小配置 
-                    resolve : {
-                        data : function() {//data作为modal的controller传入的参数
-                       	
-                             return data;//用于传递数据
-                        }
-                    }
-                })
-            }
+		var modalInstance = $uibModal.open({
+			templateUrl: 'directives/modal/boiler_calculate_gas.html', //script标签中定义的id
+//			if (boiler.Fuel.Type.Id === 1 || boiler.Fuel.Type.Id === 4) {
+//	            templateUrl = '/directives/modal/boiler_calculate_coal.html';
+//	        } else {
+//	            templateUrl = '/directives/modal/boiler_calculate_gas.html';
+//	        },
+			controller: 'viewModalCtrl', //modal对应的Controller
+			size: 'lg', //大小配置 
+			resolve: {
+				data: function() { //data作为modal的controller传入的参数
 	
+					return data; //用于传递数据
+				}
+			}
+		})
+	}
 	
 })
 

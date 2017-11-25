@@ -1,0 +1,296 @@
+<div class="modal-header">
+	<h3 class="modal-title" id="modal-title" style="display: inline;">计算参数设置</h3>
+	<span class="font-blue-madison" style="margin-left: 12px; font-size: 14px;">{{ data.boiler.Name }}</span>
+</div>
+<style type="text/css">
+	div.input-group.form-group,
+	div.btn-group.form-group {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	
+	div.form-group.form-selector .control-label {
+		width: 26%;
+		margin-top: 6px;
+		text-align: center;
+	}
+	
+	div.form-group.form-selector select {
+		width: 74%;
+		float: right;
+	}
+	
+	.modal-body h5 {
+		margin-top: 0;
+		margin-bottom: 0;
+		font-weight: bold;
+	}
+	
+	.modal-body hr {
+		margin-top: 4px;
+	}
+	
+	.modal-body .input-group span.unit {
+		position: absolute;
+		left: auto;
+		right: 16px;
+		top: 8px;
+		float: right;
+		z-index: 10;
+		color: grey;
+	}
+</style>
+<div class="modal-body" id="modal-body">
+
+	<h5 class="font-blue-hoki">分析参数</h5>
+	<hr>
+	<div class="row">
+		<div class="form-group col-md-4">
+			<div class="input-group">
+				<span class="input-group-addon">
+                    
+                    低位发热量Qnet.v.ar
+                </span>
+				<span class="unit">kJ/kg</span>
+				<input type="number" ng-model="data.data.qnetvar" class="form-control ng-pristine ng-valid ng-touched" placeholder="">
+			</div>
+		</div>
+		<div class="form-group col-md-4">
+			<div class="input-group">
+				<span class="input-group-addon">
+                   
+                    收到基灰分Aar
+                </span>
+				<span class="unit">%</span>
+				<input type="number" ng-model="data.data.aar" class="form-control ng-pristine ng-valid ng-touched has-success" placeholder="">
+			</div>
+		</div>
+		<div class="form-group col-md-4">
+			<div class="input-group">
+				<span class="input-group-addon">
+                    
+                    炉渣可燃物含量Clz
+                </span>
+				<span class="unit">%</span>
+				<input type="number" ng-model="data.data.clz" class="form-control ng-pristine ng-valid ng-touched" placeholder="">
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="form-group col-md-4">
+			<div class="input-group">
+				<span class="input-group-addon">
+                
+                漏煤可燃物含量Clm
+            </span>
+				<span class="unit">%</span>
+				<input type="number" ng-model="data.data.clm" class="form-control ng-pristine ng-valid ng-touched has-success" placeholder="">
+			</div>
+		</div>
+		<div class="form-group col-md-4">
+			<div class="input-group">
+				<span class="input-group-addon">
+                
+                飞灰可燃物含量Cfh
+            </span>
+				<span class="unit">%</span>
+				<input type="number" ng-model="data.data.cfh" class="form-control ng-pristine ng-valid ng-touched" placeholder="">
+			</div>
+		</div>
+		<div class="form-group col-md-4">
+			<div class="input-group">
+				<span class="input-group-addon">
+                
+                炉渣焓Ctlz
+            </span>
+				<span class="unit">kJ/kg</span>
+				<input type="number" ng-model="data.data.ct_lz" class="form-control ng-pristine ng-valid ng-touched has-success" placeholder="">
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="form-group col-md-6">
+			<div class="input-group">
+				<span class="input-group-addon">
+                
+                排烟热损失计算系数 m
+            </span>
+				<input type="number" ng-model="data.data.m" class="form-control ng-pristine ng-valid ng-touched" placeholder="">
+			</div>
+		</div>
+		<div class="form-group col-md-6">
+			<div class="input-group">
+				<span class="input-group-addon">
+                
+                排烟热损失计算系数 n
+            </span>
+				<input type="number" ng-model="data.data.n" class="form-control ng-pristine ng-valid ng-touched has-success" placeholder="">
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="form-group col-md-12">
+			<div class="input-group">
+				<span class="input-group-addon">
+                
+                炉渣含灰量占入炉煤总灰量Alz
+            </span>
+				<span class="unit">%</span>
+				<input type="number" ng-model="data.data.alz" class="form-control ng-pristine ng-valid ng-touched" placeholder="">
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="form-group col-md-6">
+			<div class="input-group">
+				<span class="input-group-addon">
+                
+                飞灰含灰量占入炉煤总灰量Afh
+            </span>
+				<span class="unit">%</span>
+				<input type="number" ng-model="data.data.afh" class="form-control ng-pristine ng-valid ng-touched has-success" placeholder="">
+			</div>
+		</div>
+		<div class="form-group col-md-6">
+			<div class="input-group">
+				<span class="input-group-addon">
+               
+                漏煤含灰量占入炉煤总灰量Alm
+            </span>
+				<span class="unit">%</span>
+				<input type="number" ng-model="data.data.alm" class="form-control ng-pristine ng-valid ng-touched" placeholder="">
+			</div>
+		</div>
+	</div>
+
+	<h5 class="font-blue-hoki">实时参数</h5>
+	<hr>
+
+	<div class="row">
+		<div class="form-group col-md-4">
+			<div class="input-group">
+				<span class="input-group-addon">
+                   
+                    排烟温度
+                </span>
+				<span class="unit">℃</span>
+				<input type="number" ng-model="data.data.smoke_temper" class="form-control ng-pristine ng-valid ng-touched" placeholder="未测定" disabled>
+			</div>
+		</div>
+		<div class="form-group col-md-4">
+			<div class="input-group">
+				<span class="input-group-addon">
+                   
+                    送风温度
+                </span>
+				<span class="unit">℃</span>
+				<input type="number" ng-model="data.data.wind_temper" class="form-control ng-pristine ng-valid ng-touched" placeholder="未测定" disabled>
+			</div>
+		</div>
+		<div class="form-group col-md-4">
+			<div class="input-group">
+				<span class="input-group-addon">
+                    
+                    排烟氧量
+                </span>
+				<span class="unit">%</span>
+				<input type="number" ng-model="data.data.smoke_o2" class="form-control ng-pristine ng-valid ng-touched" placeholder="未测定" disabled>
+			</div>
+		</div>
+	</div>
+
+	<h5 class="font-blue-hoki">参数修改计算值</h5>
+	<hr>
+
+	<div class="row">
+		<div class="form-group col-md-6">
+			<div class="input-group">
+				<span class="input-group-addon">
+                
+                排烟热损失(q2)
+            </span>
+				<span class="unit">%</span>
+				<input type="number" ng-model="data.data.q2" class="form-control ng-pristine ng-valid ng-touched" placeholder="">
+			</div>
+		</div>
+		<div class="form-group col-md-6">
+			<div class="input-group">
+				<span class="input-group-addon">
+                    
+                    气体未完全燃烧热损失(q3)
+                </span>
+				<input type="number" ng-model="data.data.q3" class="form-control ng-pristine ng-valid ng-touched has-success" placeholder="">
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="form-group col-md-6">
+			<div class="input-group">
+				<span class="input-group-addon">
+                    
+                    固体未完全燃烧热损失(q4)
+                </span>
+				<input type="number" ng-model="data.data.q4" class="form-control ng-pristine ng-valid ng-touched" placeholder="">
+			</div>
+		</div>
+		<div class="form-group col-md-6">
+			<div class="input-group">
+				<span class="input-group-addon">
+                    
+                    散热损失(q5)
+                </span>
+				<input type="number" ng-model="data.data.q5" class="form-control ng-pristine ng-valid ng-touched has-success" placeholder="">
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="form-group col-md-6">
+			<div class="input-group">
+				<span class="input-group-addon">
+                    
+                    灰渣物理热损失(q6)
+                </span>
+				<input type="number" ng-model="data.data.q6" class="form-control ng-pristine ng-valid ng-touched" placeholder="">
+			</div>
+		</div>
+		<div class="form-group col-md-6">
+			<div class="input-group">
+				<span class="input-group-addon">
+                    
+                    过量空气系数
+                </span>
+				<input type="number" ng-model="data.data.excessAir" class="form-control ng-pristine ng-valid ng-touched has-success" placeholder="">
+			</div>
+		</div>
+	</div>
+
+	<hr>
+
+	<div class="row">
+		<div class="form-group col-md-12">
+			<div class="input-group">
+				<span class="input-group-addon">
+                
+                参数修改后锅炉效率
+            </span>
+				<span class="unit">%</span>
+				<input type="number" ng-model="data.data.heat" class="form-control ng-pristine ng-valid ng-touched has-success" placeholder="">
+			</div>
+		</div>
+
+	</div>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-warning" type="button" ng-click="reset()">恢复初始值</button>
+	<button class="btn btn-success" type="button" ng-click="calculate()">参数计算</button>
+	<button class="btn btn-primary ladda-button" data-style="zoom-out" type="button" id="boiler_ok" ng-click="save()">
+        <span class="ladda-label">保存</span>
+    </button>
+	<button class="btn btn-default" type="button" ng-click="cancel()">取消</button>
+</div>

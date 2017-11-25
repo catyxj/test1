@@ -39,11 +39,7 @@ mainApp.controller("alarmInfoController",function($scope,$state,$uibModal,$http)
 	
 	$scope.pageSize = 10;
 	
-	
-	
-	
-    
-    
+   //历史告警列表
     $scope.alarm.historyData=[];
     $scope.refreshHistory = function() {
         var historyData = [];
@@ -52,7 +48,6 @@ mainApp.controller("alarmInfoController",function($scope,$state,$uibModal,$http)
             .then(function (res) {
                 console.warn("Get Alarm History List:", res);
                 historyData = res.data;
-
                 for (var i = 0; i < historyData.length; i++) {
                     var d = historyData[i];
                     d.num = i;
@@ -67,6 +62,23 @@ mainApp.controller("alarmInfoController",function($scope,$state,$uibModal,$http)
     console.log($scope.alarm);
     
 	
+	
+	$scope.confirm = function (uid) {
+        $log.info("bAlarm.confirm:", uid);
+        for (var i = 0; i < $scope.alarm.datasource.length; i++) {
+            if ($scope.alarm.datasource[i].Uid === uid) {
+                currentData = $scope.alarm.datasource[i];
+                
+                $log.info("bAlarm.confirm GET:", currentData);
+                $scope.open('lg');
+                break;
+            }
+        }
+    };
+	
+	
+	
+	
 	$scope.removeData = function(id){
 		for(var i = 0; i < $scope.alarmInfo.length; i++){
 			if($scope.alarmInfo[i].num == id){
@@ -77,25 +89,28 @@ mainApp.controller("alarmInfoController",function($scope,$state,$uibModal,$http)
 	}
 	
 	
-	$scope.isShow = function(name){
-		return $state.includes(name);
-	}
+	
 	
 	
 	$scope.openModal = function(data) {
-                var modalInstance = $uibModal.open({
-                    templateUrl : 'directives/modal/boiler_alarm_feedback.html',//script标签中定义的id
-                    controller : 'alarmModalCtrl',//modal对应的Controller
-                    size: 'lg', //大小配置 
-                    resolve : {
-                        data : function() {//data作为modal的controller传入的参数
-                       	
-                             return data;//用于传递数据
-                        }
-                    }
-                })
-            }
+		var modalInstance = $uibModal.open({
+			templateUrl: 'directives/modal/boiler_alarm_feedback.html', //script标签中定义的id
+			controller: 'alarmModalCtrl', //modal对应的Controller
+			size: 'lg', //大小配置 
+			resolve: {
+				data: function() { //data作为modal的controller传入的参数	
+					return data; //用于传递数据
+				}
+			}
+		});
+		
+		modalInstance.result.then(function (selectedItem) {
+            $scope.selected = selectedItem;
+        }, function () {
+            
+        });
 	
+	}
 	
 	
 
@@ -109,7 +124,7 @@ mainApp.controller("alarmInfoController",function($scope,$state,$uibModal,$http)
 //模态框对应的Controller
 mainApp.controller('alarmModalCtrl', function($scope, $uibModalInstance, data) {
           $scope.data= data;
-
+          
           //在这里处理要进行的操作
           $scope.ok = function() {
               $uibModalInstance.close();
@@ -117,16 +132,7 @@ mainApp.controller('alarmModalCtrl', function($scope, $uibModalInstance, data) {
           $scope.cancel = function() {
               $uibModalInstance.dismiss('cancel');
           };
-          
-          
-    
-    
-    
-    	
-    
-    
-    
-                        
+                                     
           
     });
     

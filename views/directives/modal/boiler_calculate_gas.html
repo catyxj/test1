@@ -1,0 +1,116 @@
+<div>
+	<div class="modal-header">
+		<button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times;</span></button>
+		<h4 class="modal-title">计算参数设置 
+			<span  class="font-blue-madison">
+				{{data.boiler.Name}}
+			</span>
+		</h4>
+	</div>
+	<div class="modal-body">
+		<form class="" action="" method="post">
+
+			<h5 class="font-blue-hoki">
+				分析参数
+			</h5>
+			<hr>
+			<div class="row">
+				<div class="form-group col-md-6">
+					<div class="input-group">
+						<label class="input-group-addon" for="">排烟热损失计算系数 m</label>
+						<input ng-model="data.data.m" type="text" class="form-control" placeholder="0">						
+					</div>					
+				</div>
+
+				<div class="form-group col-md-6">					
+					<div class="input-group">
+						<label class="input-group-addon" for="">排烟热损失计算系数 n</label>
+						<input ng-model="data.data.n" type="text" class="form-control" id="" placeholder="0">
+					</div>
+				</div>
+
+				<div class="form-group col-md-12">					
+					<div class="input-group">
+						<label class="input-group-addon" for="">燃料收到基低位发热量</label>
+						<span class="unit">kJ/kg</span>
+						<input ng-model="data.data.ded" type="text" class="form-control" id="" placeholder="0">
+					</div>
+
+				</div>
+			</div>
+
+			<h5 class="font-blue-hoki">
+				实时参数
+			</h5>
+			<hr />
+			<div class="row">
+				<div class="form-group col-md-4">					
+					<div class="input-group">
+						<label class="input-group-addon" for="">排烟温度</label>
+						<input ng-model="data.evaporation" type="text" class="form-control" id="" placeholder="0" disabled>
+					</div>
+				</div>
+				<div class="form-group col-md-4">					
+					<div class="input-group">
+						<label class="input-group-addon" for="">送风温度</label>
+						<input ng-model="data.data.wind_temper" type="text" class="form-control" id="" placeholder="0" disabled>
+					</div>
+				</div>
+				<div class="form-group col-md-4">					
+					<div class="input-group">
+						<label class="input-group-addon" for="">排烟氧量</label>
+						<input ng-model="data.data.smoke_o2" type="text" class="form-control" id="" placeholder="0" disabled>
+					</div>
+				</div>
+			</div>
+
+			<h5 class="font-blue-hoki">
+				参数修改计算值
+			</h5>
+			<hr>
+			<div class="row">
+				<div class="form-group col-md-6">					
+					<div class="input-group">
+						<label class="input-group-addon" for="">排烟热损失(q2)</label>
+						<input ng-model="data.data.q2" type="text" class="form-control" id="" placeholder="0">
+					</div>
+				</div>
+				<div class="form-group col-md-6">					
+					<div class="input-group">
+						<label class="input-group-addon" for="">气体未完全燃烧热损失(q3)</label>
+						<input ng-model="$modal.data.q3" type="text" class="form-control" id="" placeholder="0">
+					</div>
+				</div>
+				<div class="form-group col-md-6">					
+					<div class="input-group">
+						<label class="input-group-addon" for="">散热损失(q5)</label>
+						<input ng-model="data.data.q5" type="text" class="form-control" id="" placeholder="0">
+					</div>
+				</div>
+				<div class="form-group col-md-6">					
+					<div class="input-group">
+						<label class="input-group-addon" for="">过量空气系数</label>
+						<input ng-model="data.data.excessAir" type="text" class="form-control" id="" placeholder="0">
+					</div>
+				</div>
+				<div class="form-group col-md-12">					
+					<div class="input-group">
+						<label class="input-group-addon" for="">参数修改后锅炉效率</label>
+						<input ng-model="data.data.heat" type="text" class="form-control" id="" placeholder="0">
+					</div>
+				</div>
+			</div>
+
+		</form>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-warning" ng-click="reset()">恢复初始值</button>
+		<button type="button" class="btn btn-success" ng-click="calculate()">参数计算</button>
+		<button class="btn btn-primary" ng-click="ok()">
+			确认
+		</button>
+		<button class="btn btn-default" ng-click="cancel()">
+			取消
+		</button>
+	</div>
+</div>
