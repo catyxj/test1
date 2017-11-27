@@ -1,14 +1,16 @@
 <div ng-controller="alarmInfoController" class="">
-	<div class="row" style="margin-top: -18px;">
+	<div class="row" style="margin-top: -20px;">
 		<div class="col-md-6 col-sm-6">
 			<div ng-show="$state.current.name === 'runtime.alarm'"
-				 class="subscription form-group">
-				订阅推送
-				<label class="switch switch-lg">
-			       <input type="checkbox" checked="checked">
-			       <span></span>
-			    </label>			    
-			</div>		
+				 class="form-group" style="margin-top: 10px;" >
+					<label class="control-label" style="font-size: 15px; margin-right: 6px;">订阅推送</label>
+					<label class="switch switch-lg">
+				       <input type="checkbox"
+				       	ng-model="runtime.boiler.hasSubscribed"
+                   		ng-change="runtime.setSubscribe(runtime.boiler)">
+				       <span></span>
+				    </label>			    
+			</div>
 		</div>
 		<div class="col-md-6">
 			<div id="alarm_tabs"  class="tabbable-line">
@@ -41,8 +43,9 @@
 	                        ng-change="setPageSize(pageSize)">
 		            </select>
 	               	条
-				</label>												
-			</div>
+				</label>								
+			</div>						
+			
 
 			<!--search-->
 			<form class="col-sm-6 form-inline text-right">

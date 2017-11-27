@@ -1,5 +1,4 @@
 <div class="">
-
 	<table class="table table-striped table-bordered table-hover order-column table-boiler">
 		<thead>
 			<tr>
@@ -47,10 +46,17 @@
 					</span>
 				</td>
 				<td>
-					<a ng-click="editModal(data)" class="btn edit btn-outline btn-circle btn-sm blue">
+					<a ng-show="currentUser.Role.RoleId >= 10"
+		               ng-click="org.view(data.Uid)"
+		               class="btn edit btn-outline btn-circle btn-sm green">
+		                <i class="fa fa-eye"></i> 查看
+		            </a>
+					<a ng-click="org.edit(data.Uid)" 
+						class="btn edit btn-outline btn-circle btn-sm blue">
 						<i class="fa fa-edit"></i> 编辑
 					</a>
-					<a ng-click="removeData(data)" class="btn delete btn-outline btn-circle btn-sm red">
+					<a ng-click="removeData(data)" 
+						class="btn delete btn-outline btn-circle btn-sm red">
 						<i class="fa fa-trash-o"></i> 删除
 					</a>
 				</td>
@@ -59,5 +65,4 @@
 
 	</table>
 	<p ng-show="!organization.length">记录为空</p>
-
 </div>

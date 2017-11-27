@@ -13,7 +13,120 @@ mainApp.controller("monitorController",function($scope){
             {id: 4, Text: '8<D≤20'},
             {id: 5, Text: 'D>20'}
         ];
-
+	$scope.selectedEvaporate = $scope.evaporates[0]; 
+	
+//	 bMonitor.initSearch = function () {
+//      bMonitor.provinces = $rootScope.locations;
+//      bMonitor.citis = [];
+//      bMonitor.regions = [];
+//
+//      bMonitor.organizations = [{Uid: '', name: '所属企业（不限）'}];
+//
+//      bMonitor.aBurning = undefined;
+//
+//      bMonitor.evaporates = [
+//          {id: 0, Text: '额定蒸发量（不限）'},
+//          {id: 1, Text: 'D≤1'},
+//          {id: 2, Text: '1<D≤2'},
+//          {id: 3, Text: '2<D≤8'},
+//          {id: 4, Text: '8<D≤20'},
+//          {id: 5, Text: 'D>20'}
+//      ];
+//      bMonitor.mediums = [{Name: '锅炉介质（不限）'}];
+//      bMonitor.forms = [{Name: '锅炉型态（不限）'}];
+//      bMonitor.fuels = [{Name: '锅炉燃料（不限）'}];
+//
+//      for (var i = 0; $rootScope.organizations && i < $rootScope.organizations.length; i++) {
+//          var org = $rootScope.organizations[i];
+//          if (bMonitor.organizations.indexOf(org) > -1) {
+//              continue;
+//          }
+//          bMonitor.organizations.push(org);
+//      }
+//
+//      for (var i = 0; $rootScope.boilerMediums && i < $rootScope.boilerMediums.length; i++) {
+//          var med = $rootScope.boilerMediums[i];
+//          bMonitor.mediums.push(med);
+//      }
+//
+//      for (var i = 0; $rootScope.boilerForms && i < $rootScope.boilerForms.length; i++) {
+//          var form = $rootScope.boilerForms[i];
+//          if (form.Id === 0 || bMonitor.forms.indexOf(form) > -1) {
+//              continue;
+//          }
+//
+//          bMonitor.forms.push(form);
+//      }
+//
+//      for (var i = 0; $rootScope.fuelTypes && i < $rootScope.fuelTypes.length; i++) {
+//          var fuel = $rootScope.fuelTypes[i];
+//          if (fuel.Id === 0 || fuel.Id >= 5 || bMonitor.fuels.indexOf(fuel) > -1) {
+//              continue;
+//          }
+//          bMonitor.fuels.push(fuel);
+//      }
+//
+//      var localCount = function (locations) {
+//          //console.warn("localCount", locations);
+//          if (!locations) {
+//              return;
+//          }
+//          for (var i = 0; i < locations.length; i++)  {
+//              var local = locations[i];
+//              var matchNum = 0;
+//              $filter('filter')(bMonitor.datasource, function (item) {
+//                  var locationId = (!item.Address || !item.Address.Location) ? 0 : item.Address.Location.LocationId;
+//                  if (locationId === local.LocationId ||
+//                      Math.floor(locationId / 100) === local.LocationId ||
+//                      Math.floor(locationId / 10000) === local.LocationId) {
+//                      matchNum++;
+//                      return true;
+//                  }
+//                  return false;
+//              });
+//              local.count = matchNum;
+//              if (local.LocationId !== 0) {
+//                  local.name = local.Name + ' - ' + local.count;
+//              } else {
+//                  local.name = '所在区域';
+//              }
+//
+//              if (local.SuperId === 0) {
+//                  localCount(local.cities);
+//              }
+//
+//              if (local.SuperId > 0 && local.SuperId < 100) {
+//                  localCount(local.regions);
+//              }
+//          }
+//      };
+//
+//      //localCount(bMonitor.provinces);
+//      bMonitor.aProvince = null;
+//      if (bMonitor.province && bMonitor.provinces.length > 0) {
+//          bMonitor.provinces[0].Name = '所在区域';
+//          bMonitor.aProvince = bMonitor.provinces[0];
+//
+//      }
+//      bMonitor.aCity = null;
+//      bMonitor.aRegion = null;
+//
+//      bMonitor.aEvaporate = bMonitor.evaporates[0];
+//      bMonitor.aForm = bMonitor.forms[0];
+//      bMonitor.aMedium = bMonitor.mediums[0];
+//      bMonitor.aOrg = bMonitor.organizations[0];
+//      //bMonitor.aProvince = bMonitor.provinces[0];
+//      bMonitor.aFuel = bMonitor.fuels[0];
+//
+//      bMonitor.aLocation = null;
+//      bMonitor.aQuery = "";
+//
+//      console.info("bMonitor.aOrg:", bMonitor.aOrg);
+//  };
+//	
+//	
+	
+	
 })
 
 mainApp.controller("DashboardController",function($scope, $rootScope, $http, $filter, $state){
@@ -342,7 +455,7 @@ mainApp.controller("mapController",function($scope,$location,productData){
         });
 	
 	
-	bMonitor.mapRowClicked = function (boiler) {
+	$scope.mapRowClicked = function (boiler) {
         // Unbind first in order to avoid any duplicate handler (see https://github.com/l-lin/angular-datatables/issues/87)
         console.warn("Click Row:", boiler);
         if (!boiler.Address) {

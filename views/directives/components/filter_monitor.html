@@ -19,14 +19,14 @@
             </div>
         </div>
         <div class="form-switch col-md-2 col-sm-2 col-xs-4">
-            <!--<div class="form-group">
+            <div class="form-group">
                 <input bs-switch
                        ng-model="dashboard.aBurning"
                        ng-change="dashboard.filterBoilers()"
                        type="checkbox"
                        switch-on-text="燃烧"
                        switch-off-text="停燃"
-                       switch-on-color="success"
+                       switch-on-color="info"
                        switch-off-color="danger"
                        switch-animate="{{ true }}"
                        switch-size="{{ size }}"
@@ -38,13 +38,13 @@
                        switch-wrapper="{{ wrapper }}"
                        switch-inverse="false"
                        style="width: 100%">
-            </div>-->
-        		停燃
+            </div>
+        		<!--停燃
 				<label class="switch switch-lg">
 			        <input type="checkbox" checked />
 			       <span></span>
 			    </label> 
-			    燃烧
+			    燃烧-->
         
         </div>
         <div class="form-group col-md-6 col-sm-6 col-xs-12">
@@ -71,8 +71,8 @@
 				</select>
             </div>
             <div class="form-group last col-md-4 col-sm-4 col-xs-4">
-                <select class="form-control" ng-model="selectedCompany" ng-change="selectCompany(selectedCompany)" ng-options="item for item in productData | orderBy:'company' | unique:'company'">
-					<option selected="selected" value="">企业不限</option>
+                <select class="form-control" ng-model="selectedEvaporate" ng-change="" ng-options="item.Text for item in evaporates">
+					
 				</select>
             </div>
         </div>

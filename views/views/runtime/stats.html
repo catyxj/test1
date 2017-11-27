@@ -94,6 +94,7 @@
 
 	<div class="row">
 		<div class="col-md-4  portlet-state">
+			<!-- BEGIN SAMPLE TABLE PORTLET-->
 			<div class="portlet light portlet-fit bordered">
 				<div class="portlet-title">
 					<div class="caption">
@@ -102,9 +103,8 @@
 					</div>
 					<div class="actions">
 						<h6 class="font-grey-salsa">
-				                        采样时间:<!-- {{ runtime.instants[0].date | amDateFormat:'YYYY-MM-DD HH:mm:ss'}}-->
-				                        2017-09-19 17:18:09
-				                    </h6>
+				                        采样时间: {{ runtime.instants[0].date | amDateFormat:'YYYY-MM-DD HH:mm:ss'}}				                       
+				        </h6>
 					</div>
 				</div>
 
@@ -120,24 +120,21 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>蒸汽温度</td>
-									<td>38.6</td>
-									<td>℃</td>
-									<td><button type="button" class="btn btn-info btn-xs">正常</button></td>
-								</tr>
-								<tr>
-									<td>排烟温度(低)</td>
-									<td>38.6</td>
-									<td>℃</td>
-									<td><button type="button" class="btn btn-info btn-xs">正常</button></td>
+								<tr ng-repeat="d in runtime.instants">
+									<td> {{d.name}} </td>
+									<td> {{d.value}} </td>
+									<td> {{d.unit}} </td>
+									<td>
+										<span ng-class="['label', 'label-sm', {'label-success': d.alarmLevel == 0}, {'label-default': d.alarmLevel == -1}, {'label-warning': d.alarmLevel == 1}, {'label-danger': d.alarmLevel == 2}]">{{d.alarmDesc}}</span>
+									</td>
 								</tr>
 							</tbody>
 						</table>
 					</div>
 				</div>
 			</div>
-
+			<!-- END SAMPLE TABLE PORTLET-->
+			<!-- BEGIN BORDERED TABLE PORTLET-->
 			<div class="portlet light portlet-fit bordered">
 				<div class="portlet-title">
 					<div class="caption">
@@ -156,79 +153,79 @@
 							<tbody>
 								<tr>
 									<td width="30%">注册码</th>
-									<td>{{data[0].registrationCode}}</td>
+										<td>{{data[0].registrationCode}}</td>
 								</tr>
 								<tr>
 									<td>锅炉型号</th>
-									<td>{{data[0].model}}</td>
+										<td>{{data[0].model}}</td>
 								</tr>
 								<tr>
 									<td>锅炉燃料</th>
-									<td>燃气</td>
+										<td>
+											<i ng-show="runtime.boiler.Fuel.Type.TypeId == 1" class="fa fa-cubes font-grey-cascade"></i>
+											<i ng-show="runtime.boiler.Fuel.Type.TypeId == 2" class="fa fa-tint font-grey-gallery"></i>
+											<i ng-show="runtime.boiler.Fuel.Type.TypeId == 3" class="fa fa-database font-blue-soft"></i>
+											<i ng-show="runtime.boiler.Fuel.Type.TypeId == 4" class="fa fa-leaf font-green-jungle"></i>
+											<i ng-show="runtime.boiler.Fuel.Type.TypeId > 4" class="fa fa-sun-o font-grey"></i> {{ runtime.boiler.Fuel.Name }}
+										</td>
 								</tr>
 								<tr>
 									<td>生产厂家</th>
-									<td>{{data[0].company}}</td>
+										<td>{{data[0].company}}</td>
 								</tr>
 								<tr>
 									<td>使用企业</th>
-									<td>{{data[0].company}}</td>
+										<td>{{ runtime.boiler.Enterprise.Name }}</td>
 								</tr>
 								<tr>
 									<td>额定蒸发量</th>
-									<td>2 t/h</td>
+										<td>{{ runtime.boiler.EvaporatingCapacity }} t/h</td>
 								</tr>
 								<tr>
 									<td>对应终端</th>
-									<td>Data</td>
+										<td>{{ runtime.boiler.Terminal.Name }} [机组{{ runtime.boiler.TerminalSetId }}]</td>
 								</tr>
 							</tbody>
 						</table>
-
 					</div>
-
 				</div>
-
 			</div>
-
+			<!-- END BORDERED TABLE PORTLET-->
 		</div>
+
 		<div class="portlet-chart col-md-8">
+			
+			
 			<div class="row">
-				<!--<div class="runtime_d_header">
-								<h4>蒸汽温度</h4>
-								<div class="float_right full">
-									<span class="glyphicon glyphicon-resize-full" aria-hidden="true"></span>
-								</div>
-							</div>-->
+				<div class="col-md-6">
+					<chart-temperature></chart-temperature>
+				</div>
+				<div class="col-md-6">
+					<chart-smoke-components></chart-smoke-components>
+				</div>
+			</div>
+			<div class="row">
 				<div class="col-md-12">
 					<chart-steam></chart-steam>
 				</div>
 			</div>
 
 			<div class="row">
-				<!--<div class="runtime_d_header">
-								<h4>排烟温度（低）</h4>
-								<div class="float_right  full">
-									<span class="glyphicon glyphicon-resize-full" aria-hidden="true"></span>
-								</div>
-							</div>-->
+				<div class="col-md-6">
+					<chart-excess-air></chart-excess-air>
+				</div>
+				<div class="col-md-6">
+					<chart-heat></chart-heat>
+				</div>
+			</div>
+
+			<div class="row">
 				<div class="col-md-12">
-					<chart-temperature></chart-temperature>
+					<chart-heat-month></chart-heat-month>
 				</div>
 			</div>
 
 		</div>
 	</div>
-
-	<!--<div class="row">
-					<div class="col-md-4 col-sm-12 col-xs-12 runtime_data1">
-						
-					</div>
-					<div class="col-md-8 col-sm-12 col-xs-12 runtime_data2">
-						
-					</div>
-				</div>-->
-
 </div>
 
-</div>

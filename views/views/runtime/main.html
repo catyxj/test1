@@ -17,9 +17,9 @@
 </div>
 
 
-	<div class="page_content">
+	<div  ng-init="runtime.init();" class="page_content" >
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-12" ng-init="runtime.fetchBoiler();">
 				<div class="portlet light portlet-fit bordered">
 					<div class="portlet-title">
 						<div class="caption">
@@ -35,27 +35,30 @@
 	                        <span class="caption-subject font-blue uppercase"><i class="fa fa-phone font-blue-dark"></i> {{runtime.boiler.Contact.MobileNumber}}</span>
 	                    </div>
 	                    <div class="actions">            	
-							<a ui-sref-active="active" ui-sref=".dashboard" 
-								class="btn blue btn-outline btn-circle btn-sm" href="" role="button">
+							<a ui-sref-active="active" ui-sref=".dashboard({boiler: runtime.boiler.Uid})" 
+								class="btn blue btn-outline btn-circle btn-sm">
 								动画监测
 							</a>
-							<a ui-sref-active="active" ui-sref=".stats" 
-								class="btn blue btn-outline btn-circle btn-sm" href="" role="button">
+							<a ui-sref-active="active" ui-sref=".stats({boiler: runtime.boiler.Uid})" 
+								class="btn blue btn-outline btn-circle btn-sm">
 								运行参数
 							</a>
-							<a ui-sref-active="active" ui-sref=".history" 
-								class="btn blue btn-outline btn-circle btn-sm" href="#" role="button">
+							<a ui-sref-active="active" ui-sref=".history({boiler: runtime.boiler.Uid})" 
+								class="btn blue btn-outline btn-circle btn-sm">
 								历史数据
 							</a>
-							<a ui-sref-active="active" ui-sref=".alarm" 
-								class="btn blue btn-outline btn-circle btn-sm" href="" role="button">
-								锅炉警告
+							<a ui-sref-active="active" ui-sref=".alarm({boiler: runtime.boiler.Uid})" 
+								class="btn blue btn-outline btn-circle btn-sm">
+								锅炉告警
 							</a>
-							<a ui-sref-active="active" ui-sref=".maintain"  
-								class="btn blue btn-outline btn-circle btn-sm" href="" role="button">
+							<a ui-sref-active="active" ui-sref=".maintain({boiler: runtime.boiler.Uid})"  
+								class="btn blue btn-outline btn-circle btn-sm">
 								维保记录
 							</a>
-							<a class="btn blue btn-outline btn-circle btn-sm" href="" role="button">...</a>
+							<a ui-sref-active="active" ui-sref="runtime.developer({boiler: runtime.boiler.Uid})"								
+								 class="btn blue btn-outline btn-circle btn-sm">
+								 <i class="fa fa-ellipsis-h"></i>
+							</a>
 						</div>
 					</div>
 					<div class="portlet-body">

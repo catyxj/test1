@@ -1,7 +1,7 @@
 <div>
 	<div class="modal-header">
-		<button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times;</span></button>
-		<h4 class="modal-title"> {{data.title}}	</h4>
+		<button type="button" class="close" ng-click="$modal.cancel()"><span aria-hidden="true">&times;</span></button>
+		<h4 class="modal-title"> {{$modal.title}}	</h4>
 
 	</div>
 	<div class="modal-body">
@@ -10,16 +10,18 @@
 				<div class="form-group col-md-6">
 					<div class="input-group">
 						<label class="input-group-addon" >企业名称</label>
-						<input ng-model="data.Name" type="text" 
+						<input ng-model="$modal.name" type="text" 
+							ng-disabled="!$modal.editing"
 							class="form-control" 
 							placeholder="输入名称">
 					</div>
 				</div>
 
 				<div class="form-group col-md-6">
-					<select class="form-control" ng-model="data.Type.Name" 
-						ng-options="item.name for item in orgTypes">
-						<option value="">企业类型(请选择)</option>
+					<select class="form-control" ng-model="$modal.typeId" 						
+						ng-options="type.id as type.name for type in orgTypes"
+						ng-disabled="!$modal.editing">
+						
 					</select>
 				</div>
 			</div>
@@ -28,24 +30,36 @@
 				<div class="form-group col-md-6">
 					<div class="input-group">
 						<label class="input-group-addon">企业地址</label>
-						<input ng-model="data.Address.Address" type="text" 
+						<input ng-model="$modal.address" type="text" 
+							ng-disabled="!$modal.editing"
 							class="form-control" placeholder="输入地址详情" >
 					</div>
 				</div>
 
 				<div class="form-location col-md-6 col-sm-6">
 					<div class="form-group col-md-4 col-sm-4">
-						<select class="form-control " ng-model="data.Address.Location.LocationName">
-							<option value="">所在区域</option>
-						</select>
+						<select ng-model="$modal.aProvince"
+		                        ng-options="prov.Name for prov in locations"
+		                        ng-change="$modal.changeProvince();"
+		                        ng-disabled="!$modal.editing"
+		                        class="form-control">
+		                </select>
 					</div>
 					<div class="form-group col-md-4 col-sm-4">
-						<select class="form-control ">
-						</select>
+						<select ng-model="$modal.aCity"
+		                        ng-options="city.Name for city in $modal.aProvince.cities"
+		                        ng-change="$modal.changeCity();"
+		                        ng-disabled="!$modal.editing || $modal.aProvince.LocationId == 0"
+		                        class="form-control">
+		                </select>
 					</div>
 					<div class="form-group col-md-4 col-sm-4">
-						<select class="form-control">
-						</select>
+						<select ng-model="$modal.aRegion"
+		                        ng-options="region.Name for region in $modal.aCity.regions"
+		                        ng-change="$modal.changeRegion();"
+		                        ng-disabled="!$modal.editing || !$modal.aCity || $modal.aCity.LocationId == 0"
+		                        class="form-control">
+		                </select>
 					</div>
 				</div>
 
@@ -53,21 +67,49 @@
 			
 			<hr style="margin-top: 6px;">
 			<div class="row">
-				<div class="col-md-6">
+				<!--<div class="col-md-6">
 					显示企业标识
 					<label class="switch switch-lg">
 				        <input type="checkbox" checked="checked">
 				       <span></span>
 				    </label>
-				</div>
-				
+				</div>-->
+				<div ng-show="$modal.editing && currentUser.Role.RoleId < 10" 
+		             class="form-group col-lg-6 col-md-6 col-sm-6">
+		            <label class="control-label" style="font-size: 15px; margin-right: 6px;">显示企业标识</label>
+		            <input bs-switch
+		                   ng-model="$modal.showBrand"
+		                   type="checkbox"
+		                   switch-on-text="打开"
+		                   switch-off-text="关闭"
+		                   switch-on-color="info"
+		                   switch-off-color="default"
+		                   switch-animate="{{ true }}"
+		                   switch-size="{{ size }}"
+		                   switch-label="{{ label }}"
+		                   switch-icon="{{ icon }}"
+		                   switch-radio-off="{{ true }}"
+		                   switch-label-width="auto"
+		                   switch-handle-width="auto"
+		                   switch-wrapper="{{ wrapper }}"
+		                   switch-inverse="false"
+		                   style="width: 100%">
+		        </div>
 				<div class="form-group col-lg-6 col-md-6 col-sm-6">
 					<div class="input-group">
 						<label class="input-group-addon" >企业标识</label>
-						<input ng-model="data.Address.Address" type="text" 
-							class="form-control" placeholder="输入首页显示的企业标识">
+						<input ng-model="$modal.brandName" type="text"
+							ng-disabled="!$modal.editing || !$modal.showBrand"
+							class="form-control" 
+							placeholder="{{$modal.showBrand ? '输入首页显示的企业标识' : '不显示'}}">
 					</div>
 				</div>
+				
+				<div ng-show="!$modal.editing"
+		             class="form-group col-lg-6 col-md-6 col-sm-6"
+		             style="padding-top: 6px;">
+		            如需更改企业标识，请与平台管理员联系。
+		        </div>
 				
 			</div>
 			
@@ -75,11 +117,12 @@
 	</div>
 	<div class="modal-footer">
 
-		<button class="btn btn-primary" ng-click="ok()">
-								                保存
-								 </button>
-		<button class="btn btn-default" ng-click="cancel()">
-								                取消
-								</button>
+		<button class="btn btn-primary" ng-show="$modal.editing"
+			id="boiler_ok" ng-click="$modal.ok()">
+			保存
+		</button>
+		<button class="btn btn-default" ng-click="$modal.cancel()">
+			取消
+		</button>
 	</div>
 </div>

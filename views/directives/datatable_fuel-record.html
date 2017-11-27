@@ -1,0 +1,77 @@
+
+<style type="text/css">
+    table.table-boiler th,
+    table.table-boiler tbody tr td
+    {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    table.table-boiler th
+    {
+        font-size: medium;
+    }
+    table.table-boiler td span.light-gray {
+        color: #aaa;
+    }
+</style>
+<table datatable="ng" dt-options="fuel.dtOptions" dt-column-defs="fuel.dtColumnDefs"
+       class="table table-striped table-bordered table-hover table-checkable order-column table-boiler"
+       id="fuel_record_table">
+    <thead>
+    <tr>
+        <th>序号</th>
+        <th>对应锅炉</th>
+        <th>起止时间</th>
+        <th>消耗燃料</th>
+        <th>产能比(蒸汽量/燃料量)</th>
+        <th>评级</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+
+    <tbody style="text-align: center">
+    <tr ng-repeat='data in fuel.datasource'>
+        <td> {{ data.num }} </td>
+        <td>
+            <a ng-show="!alarm.query['boiler']" ui-sref="runtime.alarm({boiler: data.Boiler.Uid})" class="font-grey-mint">{{ data.Boiler.Name }}</a>
+            <span ng-show="alarm.query['boiler']" class="font-grey-mint">{{ data.Boiler.Name }}</span>
+            <br>
+            <span class="label label-sm label-default">
+                {{ data.Boiler.Enterprise.Name }}
+            </span>
+        </td>
+        <td>
+            <span ng-class="['label', 'label-lg', {'label-info': data.Priority == 0}, { 'label-warning': data.Priority == 1}, { 'label-danger': data.Priority == 2} ]" >
+                {{ data.Parameter.Name }}
+            </span>
+        </td>
+        <td>
+            {{ data.StartDate | amDateFormat:'YYYY-MM-DD HH:mm' }} ~ {{ data.EndDate | amDateFormat:'YYYY-MM-DD HH:mm' }} <br>
+            <span class="label label-primary">
+                {{ data.duraText }}
+            </span>
+            <!--<span>Scheduled {{data.EndDate | amDifference : data.StartDate : 'minutes' }} days from now</span>-->
+        </td>
+        <!--td> {{ data.EndDateStr }} </td-->
+        <td>
+            <span ng-class="['label', 'label-lg', {'label-default': data.Status == 0 || data.Status == 10}, {'label-warning': data.Status == 1}, {'label-info': data.Status == 2}, { 'label-primary': data.Status == 3}, {'label-danger': data.Status == 4}, {'label-success': data.Status == 5} ]" >
+                {{ data.statText }}
+            </span>
+        </td>
+        <!--td> {{ data.rtmLen}} </td-->
+        <td>
+            <a ng-show="data.Status < 5" ng-disabled="data.Statue == 3" ng-click="alarm.confirm(data.Uid)" class="btn view btn-outline btn-circle blue">
+                <i ng-show="data.Statue != 3" class="fa fa-check-square-o"> 确认 </i>
+                <i ng-show="data.Statue == 3" class="fa fa-hourglass-2"> 待审核 </i>
+            </a>
+            <a ng-show="data.Status == 3" ng-click="alarm.check(data.Uid)" class="btn view btn-outline btn-circle green">
+                <i class="fa fa-legal"> 审核 </i>
+            </a>
+            <a ng-show="data.Status == 3" ng-click="alarm.reject(data.Uid)" class="btn view btn-outline btn-circle red">
+                <i class="fa fa-hand-paper-o"> 驳回 </i>
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>

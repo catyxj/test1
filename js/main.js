@@ -6,6 +6,7 @@ var mainApp = angular.module("BoilerAdmin",[
 	"oc.lazyLoad",
 	"angularMoment",
 	"ui.select",
+	'frapontillo.bootstrap-switch',
 	]);
 
 
@@ -80,21 +81,24 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: "views/monitor/map.html",
             data: {pageTitle: '设备地图'},
             controller: "mapController",
-            resolve: {
-    		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
-             return $ocLazyLoad.load([
-             	          	
-		             ]);
-		    }]
-		  }
+            
         })
+        
+        /*============= RUNTIME BEGIN =============*/
+    $stateProvider
         .state("runtime", {
-            url:"/runtime",
+            url:"/runtime?:boiler:from",
             templateUrl: "views/runtime/main.html",
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
-             return $ocLazyLoad.load([        
-             	
+             return $ocLazyLoad.load([ 
+             	'../js/directives/chart_steam.js',
+             	'../js/directives/chart_temperature.js',
+             	'../js/directives/chart_smoke-components.js',
+                '../js/directives/chart_excess-air.js',
+                '../js/directives/chart_heat.js',
+                '../js/directives/chart_heat_month.js',
+                '../js/controllers/BoilerRuntimeController.js', 
 		             ]);
 		    }]
 		  }
@@ -106,8 +110,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([        
-             	'../js/directives/boiler_module.js',
-             	
+             	'../js/directives/boiler_module.js',             	
 		             ]);
 		    }]
 		  }
@@ -116,15 +119,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
             url:"/stats",
             templateUrl: "views/runtime/stats.html",
             data: {pageTitle: '运行参数'},
-            resolve: { 
-    		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
-             return $ocLazyLoad.load([        		             	
-             	'../js/controllers/runtimeController.js',
-             	'../js/directives/chart_steam.js',
-             	'../js/directives/chart_temperature.js',
-		             ]);
-		    }]
-		  }
+            
         })
         .state("runtime.history", {
             url:"/history",
@@ -146,7 +141,8 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
-             	'../js/controllers/alarmController.js',            	
+             	'../js/controllers/alarmController.js', 
+             	'../js/directives/chart_alarm.js', 
 		             ]);
 		    }]
 		  }
@@ -163,6 +159,39 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
 		    }]
 		  }
         })
+        .state("runtime.info", {
+            url: "/info",
+            templateUrl: "views/runtime/info.html",
+            controller: "BoilerInfoController",
+            controllerAs: "info",
+            data: {pageTitle: '设备信息'},
+            resolve: { 
+    		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+             return $ocLazyLoad.load([
+             	'../js/controllers/BoilerInfoController.js',
+                '../js/directives/table_boiler-info.js'            	
+		             ]);
+		    }]
+		  }            
+        })
+        .state("runtime.developer", {
+            url: "/developer",
+            templateUrl: "views/runtime/developer.html",
+            data: {pageTitle: '调试设置'},
+            controller: "BoilerDeveloperController",
+            controllerAs: "developer",
+            resolve: { 
+    		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+             return $ocLazyLoad.load([
+             	 '../js/controllers/BoilerDeveloperController.js',
+		             ]);
+		    }]
+		  }            
+        })
+
+        
+        
+        
         .state("alarm", {
             url: "/alarm",
             templateUrl: "views/alarm.html",

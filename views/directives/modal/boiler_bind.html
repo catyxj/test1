@@ -1,0 +1,44 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title" style="display: inline-block;">终端绑定</h3>
+    <span class="ticket-id bold font-grey-mint font-lg" style="display: inline-block; margin-left: 12px;">{{ $modalBind.name }}</span>
+</div>
+<style type="text/css">
+    div.input-group.form-group,
+    div.btn-group.form-group{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    div.form-group.form-selector .control-label {
+        width: 15%;
+        margin-top: 6px;
+    }
+
+    div.form-group.form-selector select {
+        width: 85%;
+        float: right;
+    }
+
+</style>
+<div class="modal-body" id="modal-body">
+    <div class="row">
+        <div class="form-group col-md-12">
+            <label class="control-label">选择终端</label>
+            <ui-select ng-model="$modalBind.terminal" theme="bootstrap">
+                <ui-select-match placeholder="请输入要绑定的终端号...">{{$select.selected.text}}</ui-select-match>
+                <ui-select-choices repeat="ter in $modalBind.terminals | filter: $select.search">
+                    <span ng-bind-html="ter.text | highlight: $select.search"></span>
+                    <!--<small ng-bind-html="ter.text | highlight: $select.search"></small>-->
+                </ui-select-choices>
+
+            </ui-select>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button"
+            ng-click="$modalBind.ok()"
+            ng-disabled="!$modalBind.terminal"
+            ng-class="['btn', {'grey-salsa': !$modalBind.terminal}, {'blue': $modalBind.terminal}]" >绑定</button>
+    <button class="btn btn-default" type="button" ng-click="$modalBind.cancel()">取消</button>
+</div>
