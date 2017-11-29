@@ -1,0 +1,196 @@
+<div class="modal-header">
+    <div ng-show="$modal.dialogue"
+         style="display:inline-block; text-align: right; margin-right: 15px; float: right;">
+        <span class="font-blue-madison" style="font-size: 14px;">{{ $modal.dialogue.orgName }} ({{ $modal.dialogue.CreatedBy.Name }})</span>
+        <br>
+        <span style="font-size: 12px; color: #999;">{{ $modal.dialogue.CreatedDate | amDateFormat:'YYYY-MM-DD HH:mm:ss' }}</span>
+    </div>
+    <h3 class="modal-title" id="modal-title" style="font-weight: bold;">{{ $modal.title }}</h3>
+</div>
+<style type="text/css">
+    .app-ticket {
+        overflow: hidden
+    }
+
+    .app-ticket h3 {
+        margin: 0 0 15px;
+        font-size: 14px;
+        font-weight: 700
+    }
+
+    .app-ticket h3 i {
+        color: #a1acb7;
+        margin-right: 5px
+    }
+
+    .app-ticket p {
+        margin: 0
+    }
+
+    .app-ticket-details .row {
+        margin-bottom: 20px
+    }
+
+    .app-ticket-details .ticket-line {
+        width: 100%;
+        height: 1px;
+        border-bottom: 1px solid;
+        border-color: #e7ecf1;
+        margin-bottom: 30px;
+    }
+
+    .app-ticket-details .ticket-id, .app-ticket-details .ticket-title {
+        display: inline-block;
+        font-size: 16px;
+        margin-right: 30px
+    }
+
+    .app-ticket-details .ticket-cust a:hover {
+        text-decoration: none
+    }
+
+    .app-ticket-details .ticket-reply-msg {
+        width: 100%;
+        height: 7em;
+        border-color: #e7ecf1;
+        outline: 0
+    }
+
+    .app-ticket-details .ticket-assign, .app-ticket-details .ticket-status {
+        padding: 5px;
+        border: 1px solid #e7ecf1;
+        outline: 0
+    }
+
+    .app-ticket-config .ticket-counter {
+        text-align: center
+    }
+
+    .app-ticket-config .ticket-counter > h4 {
+        font-size: 24px
+    }
+
+    @media (max-width: 991px) {
+        .app-ticket-details .ticket-margin {
+            margin-top: 30px
+        }
+    }
+
+    @media (max-width: 480px) {
+        .app-ticket-config .ticket-counter {
+            margin-bottom: 30px
+        }
+    }
+
+    div.input-group.form-group,
+    div.btn-group.form-group{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    div.form-group.form-selector .control-label {
+        width: 26%;
+        margin-top: 6px;
+        text-align: center;
+    }
+
+    div.form-group.form-selector select {
+        width: 74%;
+        float: right;
+    }
+
+</style>
+<div class="modal-body app-ticket app-ticket-details" id="modal-body">
+    <div class="portlet-body" ng-show="$modal.dialogue">
+        <!-- BEGIN: Comments -->
+        <div class="mt-comments">
+            <div class="mt-comment" ng-repeat="comment in $modal.dialogue.Comments">
+                <div class="mt-comment-img">
+                    <img width="40px;" height="40px;" ng-src="{{ settings.layoutPath }}/img/{{ comment.CreatedBy.Picture }}" /> </div>
+                <div class="mt-comment-body">
+                    <div class="mt-comment-info">
+                        <span class="mt-comment-author">{{ comment.CreatedBy.Name }}</span>
+                        <span class="mt-comment-date">{{ comment.CreatedDate | amDateFormat:'YYYY-MM-DD HH:mm:ss' }}</span>
+                    </div>
+                    <div class="mt-comment-text"> {{ comment.Content }} </div>
+                    <!--
+                    <div class="mt-comment-details">
+                        <span class="mt-comment-status mt-comment-status-pending">Pending</span>
+                        <ul class="mt-comment-actions">
+                            <li>
+                                <a href="#">Quick Edit</a>
+                            </li>
+                            <li>
+                                <a href="#">View</a>
+                            </li>
+                            <li>
+                                <a href="#">Delete</a>
+                            </li>
+                        </ul>
+                    </div>
+                    -->
+                </div>
+            </div>
+
+        </div>
+        <!-- END: Comments -->
+    </div>
+    <!--
+    <form class="form-group">
+        <div class="row">
+            <div class="col-xs-12">
+                <h3>
+                    <i class="icon-action-redo"></i> Ticket Reply</h3>
+                <textarea class="ticket-reply-msg" row="10"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <h3>
+                    <i class="icon-user-follow"></i> Assign to</h3>
+                <select class="ticket-assign">
+                    <option value="">Hugh Jackman</option>
+                    <option value="">Matt Damon</option>
+                    <option value="">Marcus Doe</option>
+                    <option value="">Jennifer Lawrance</option>
+                    <option value="">Jodi Foster</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <h3 class="ticket-margin">
+                    <i class="icon-calendar"></i> Due Date</h3>
+                <input class="form-control form-control-inline input-small date-picker" size="16" type="text" value="" /> </div>
+            <div class="col-md-4">
+                <h3 class="ticket-margin">
+                    <i class="icon-info"></i> Status</h3>
+                <select class="ticket-status">
+                    <option value="">New</option>
+                    <option value="">Pending</option>
+                    <option value="">Processed</option>
+                    <option value="">Completed</option>
+                </select>
+            </div>
+        </div>
+        <button class="btn btn-square uppercase bold green" type="submit">Submit</button>
+    </form>
+    -->
+
+    <!--
+    <div class="form-group col-md-12" ng-show="!$modal.dialogue">
+        <label><i class="fa fa-commenting-o"></i> 咨询标题：</label>
+        <input type="text" ng-model="$modal.topic" class="form-control ng-pristine ng-valid ng-touched has-success" placeholder="咨询标题">
+
+    </div>
+    -->
+    <div class="form-group col-md-12">
+        <label><i ng-class="[{ 'icon-note' : !$modal.dialogue }, { 'icon-action-redo' : $modal.dialogue }]"></i> {{ $modal.feedbackTitle }}：</label>
+        <textarea ng-model="$modal.content" class="form-control ng-pristine ng-valid ng-touched has-success" placeholder="在这里输入内容">
+
+                </textarea>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary ladda-button" data-style="zoom-out" type="button" id="boiler_ok"
+            ng-click="$modal.ok()"><span class="ladda-label">提交确认</span></button>
+    <button class="btn btn-default" type="button" ng-click="$modal.cancel()">取消</button>
+</div>

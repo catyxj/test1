@@ -1,11 +1,19 @@
-mainApp.controller("monitorController",function($scope){
+mainApp.controller("monitorController",function($rootScope,$scope){
 	$scope.itemArray= [{ id: 1, name: '东莞天鹿锅炉有限公司' },  
                    {id: 2, name: '青岛胜利锅炉有限公司' },  
                    {id: 3, name: '广州特种承压设备检测研究院' },  
                    {id: 4, name: '长宏南雁锅炉01' },  
                    {id: 5, name: '东南毛纺织染锅炉' }];  
    	$scope.selected = { value: $scope.itemArray[0] }; 
-	$scope.evaporates = [
+
+	
+	 $scope.initSearch = function () {
+        $scope.provinces = $rootScope.locations;
+        $scope.citis = [];
+        $scope.regions = [];
+        $scope.organizations = [{Uid: '', name: '所属企业（不限）'}];
+        $scope.aBurning = undefined;
+        $scope.evaporates = [
             {id: 0, Text: '额定蒸发量（不限）'},
             {id: 1, Text: 'D≤1'},
             {id: 2, Text: '1<D≤2'},
@@ -13,59 +21,40 @@ mainApp.controller("monitorController",function($scope){
             {id: 4, Text: '8<D≤20'},
             {id: 5, Text: 'D>20'}
         ];
-	$scope.selectedEvaporate = $scope.evaporates[0]; 
-	
-//	 bMonitor.initSearch = function () {
-//      bMonitor.provinces = $rootScope.locations;
-//      bMonitor.citis = [];
-//      bMonitor.regions = [];
-//
-//      bMonitor.organizations = [{Uid: '', name: '所属企业（不限）'}];
-//
-//      bMonitor.aBurning = undefined;
-//
-//      bMonitor.evaporates = [
-//          {id: 0, Text: '额定蒸发量（不限）'},
-//          {id: 1, Text: 'D≤1'},
-//          {id: 2, Text: '1<D≤2'},
-//          {id: 3, Text: '2<D≤8'},
-//          {id: 4, Text: '8<D≤20'},
-//          {id: 5, Text: 'D>20'}
-//      ];
-//      bMonitor.mediums = [{Name: '锅炉介质（不限）'}];
-//      bMonitor.forms = [{Name: '锅炉型态（不限）'}];
-//      bMonitor.fuels = [{Name: '锅炉燃料（不限）'}];
-//
-//      for (var i = 0; $rootScope.organizations && i < $rootScope.organizations.length; i++) {
-//          var org = $rootScope.organizations[i];
-//          if (bMonitor.organizations.indexOf(org) > -1) {
-//              continue;
-//          }
-//          bMonitor.organizations.push(org);
-//      }
-//
-//      for (var i = 0; $rootScope.boilerMediums && i < $rootScope.boilerMediums.length; i++) {
-//          var med = $rootScope.boilerMediums[i];
-//          bMonitor.mediums.push(med);
-//      }
-//
-//      for (var i = 0; $rootScope.boilerForms && i < $rootScope.boilerForms.length; i++) {
-//          var form = $rootScope.boilerForms[i];
-//          if (form.Id === 0 || bMonitor.forms.indexOf(form) > -1) {
-//              continue;
-//          }
-//
-//          bMonitor.forms.push(form);
-//      }
-//
-//      for (var i = 0; $rootScope.fuelTypes && i < $rootScope.fuelTypes.length; i++) {
-//          var fuel = $rootScope.fuelTypes[i];
-//          if (fuel.Id === 0 || fuel.Id >= 5 || bMonitor.fuels.indexOf(fuel) > -1) {
-//              continue;
-//          }
-//          bMonitor.fuels.push(fuel);
-//      }
-//
+        $scope.mediums = [{Name: '锅炉介质（不限）'}];
+        $scope.forms = [{Name: '锅炉型态（不限）'}];
+        $scope.fuels = [{Name: '锅炉燃料（不限）'}];
+
+        for (var i = 0; $rootScope.organizations && i < $rootScope.organizations.length; i++) {
+            var org = $rootScope.organizations[i];
+            if ($scope.organizations.indexOf(org) > -1) {
+                continue;
+            }
+            $scope.organizations.push(org);
+        }
+
+        for (var i = 0; $rootScope.boilerMediums && i < $rootScope.boilerMediums.length; i++) {
+            var med = $rootScope.boilerMediums[i];
+            $scope.mediums.push(med);
+        }
+
+        for (var i = 0; $rootScope.boilerForms && i < $rootScope.boilerForms.length; i++) {
+            var form = $rootScope.boilerForms[i];
+            if (form.Id === 0 || $scope.forms.indexOf(form) > -1) {
+                continue;
+            }
+
+            $scope.forms.push(form);
+        }
+
+        for (var i = 0; $rootScope.fuelTypes && i < $rootScope.fuelTypes.length; i++) {
+            var fuel = $rootScope.fuelTypes[i];
+            if (fuel.Id === 0 || fuel.Id >= 5 || $scope.fuels.indexOf(fuel) > -1) {
+                continue;
+            }
+            $scope.fuels.push(fuel);
+        }
+
 //      var localCount = function (locations) {
 //          //console.warn("localCount", locations);
 //          if (!locations) {
@@ -100,8 +89,8 @@ mainApp.controller("monitorController",function($scope){
 //              }
 //          }
 //      };
-//
-//      //localCount(bMonitor.provinces);
+
+        //localCount(bMonitor.provinces);
 //      bMonitor.aProvince = null;
 //      if (bMonitor.province && bMonitor.provinces.length > 0) {
 //          bMonitor.provinces[0].Name = '所在区域';
@@ -110,21 +99,94 @@ mainApp.controller("monitorController",function($scope){
 //      }
 //      bMonitor.aCity = null;
 //      bMonitor.aRegion = null;
-//
-//      bMonitor.aEvaporate = bMonitor.evaporates[0];
-//      bMonitor.aForm = bMonitor.forms[0];
-//      bMonitor.aMedium = bMonitor.mediums[0];
-//      bMonitor.aOrg = bMonitor.organizations[0];
-//      //bMonitor.aProvince = bMonitor.provinces[0];
-//      bMonitor.aFuel = bMonitor.fuels[0];
-//
+
+		//初始化选项
+        $scope.aEvaporate = $scope.evaporates[0];
+        $scope.aForm = $scope.forms[0];
+        $scope.aMedium = $scope.mediums[0];
+        $scope.aOrg = $scope.organizations[0];
+        //bMonitor.aProvince = bMonitor.provinces[0];
+        $scope.aFuel = $scope.fuels[0];
+
 //      bMonitor.aLocation = null;
-//      bMonitor.aQuery = "";
-//
+        $scope.aQuery = "";
+
 //      console.info("bMonitor.aOrg:", bMonitor.aOrg);
-//  };
-//	
-//	
+    };
+	
+	$scope.initSearch();
+	
+	
+	
+	//过滤
+	//燃料类型		
+    $scope.fuelSelect = [
+    	{
+    		Id:1,
+			name:"燃煤",	
+    	},
+    	{
+    		Id:2,
+			name:"燃油",	
+    	},
+    	{
+    		Id:3,
+			name:"燃气",
+    	},
+    	{
+			Id:4,
+			name:"生物质",
+		}
+    ];
+	
+	var aForm = null;
+	var selectedFuel = null;
+	var aEvaporate = null;
+	
+	//Form select
+	$scope.selectModel = function(newCategory){
+		aForm = newCategory;
+		if(aForm.Id==null){
+			aForm=null;
+		}
+		$scope.selectedpage = 1;
+		console.log(aForm);
+	}
+	$scope.modelFilterFn = function(product){
+		return aForm == null ||
+		product.Form.Id == aForm.Id;		 
+	}	
+	
+	//Fuel select
+	$scope.selectFuel = function(newCategory){
+		selectedFuel = newCategory;
+		$scope.selectedpage = 1;
+	}
+	$scope.fuelFilterFn = function(product){
+		return selectedFuel == null ||
+		 product.Fuel.Type.name == selectedFuel.name;
+	}
+	
+	//aEvaporate select
+	$scope.selectaEvaporate = function(newCategory){
+		aEvaporate = newCategory;
+		if(aEvaporate.id==0){
+			aEvaporate=null;
+		}
+		$scope.selectedpage = 1;
+		console.log(aEvaporate);
+	}					
+	$scope.aEvaporateFilterFn = function(product){
+		return aEvaporate == null ||
+		product.EvaporatingCapacity == aEvaporate.id;
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 })

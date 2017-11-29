@@ -1,0 +1,125 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title" style="display: inline-block;">锅炉地址信息设置</h3>
+    <span class="ticket-id bold font-blue font-lg" style="display: inline-block; margin-left: 12px">#{{ $modal.name }}</span>
+</div>
+<style type="text/css">
+    div.input-group.form-group,
+    div.btn-group.form-group{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    div.form-group.form-selector .control-label {
+        width: 26%;
+        margin-top: 6px;
+        text-align: left;
+    }
+
+    div.form-group.form-selector select,
+    div.form-group.form-selector input {
+        width: 74%;
+        float: right;
+    }
+
+    .modal-body .input-group span.unit {
+        position: absolute;
+        left:auto;
+        right:16px;
+        top:8px;
+        float:right;
+        z-index: 10;
+        color: grey;
+    }
+
+    .modal-body h5 {
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    .modal-body hr {
+        margin-top: 4px;
+        margin-bottom: 12px;
+    }
+
+    .form-location .form-group {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+</style>
+<!--<form name="infoBasicForm" ng-submit="infoBasicForm.$valid && $modal.save()">-->
+<form name="infoLocationForm" ng-submit="$modal.save()">
+    <div class="modal-body" id="modal-body">
+        <div class="row">
+            <div class="form-group col-md-6 col-sm-6">
+                <div class="input-group">
+                    <span class="input-group-addon">所在地址</span>
+                    <input type="text"
+                           ng-model="address"
+                           class="form-control ng-pristine ng-valid ng-touched has-success"
+                           placeholder="输入详细地址">
+                </div>
+            </div>
+            <div class="form-location col-md-6 col-sm-6">
+                <div class="form-group col-md-4 col-sm-4 col-xs-4">
+                    <select ng-model="aProvince"
+                            ng-options="prov.Name for prov in locations"
+                            ng-change="$modal.changeProvince();"
+                            class="form-control">
+                    </select>
+                </div>
+                <div class="form-group col-md-4 col-sm-4 col-xs-4">
+                    <select ng-model="aCity"
+                            ng-options="city.Name for city in aProvince.cities"
+                            ng-change="$modal.changeCity();"
+                            ng-disabled="!aProvince || aProvince.LocationId == 0"
+                            class="form-control">
+                    </select>
+                </div>
+                <div class="form-group col-md-4 col-sm-4 col-xs-4">
+                    <select ng-model="aRegion"
+                            ng-options="region.Name for region in aCity.regions"
+                            ng-change="$modal.changeRegion();"
+                            ng-disabled="!aCity || aCity.LocationId == 0"
+                            class="form-control">
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-lg-6 col-md-6 col-sm-6">
+                <div class="input-group">
+                    <span class="input-group-addon">经度</span>
+                    <input type="number" max="180.0" min="-180.0"
+                           step="any"
+                           ng-model="longitude"
+                           class="form-control ng-pristine ng-touched has-success"
+                           placeholder="输入所在地经度(0.0 - 180.0)">
+                </div>
+            </div>
+            <div class="form-group col-lg-6 col-md-6 col-sm-6">
+                <div class="input-group">
+                    <span class="input-group-addon">纬度</span>
+                    <input type="number" max="90.0" min="0.0"
+                           step="any"
+                           ng-model="latitude"
+                           class="form-control ng-pristine ng-touched has-success"
+                           placeholder="输入所在地经度(0.0 - 90.0)">
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="modal-map-container"
+                     style="height: 440px; border-radius: 6px;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="submit">保存</button>
+        <button class="btn btn-default" type="button" ng-click="$modal.cancel()">取消</button>
+    </div>
+</form>

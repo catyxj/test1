@@ -40,14 +40,7 @@ mainApp
 		
  	}
 })
-.directive("datatableConfigAlarm",function(){
-	return {		
-   		restrict:"E",
-   		templateUrl:"views/datatable/datatable_conf_alarm.html",
-   		replace: true
-		
- 	}
-})
+
 .directive("datatableHistory",function(){
 	return {		
    		restrict:"E",

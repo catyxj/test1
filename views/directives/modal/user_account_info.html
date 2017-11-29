@@ -1,0 +1,105 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title" style="display: inline-block;">添加新用户</h3>
+</div>
+<style type="text/css">
+    div.input-group.form-group,
+    div.btn-group.form-group{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .modal-body .input-group span.unit {
+        position: absolute;
+        left:auto;
+        right:16px;
+        top:8px;
+        float:right;
+        z-index: 10;
+        color: grey;
+    }
+
+    .modal-body .input-group a.addon,
+    .modal-section .input-group a.addon {
+        position: absolute;
+        left:auto;
+        right:6px;
+        top:6px;
+        float:right;
+        z-index: 10;
+        padding: 4px;
+        width: 22px;
+        height: 22px;
+        font-size: 12px;
+        line-height: 1em;
+    }
+
+    .modal-section {
+        padding: 15px;
+        text-align: right;
+        border-top: 1px solid #e5e5e5;
+    }
+
+</style>
+<div class="modal-body" id="modal-body">
+    <div class="row">
+        <div class="form-group col-md-6">
+            <div class="input-group">
+                <span class="input-group-addon">登录名</span>
+                <input type="text" ng-model="$modal.data.username"
+                       maxlength="16"
+                       class="form-control ng-pristine ng-valid ng-touched has-success"
+                       placeholder="请输入用户登录名" required>
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <div class="input-group">
+                <span class="input-group-addon">登录密码</span>
+                <input type="password" ng-model="$modal.data.password"
+                       maxlength="16"
+                       class="form-control ng-pristine ng-valid ng-touched has-success"
+                       placeholder="请输入初始密码" required>
+            </div>
+        </div>
+    </div>
+    <hr style="margin-top: 6px;">
+    <div class="row">
+        <div class="form-group col-md-6">
+            <div class="input-group">
+                <span class="input-group-addon">真实名称</span>
+                <input type="text" ng-model="$modal.data.fullname"
+                       class="form-control ng-pristine ng-valid ng-touched has-success"
+                       placeholder="请输入用户真实名称">
+            </div>
+        </div>
+        <div class="form-group form-selector col-md-6">
+            <div class="input-group">
+                <span class="input-group-addon">用户角色</span>
+                <select ng-model="$modal.data.role"
+                        ng-options="role.id as role.name for role in $modal.roles" class="form-control"></select>
+            </div>
+        </div>
+
+        <div class="form-group form-selector col-md-12">
+            <div class="input-group">
+                <span class="input-group-addon">所属企业</span>
+                <ui-select ng-model="$modal.data.org"
+                           ng-disabled="$modal.data.role < 10 || $modal.data.role >= 20"
+                           theme="bootstrap">
+                    <ui-select-match placeholder="输入企业名称或在列表中选择...">{{$select.selected.name}}</ui-select-match>
+                    <ui-select-choices group-by="'type'" repeat="org.Uid as org in organizations | filter: $select.search">
+                        <span ng-bind-html="org.name | highlight: $select.search"></span>
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <!--<button class="btn yellow-crusta" type="button" ng-show="$modal.editing && $modal.currentData" ng-click="$modal.reboot()" style="float: left">重新启动</button>-->
+    <!--<button class="btn red" type="button" ng-show="$modal.editing && $modal.currentData" ng-click="$modal.delete()">删除</button>-->
+    <button class="btn btn-primary ladda-button" data-style="zoom-out" type="button"
+            id="boiler_ok" ng-click="$modal.ok()">
+        <span class="ladda-label">提交</span></button>
+    <button class="btn btn-default" type="button" ng-click="$modal.cancel()">取消</button>
+</div>

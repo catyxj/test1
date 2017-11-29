@@ -55,7 +55,7 @@
 		</thead>
 		<tbody>
 			<tr ng-repeat="boiler in productData | filter:search
-				| orderBy: order+orderType | filter:modelFilterFn | filter:fuelFilterFn | filter:companyFilterFn 
+				| orderBy: order+orderType | filter:modelFilterFn | filter:fuelFilterFn | filter:aEvaporateFilterFn 
 				| range:selectedpage:pageSize">
 
 				<td>

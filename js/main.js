@@ -295,6 +295,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
         .state("terminal", {
             url: "/terminal",
             templateUrl: "views/terminal/main.html",
+            data: {pageTitle: '终端管理'},
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
@@ -307,6 +308,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
         .state("terminal.dashboard", {
             url: "/dashboard",
             templateUrl: "views/terminal/dashboard.html",
+            data: {pageTitle: '终端列表'},
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
@@ -319,6 +321,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
         .state("terminal.message", {
             url: "/message",
             templateUrl: "views/terminal/message.html",
+            data: {pageTitle: '终端消息调试'},
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
@@ -332,6 +335,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
         .state("config-runtime-alarm", {
             url: "/config-runtime-alarm",
             templateUrl: "views/config-runtime-alarm.html",
+            data: {pageTitle: '告警设置'},
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
@@ -368,6 +372,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
         .state("profile.account", {
             url:"/account",
             templateUrl: "views/profile/user-info.html",
+            data: {pageTitle: '账户设置'},
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
@@ -390,6 +395,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
         .state("wiki", {
             url: "/wiki",
             templateUrl: "views/wiki/main.html",
+            data: {pageTitle: '系统帮助'},
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
@@ -506,6 +512,15 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 				],
 				
 			],
+			EvaporatingCapacity: 3,
+			Form: {
+				Id: 201,
+				Name: "卧式单筒锅炉",
+				Type: {
+					Id: 2,
+					Name: "卧式锅炉",				
+				}
+			},
 		},
 		{
 			num:2,
@@ -560,6 +575,15 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 				],
 				
 			],
+			EvaporatingCapacity: 2,
+			Form: {
+				Id: 201,
+				Name: "卧式单筒锅炉",
+				Type: {
+					Id: 2,
+					Name: "卧式锅炉",				
+				}
+			},
 		},
 		{
 			num:3,
@@ -615,6 +639,15 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 				],
 				
 			],
+			EvaporatingCapacity: 2,
+			Form: {
+				Id: 201,
+				Name: "卧式单筒锅炉",
+				Type: {
+					Id: 2,
+					Name: "卧式锅炉",				
+				}
+			},
 		},
 		{
 			num:4,
@@ -669,8 +702,15 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 				],
 				
 			],
-			
-			
+			EvaporatingCapacity: 1,
+			Form: {
+				Id: 201,
+				Name: "卧式单筒锅炉",
+				Type: {
+					Id: 2,
+					Name: "卧式锅炉",				
+				}
+			},
 		},
 		{
 			num:5,
@@ -722,9 +762,17 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 						value:"41.1 ℃",
 						alarmLevel:0,
 					},
-				],
-				
+				],				
 			],
+			EvaporatingCapacity: 2,
+			Form: {
+				Id: 201,
+				Name: "卧式单筒锅炉",
+				Type: {
+					Id: 2,
+					Name: "卧式锅炉",				
+				}
+			},
 		},
 		{
 			num:6,
@@ -779,6 +827,15 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 				],
 				
 			],
+			EvaporatingCapacity: 3,
+			Form: {
+				Id: 205,
+				Name: "热水锅炉",
+				Type: {
+					Id: 2,
+					Name: "卧式锅炉",				
+				}
+			},
 		},
 		{
 			num:7,
@@ -833,6 +890,15 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 				],
 				
 			],
+			EvaporatingCapacity: 2,
+			Form: {
+				Id: 201,
+				Name: "卧式单筒锅炉",
+				Type: {
+					Id: 2,
+					Name: "卧式锅炉",				
+				}
+			},
 		},
 		{
 			num:8,
@@ -887,6 +953,15 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 				],
 				
 			],
+			EvaporatingCapacity: 2,
+			Form: {
+				Id: 202,
+				Name: "卧式双筒锅炉",
+				Type: {
+					Id: 2,
+					Name: "卧式锅炉",				
+				}
+			},
 		},
 		
 	]
@@ -1099,7 +1174,26 @@ mainApp.run(["$rootScope", "settings", "$state","$stateParams","$http","$timeout
                 
             });
 	
-    
+    $http.get('runtime_parameters.json/')
+            .then(function (res) {
+                $rootScope.parameters = res.data;
+            });
+    $http.get('boiler_fuel_list.json/')
+            .then(function (res) {
+                $rootScope.fuels = res.data;
+            });
+        $http.get('boiler_fuel_type_list.json/')
+            .then(function (res) {
+                $rootScope.fuelTypes = res.data;
+            });
+        $http.get('boiler_form_list.json/')
+            .then(function (res) {
+                $rootScope.boilerForms = res.data;
+            });
+        $http.get('boiler_medium_list.json/')
+            .then(function (res) {
+                $rootScope.boilerMediums = res.data;
+            });
     $timeout(function () {
         $rootScope.getAlarmList();
         }, 2000);

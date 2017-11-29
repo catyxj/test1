@@ -1,0 +1,91 @@
+<!-- BEGIN: CONTENT/USER/SIGNUP-FORM -->
+<div class="c-content-login-form c-square">
+    <div class="modal-header c-no-border">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <form name="signupForm" ng-submit="$modal.signup()">
+        <div class="modal-body c-no-border">
+            <style type="text/css">
+                div.user-role {
+                    width: 100%;
+                    text-align: center;
+                }
+                div.user-role label {
+                    display: inline-block;
+                    background-color: #d5e0ea;
+                    color: #fff;
+                    margin: 0 3px;
+                    width: 32.8%;
+                }
+                div.user-role label:hover {
+                    background-color: #6f95b7;
+                    color: #fff;
+                }
+
+                div.user-role label.active.btn-green {
+                    background-color: #5bc2ce;
+                    color: #fff;
+                }
+
+                div.user-role label.active.btn-yellow {
+                    background-color: #f1c40f;
+                    color: #fff;
+                }
+
+                div.user-role label.active.btn-red {
+                    background-color: #eb5d68;
+                    color: #fff;
+                }
+
+            </style>
+            <h3 class="c-font-24 c-font-sbold">注册用户</h3>
+            <p>请填写以下注册信息</p>
+
+            <div class="form-group">
+                <label for="signup-username" class="hide">用户名</label>
+                <input type="text" ng-model="$modal.username" class="form-control input-lg c-square" id="signup-username" placeholder="用户名" required>
+            </div>
+            <div class="form-group">
+                <label for="signup-password" class="hide">密码</label>
+                <input type="password" ng-model="$modal.password" class="form-control input-lg c-square" id="signup-password" placeholder="密码" required>
+            </div>
+            <div class="form-group">
+                <label for="signup-mobile" class="hide">手机号</label>
+                <input type="text" ng-model="$modal.mobile" class="form-control input-lg c-square" id="signup-mobile" placeholder="手机号" required>
+            </div>
+
+            <div ng-show="false"
+                 class="btn-group btn-group-divided user-role"
+                 data-toggle="buttons">
+                <label class="btn btn-md c-btn-square c-btn-bold btn-green active" uib-btn-radio="20" ng-change="$modal.setRole()" ng-model="$modal.roleId">
+                    <input type="radio" class="toggle">普通用户
+                </label>
+                <label class="btn btn-md c-btn-square c-btn-bold btn-yellow" uib-btn-radio="11" ng-change="$modal.setRole()" ng-model="$modal.roleId">
+                    <input type="radio" class="toggle">企业用户
+                </label>
+                <label class="btn btn-md c-btn-square c-btn-bold btn-red" uib-btn-radio="2" ng-change="$modal.setRole()" ng-model="$modal.roleId">
+                    <input type="radio" class="toggle">管理员
+                </label>
+            </div>
+
+            <div ng-show="$modal.roleId == 11 || $modal.roleId == 10" class="form-group" style="margin-top: 15px;">
+                <ui-select ng-model="$modal.aOrg" theme="bootstrap">
+                    <ui-select-match placeholder="输入企业名称或在列表中选择...">{{$select.selected.name}}</ui-select-match>
+                    <ui-select-choices group-by="'type'" repeat="org in $modal.organizations | filter: $select.search">
+                        <span ng-bind-html="org.name | highlight: $select.search"></span>
+                        <!--<small ng-bind-html="org.Name | highlight: $select.search"></small>-->
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+
+            <div class="modal-footer c-no-border">
+                <button type="submit" class="btn c-theme-btn btn-success c-btn-uppercase c-btn-bold c-btn-square c-btn-signup">注册</button>
+                <button type="button" ng-click="$modal.gotoLogin();" class="btn c-btn-dark-1 c-btn-uppercase c-btn-bold c-btn-slim c-btn-border-2x c-btn-square c-btn-login">返回登录</button>
+            </div>
+        </div>
+    </form>
+</div>
+</div>
+<!-- END: CONTENT/USER/SIGNUP-FORM -->

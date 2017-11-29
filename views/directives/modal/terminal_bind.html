@@ -1,0 +1,42 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title" style="display: inline-block;">锅炉设备绑定</h3>
+    <span class="ticket-id bold font-blue font-lg" style="display: inline-block;">#{{ $modalBind.code }}</span>
+    <span class="ticket-id bold font-grey-mint font-lg" style="display: inline-block; margin-left: 16px;">{{ $modalBind.name }}</span>
+</div>
+<style type="text/css">
+    div.input-group.form-group,
+    div.btn-group.form-group{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    div.form-group.form-selector .control-label {
+        width: 15%;
+        margin-top: 6px;
+    }
+
+    div.form-group.form-selector select {
+        width: 85%;
+        float: right;
+    }
+
+</style>
+<div class="modal-body" id="modal-body">
+    <div class="row">
+        <div class="form-group col-md-12">
+            <label class="control-label">选择锅炉</label>
+            <select ng-model="$modalBind.boilerId"
+                    ng-options="boiler.Uid as boiler.Name for boiler in $modalBind.boilers"
+                    class="form-control ng-pristine ng-valid ng-not-empty ng-touched">
+
+            </select>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button"
+            ng-click="$modalBind.ok();"
+            ng-disabled="$modalBind.boilerId.length == 0"
+            ng-class="['btn', {'grey-salsa': $modalBind.boilerId.length == 0}, {'blue': $modalBind.boilerId.length > 0}]" >绑定</button>
+    <button class="btn btn-default" type="button" ng-click="$modalBind.cancel()">取消</button>
+</div>

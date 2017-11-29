@@ -61,8 +61,10 @@
     <div class="row">
         <div class="form-module col-md-6 col-sm-6 col-xs-12">
             <div class="form-group first col-md-4 col-sm-4 col-xs-4">
-                <select class="form-control" ng-model="selectedModel" ng-change="selectModel(selectedModel)" ng-options="item for item in productData | orderBy:'model' | unique:'model'">
-					<option selected="selected" value="">型号不限</option>
+                <select class="form-control" ng-model="aForm" 
+                	ng-change="selectModel(aForm)" 
+                	ng-options="item.Name for item in forms">               	
+					
 				</select>
             </div>
             <div class="form-group col-md-4 col-sm-4 col-xs-4">
@@ -71,8 +73,10 @@
 				</select>
             </div>
             <div class="form-group last col-md-4 col-sm-4 col-xs-4">
-                <select class="form-control" ng-model="selectedEvaporate" ng-change="" ng-options="item.Text for item in evaporates">
-					
+                <select class="form-control" ng-model="aEvaporate" 
+                	ng-change="selectaEvaporate(aEvaporate)" 
+                	ng-options="item.Text for item in evaporates">
+					<!--<option selected="selected" value="">额定蒸发量（不限）</option>-->
 				</select>
             </div>
         </div>

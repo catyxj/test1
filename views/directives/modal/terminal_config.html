@@ -1,0 +1,170 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title" style="display: inline-block;">终端配置</h3>
+    <span class="ticket-id bold font-blue font-lg" style="display: inline-block;">#{{ $modal.code }}</span>
+</div>
+<style type="text/css">
+    div.input-group.form-group,
+    div.btn-group.form-group{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .modal-body .input-group span.unit {
+        position: absolute;
+        left:auto;
+        right:16px;
+        top:8px;
+        float:right;
+        z-index: 10;
+        color: grey;
+    }
+
+    .modal-body .input-group a.addon,
+    .modal-section .input-group a.addon {
+        position: absolute;
+        left:auto;
+        right:6px;
+        top:6px;
+        float:right;
+        z-index: 10;
+        padding: 4px;
+        width: 22px;
+        height: 22px;
+        font-size: 12px;
+        line-height: 1em;
+    }
+
+    .modal-section {
+        padding: 15px;
+        text-align: right;
+        border-top: 1px solid #e5e5e5;
+    }
+
+    .modal-body hr {
+        margin-top: 6px;
+    }
+
+</style>
+<div class="modal-body" id="modal-body">
+    <div class="row">
+        <div class="form-group col-md-6">
+            <div class="input-group">
+                <span class="input-group-addon">终端名称</span>
+                <input type="text" ng-model="$modal.name"
+                       maxlength="16"
+                       ng-disabled="!$modal.editing"
+                       class="form-control ng-pristine ng-valid ng-touched has-success"
+                       placeholder="请输入终端名称" required>
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <input type="button" ng-show="!$modal.editing || !$modal.editingCode"
+                   ng-click="$modal.resetCode()"
+                   class="btn green-sharp btn-outline btn-block uppercase"
+                   value="重新配置终端编码">
+            <div ng-show="$modal.editing && $modal.editingCode" class="input-group">
+                <span class="input-group-addon">终端编码</span>
+                <input type="text" ng-model="$modal.code"
+                       ng-maxlength="6"
+                       ng-disabled="!$modal.editing || !$modal.editingCode"
+                       class="form-control ng-pristine ng-valid ng-touched has-success"
+                       placeholder="输入六位终端编码" required>
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <div class="input-group">
+                <span class="input-group-addon">物联网卡号</span>
+                <input type="text" ng-model="$modal.simNum" ng-disabled="!$modal.editing"
+                       class="form-control ng-pristine ng-valid ng-touched has-success"
+                       placeholder="请输入十一位卡号">
+            </div>
+        </div>
+        <div class="form-group form-selector col-md-6">
+            <div class="input-group">
+                <span class="input-group-addon">IP地址</span>
+                <input type="text" ng-model="$modal.ip" ng-disabled="!$modal.editing"
+                       class="form-control ng-pristine ng-valid ng-touched has-success"
+                       placeholder="0.0.0.0" required>
+            </div>
+        </div>
+
+    <div ng-show="$modal.currentData">
+        <hr>
+        <div class="row">
+            <div class="form-group form-selector col-md-6">
+                <div class="input-group">
+                    <span class="input-group-addon">上报周期</span>
+                    <span class="unit">秒</span>
+                    <input type="text" ng-model="$modal.uploadPeriod" ng-disabled="!$modal.editing"
+                           class="form-control ng-pristine ng-valid ng-touched has-success"
+                           placeholder="45">
+                </div>
+            </div>
+            <!--
+            <input
+                    bs-switch
+                    ng-model="isSelected"
+                    type="checkbox"
+                    switch-active="{{ isActive }}"
+                    switch-readonly="{{ isReadonly }}"
+                    switch-size="{{ size }}"
+                    switch-animate="{{ animate }}"
+                    switch-label="{{ label }}"
+                    switch-icon="{{ icon }}"
+                    switch-on-text="{{ onLabel }}"
+                    switch-off-text="{{ offLabel }}"
+                    switch-on-color="{{ on }}"
+                    switch-off-color="{{ off }}"
+                    switch-radio-off="{{ radioOff }}"
+                    switch-label-width="{{ labelWidth }}"
+                    switch-handle-width="{{ handleWidth }}"
+                    switch-inverse="{{ inverse }}"
+                    switch-change="onChange()"
+                    ng-true-value="'yep'"
+                    ng-false-value="'nope'">
+                    -->
+
+            <div class="form-group form-selector col-md-6">
+                <div class="input-group">
+                    <span style="margin-right: 12px;">终端启闭</span>
+                    <input bs-switch
+                           ng-model="$modal.upload"
+                           ng-change="$modal.sendConfMessage();"
+                           type="checkbox"
+                           switch-on-text="开启"
+                           switch-off-text="关闭"
+                           switch-on-color="success"
+                           switch-off-color="{{ off }}">
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div ng-repeat="set in $modal.sets" class="form-group col-md-6">
+                <div class="input-group">
+                    <span class="input-group-addon">机组{{ set.num }}</span>
+                    <a ng-show="$modal.editing && set.num <= ($modal.deviceCount + 1)"
+                       ng-click="$modal.bindSet(set)"
+                       class="addon btn btn-outline btn-circle"
+                       ng-class="[{'green': !set.hasDev && set.num == $modal.deviceCount + 1}, {'red': set.hasDev}]">
+                        <i ng-class="['fa', {'fa-plus': !set.hasDev}, {'fa-minus': set.hasDev}]"></i>
+                    </a>
+                    <input type="text" ng-model="set.Name" ng-disabled="true"
+                           class="form-control ng-pristine ng-valid ng-touched has-success"
+                           placeholder="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn yellow-crusta" type="button" ng-show="$modal.editing && $modal.currentData" ng-click="$modal.reboot()" style="float: left">重新启动</button>
+    <button class="btn red" type="button" ng-show="$modal.editing && $modal.currentData" ng-click="$modal.delete()">删除</button>
+    <button type="button" class="btn ladda-button"
+            ng-show="$modal.editing"
+            ng-disabled="$modal.code.length !== 6"
+            ng-class="[{'btn-primary': $modal.code.length === 6}, {'grey': $modal.code.length !== 6}]"
+            data-style="zoom-out"
+            id="boiler_ok" ng-click="$modal.ok()"><span class="ladda-label">提交</span></button>
+    <button class="btn btn-default" type="button" ng-click="$modal.cancel()">取消</button>
+</div>

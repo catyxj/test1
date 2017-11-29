@@ -15,7 +15,7 @@
 	</ol>
 </div>
 
-<div ng-controller="configAlarmController" class="page_content">
+<div  ng-controller="ConfigAlarmController as alarm" class="page_content">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="portlet light bordered">
@@ -39,7 +39,8 @@
 								</select>
 								条
 							</div>
-							<button ng-click="openAddModal()" type="button" class="btn btn-info" style="margin-left: 20px; margin-top: 8px;">
+							<button id="sample_editable_1_new" ng-click="alarm.new()" type="button" 
+								class="btn btn-info" style="margin-left: 20px; margin-top: 8px;">
 								添加
 								<i class="fa fa-plus"></i>
 							</button>

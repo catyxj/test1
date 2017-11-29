@@ -1,0 +1,254 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title" style="display: inline-block;">锅炉基本信息设置</h3>
+    <span class="ticket-id bold font-blue font-lg" style="display: inline-block; margin-left: 12px">#{{ $modal.name }}</span>
+</div>
+<style type="text/css">
+    div.input-group.form-group,
+    div.btn-group.form-group{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    div.form-group.form-selector .control-label {
+        width: 26%;
+        margin-top: 6px;
+        text-align: left;
+    }
+
+    div.form-group.form-selector select,
+    div.form-group.form-selector input {
+        width: 74%;
+        float: right;
+    }
+
+    .modal-body .input-group span.unit {
+        position: absolute;
+        left:auto;
+        right:16px;
+        top:8px;
+        float:right;
+        z-index: 10;
+        color: grey;
+    }
+
+    .modal-body h5 {
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    .modal-body hr {
+        margin-top: 4px;
+        margin-bottom: 12px;
+    }
+
+</style>
+<!--<form name="infoBasicForm" ng-submit="infoBasicForm.$valid && $modal.save()">-->
+<form name="infoBasicForm" ng-submit="$modal.save()">
+<div class="modal-body" id="modal-body">
+        <h5 class="font-blue-hoki">设备基本信息</h5>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <div class="input-group input-icon right">
+                    <span class="input-group-addon">锅炉名称</span>
+                    <i class="fa tooltips"
+                       ng-class="[{'fa-exclamation font-red-pink': !$modal.data.name || $modal.data.name.length < 4}, {'fa-check font-green': $modal.data.name.length >= 4}]"
+                       data-container="body"></i>
+                    <input type="text"
+                           ng-model="$modal.data.name"
+                           class="form-control ng-pristine ng-valid ng-touched has-success"
+                           placeholder="输入锅炉名称" required>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <div class="input-group input-icon right">
+                    <span class="input-group-addon">注册码</span>
+                    <i class="fa tooltips"
+                       ng-class="[{'fa-exclamation font-red-pink': !$modal.data.registerCode || $modal.data.registerCode.length < 6}, {'fa-check font-green': $modal.data.registerCode.length >= 6}]"
+                       data-container="body"></i>
+                    <input type="text"
+                           ng-model="$modal.data.registerCode"
+                           class="form-control ng-pristine ng-valid ng-touched has-success"
+                           placeholder="输入注册码" required>
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <div class="input-group input-icon right">
+                    <span class="input-group-addon">设备代码</span>
+                    <i class="fa tooltips"
+                       ng-class="[{'fa-exclamation font-red-pink': !$modal.data.deviceCode || $modal.data.deviceCode.length < 4}, {'fa-check font-green': $modal.data.deviceCode.length >= 4}]"
+                       data-container="body"></i>
+                    <input type="text"
+                           ng-model="$modal.data.deviceCode"
+                           class="form-control ng-pristine ng-valid ng-touched has-success"
+                           placeholder="输入设备代码" required>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <div class="input-group input-icon right">
+                    <span class="input-group-addon">锅炉型号</span>
+                    <i class="fa tooltips"
+                       ng-class="[{'fa-exclamation font-red-pink': !$modal.data.modelCode || $modal.data.modelCode.length < 4}, {'fa-check font-green': $modal.data.modelCode.length >= 4}]"
+                       data-container="body"></i>
+                    <input type="text"
+                           ng-model="$modal.data.modelCode"
+                           class="form-control ng-pristine ng-valid ng-touched has-success"
+                           placeholder="输入锅炉型号" required>
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <div class="input-group input-icon right">
+                    <span class="input-group-addon">锅炉用途</span>
+                    <input type="text"
+                           ng-model="$modal.data.Usage"
+                           ng-disabled="true"
+                           class="form-control ng-pristine ng-valid ng-touched has-success"
+                           placeholder="输入锅炉用途" required>
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <div class="input-group input-icon right">
+                    <span class="input-group-addon">锅炉介质</span>
+                    <select ng-model="$modal.data.mediumId"
+                            ng-options="med.Id as med.Name for med in $modal.mediums"
+                            class="form-control ng-pristine ng-valid ng-touched" required>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <div class="input-group">
+                    <span class="input-group-addon">锅炉燃料</span>
+                    <select ng-model="$modal.data.fuelId"
+                            ng-options="fl.Uid as fl.Name group by fl.Type.Name for fl in $modal.fuels"
+                            class="form-control ng-pristine ng-valid ng-touched" required>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <div class="input-group input-icon right">
+                    <span class="input-group-addon">锅炉型态</span>
+                    <select ng-model="$modal.data.formId"
+                            ng-options="fm.Id as fm.Name group by fm.Type.Name for fm in $modal.forms"
+                            class="form-control ng-pristine ng-valid ng-touched" required>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <div class="input-group input-icon right">
+                    <span class="input-group-addon">额定蒸发量</span>
+                    <i class="fa tooltips"
+                       ng-class="[{'fa-exclamation font-red-pink': !$modal.data.evaporatingCapacity || $modal.data.evaporatingCapacity <= 0}, {'fa-check font-green': $modal.data.evaporatingCapacity > 0}]"
+                       data-container="body"></i>
+                    <span class="unit" style="right: 30px;">t/h</span>
+                    <input type="number"
+                           ng-model="$modal.data.evaporatingCapacity"
+                           class="form-control ng-pristine ng-valid ng-touched has-success"
+                           placeholder="输入额定蒸发量" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <h5 class="font-blue-hoki">注册信息</h5>
+                <hr>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">出厂编号</span>
+                        <input type="text"
+                               ng-model="$modal.data.factoryNumber"
+                               class="form-control ng-pristine ng-valid ng-touched has-success"
+                               placeholder="输入出厂编号">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">登记机构</span>
+                        <input type="text"
+                               ng-model="$modal.data.RegisterOrg.Name"
+                               class="form-control ng-pristine ng-valid ng-touched has-success"
+                               placeholder="输入登记机构">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">使用证号</span>
+                        <input type="text"
+                               ng-model="$modal.data.certificateNumber"
+                               class="form-control ng-pristine ng-valid ng-touched has-success"
+                               placeholder="输入使用证号">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <h5 class="font-blue-hoki">企业信息</h5>
+                <hr>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">使用企业</span>
+                        <!--<select ng-model="$modal.data.enterpriseId"-->
+                                <!--ng-options="org.Uid as org.Name for org in $modal.enterprises"-->
+                                <!--class="form-control ng-pristine ng-valid ng-touched">-->
+                        <!--</select>-->
+                        <ui-select ng-model="$modal.data.enterpriseId" theme="bootstrap">
+                            <ui-select-match placeholder="输入使用企业名称或在列表中选择...">{{$select.selected.name}}</ui-select-match>
+                            <ui-select-choices group-by="'type'" repeat="org.Uid as org in $modal.enterprises | filter: $select.search">
+                                <span ng-bind-html="org.name | highlight: $select.search"></span>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">制造企业</span>
+                        <ui-select ng-model="$modal.data.factoryId" theme="bootstrap">
+                            <ui-select-match placeholder="输入制造企业名称或在列表中选择...">{{$select.selected.name}}</ui-select-match>
+                            <ui-select-choices group-by="'type'" repeat="org.Uid as org in $modal.factories | filter: $select.search">
+                                <span ng-bind-html="org.name | highlight: $select.search"></span>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">安装单位</span>
+                        <ui-select ng-model="$modal.data.installedId" theme="bootstrap">
+                            <ui-select-match placeholder="输入安装单位名称或在列表中选择...">{{$select.selected.name}}</ui-select-match>
+                            <ui-select-choices group-by="'type'" repeat="org.Uid as org in $modal.installs | filter: $select.search">
+                                <span ng-bind-html="org.name | highlight: $select.search"></span>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+<div class="modal-footer">
+    <button class="btn"
+            ng-disabled="$modal.data.name.length < 4 ||
+                        $modal.data.registerCode.length < 6 ||
+                        $modal.data.deviceCode.length < 4 ||
+                        $modal.data.modelCode.length < 4 ||
+                        $modal.data.mediumId < 0 ||
+                        $modal.data.fuelId.length <= 0 ||
+                        $modal.data.formId < 0 ||
+                        $modal.data.evaporatingCapacity <= 0"
+            ng-class="$modal.data.name.length >= 4 &&
+                      $modal.data.registerCode.length >= 6 &&
+                      $modal.data.deviceCode.length >= 4 &&
+                      $modal.data.modelCode.length >= 4 &&
+                      $modal.data.mediumId >= 0 &&
+                      $modal.data.fuelId.length > 0 &&
+                      $modal.data.formId >= 0 &&
+                      $modal.data.evaporatingCapacity > 0 ? 'btn-primary' : 'grey'"
+            type="submit">保存</button>
+    <button class="btn btn-default" type="button" ng-click="$modal.cancel()">取消</button>
+</div>
+</form>

@@ -37,7 +37,8 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="d in configAlarm.datasource | orderBy: order+orderType| range:selectedpage:pageSize"  ng-click="openModal(d)">
+				<tr ng-repeat="d in configAlarm.datasource | orderBy: order+orderType| range:selectedpage:pageSize"  
+					ng-click="alarm.view(d)">
 					<td>
 						{{d.num}}						
 					</td>

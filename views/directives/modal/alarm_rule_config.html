@@ -1,0 +1,88 @@
+<div class="modal-header">
+	<button type="button" class="close" ng-click="$modal.cancel()"><span aria-hidden="true">&times;</span></button>
+	<h3 class="modal-title" id="modal-title"> {{ $modal.title }} </h3>
+</div>
+<style type="text/css">
+	div.input-group.form-group,
+	div.btn-group.form-group {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	
+	div.form-group.form-selector .control-label {
+		width: 26%;
+		margin-top: 6px;
+		text-align: center;
+	}
+	
+	div.form-group.form-selector select {
+		width: 74%;
+		float: right;
+	}
+</style>
+<div class="modal-body" id="modal-body">
+	<div class="form-group form-selector col-md-6">
+		<label class="control-label">监测参数</label>
+		<select ng-model="$modal.paramId" ng-options="param.Id as param.Name group by param.Category.Name for param in parameters" ng-disabled="$modal.editing" class="form-control">
+
+		</select>
+	</div>
+	<div class="form-group form-selector col-md-6">
+		<label class="control-label">炉型</label>
+		<select ng-model="$modal.boilerFormId" ng-options="form.Id as form.Name for form in boilerForms" class="form-control">
+		</select>
+	</div>
+	<div class="form-group form-selector col-md-6">
+		<label class="control-label">介质</label>
+		<select ng-model="$modal.boilerMediumId" ng-options="medium.Id as medium.Name for medium in boilerMediums" class="form-control">
+		</select>
+	</div>
+	<div class="form-group form-selector col-md-6">
+		<label class="control-label">燃料</label>
+		<select ng-model="$modal.boilerFuelTypeId" ng-options="type.Id as type.Name for type in fuelTypes" class="form-control">
+		</select>
+	</div>
+	<div class="input-group form-group col-md-12">
+		<span class="input-group-addon" style="width: 22%">
+            <i class="fa fa-fire font-blue-steel"></i>
+            	 额定蒸发量
+        </span>
+		<input type="number" ng-model="$modal.boilerCapacityMin" class="form-control" style="width: 50%" placeholder="最小值">
+		<input type="number" ng-model="$modal.boilerCapacityMax" class="form-control" style="width: 50%" placeholder="最大值">
+	</div>
+	<div class="input-group form-group col-md-12">
+		<span class="input-group-addon" style="width: 22%">
+            <i class="fa fa-warning font-yellow-lemon"></i>
+                    告警阀值
+        </span>
+		<input type="text" ng-model="$modal.normalValue" class="form-control has-success" style="width: 50%; border-color: #27a4b0; color: #27a4b0;" placeholder="基准值">
+		<input type="text" ng-model="$modal.warningValue" class="form-control has-error" style="width: 50%; border-color: #e73d4a; color: #e73d4a;" placeholder="告警值">
+	</div>
+	<div class="input-group form-group col-md-12">
+		<span class="input-group-addon" style="width: 22%">
+            <i class="fa fa-clock-o font-blue-hoki"></i>
+            	告警延迟
+        </span>
+		<span style="position: absolute; left:auto; right:32px; top:6px; float:right; z-index: 10; color: grey;">分钟</span>
+		<input type="text" ng-model="$modal.delay" class="form-control ng-pristine ng-valid ng-touched has-success" placeholder="延迟时间">
+
+	</div>
+	<div class="btn-group form-group col-md-12">
+		<label ng-class="['btn', {'btn-info': $modal.priority == 0}, {'btn-default': $modal.priority != 0}]" style="width: 33%;" ng-model="$modal.priority" uib-btn-radio="0" uncheckable>低优先级</label>
+		<label ng-class="['btn', {'btn-warning': $modal.priority == 1}, {'btn-default': $modal.priority != 1}]" style="width: 34%;" ng-model="$modal.priority" uib-btn-radio="1" uncheckable>中优先级</label>
+		<label ng-class="['btn', {'btn-danger': $modal.priority == 2}, {'btn-default': $modal.priority != 2}]" style="width: 33%;" ng-model="$modal.priority" uib-btn-radio="2" uib-uncheckable="uncheckable">高优先级</label>
+	</div>
+	<div class="input-group form-group col-md-12">
+		<span class="input-group-addon" style="width: 22%">
+                    告警描述
+        </span>
+		<input type="text" ng-model="$modal.description" class="form-control ng-pristine ng-valid ng-touched has-success" placeholder="描述">
+
+	</div>
+
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary btn-info ladda-button" data-style="zoom-out" type="button" id="boiler_ok" ng-click="$modal.ok()">
+        <span class="ladda-label">保存</span></button>
+	<button class="btn btn-default" type="button" ng-click="$modal.cancel()">取消</button>
+</div>
