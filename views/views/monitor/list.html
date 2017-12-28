@@ -54,8 +54,9 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="boiler in productData | filter:search
-				| orderBy: order+orderType | filter:modelFilterFn | filter:fuelFilterFn | filter:aEvaporateFilterFn 
+			<tr ng-repeat="boiler in datasource | filter:search
+				| orderBy: order+orderType | filter:modelFilterFn | filter:fuelFilterFn | filter:aEvaporateFilterFn | filter:aOrgFilterFn 
+				| filter:filterBurning | filter:aQuery |filter:aLocation
 				| range:selectedpage:pageSize">
 
 				<td>
@@ -74,29 +75,31 @@
 		            <span class="label label-ent label-sm label-default">{{ boiler.Enterprise.Name }}</span>
 				</td>
 				<td>
-					{{boiler.company}}
+					{{boiler.Factory.Name }}
 				</td>
 				<td>
-					{{boiler.registrationCode}}
+					{{boiler.RegisterCode }}
 				</td>
 				<td>
-					{{boiler.model}}
+					{{boiler.ModelCode}}
 				</td>
 				<td>
 					<div class="status-icon" ng-class="{'success': true}"></div>
 					<div class="status-icon" ng-class="{'success': boiler.isBurning, 'danger': !boiler.isBurning}"></div>
-					<div class="status-icon" ng-class="[{'success': boiler.alarmLevel == 0}, {'warning': boiler.alarmLevel == 1}, {'danger': boiler.alarmLevel == 2}, {'default': boiler.alarmLevel == -1}]"></div>
+					<div class="status-icon default" ng-class="[{'success': boiler.alarmLevel == 0}, {'warning': boiler.alarmLevel == 1}, {'danger': boiler.alarmLevel == 2}, {'default': boiler.alarmLevel == -1}]"></div>
 				</td>							
 			</tr>
 		</tbody>
 	</table>
 	<p ng-show="!productData.length">记录为空</p>
 
+
 	<!--pagination-->	
 	<div >		
          <div class="float_left count_num">
          	{{totalPage}}页
-			共{{totalItems=(productData|filter:search| filter:modelFilterFn | filter:fuelFilterFn | filter:companyFilterFn).length}} 条记录		
+			共{{totalItems=(datasource|filter:search| filter:modelFilterFn | filter:fuelFilterFn | filter:aEvaporateFilterFn | filter:aOrgFilterFn 
+				| filter:filterBurning | filter:aQuery |filter:aLocation).length}} 条记录		
 		</div>
          <div class="pagination">       	       	
             <ul uib-pagination boundary-links="true" total-items="totalItems" boundary-link-numbers="true"

@@ -115,6 +115,9 @@ mainApp.controller("BoilerHistoryController", function($scope, $http, $location,
 			}
 //			console.log(bHistory.datasource);
 			$scope.totalItems = bHistory.datasource.length;
+			
+			
+			
 
 			//表格样式
 			var scrollLeftTarget = angular.element(document.getElementById("cd-table"));

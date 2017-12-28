@@ -22,8 +22,9 @@ mainApp.controller("configParamController",function($scope, $rootScope, $uibModa
 	
 	
 						
-		var newdata = {};
-        $scope.openAddModal = function() {       	
+		
+        $scope.openAddModal = function() {
+        	var newdata = {};
                 var modalInstance = $uibModal.open({
                     templateUrl : 'views/modal/modal-add-confalarm.html',
                     controller : 'boilerCtrl',//modal对应的Controller

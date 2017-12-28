@@ -17,6 +17,7 @@
 		<link rel="stylesheet" type="text/css" href="../js/asset/angular-bootstrap-switch/bootstrap-switch.min.css"/>
 		<link rel="stylesheet" type="text/css" href="../js/lib/sweetalert2/dist/sweetalert2.min.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/global.css" />
+		<link rel="stylesheet" type="text/css" href="../css/spinner.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/style.css" />
 		<!-- Themes-->
 		<link rel="stylesheet" ng-href="{{theme.value}}" data-ng-if="theme">
@@ -27,39 +28,37 @@
 		<script src="../js/scripts/ladda/spin.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/scripts/ladda/ladda.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/asset/angular-ui-router.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../js/asset/ocLazyLoad.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/asset/ocLazyLoad.min.js" type="text/javascript" charset="utf-8"></script>		
 		<script src="../js/asset/angular-ui-select/select.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/asset/angular-sanitize.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/asset/angular-bootstrap-switch/bootstrap-switch.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/asset/angular-bootstrap-switch/angular-bootstrap-switch.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/lib/sweetalert2/dist/sweetalert2.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/app.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../js/filters/customFilter.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../js/directives/directives.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../js/controllers/productController.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/asset/moment/moment.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/asset/moment/lacale/zh-cn.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/asset/angular-moment/angular-moment.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/filters/customFilter.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/directives/directives.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/controllers/productController.js" type="text/javascript" charset="utf-8"></script>				
 		<script src="https://api.map.baidu.com/api?v=2.0&ak=bDCh2N15YYodpt1wns4YPC7XFynjDx60" type="text/javascript"></script>
 
-		<script type="text/javascript">
-			// 等待所有加载
-//			$(window).load(function() {
-//				$('body').addClass('loaded');
-//				$('#loader-wrapper .load_title').remove();
-//			});
-		</script>
+		
 
 	</head>
 
-	<body>
+	<body ng-class="{true: 'modal-open', false: ''}[showLoading]">
 
-		<!--<div id="loader-wrapper">
-			<div id="loader"></div>
-			<div class="loader-section section-left"></div>
-			<div class="loader-section section-right"></div>
-			<div class="load_title">正在加载页面</div>
-		</div>-->
+		<div id="loading" ng-show="showLoading">
+		    <div class="spinner">
+		        <div id="loader"></div>
+		        <div class="load_title">正在加载数据</div>
+		    </div>
+		</div>
+				
+		
+		
 		<!--页面加载end-->
 
 		<!--header-->

@@ -1,5 +1,5 @@
 mainApp
-.directive("datatableDialogue",function(advisoryData){
+.directive("datatableDialogue",function(){
 	return {		
    		restrict:"E",
    		templateUrl:"views/datatable/datatable_dialogue.html",
@@ -15,14 +15,7 @@ mainApp
 		
  	}
 })
-.directive("datatableMaintain",function(maintainData){
-	return {		
-   		restrict:"E",
-   		templateUrl:"directives/datatable_maintain.html",
-   		replace: true
-		
- 	}
-})
+
 
 .directive("datatableBoiler",function(){
 	return {		
@@ -49,11 +42,3 @@ mainApp
 		
  	}
 })
-//.directive("chartAlarm",function(){
-//	return {		
-// 		restrict:"E",
-// 		templateUrl:"directives/chart_alarm.html",
-// 		replace: true
-//		
-// 	}
-//})

@@ -1,6 +1,6 @@
 
 
-mainApp.controller("runtimedataController",function($rootScope, $scope, $http, $location, $timeout, $uibModal, $document, moment, settings,productData){
+mainApp.controller("BoilerRuntimeController",function($rootScope, $scope, $http, $location, $timeout, $uibModal, $document, moment, settings,productData){
 	runtime = this;
 
     $scope.$on('$viewContentLoaded', function() {

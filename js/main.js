@@ -6,6 +6,7 @@ var mainApp = angular.module("BoilerAdmin",[
 	"oc.lazyLoad",
 	"angularMoment",
 	"ui.select",
+	"ngSanitize",
 	'frapontillo.bootstrap-switch',
 	]);
 
@@ -141,7 +142,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
-             	'../js/controllers/alarmController.js', 
+             	'../js/controllers/AlarmController.js', 
              	'../js/directives/chart_alarm.js', 
 		             ]);
 		    }]
@@ -296,6 +297,8 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
             url: "/terminal",
             templateUrl: "views/terminal/main.html",
             data: {pageTitle: '终端管理'},
+            controller: "TerminalController",
+            controllerAs: "terminal",
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([
@@ -445,7 +448,6 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
 });
 
 
-
 //配置动态加载  
 mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterProvider",  
     function($provide, $compileProvider, $controllerProvider, $filterProvider) {  
@@ -457,8 +459,6 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
         mainApp.constant = $provide.constant;  
     }  
 ]); 
-
-
 
 
  mainApp.service("productData",function(){
@@ -476,7 +476,9 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 				Location:{
 					LocationName:"浙江省 杭州市 滨江区"
 				},
-				Address:"滨文路32号"
+				Address:"滨文路32号",
+				Longitude: 120.021273,
+				Latitude: 29.959489,
 			} ,
 			Enterprise:{
 				Name:"东莞天鹿锅炉有限公司",
@@ -521,6 +523,96 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 					Name: "卧式锅炉",				
 				}
 			},
+			Calculate: 
+			{
+				Uid: "00a55dc6-9cfd-11e7-be6e-7cd30ac4f6d2",
+				Name: "680064",
+				NameEn: "",
+				Remark: "",
+				CreatedDate: "2017-09-19T13:40:10+08:00",
+				CreatedBy: null,
+				UpdatedDate: "2017-09-19T13:40:10+08:00",
+				UpdatedBy: null,				
+				Boiler: {
+					Uid: "7551c963-76ff-4fe0-a50a-c65aa40537e4",
+					Name: "",
+					NameEn: "",
+					Remark: "",
+					CreatedDate: "0001-01-01T00:00:00Z",
+					CreatedBy: null,
+					UpdatedDate: "0001-01-01T00:00:00Z",
+					UpdatedBy: null,
+					IsDemo: false,
+					IsDeleted: false,
+					Form: null,
+					Medium: null,
+					Usage: null,
+					Fuel: null,
+					Template: null,
+					Factory: null,
+					Enterprise: null,
+					Installed: null,
+					Address: null,
+					FactoryNumber: "",
+					RegisterCode: "",
+					RegisterOrg: null,
+					CertificateNumber: "",
+					DeviceCode: "",
+					ModelCode: "",
+					EvaporatingCapacity: 0,
+					Contact: null,
+					Terminal: null,
+					TerminalCode: "",
+					TerminalSetId: 0,					
+					Status: null,
+					Runtime: null,
+					Calculate: null,
+					Maintenance: null,
+					Subscribers: null
+				},
+				CoalQnetvar: 0,
+				CoalAar: 0,
+				CoalMar: 0,
+				CoalVdaf: 30,
+				CoalClz: 0,
+				CoalClm: 0,
+				CoalCfh: 0,
+				CoalDed: 0,
+				CoalDsc: 0,
+				CoalAlz: 0,
+				CoalAlm: 0,
+				CoalAfh: 0,
+				CoalQ3: 30,
+				CoalM: 10,
+				CoalN: 20,
+				CoalTlz: 0,
+				CoalCtLz: 0,
+				GasDed: 0,
+				GasDsc: 0,
+				GasApy: 0,
+				GasQ3: 0,
+				GasM: 0,
+				GasN: 0,
+				ConfParam1: 50,
+				ConfParam2: 0,
+				ConfParam3: 0,
+				ConfParam4: 0,
+				ConfParam5: 0,
+				ConfParam6: 0,
+				AlarmThreshold1: 0,
+				AlarmThreshold2: 0,
+				AlarmThreshold3: 0,
+				AlarmThreshold4: 0,
+				AlarmThreshold5: 0,
+				AlarmThreshold6: 0,
+				AlarmThreshold7: 0,
+				AlarmThreshold8: 0,
+				Reserved1: 0,
+				Reserved2: "2017-09-19T13:40:10+08:00",
+				Reserved3: 0,
+				Reserved4: 0
+			}
+			,
 		},
 		{
 			num:2,
@@ -535,7 +627,9 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 				Location:{
 					LocationName:"山东省 临沂市 兰山区	"
 				},
-				Address:"山东省临沂市兰山区枣园镇永安路55号"
+				Address:"山东省临沂市兰山区枣园镇永安路55号",
+				Longitude: 119.902244,
+				Latitude: 30.090539,
 			} ,
 			Enterprise:{
 				Name:"青岛胜利锅炉有限公司",
@@ -543,7 +637,7 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 			isBurning:1,
 			Fuel:{
 				Type:{
-					Id:5,
+					Id:3,
 					name:"燃气",
 				}
 			},
@@ -584,6 +678,96 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 					Name: "卧式锅炉",				
 				}
 			},
+			Calculate: [
+			{
+				Uid: "00a55dc6-9cfd-11e7-be6e-7cd30ac4f6d2",
+				Name: "680064",
+				NameEn: "",
+				Remark: "",
+				CreatedDate: "2017-09-19T13:40:10+08:00",
+				CreatedBy: null,
+				UpdatedDate: "2017-09-19T13:40:10+08:00",
+				UpdatedBy: null,				
+				Boiler: {
+					Uid: "7551c963-76ff-4fe0-a50a-c65aa40537e4",
+					Name: "",
+					NameEn: "",
+					Remark: "",
+					CreatedDate: "0001-01-01T00:00:00Z",
+					CreatedBy: null,
+					UpdatedDate: "0001-01-01T00:00:00Z",
+					UpdatedBy: null,
+					IsDemo: false,
+					IsDeleted: false,
+					Form: null,
+					Medium: null,
+					Usage: null,
+					Fuel: null,
+					Template: null,
+					Factory: null,
+					Enterprise: null,
+					Installed: null,
+					Address: null,
+					FactoryNumber: "",
+					RegisterCode: "",
+					RegisterOrg: null,
+					CertificateNumber: "",
+					DeviceCode: "",
+					ModelCode: "",
+					EvaporatingCapacity: 0,
+					Contact: null,
+					Terminal: null,
+					TerminalCode: "",
+					TerminalSetId: 0,					
+					Status: null,
+					Runtime: null,
+					Calculate: null,
+					Maintenance: null,
+					Subscribers: null
+				},
+				CoalQnetvar: 0,
+				CoalAar: 0,
+				CoalMar: 0,
+				CoalVdaf: 0,
+				CoalClz: 0,
+				CoalClm: 0,
+				CoalCfh: 0,
+				CoalDed: 0,
+				CoalDsc: 0,
+				CoalAlz: 0,
+				CoalAlm: 0,
+				CoalAfh: 0,
+				CoalQ3: 0,
+				CoalM: 0,
+				CoalN: 0,
+				CoalTlz: 0,
+				CoalCtLz: 0,
+				GasDed: 0,
+				GasDsc: 0,
+				GasApy: 0,
+				GasQ3: 0,
+				GasM: 0,
+				GasN: 0,
+				ConfParam1: 0,
+				ConfParam2: 0,
+				ConfParam3: 0,
+				ConfParam4: 0,
+				ConfParam5: 0,
+				ConfParam6: 0,
+				AlarmThreshold1: 0,
+				AlarmThreshold2: 0,
+				AlarmThreshold3: 0,
+				AlarmThreshold4: 0,
+				AlarmThreshold5: 0,
+				AlarmThreshold6: 0,
+				AlarmThreshold7: 0,
+				AlarmThreshold8: 0,
+				Reserved1: 0,
+				Reserved2: "2017-09-19T13:40:10+08:00",
+				Reserved3: 0,
+				Reserved4: 0
+			}
+			],
 		},
 		{
 			num:3,
@@ -598,7 +782,9 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 				Location:{
 					LocationName:"广东省 东莞市"
 				},
-				Address:"东莞市莞城鸿裕一街1幢3楼10号"
+				Address:"东莞市莞城鸿裕一街1幢3楼10号",
+				Longitude: 119.732945,
+				Latitude: 29.820494,
 			} ,
 			Enterprise:{
 				Name:"广州特种承压设备检测研究院",
@@ -647,7 +833,97 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 					Id: 2,
 					Name: "卧式锅炉",				
 				}
-			},
+			},	
+			Calculate: [
+			{
+				Uid: "00a55dc6-9cfd-11e7-be6e-7cd30ac4f6d2",
+				Name: "680064",
+				NameEn: "",
+				Remark: "",
+				CreatedDate: "2017-09-19T13:40:10+08:00",
+				CreatedBy: null,
+				UpdatedDate: "2017-09-19T13:40:10+08:00",
+				UpdatedBy: null,				
+				Boiler: {
+					Uid: "7551c963-76ff-4fe0-a50a-c65aa40537e4",
+					Name: "",
+					NameEn: "",
+					Remark: "",
+					CreatedDate: "0001-01-01T00:00:00Z",
+					CreatedBy: null,
+					UpdatedDate: "0001-01-01T00:00:00Z",
+					UpdatedBy: null,
+					IsDemo: false,
+					IsDeleted: false,
+					Form: null,
+					Medium: null,
+					Usage: null,
+					Fuel: null,
+					Template: null,
+					Factory: null,
+					Enterprise: null,
+					Installed: null,
+					Address: null,
+					FactoryNumber: "",
+					RegisterCode: "",
+					RegisterOrg: null,
+					CertificateNumber: "",
+					DeviceCode: "",
+					ModelCode: "",
+					EvaporatingCapacity: 0,
+					Contact: null,
+					Terminal: null,
+					TerminalCode: "",
+					TerminalSetId: 0,					
+					Status: null,
+					Runtime: null,
+					Calculate: null,
+					Maintenance: null,
+					Subscribers: null
+				},
+				CoalQnetvar: 0,
+				CoalAar: 0,
+				CoalMar: 0,
+				CoalVdaf: 0,
+				CoalClz: 0,
+				CoalClm: 0,
+				CoalCfh: 0,
+				CoalDed: 0,
+				CoalDsc: 0,
+				CoalAlz: 0,
+				CoalAlm: 0,
+				CoalAfh: 0,
+				CoalQ3: 0,
+				CoalM: 0,
+				CoalN: 0,
+				CoalTlz: 0,
+				CoalCtLz: 0,
+				GasDed: 0,
+				GasDsc: 0,
+				GasApy: 0,
+				GasQ3: 0,
+				GasM: 0,
+				GasN: 0,
+				ConfParam1: 0,
+				ConfParam2: 0,
+				ConfParam3: 0,
+				ConfParam4: 0,
+				ConfParam5: 0,
+				ConfParam6: 0,
+				AlarmThreshold1: 0,
+				AlarmThreshold2: 0,
+				AlarmThreshold3: 0,
+				AlarmThreshold4: 0,
+				AlarmThreshold5: 0,
+				AlarmThreshold6: 0,
+				AlarmThreshold7: 0,
+				AlarmThreshold8: 0,
+				Reserved1: 0,
+				Reserved2: "2017-09-19T13:40:10+08:00",
+				Reserved3: 0,
+				Reserved4: 0
+			}
+			],
 		},
 		{
 			num:4,
@@ -662,7 +938,9 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 				Location:{
 					LocationName:"湖南省 衡阳市 雁峰区"
 				},
-				Address:"湖南省衡阳市白沙洲工业园区工业大道3号"
+				Address:"湖南省衡阳市白沙洲工业园区工业大道3号",
+				Longitude: 0,
+				Latitude: 0,
 			} ,
 			Enterprise:{
 				Name:"长宏南雁锅炉01",
@@ -711,6 +989,96 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 					Name: "卧式锅炉",				
 				}
 			},
+			Calculate: [
+			{
+				Uid: "00a55dc6-9cfd-11e7-be6e-7cd30ac4f6d2",
+				Name: "680064",
+				NameEn: "",
+				Remark: "",
+				CreatedDate: "2017-09-19T13:40:10+08:00",
+				CreatedBy: null,
+				UpdatedDate: "2017-09-19T13:40:10+08:00",
+				UpdatedBy: null,				
+				Boiler: {
+					Uid: "7551c963-76ff-4fe0-a50a-c65aa40537e4",
+					Name: "",
+					NameEn: "",
+					Remark: "",
+					CreatedDate: "0001-01-01T00:00:00Z",
+					CreatedBy: null,
+					UpdatedDate: "0001-01-01T00:00:00Z",
+					UpdatedBy: null,
+					IsDemo: false,
+					IsDeleted: false,
+					Form: null,
+					Medium: null,
+					Usage: null,
+					Fuel: null,
+					Template: null,
+					Factory: null,
+					Enterprise: null,
+					Installed: null,
+					Address: null,
+					FactoryNumber: "",
+					RegisterCode: "",
+					RegisterOrg: null,
+					CertificateNumber: "",
+					DeviceCode: "",
+					ModelCode: "",
+					EvaporatingCapacity: 0,
+					Contact: null,
+					Terminal: null,
+					TerminalCode: "",
+					TerminalSetId: 0,					
+					Status: null,
+					Runtime: null,
+					Calculate: null,
+					Maintenance: null,
+					Subscribers: null
+				},
+				CoalQnetvar: 0,
+				CoalAar: 0,
+				CoalMar: 0,
+				CoalVdaf: 0,
+				CoalClz: 0,
+				CoalClm: 0,
+				CoalCfh: 0,
+				CoalDed: 0,
+				CoalDsc: 0,
+				CoalAlz: 0,
+				CoalAlm: 0,
+				CoalAfh: 0,
+				CoalQ3: 0,
+				CoalM: 0,
+				CoalN: 0,
+				CoalTlz: 0,
+				CoalCtLz: 0,
+				GasDed: 0,
+				GasDsc: 0,
+				GasApy: 0,
+				GasQ3: 0,
+				GasM: 0,
+				GasN: 0,
+				ConfParam1: 0,
+				ConfParam2: 0,
+				ConfParam3: 0,
+				ConfParam4: 0,
+				ConfParam5: 0,
+				ConfParam6: 0,
+				AlarmThreshold1: 0,
+				AlarmThreshold2: 0,
+				AlarmThreshold3: 0,
+				AlarmThreshold4: 0,
+				AlarmThreshold5: 0,
+				AlarmThreshold6: 0,
+				AlarmThreshold7: 0,
+				AlarmThreshold8: 0,
+				Reserved1: 0,
+				Reserved2: "2017-09-19T13:40:10+08:00",
+				Reserved3: 0,
+				Reserved4: 0
+			}
+			],
 		},
 		{
 			num:5,
@@ -725,7 +1093,9 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 				Location:{
 					LocationName:"山东省 临沂市 兰山区	"
 				},
-				Address:"山东省临沂市兰山区枣园镇永安路55号"
+				Address:"山东省临沂市兰山区枣园镇永安路55号",
+				Longitude: 0,
+				Latitude: 0,
 			} ,
 			Enterprise:{
 				Name:"青岛胜利锅炉有限公司",
@@ -850,7 +1220,9 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 				Location:{
 					LocationName:"山东省 临沂市 兰山区	"
 				},
-				Address:"山东省临沂市兰山区枣园镇永安路55号"
+				Address:"山东省临沂市兰山区枣园镇永安路55号",
+				Longitude: 0,
+				Latitude: 0,
 			} ,
 			Enterprise:{
 				Name:"青岛胜利锅炉有限公司",
@@ -913,7 +1285,9 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 				Location:{
 					LocationName:"广东省 东莞市"
 				},
-				Address:"东莞市莞城鸿裕一街1幢3楼10号"
+				Address:"东莞市莞城鸿裕一街1幢3楼10号",
+				Longitude: 0,
+				Latitude: 0,
 			} ,
 			Enterprise:{
 				Name:"广州特种承压设备检测研究院",
@@ -968,8 +1342,6 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 });
  
 
-
-
 mainApp.service("advisoryData",function(){
 	return [
 		{
@@ -1012,89 +1384,6 @@ mainApp.service("advisoryData",function(){
 });
 
 
-mainApp.service("maintainData",function(){
-	return [
-		{
-			num:1,
-			Boiler:{
-				Name:"Test680344",
-				Enterprise:{
-					Name:"测试企业2001",
-				},
-			},				
-			InspectDate:"2017-09-22",
-			CreatedBy:{
-				Name:"厚德能源测试",
-			},
-			content:"test",						
-			maintainDetail:{
-				burner:[0,0,0,0,0,0,0],
-				importGrate:[0,0,0,0,0,0,0],
-				waterSoftener:[0,0,0],
-				waterPump:[0,0,0,0],
-				boilerBody:[0,0,0,0,0,0],
-				energySaver:[0,0,0],
-				airPreHeater:[0,0,0],
-				dustCatcher:[0,0,0],
-				draughtFan:[0,0,0],
-			},
-			summary:"",
-			status:{
-				burner:[0,0,0,0,0,0,0],
-				importGrate:[0,0,0,0,0,0,0],
-				waterSoftener:[0,0,0],
-				waterPump:[0,0,0,0],
-				boilerBody:[0,0,0,0,0,0],
-				energySaver:[0,0,0],
-				airPreHeater:[0,0,0],
-				dustCatcher:[0,0,0],
-				draughtFan:[0,0,0],
-			},
-		},
-		{
-			num:2,
-			Boiler:{
-				Name:"哈尔滨红光锅炉集团有限公司锅炉#2 ",
-				Enterprise:{
-					Name:"",
-				},
-			},
-			InspectDate:"2017-09-22",
-			CreatedBy:{
-				Name:"红光锅炉",
-			},
-			content:"test",					
-			maintainDetail:{
-				burner:[1,0,0,0,0,0,0],
-				importGrate:[0,0,0,0,0,0,0],
-				waterSoftener:[0,0,0],
-				waterPump:[0,0,0,0],
-				boilerBody:[0,0,0,0,0,0],
-				energySaver:[0,0,0],
-				airPreHeater:[0,0,0],
-				dustCatcher:[0,0,0],
-				draughtFan:[0,0,0],
-			},
-			summary:"haha",
-			status:{
-				burner:[1,0,0,0,0,0,0],
-				importGrate:[0,0,0,0,0,0,0],
-				waterSoftener:[0,0,0],
-				waterPump:[0,0,0,0],
-				boilerBody:[0,0,0,0,0,0],
-				energySaver:[0,0,0],
-				airPreHeater:[0,0,0],
-				dustCatcher:[0,0,0],
-				draughtFan:[0,0,0],
-			}, 
-		}
-	]
-});
-
-
-
-
-
 mainApp.controller("mainCtrl", function($scope,$state) {
 	$scope.options = [
 		{
@@ -1113,10 +1402,7 @@ mainApp.controller("mainCtrl", function($scope,$state) {
 	//默认选择第一个样式
 	$scope.theme = "";
 
-	
-    $scope.setPage = function(m){
-        $scope.currentPage = m;
-    };
+	   
 
 })
 
@@ -1125,30 +1411,55 @@ mainApp.controller("SidebarController",function($scope,$state){
     
 })
 
-mainApp.run(["$rootScope", "settings", "$state","$stateParams","$http","$timeout", function($rootScope, settings, $state , $stateParams,$http,$timeout) {
+mainApp.run(["$rootScope", "settings", "$state","$stateParams","$http","$timeout","$injector", function($rootScope, settings, $state , $stateParams,$http,$timeout,$injector) {
     $rootScope.$state = $state; // state to be accessed from view
     $rootScope.$settings = settings; // state to be accessed from view
     $rootScope.$stateParams = $stateParams;
     
+    $rootScope.showLoading = false;
+            $rootScope.$on('loading:show', function () {
+                $rootScope.showLoading = true;
+            });
+
+            $rootScope.$on('loading:hide', function () {
+                $rootScope.showLoading = false;
+            });
+
+            $rootScope.$on('request:404', function () {
+                swal({
+                    title: "请求出错!",
+                    type: "error",
+                    timer: 1000,
+                    showConfirmButton: false,
+                    allowOutsideClick:true
+                });
+            });      
     
-//  $rootScope.getBoilerList = function () {
-//      $rootScope.boilers = [];
-//          $http.get('boiler_list.json/')
-//              .then(function (res) {                  
-//                  $rootScope.boilers = res.data;
-//                  for (var i = 0; i < $rootScope.boilers.length; i++) {
-//                      var ab = $rootScope.boilers[i];
-//                      $rootScope.getBoilerCalculateParameter(ab);
-//                  }                  
-//              });
-//      };
-//      
-//	$rootScope.getBoilerCalculateParameter = function (boiler) {
-//          $http.get('/boiler_calculate_parameter/?boiler=' + boiler.Uid)
-//              .then(function (res) {
-//                  boiler.Calculate = res.data;
-//              });
-//      };
+    
+    
+
+    
+    $rootScope.getBoilerList = function () {
+        $rootScope.boilers = [];
+            $http.get('boiler_list.json/')
+                .then(function (res) {                  
+                    $rootScope.boilers = res.data;
+                    for (var i = 0; i < $rootScope.boilers.length; i++) {
+                        var ab = $rootScope.boilers[i];
+                        $rootScope.getBoilerCalculateParameter(ab);
+                    }   
+                    $timeout(function () {
+			        $rootScope.getAlarmList();
+			        }, 2000);
+                });
+        };
+        
+	$rootScope.getBoilerCalculateParameter = function (boiler) {
+            $http.get('boiler_calculate_parameter.json/?boiler=' + boiler.Uid)
+                .then(function (res) {
+                    boiler.Calculate = res.data;
+                });
+        };
     
    	$rootScope.getAlarmList = function() {
 		$http.get('boiler_alarm_list.json/')
@@ -1161,23 +1472,24 @@ mainApp.run(["$rootScope", "settings", "$state","$stateParams","$http","$timeout
 			});
 	};
 	
+	$rootScope.organizations = [];
 	$http.get('organization_list.json/')
-            .then(function (res) {                
-                $rootScope.organizations = [];
+            .then(function (res) {                                
                 for (var i = 0; i < res.data.length; i++) {
+//              	var org = {};
                     var d = res.data[i];
                     d.name = d.Name;
                     d.type = d.Type.Name;
-                    $rootScope.organizations.push(d);
-                }
-            }, function (err) {
-                
+                    $rootScope.organizations.push(d); 
+                } 
+                console.log($rootScope.organizations.length);
             });
 	
     $http.get('runtime_parameters.json/')
             .then(function (res) {
                 $rootScope.parameters = res.data;
             });
+            
     $http.get('boiler_fuel_list.json/')
             .then(function (res) {
                 $rootScope.fuels = res.data;
@@ -1192,14 +1504,17 @@ mainApp.run(["$rootScope", "settings", "$state","$stateParams","$http","$timeout
             });
         $http.get('boiler_medium_list.json/')
             .then(function (res) {
-                $rootScope.boilerMediums = res.data;
+                $rootScope.boilerMediums = res.data;               
             });
-    $timeout(function () {
-        $rootScope.getAlarmList();
-        }, 2000);
+            
+    
                     
-//   $rootScope.getBoilerList();                
-                    
+     $rootScope.getBoilerList();                
+      
+      
+      
+      
+      
     
 }]);
 
@@ -1322,6 +1637,31 @@ angular.module('BoilerAdmin').controller('ModalLoginCtrl', function ($uibModalIn
 });
 
 
-
+mainApp
+    .config(['$httpProvider',
+        function ($httpProvider) {
+            var requestInterceptor = ['$q', '$injector', '$rootScope',
+                function ($q, $injector, $rootScope) {
+                    return {
+                        request: function (config) {
+                            $rootScope.$broadcast('loading:show');
+                            return config || $q.when(config);
+                        },
+                        response: function (response) {
+                            $rootScope.$broadcast('loading:hide');
+                            return response;
+                        },
+                        responseError: function (response) {
+                            $rootScope.$broadcast('loading:hide');
+                            return $q.reject(response);
+                        },
+                        requestError: function (response) {
+                            $rootScope.$broadcast('loading:hide');
+                            return response;
+                        }
+                    };
+                }];
+            $httpProvider.interceptors.push(requestInterceptor);
+        }]);
 
 

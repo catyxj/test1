@@ -1,9 +1,12 @@
 <div ng-controller="viewCtrl" class="view row">
 	<ul>
-		<li ng-repeat="boiler in productData | range:selectedpage:pageSize | filter:modelFilterFn | filter:fuelFilterFn | filter:companyFilterFn" 
+		<li ng-repeat="boiler in datasource | filter:search
+			| filter:modelFilterFn | filter:fuelFilterFn | filter:aEvaporateFilterFn | filter:aOrgFilterFn 
+			| filter:filterBurning | filter:aQuery |filter:aLocation 
+			| range:selectedpage:pageSize " 
 			class="col-md-6 col-sm-12 col-xs-12">
 			<!-- BEGIN PORTLET-->
-			<div class="portlet light bordered boiler-frame">
+			<div class="portlet light bordered boiler-frame" ng-init="fetchThumbParam(boiler)">
 				<div class="portlet-title">
 					<div class="view_title caption">
 						<a ui-sref="runtime.dashboard({boiler: boiler.Uid})">
@@ -34,9 +37,7 @@
 	                        	告警
 	                        </a>
 						</div>
-						<!--<button type="button" ng-class="{'btn-danger':boiler.state==1, 'btn-info':boiler.state==0,}" class="btn btn-sm btn_round btn_bc">终端状态</button>
-						<button type="button" ng-class="{'btn-danger':boiler.state==1, 'btn-info':boiler.state==0,}" class="btn btn-sm btn_round btn_bc">燃烧状态</button>
-						<button type="button" class="btn btn-warning btn-sm btn_round btn_bc">告警</button>-->
+						
 					</div>
 				</div>
 
@@ -83,10 +84,12 @@
 	<div >
 		
          <div class="float_left count_num">
-			共{{totalItems}} 条记录
+			共{{totalItems=(datasource| filter:search
+			| filter:modelFilterFn | filter:fuelFilterFn | filter:aEvaporateFilterFn | filter:aOrgFilterFn 
+			| filter:filterBurning | filter:aQuery |filter:aLocation).length}} 条记录
 		</div>
          <div class="pagination">       	       	
-            <ul uib-pagination boundary-links="true" total-items="totalItems"
+            <ul uib-pagination boundary-links="true" total-items="totalItems" boundary-link-numbers="true"
                         ng-model="selectedpage"  ng-change="setPageSize(pageSize)"
                         items-per-page="pageSize"
                         max-size="maxSize"  num-pages="totalPage"

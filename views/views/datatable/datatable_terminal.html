@@ -24,7 +24,7 @@
 				<th>
 					IP地址
 				</th>
-				<th>
+				<th style="width: 146px;">
 					操作
 				</th>
 
@@ -66,17 +66,17 @@
 					
 					<div class="btn-group">
 						<button ng-show="currentUser.Role.RoleId >= 10" type="button" 
-							ng-click="openSetModal(d)" class="btn edit btn-outline btn-circle btn-sm green">
+							ng-click="terminal.view(d)" class="btn edit btn-outline btn-circle btn-sm green">
 							<i class="fa fa-eye"></i>
 							查看
 						</button>
 						<button type="button" 
-							ng-click="openSetModal(d)" class="btn edit btn-outline btn-circle btn-sm blue"
+							ng-click="terminal.setting(d)" class="btn edit btn-outline btn-circle btn-sm blue"
 							style="border-bottom-right-radius: 0px !important; border-top-right-radius: 0px !important; margin-right: 0;">
 							<i class="fa fa-cogs"></i> 
 							配置
 						</button>
-						<button type="button" 
+						<button type="button" ng-click="terminal.channel(d)"
 							class="btn edit btn-outline btn-circle btn-sm blue-hoki"
 							style="border-bottom-left-radius: 0px !important; border-top-left-radius: 0px !important;">
 							<i class="fa fa-server"></i> 

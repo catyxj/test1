@@ -12,8 +12,11 @@
 				<div class="form-group col-md-6">
 					<div class="input-group">
 						<label class="input-group-addon">终端名称</label>
-						<input ng-model="data.Name" type="text" class="form-control" 
-							placeholder="输入终端名称" required>
+						<input ng-model="data.Name" type="text" 
+							maxlength="16"							 
+							ng-disabled="!$modal.editing"
+							class="form-control"							
+							placeholder="请输入终端名称" required>
 					</div>
 				</div>
 

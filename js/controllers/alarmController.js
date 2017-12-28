@@ -96,6 +96,7 @@ mainApp.controller("alarmInfoController",function($scope,$state,$uibModal,$http)
 		var modalInstance = $uibModal.open({
 			templateUrl: 'directives/modal/boiler_alarm_feedback.html', //script标签中定义的id
 			controller: 'alarmModalCtrl', //modal对应的Controller
+			controllerAs: '$modal',
 			size: 'lg', //大小配置 
 			resolve: {
 				data: function() { //data作为modal的controller传入的参数	
@@ -122,9 +123,39 @@ mainApp.controller("alarmInfoController",function($scope,$state,$uibModal,$http)
 
 
 //模态框对应的Controller
-mainApp.controller('alarmModalCtrl', function($scope, $uibModalInstance, data) {
+mainApp.controller('alarmModalCtrl', function($scope, $uibModalInstance, data,$http) {
+		var $modal = this;
+		    $modal.editing = false;
+		    $modal.alarm = {};
           $scope.data= data;
-          
+          $http.get("boiler_alarm_detail.json/").then(function(res){
+          	var alarm = res.data;
+	        var start = new Date(alarm.StartDate);
+	        var end = new Date(alarm.EndDate);
+	
+	        var validTime = 4 * 60 * 60 * 1000;
+	        var now = new Date();
+	        var aTime = new Date();
+	        aTime.setTime(now.getTime() - validTime);
+	        alarm.isValid = aTime < end;
+	
+	        alarm.startFormat = 'YYYY-MM-DD HH:mm';
+	        alarm.endFormat = 'YYYY-MM-DD HH:mm';
+	        if (end.getYear() === start.getYear()) {
+	            if (end.getDate() === start.getDate()) {
+	                alarm.endFormat = 'HH:mm';
+	            } else {
+	                alarm.endFormat = 'MM-DD HH:mm';
+	            }
+	        }
+	
+	        $modal.alarm = alarm;
+	        $scope.alarm = alarm;
+	        initChartAlarm($scope.alarm);
+          }, function (e) {
+	        console.error("Get Alarm Runtime Failed:", e);
+	    });
+	    
           //在这里处理要进行的操作
           $scope.ok = function() {
               $uibModalInstance.close();

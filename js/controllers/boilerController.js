@@ -36,9 +36,7 @@ mainApp.controller("boilerController",function($scope, $rootScope, $uibModal,$ht
 	
 	$scope.pageSize = 10;
 	
-	
-						
-		
+			
         $scope.openModal = function() {  
         		var newdata = {};
                 var modalInstance = $uibModal.open({

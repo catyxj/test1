@@ -1,4 +1,5 @@
 <div class="modal-header">
+	<button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times;</span></button>
     <h3 class="modal-title" id="modal-title" style="display: inline-block;">终端配置</h3>
     <span class="ticket-id bold font-blue font-lg" style="display: inline-block;">#{{ $modal.code }}</span>
 </div>
@@ -53,7 +54,7 @@
                 <input type="text" ng-model="$modal.name"
                        maxlength="16"
                        ng-disabled="!$modal.editing"
-                       class="form-control ng-pristine ng-valid ng-touched has-success"
+                       class="form-control"
                        placeholder="请输入终端名称" required>
             </div>
         </div>
@@ -67,7 +68,7 @@
                 <input type="text" ng-model="$modal.code"
                        ng-maxlength="6"
                        ng-disabled="!$modal.editing || !$modal.editingCode"
-                       class="form-control ng-pristine ng-valid ng-touched has-success"
+                       class="form-control"
                        placeholder="输入六位终端编码" required>
             </div>
         </div>
@@ -75,7 +76,7 @@
             <div class="input-group">
                 <span class="input-group-addon">物联网卡号</span>
                 <input type="text" ng-model="$modal.simNum" ng-disabled="!$modal.editing"
-                       class="form-control ng-pristine ng-valid ng-touched has-success"
+                       class="form-control"
                        placeholder="请输入十一位卡号">
             </div>
         </div>
@@ -87,7 +88,7 @@
                        placeholder="0.0.0.0" required>
             </div>
         </div>
-
+	</div>
     <div ng-show="$modal.currentData">
         <hr>
         <div class="row">
@@ -100,30 +101,7 @@
                            placeholder="45">
                 </div>
             </div>
-            <!--
-            <input
-                    bs-switch
-                    ng-model="isSelected"
-                    type="checkbox"
-                    switch-active="{{ isActive }}"
-                    switch-readonly="{{ isReadonly }}"
-                    switch-size="{{ size }}"
-                    switch-animate="{{ animate }}"
-                    switch-label="{{ label }}"
-                    switch-icon="{{ icon }}"
-                    switch-on-text="{{ onLabel }}"
-                    switch-off-text="{{ offLabel }}"
-                    switch-on-color="{{ on }}"
-                    switch-off-color="{{ off }}"
-                    switch-radio-off="{{ radioOff }}"
-                    switch-label-width="{{ labelWidth }}"
-                    switch-handle-width="{{ handleWidth }}"
-                    switch-inverse="{{ inverse }}"
-                    switch-change="onChange()"
-                    ng-true-value="'yep'"
-                    ng-false-value="'nope'">
-                    -->
-
+            
             <div class="form-group form-selector col-md-6">
                 <div class="input-group">
                     <span style="margin-right: 12px;">终端启闭</span>
@@ -133,7 +111,7 @@
                            type="checkbox"
                            switch-on-text="开启"
                            switch-off-text="关闭"
-                           switch-on-color="success"
+                           switch-on-color="info"
                            switch-off-color="{{ off }}">
                 </div>
             </div>
@@ -157,6 +135,8 @@
         </div>
     </div>
 </div>
+
+
 <div class="modal-footer">
     <button class="btn yellow-crusta" type="button" ng-show="$modal.editing && $modal.currentData" ng-click="$modal.reboot()" style="float: left">重新启动</button>
     <button class="btn red" type="button" ng-show="$modal.editing && $modal.currentData" ng-click="$modal.delete()">删除</button>

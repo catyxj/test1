@@ -521,7 +521,7 @@
 
 
 .view.row{
-	margin: 0;
+	/*margin: 0;*/
 }
 .view ul li .view_box{
 	border: 1px solid #CCCCCC;
@@ -537,6 +537,11 @@
 	font-size: 18px;
 	color: #555555;
 	font-weight: bold;
+	display: inline-block;
+	overflow: hidden;
+	width: 160px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 
@@ -547,7 +552,7 @@
 img.boiler-thumb {
     margin: 0 auto;
     max-width: 96%;
-    max-height: 160px;
+    max-height: 180px;
 }
 
 

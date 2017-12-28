@@ -3,490 +3,177 @@ mainApp.directive("chartAlarm",function(){
    		restrict:"E",
    		templateUrl:"directives/chart_alarm.html",
    		replace: true,
-   		link:function(){
-   			initChartAlarm();
+   		link:function(scope, element, attrs){
+   			initChartAlarm(scope.alarm);
    		}
 	}			
    });
 
-var initChartAlarm = function(){
+var initChartAlarm = function(alarm){
+	if (!alarm) {
+        console.warn("Boiler Alarm Data IS NULL!");
+        return;
+    }
+    if (typeof(AmCharts) === 'undefined' || $('#chart_alarm').size() === 0) {
+        console.warn("There IS NO #chart_alarm");
+        return;
+    }
+    
+    var chartData = [];
+    var pName = alarm['Parameter__Name'];
+    var unit = alarm['Parameter__Unit'];
+    var scale = alarm['Parameter__Scale'];
+    var fix = alarm['Parameter__Fix'];
+    var normalValue = alarm['TriggerRule__Normal'];
+    var warningValue = alarm['TriggerRule__Warning'];
+
+    for (var i = 0; i < alarm.runtime.length; i++) {
+        var rtm = alarm.runtime[i];
+        var value = (rtm.Value * scale).toFixed(fix);
+
+        var d = {
+            num: i,
+            date: new Date(rtm.CreatedDate),
+            value: value
+        };
+        chartData.push(d);
+    }
 	
-			var chart = AmCharts.makeChart("chartdiv", {
-				"type": "serial",
-				"theme": "light",
-				"marginRight": 40,
-				"marginLeft": 40,
-				"autoMarginOffset": 20,
-				"mouseWheelZoomEnabled": true,
-				"dataDateFormat": "YYYY-MM-DD",
-				"valueAxes": [{
-					"id": "v1",
-					"axisAlpha": 0,
-					"position": "left",
-					"ignoreAxisWidth": true
-				}],
-				"balloon": {
-					"borderThickness": 1,
-					"shadowAlpha": 0
-				},
-				"graphs": [{
-					"id": "g1",
-					"balloon": {
-						"drop": true,
-						"adjustBorderColor": false,
-						"color": "#ffffff"
-					},
-					"bullet": "round",
-					"bulletBorderAlpha": 1,
-					"bulletColor": "#FFFFFF",
-					"bulletSize": 5,
-					"hideBulletsCount": 50,
-					"lineThickness": 2,
-					"title": "red line",
-					"useLineColorForBulletBorder": true,
-					"valueField": "value",
-					"balloonText": "<span style='font-size:18px;'>[[value]]</span>"
-				}],
+    var lowColor = warningValue > normalValue ? "#0d8ecf" : "#f0868e";
+    var highColor = warningValue > normalValue ? "#f0868e" : "#0d8ecf";
+    
+    
+    var chart = AmCharts.makeChart("chart_alarm", {
+        type: "serial",
+        theme: "light",
+        fontSize: 11,
+        color: "#6c7b88",
+        language: "zh",
+        marginTop: 8,
+        marginBottom: 0,
+        marginLeft: 0,
+        marginRight: 0,
+        dataProvider: chartData,
+      
+        valueAxes: [{
+            id: "a1",
+          
+            gridAlpha: 0.04,
+            axisAlpha: 0.2,
+            unit: unit,
+        }],
+        graphs: [{
+            id:"g1",
+            valueField: "value",
+            balloonText: pName + ":[[value]]" + unit,//"[[category]]<br><b><span style='font-size:14px;'>[[value]]</span></b>",
+         
+            lineColor: highColor,
+            negativeLineColor: lowColor,
+            lineThickness: 1,
+            negativeBase: warningValue,
+            fillAlphas: 0.3,
+            lineAlpha: 0.6,
+            type: "smoothedLine"
+        }],
 
-				"chartCursor": {
-					"pan": true,
-					"valueLineEnabled": true,
-					"valueLineBalloonEnabled": true,
-					"cursorAlpha": 1,
-					"cursorColor": "#258cbb",
-					"limitToGraph": "g1",
-					"valueLineAlpha": 0.2,
-					"valueZoomable": true
-				},
+        chartCursor: {
+            cursorAlpha: 0,
+            categoryBalloonDateFormat: "JJ:NN",
+            categoryBalloonColor: "#e26a6a",
+            categoryBalloonAlpha: 0.8,
 
-				"categoryField": "date",
-				"categoryAxis": {
-					"parseDates": true,
-					"dashLength": 1,
-					"minorGridEnabled": true
-				},
-				"export": {
-					"enabled": true
-				},
-				"dataProvider": [{
-					"date": "2012-07-27",
-					"value": 13
-				}, {
-					"date": "2012-07-28",
-					"value": 11
-				}, {
-					"date": "2012-07-29",
-					"value": 15
-				}, {
-					"date": "2012-07-30",
-					"value": 16
-				}, {
-					"date": "2012-07-31",
-					"value": 18
-				}, {
-					"date": "2012-08-01",
-					"value": 13
-				}, {
-					"date": "2012-08-02",
-					"value": 22
-				}, {
-					"date": "2012-08-03",
-					"value": 23
-				}, {
-					"date": "2012-08-04",
-					"value": 20
-				}, {
-					"date": "2012-08-05",
-					"value": 17
-				}, {
-					"date": "2012-08-06",
-					"value": 16
-				}, {
-					"date": "2012-08-07",
-					"value": 18
-				}, {
-					"date": "2012-08-08",
-					"value": 21
-				}, {
-					"date": "2012-08-09",
-					"value": 26
-				}, {
-					"date": "2012-08-10",
-					"value": 24
-				}, {
-					"date": "2012-08-11",
-					"value": 29
-				}, {
-					"date": "2012-08-12",
-					"value": 32
-				}, {
-					"date": "2012-08-13",
-					"value": 18
-				}, {
-					"date": "2012-08-14",
-					"value": 24
-				}, {
-					"date": "2012-08-15",
-					"value": 22
-				}, {
-					"date": "2012-08-16",
-					"value": 18
-				}, {
-					"date": "2012-08-17",
-					"value": 19
-				}, {
-					"date": "2012-08-18",
-					"value": 14
-				}, {
-					"date": "2012-08-19",
-					"value": 15
-				}, {
-					"date": "2012-08-20",
-					"value": 12
-				}, {
-					"date": "2012-08-21",
-					"value": 8
-				}, {
-					"date": "2012-08-22",
-					"value": 9
-				}, {
-					"date": "2012-08-23",
-					"value": 8
-				}, {
-					"date": "2012-08-24",
-					"value": 7
-				}, {
-					"date": "2012-08-25",
-					"value": 5
-				}, {
-					"date": "2012-08-26",
-					"value": 11
-				}, {
-					"date": "2012-08-27",
-					"value": 13
-				}, {
-					"date": "2012-08-28",
-					"value": 18
-				}, {
-					"date": "2012-08-29",
-					"value": 20
-				}, {
-					"date": "2012-08-30",
-					"value": 29
-				}, {
-					"date": "2012-08-31",
-					"value": 33
-				}, {
-					"date": "2012-09-01",
-					"value": 42
-				}, {
-					"date": "2012-09-02",
-					"value": 35
-				}, {
-					"date": "2012-09-03",
-					"value": 31
-				}, {
-					"date": "2012-09-04",
-					"value": 47
-				}, {
-					"date": "2012-09-05",
-					"value": 52
-				}, {
-					"date": "2012-09-06",
-					"value": 46
-				}, {
-					"date": "2012-09-07",
-					"value": 41
-				}, {
-					"date": "2012-09-08",
-					"value": 43
-				}, {
-					"date": "2012-09-09",
-					"value": 40
-				}, {
-					"date": "2012-09-10",
-					"value": 39
-				}, {
-					"date": "2012-09-11",
-					"value": 34
-				}, {
-					"date": "2012-09-12",
-					"value": 29
-				}, {
-					"date": "2012-09-13",
-					"value": 34
-				}, {
-					"date": "2012-09-14",
-					"value": 37
-				}, {
-					"date": "2012-09-15",
-					"value": 42
-				}, {
-					"date": "2012-09-16",
-					"value": 49
-				}, {
-					"date": "2012-09-17",
-					"value": 46
-				}, {
-					"date": "2012-09-18",
-					"value": 47
-				}, {
-					"date": "2012-09-19",
-					"value": 55
-				}, {
-					"date": "2012-09-20",
-					"value": 59
-				}, {
-					"date": "2012-09-21",
-					"value": 58
-				}, {
-					"date": "2012-09-22",
-					"value": 57
-				}, {
-					"date": "2012-09-23",
-					"value": 61
-				}, {
-					"date": "2012-09-24",
-					"value": 59
-				}, {
-					"date": "2012-09-25",
-					"value": 67
-				}, {
-					"date": "2012-09-26",
-					"value": 65
-				}, {
-					"date": "2012-09-27",
-					"value": 61
-				}, {
-					"date": "2012-09-28",
-					"value": 66
-				}, {
-					"date": "2012-09-29",
-					"value": 69
-				}, {
-					"date": "2012-09-30",
-					"value": 71
-				}, {
-					"date": "2012-10-01",
-					"value": 67
-				}, {
-					"date": "2012-10-02",
-					"value": 63
-				}, {
-					"date": "2012-10-03",
-					"value": 46
-				}, {
-					"date": "2012-10-04",
-					"value": 32
-				}, {
-					"date": "2012-10-05",
-					"value": 21
-				}, {
-					"date": "2012-10-06",
-					"value": 18
-				}, {
-					"date": "2012-10-07",
-					"value": 21
-				}, {
-					"date": "2012-10-08",
-					"value": 28
-				}, {
-					"date": "2012-10-09",
-					"value": 27
-				}, {
-					"date": "2012-10-10",
-					"value": 36
-				}, {
-					"date": "2012-10-11",
-					"value": 33
-				}, {
-					"date": "2012-10-12",
-					"value": 31
-				}, {
-					"date": "2012-10-13",
-					"value": 30
-				}, {
-					"date": "2012-10-14",
-					"value": 34
-				}, {
-					"date": "2012-10-15",
-					"value": 38
-				}, {
-					"date": "2012-10-16",
-					"value": 37
-				}, {
-					"date": "2012-10-17",
-					"value": 44
-				}, {
-					"date": "2012-10-18",
-					"value": 49
-				}, {
-					"date": "2012-10-19",
-					"value": 53
-				}, {
-					"date": "2012-10-20",
-					"value": 57
-				}, {
-					"date": "2012-10-21",
-					"value": 60
-				}, {
-					"date": "2012-10-22",
-					"value": 61
-				}, {
-					"date": "2012-10-23",
-					"value": 69
-				}, {
-					"date": "2012-11-01",
-					"value": 73
-				}, {
-					"date": "2012-11-02",
-					"value": 67
-				}, {
-					"date": "2012-11-03",
-					"value": 68
-				}, {
-					"date": "2012-11-04",
-					"value": 65
-				}, {
-					"date": "2012-11-11",
-					"value": 81
-				}, {
-					"date": "2012-11-12",
-					"value": 83
-				}, {
-					"date": "2012-11-13",
-					"value": 80
-				}, {
-					"date": "2012-11-14",
-					"value": 81
-				}, {
-					"date": "2012-11-15",
-					"value": 87
-				}, {
-					"date": "2012-11-16",
-					"value": 82
-				}, {
-					"date": "2012-11-17",
-					"value": 86
-				}, {
-					"date": "2012-11-18",
-					"value": 80
-				}, {
-					"date": "2012-11-19",
-					"value": 87
-				}, {
-					"date": "2012-11-20",
-					"value": 83
-				}, {
-					"date": "2012-11-21",
-					"value": 85
-				}, {
-					"date": "2012-11-22",
-					"value": 84
-				}, {
-					"date": "2012-11-23",
-					"value": 82
-				}, {
-					"date": "2012-11-30",
-					"value": 61
-				}, {
-					"date": "2012-12-01",
-					"value": 62
-				}, {
-					"date": "2012-12-02",
-					"value": 66
-				}, {
-					"date": "2012-12-03",
-					"value": 65
-				}, {
-					"date": "2012-12-15",
-					"value": 62
-				}, {
-					"date": "2012-12-16",
-					"value": 64
-				}, {
-					"date": "2012-12-17",
-					"value": 61
-				}, {
-					"date": "2012-12-18",
-					"value": 59
-				}, {
-					"date": "2012-12-19",
-					"value": 53
-				}, {
-					"date": "2012-12-20",
-					"value": 54
-				}, {
-					"date": "2012-12-21",
-					"value": 56
-				}, {
-					"date": "2012-12-22",
-					"value": 59
-				}, {
-					"date": "2012-12-23",
-					"value": 58
-				}, {
-					"date": "2012-12-24",
-					"value": 55
-				}, {
-					"date": "2012-12-25",
-					"value": 52
-				}, {
-					"date": "2012-12-26",
-					"value": 54
-				}, {
-					"date": "2012-12-27",
-					"value": 50
-				}, {
-					"date": "2012-12-28",
-					"value": 50
-				}, {
-					"date": "2012-12-29",
-					"value": 51
-				}, {
-					"date": "2012-12-30",
-					"value": 52
-				}, {
-					"date": "2012-12-31",
-					"value": 58
-				}, {
-					"date": "2013-01-19",
-					"value": 85
-				}, {
-					"date": "2013-01-20",
-					"value": 82
-				}, {
-					"date": "2013-01-21",
-					"value": 83
-				}, {
-					"date": "2013-01-22",
-					"value": 88
-				}, {
-					"date": "2013-01-23",
-					"value": 85
-				}, {
-					"date": "2013-01-24",
-					"value": 85
-				}, {
-					"date": "2013-01-25",
-					"value": 80
-				}, {
-					"date": "2013-01-26",
-					"value": 87
-				}, {
-					"date": "2013-01-27",
-					"value": 84
-				}, {
-					"date": "2013-01-28",
-					"value": 83
-				}, {
-					"date": "2013-01-29",
-					"value": 84
-				}, {
-					"date": "2013-01-30",
-					"value": 81
-				}]
-			});
+            valueLineEnabled: true,
+            valueLineBalloonEnabled: true,
+            valueLineAlpha: 0.3,
+            bulletsEnabled: true,
+            bulletSize: 8,
+            fullWidth:true
+        },
+        dataDateFormat: "YYYY-MM-DD JJ:NN:SS",
+        categoryField: "date",
+        categoryAxis: {
+            minPeriod: "mm",
+            parseDates: true,
+            equalSpacing: true,
+            axisAlpha: 0.2,
+            gridAlpha: 0.04,         
+        }
+    });
+    
+    
+           
+//			var chart = AmCharts.makeChart("chartdiv", {
+//				"type": "serial",
+//				"theme": "light",
+//				"fontSize": 11,
+//      		"color": "#6c7b88",
+//				"marginRight": 0,
+//				"marginLeft": 0,
+////				"autoMarginOffset": 20,
+////				"mouseWheelZoomEnabled": true,
+////				"dataDateFormat": "YYYY-MM-DD",
+//				"dataProvider": chartData,
+//				"valueAxes": [{
+//					"id": "a1",
+////					"axisAlpha": 0,
+////					"position": "left",
+////					"ignoreAxisWidth": true
+//					"gridAlpha": 0.04,
+//		            "axisAlpha": 0.2,
+//		            "unit": unit,
+//				}],
+////				"balloon": {
+////					"borderThickness": 1,
+////					"shadowAlpha": 0
+////				},
+//				"graphs": [{
+//					"id": "g1",
+////					"balloon": {
+////						"drop": true,
+////						"adjustBorderColor": false,
+////						"color": "#ffffff"
+////					},
+//					"lineColor": highColor,
+////					"bullet": "round",
+////					"bulletBorderAlpha": 1,
+////					"bulletColor": "#FFFFFF",
+////					"bulletSize": 5,
+////					"hideBulletsCount": 50,
+//					"negativeLineColor": lowColor,
+//					"lineThickness": 1,
+////					"title": "red line",
+////					"useLineColorForBulletBorder": true,
+//					"valueField": "value",
+//					"balloonText": pName + ":[[value]]" + unit,
+//					"negativeBase": warningValue,
+//		            "fillAlphas": 0.3,
+//		            "lineAlpha": 0.6,
+//		            "type": "smoothedLine"
+//				}],
+//
+//				"chartCursor": {
+//					"pan": true,
+//					"valueLineEnabled": true,
+//					"valueLineBalloonEnabled": true,
+//					"cursorAlpha": 1,
+//					"cursorColor": "#258cbb",
+//					"limitToGraph": "g1",
+//					"valueLineAlpha": 0.2,
+//					"valueZoomable": true
+//				},
+//
+//				"categoryField": "date",
+//				"categoryAxis": {
+//					"parseDates": true,
+//					"dashLength": 1,
+//					"minorGridEnabled": true
+//				},
+//				"export": {
+//					"enabled": true
+//				}
+//				
+//			
+//			});
 		
 }
 

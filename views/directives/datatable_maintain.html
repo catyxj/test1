@@ -71,7 +71,7 @@
 
 				</td>
 				<td>
-					{{data.InspectDate}}
+					{{data.InspectDate| amDateFormat:'YYYY-MM-DD'}}
 				</td>
 				<td>
 					{{data.CreatedBy.Name}}
@@ -142,7 +142,7 @@
 							<i class="fa fa-edit"></i>
 							编辑
 						</button>
-					<button ng-click="removeData(data.num)" type="button" class="btn btn-outline btn-circle red"> 
+					<button ng-click="delete(data.num)" type="button" class="btn btn-outline btn-circle red"> 
 							<i class="fa fa-trash"></i>
 							删除
 						</button>
@@ -159,7 +159,10 @@
 			共{{totalItems}} 条记录
 		</div>
 		<div class="pagination">
-			<ul uib-pagination boundary-links="true" total-items="totalItems" ng-model="selectedpage" ng-change="setPageSize(pageSize)" items-per-page="pageSize" max-size="maxSize" num-pages="totalPage" previous-text="上一页" next-text="下一页" first-text="首页" last-text="尾页">
+			<ul uib-pagination boundary-links="true" total-items="totalItems" 
+				ng-model="selectedpage" ng-change="setPageSize(pageSize)" 
+				items-per-page="pageSize" max-size="maxSize" num-pages="totalPage" 
+				previous-text="上一页" next-text="下一页" first-text="首页" last-text="尾页">
 			</ul>
 		</div>
 	</div>
