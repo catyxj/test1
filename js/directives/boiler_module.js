@@ -27,7 +27,7 @@ mainApp.directive('boilerModule', function () {
 //      bModule.boiler = $rootScope.boiler;
 //      bModule.instants = $rootScope.instants;
 
-		bModule.boiler = productData[2];
+		bModule.boiler = productData[1];
 		bModule.instants = [];
 		
         // console.error("Runtime initModule!", bModule.instants);
@@ -55,6 +55,9 @@ mainApp.directive('boilerModule', function () {
                 break;
             case 5:
                 bModule.moduleId = 5;
+                break; 
+            case 6:
+                bModule.moduleId = 6;
                 break;    
             default:
                 bModule.moduleId = 1;
@@ -82,6 +85,9 @@ mainApp.directive('boilerModule', function () {
             case 5:
                 svgName = "../img/electricity2.svg";
                 break;
+            case 6:
+                svgName = "../img/boiler_oil.svg";
+                break;    
             default:
                 svgName = "../img/boiler_coal_double.svg";
                 break;
@@ -136,7 +142,7 @@ mainApp.directive('boilerModule', function () {
                 height: 54,
                 gap: 10,
 
-                baseX: 20,
+                baseX: 0,
                 baseY: 0
             };
 
@@ -169,208 +175,209 @@ mainApp.directive('boilerModule', function () {
 
             var statOptions = copy(moduleOptionsDef);
             statOptions.align = "justify";
+/*
+//          var steamData = [];
+//          var steamOptions = copy(moduleOptionsDef);
+//
+//          var waterLvData = [
+//              [{id: 0, type: "status", text: "", name: "高水位", value: true}],
+//              [{id: 0, type: "status", text: "", name: "低水位", value: true}]
+//          ];
+//          var waterLvOptions = copy(moduleOptionsDef);
+//
+//          var waterData = [];
+//          var waterOptions = copy(moduleOptionsDef);
+//
+//          var fuelData = [];
+//          var fuelOptions = copy(moduleOptionsDef);
+//
+//          var smokeData = [];
+//          var smokeOptions = copy(moduleOptionsDef);
 
-            var steamData = [];
-            var steamOptions = copy(moduleOptionsDef);
+//          switch (bModule.moduleId) {
+//              case 3:
+//              case 6:
+//                  var swData = [];
+//                  var swOptions = copy(moduleOptionsDef);
+//
+//                  var water1Data = [];
+//                  var water1Options = copy(moduleOptionsDef);
+//
+//                  steamData = [
+//                      [
+//                          {id: 1001, name: "蒸汽温度"},
+//                          {id: 1002, name: "蒸汽压力"}
+//                      ],
+//                      [{id: 1003, name: "蒸汽流量(瞬时)"}],
+//                      [{id: 0, name: "蒸汽流量(累计)"}]
+//                  ];
+//
+//                  waterData = [
+//                      [
+//                          {id: 1010, name: "给水流量(瞬时)"},
+//                          {id: 0, name: "给水量(累计)"}
+//                      ]
+//                  ];
+//
+//                  water1Data = [
+//                      [{id: 1005, name: "给水温度(冷)"}],
+//                      [{id: 0, type: "status", text: "", name: "软水硬度", value: true}]
+//                  ];
+//
+//                  smokeData = [
+//                      [{id: 1014, name: "排烟温度(前)"}],
+//                      [{id: 1202, name: "过量空气系数"}],
+//                      [{id: 1016, name: "排烟氧量"}]
+//                  ];
+//
+//                  swData = [
+//                      [
+//                          {id: 1006, name: "给水温度(热)"},
+//                          {id: 1015, name: "排烟温度(后)"}
+//                      ]
+//                  ];
+//
+//                  fuelData = [
+//                      [
+//                          {id: 0, name: "燃料流量(瞬时)"},
+//                          {id: 0, name: "燃料量(累计)"}
+//                      ]
+//                  ];
+//
+//                  steamOptions.align = "right";
+//                  steamOptions.baseX = 320;
+//                  steamOptions.baseY = 140;
+//
+//                  waterOptions.baseX = 730;
+//                  waterOptions.baseY = 630;
+//
+//                  water1Options.baseX = 1020;
+//                  water1Options.baseY = 220;
+//
+//                  waterLvOptions.baseX = 360;
+//                  waterLvOptions.baseY = 330;
+//
+//                  smokeOptions.baseX = 730;
+//                  smokeOptions.baseY = 136;
+//
+//                  swOptions.baseX = 630;
+//                  swOptions.baseY = 42;
+//
+//                  fuelOptions.baseX = 120;
+//                  fuelOptions.baseY = 600;
+//
+//                  renderStatusModule("#sw_container", swData, swOptions);
+//                  renderStatusModule("#water1_container", water1Data, water1Options);
+//
+//                  break;
+//
+//              case 4:
+//                  var waterOutData = [];
+//                  var waterOutOptions = copy(moduleOptionsDef);
+//
+//                  var waterInData = [];
+//                  var waterInOptions = copy(moduleOptionsDef);
+//
+//                  waterOutData = [
+//                      [
+//                          {id: 1006, name: "出水温度"},
+//                      ]
+//                  ];
+//
+//                  waterInData = [
+//                      [
+//                          {id: 1005, name: "回水温度"},
+//                      ]
+//                  ];
+//
+//                  smokeData = [
+//                      [{id: 1014, name: "排烟温度(前)"}],
+//                      [{id: 1202, name: "过量空气系数"}],
+//                      [{id: 1016, name: "排烟氧量"}]
+//                  ];
+//
+//                  fuelData = [
+//                      [
+//                          {id: 0, name: "燃料流量(瞬时)"},
+//                          {id: 0, name: "燃料量(累计)"}
+//                      ]
+//                  ];
+//
+//                  waterInOptions.baseX = 460;
+//                  waterInOptions.baseY = 120;
+//
+//                  waterOutOptions.baseX = 960;
+//                  waterOutOptions.baseY = 120;
+//
+//                  smokeOptions.baseX = 1130;
+//                  smokeOptions.baseY = 380;
+//
+//                  fuelOptions.baseX = 180;
+//                  fuelOptions.baseY = 600;
+//
+//                  renderStatusModule("#water_in_container", waterInData, waterInOptions);
+//                  renderStatusModule("#water_out_container", waterOutData, waterOutOptions);
+//
+//                  break;
+//
+//              default:
+//                  steamData = [
+//                      [
+//                          {id: 1001, name: "蒸汽温度"},
+//                          {id: 1002, name: "蒸汽压力"}
+//                      ],
+//                      [
+//                          {id: 1003, name: "蒸汽流量(瞬时)"},
+//                          {id: 0, name: "蒸汽流量(累计)"}
+//                      ]
+//                  ];
+//
+//                  waterData = [
+//                      [{id: 0, type: "status", text: "", name: "软水硬度", value: true}],
+//
+//                      [{id: 1006, name: "给水温度(热)"}],
+//                      [{id: 1005, name: "给水温度(冷)"}],
+//                      [{id: 1010, name: "给水流量(瞬时)"}],
+//                      [{id: 0, name: "给水流量(累计)"}]
+//                  ];
+//
+//                  smokeData = [
+//                      [
+//                          {id: 1202, name: "过量空气系数"},
+//                          {id: 1016, name: "排烟氧量"},
+//                          {id: 1014, name: "排烟温度(前)"},
+//                          {id: 1015, name: "排烟温度(后)"}
+//                      ]
+//                  ];
+//
+//                  fuelData = [
+//                      [{id: 0, name: "进煤量(瞬时)"}],
+//                      [{id: 0, name: "进煤量(累计)"}]
+//                  ];
+//
+//                  steamOptions.baseX = 490;
+//                  steamOptions.baseY = 100;
+//
+//                  waterLvOptions.baseX = 20;
+//                  waterLvOptions.baseY = 300;
+//
+//                  waterOptions.baseX = 850;
+//                  waterOptions.baseY = 128;
+//
+//                  smokeOptions.baseX = 640;
+//                  smokeOptions.baseY = 680;
+//
+//                  fuelOptions.baseX = 20;
+//                  fuelOptions.baseY = 440;
+//                  break;
+//          }*/
 
-            var waterLvData = [
-                [{id: 0, type: "status", text: "", name: "高水位", value: true}],
-                [{id: 0, type: "status", text: "", name: "低水位", value: true}]
-            ];
-            var waterLvOptions = copy(moduleOptionsDef);
-
-            var waterData = [];
-            var waterOptions = copy(moduleOptionsDef);
-
-            var fuelData = [];
-            var fuelOptions = copy(moduleOptionsDef);
-
-            var smokeData = [];
-            var smokeOptions = copy(moduleOptionsDef);
-
-            switch (bModule.moduleId) {
-                case 3:
-                    var swData = [];
-                    var swOptions = copy(moduleOptionsDef);
-
-                    var water1Data = [];
-                    var water1Options = copy(moduleOptionsDef);
-
-                    steamData = [
-                        [
-                            {id: 1001, name: "蒸汽温度"},
-                            {id: 1002, name: "蒸汽压力"}
-                        ],
-                        [{id: 1003, name: "蒸汽流量(瞬时)"}],
-                        [{id: 0, name: "蒸汽流量(累计)"}]
-                    ];
-
-                    waterData = [
-                        [
-                            {id: 1010, name: "给水流量(瞬时)"},
-                            {id: 0, name: "给水量(累计)"}
-                        ]
-                    ];
-
-                    water1Data = [
-                        [{id: 1005, name: "给水温度(冷)"}],
-                        [{id: 0, type: "status", text: "", name: "软水硬度", value: true}]
-                    ];
-
-                    smokeData = [
-                        [{id: 1014, name: "排烟温度(前)"}],
-                        [{id: 1202, name: "过量空气系数"}],
-                        [{id: 1016, name: "排烟氧量"}]
-                    ];
-
-                    swData = [
-                        [
-                            {id: 1006, name: "给水温度(热)"},
-                            {id: 1015, name: "排烟温度(后)"}
-                        ]
-                    ];
-
-                    fuelData = [
-                        [
-                            {id: 0, name: "燃料流量(瞬时)"},
-                            {id: 0, name: "燃料量(累计)"}
-                        ]
-                    ];
-
-                    steamOptions.align = "right";
-                    steamOptions.baseX = 320;
-                    steamOptions.baseY = 140;
-
-                    waterOptions.baseX = 730;
-                    waterOptions.baseY = 630;
-
-                    water1Options.baseX = 1020;
-                    water1Options.baseY = 220;
-
-                    waterLvOptions.baseX = 360;
-                    waterLvOptions.baseY = 330;
-
-                    smokeOptions.baseX = 730;
-                    smokeOptions.baseY = 136;
-
-                    swOptions.baseX = 630;
-                    swOptions.baseY = 42;
-
-                    fuelOptions.baseX = 120;
-                    fuelOptions.baseY = 600;
-
-                    renderStatusModule("#sw_container", swData, swOptions);
-                    renderStatusModule("#water1_container", water1Data, water1Options);
-
-                    break;
-
-                case 4:
-                    var waterOutData = [];
-                    var waterOutOptions = copy(moduleOptionsDef);
-
-                    var waterInData = [];
-                    var waterInOptions = copy(moduleOptionsDef);
-
-                    waterOutData = [
-                        [
-                            {id: 1006, name: "出水温度"},
-                        ]
-                    ];
-
-                    waterInData = [
-                        [
-                            {id: 1005, name: "回水温度"},
-                        ]
-                    ];
-
-                    smokeData = [
-                        [{id: 1014, name: "排烟温度(前)"}],
-                        [{id: 1202, name: "过量空气系数"}],
-                        [{id: 1016, name: "排烟氧量"}]
-                    ];
-
-                    fuelData = [
-                        [
-                            {id: 0, name: "燃料流量(瞬时)"},
-                            {id: 0, name: "燃料量(累计)"}
-                        ]
-                    ];
-
-                    waterInOptions.baseX = 460;
-                    waterInOptions.baseY = 120;
-
-                    waterOutOptions.baseX = 960;
-                    waterOutOptions.baseY = 120;
-
-                    smokeOptions.baseX = 1130;
-                    smokeOptions.baseY = 380;
-
-                    fuelOptions.baseX = 180;
-                    fuelOptions.baseY = 600;
-
-                    renderStatusModule("#water_in_container", waterInData, waterInOptions);
-                    renderStatusModule("#water_out_container", waterOutData, waterOutOptions);
-
-                    break;
-
-                default:
-                    steamData = [
-                        [
-                            {id: 1001, name: "蒸汽温度"},
-                            {id: 1002, name: "蒸汽压力"}
-                        ],
-                        [
-                            {id: 1003, name: "蒸汽流量(瞬时)"},
-                            {id: 0, name: "蒸汽流量(累计)"}
-                        ]
-                    ];
-
-                    waterData = [
-                        [{id: 0, type: "status", text: "", name: "软水硬度", value: true}],
-
-                        [{id: 1006, name: "给水温度(热)"}],
-                        [{id: 1005, name: "给水温度(冷)"}],
-                        [{id: 1010, name: "给水流量(瞬时)"}],
-                        [{id: 0, name: "给水流量(累计)"}]
-                    ];
-
-                    smokeData = [
-                        [
-                            {id: 1202, name: "过量空气系数"},
-                            {id: 1016, name: "排烟氧量"},
-                            {id: 1014, name: "排烟温度(前)"},
-                            {id: 1015, name: "排烟温度(后)"}
-                        ]
-                    ];
-
-                    fuelData = [
-                        [{id: 0, name: "进煤量(瞬时)"}],
-                        [{id: 0, name: "进煤量(累计)"}]
-                    ];
-
-                    steamOptions.baseX = 490;
-                    steamOptions.baseY = 100;
-
-                    waterLvOptions.baseX = 20;
-                    waterLvOptions.baseY = 300;
-
-                    waterOptions.baseX = 850;
-                    waterOptions.baseY = 128;
-
-                    smokeOptions.baseX = 640;
-                    smokeOptions.baseY = 680;
-
-                    fuelOptions.baseX = 20;
-                    fuelOptions.baseY = 440;
-                    break;
-            }
-
-            renderStatusModule("#status_container", statData, statOptions);
-            renderStatusModule("#steam_container", steamData, steamOptions);
-            renderStatusModule("#water_container", waterData, waterOptions);
-            renderStatusModule("#water_lv_container", waterLvData, waterLvOptions);
-            renderStatusModule("#smoke_container", smokeData, smokeOptions);
-            renderStatusModule("#fuel_container", fuelData, fuelOptions);
+//          renderStatusModule("#status_container", statData, statOptions);
+//          renderStatusModule("#steam_container", steamData, steamOptions);
+//          renderStatusModule("#water_container", waterData, waterOptions);
+//          renderStatusModule("#water_lv_container", waterLvData, waterLvOptions);
+//          renderStatusModule("#smoke_container", smokeData, smokeOptions);
+//          renderStatusModule("#fuel_container", fuelData, fuelOptions);
 
             if (bModule.boiler.isBurning) {
                 switch (bModule.moduleId) {
@@ -387,6 +394,11 @@ mainApp.directive('boilerModule', function () {
                     case 5:
                     	renderElectricDashes("#dash_container");
                     	break;
+                    case 6:
+                    	renderGasFire("#fire_container");
+                    	renderOilDashes("#dash_container");                   	
+                        renderGasSmokeDashes("#dash_smoke_container");
+                    	break;	
                     default:
                         renderCoalDashes("#dash_container");
                 }
@@ -394,6 +406,11 @@ mainApp.directive('boilerModule', function () {
 
         });
     };
+
+
+	
+
+
 
     var renderStatusModule = function (id, data, options) {
 
@@ -697,6 +714,65 @@ mainApp.directive('boilerModule', function () {
             });
         });
     };
+
+	 var renderOilDashes = function (id) {
+        var size = 8;
+        var sec = 4096;
+
+        var color = "#fff";
+
+        var dashModule = bModule.svg.select(id);
+        if (!dashModule) {
+            console.warn("There IS NO " + id + "!");
+            return;
+        }
+
+        var dashSteam = function () {
+            dashModule
+                .append("circle").attr("cx", 611).attr("cy", 340).attr("r", size / 2).style("fill", color)
+                .transition().duration(sec / 2).ease(d3.easeLinear).attr("cy", 88)
+                .transition().duration(sec / 6).ease(d3.easeLinear).attr("cx", 540)
+                .remove();
+        };
+
+        var dashWater = function () {
+            dashModule
+                .append("circle").attr("cx", 1200).attr("cy", 377).attr("r", size / 2).style("fill", color)
+                .transition().duration(sec / 5).ease(d3.easeLinear).attr("cx", 1104)
+                .transition().duration(sec / 2).ease(d3.easeLinear).attr("cy", 626)
+                .transition().duration(sec / 16).ease(d3.easeLinear).attr("cx", 1086)
+                .remove();
+
+            dashModule
+                .append("circle").attr("cx", 1002).attr("cy", 648).attr("r", size / 2).style("fill", color)
+                .transition().duration(sec / 16).ease(d3.easeLinear).attr("cx", 981)
+                .transition().duration(sec / 1).ease(d3.easeLinear).attr("cy", 110)
+                .transition().duration(sec / 2).ease(d3.easeLinear).attr("cx", 672)
+                .transition().duration(sec / 2).ease(d3.easeLinear).attr("cy", 340)
+                .remove();
+
+
+        };
+
+        var dashFuel = function () {
+            dashModule
+                .append("circle").attr("cx", 130).attr("cy", 514).attr("r", size / 2).style("fill", "#eee")
+                .transition().duration(sec / 2).ease(d3.easeLinear).attr("cx", 436)
+                .remove();
+        };
+
+        dashModule
+            .transition().on("start", function repeat() {
+            dashModule
+                .transition().delay(260).on("start", function () {
+                dashSteam();
+                dashWater();
+                dashFuel();
+                repeat();
+            });
+        });
+    };
+
 
     var renderGasSmokeDashes = function (id) {
         var size = 8;

@@ -1,0 +1,1838 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+     preserveAspectRatio="none" x="0px" y="0px" width="100%" id="module_height" viewBox="0 0 1310 750">
+    <defs>
+        <linearGradient id="Gradient_1" gradientUnits="userSpaceOnUse" x1="12.2" y1="73.26249999999999" x2="12.2" y2="147.2375" spreadMethod="pad">
+            <stop  offset="0%" stop-color="#000000"/>
+
+            <stop  offset="52.549019607843135%" stop-color="#FFFFFF"/>
+
+            <stop  offset="100%" stop-color="#000000"/>
+        </linearGradient>
+
+        <linearGradient id="Gradient_2" gradientUnits="userSpaceOnUse" x1="283.35" y1="73.7" x2="283.35" y2="0" spreadMethod="pad">
+            <stop  offset="0%" stop-color="#000000"/>
+
+            <stop  offset="52.549019607843135%" stop-color="#FFFFFF"/>
+
+            <stop  offset="100%" stop-color="#000000"/>
+        </linearGradient>
+
+        <linearGradient id="Gradient_3" gradientUnits="userSpaceOnUse" x1="70.65" y1="86.25" x2="70.65" y2="134.25" spreadMethod="pad">
+            <stop  offset="0%" stop-color="#000000"/>
+
+            <stop  offset="52.549019607843135%" stop-color="#FFFFFF"/>
+
+            <stop  offset="100%" stop-color="#000000"/>
+        </linearGradient>
+
+        <linearGradient id="Gradient_4" gradientUnits="userSpaceOnUse" x1="72.65" y1="86.25" x2="72.65" y2="134.25" spreadMethod="pad">
+            <stop  offset="0%" stop-color="#000000"/>
+
+            <stop  offset="52.549019607843135%" stop-color="#FFFFFF"/>
+
+            <stop  offset="100%" stop-color="#000000"/>
+        </linearGradient>
+
+        <linearGradient id="Gradient_5" gradientUnits="userSpaceOnUse" x1="64.05000000000001" y1="195.75" x2="221.05" y2="195.75" spreadMethod="pad">
+            <stop  offset="0%" stop-color="#000000"/>
+
+            <stop  offset="52.549019607843135%" stop-color="#FFFFFF"/>
+
+            <stop  offset="100%" stop-color="#000000"/>
+        </linearGradient>
+
+        <linearGradient id="Gradient_6" gradientUnits="userSpaceOnUse" x1="78.65" y1="154.75" x2="207.65" y2="154.75" spreadMethod="pad">
+            <stop  offset="0%" stop-color="#000000"/>
+
+            <stop  offset="52.15686274509804%" stop-color="#FFFFFF"/>
+
+            <stop  offset="100%" stop-color="#000000"/>
+        </linearGradient>
+
+        <linearGradient id="Gradient_7" gradientUnits="userSpaceOnUse" x1="229.7" y1="60.75" x2="229.7" y2="12.95" spreadMethod="pad">
+            <stop  offset="0%" stop-color="#000000"/>
+
+            <stop  offset="52.549019607843135%" stop-color="#FFFFFF"/>
+
+            <stop  offset="100%" stop-color="#000000"/>
+        </linearGradient>
+
+        <linearGradient id="Gradient_8" gradientUnits="userSpaceOnUse" x1="220.6875" y1="80.25" x2="61.3125" y2="80.25" spreadMethod="pad">
+            <stop  offset="0%" stop-color="#6F6F6F"/>
+
+            <stop  offset="100%" stop-color="#D0D0D0"/>
+        </linearGradient>
+
+        <radialGradient id="Gradient_9" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="73.3125" fx="0" fy="0" gradientTransform="matrix( -1.0000000000000002, 0, 0, 1.0037510656436488, 142.45,72.75) " spreadMethod="pad">
+            <stop  offset="0%" stop-color="#FFFFFF"/>
+
+            <stop  offset="100%" stop-color="#555555"/>
+        </radialGradient>
+
+        <linearGradient id="Gradient_10" gradientUnits="userSpaceOnUse" x1="141.45" y1="48.287499999999994" x2="141.45" y2="110.8125" spreadMethod="pad">
+            <stop  offset="0%" stop-color="#3C3C3C"/>
+
+            <stop  offset="52.549019607843135%" stop-color="#FFFFFF"/>
+
+            <stop  offset="100%" stop-color="#333333"/>
+        </linearGradient>
+
+        <linearGradient id="Gradient_11" gradientUnits="userSpaceOnUse" x1="224.7" y1="60.75" x2="224.7" y2="12.95" spreadMethod="pad">
+            <stop  offset="0%" stop-color="#000000"/>
+
+            <stop  offset="52.549019607843135%" stop-color="#FFFFFF"/>
+
+            <stop  offset="100%" stop-color="#000000"/>
+        </linearGradient>
+
+        <linearGradient id="Gradient_12" gradientUnits="userSpaceOnUse" x1="222.7" y1="60.75" x2="222.7" y2="12.95" spreadMethod="pad">
+            <stop  offset="0%" stop-color="#000000"/>
+
+            <stop  offset="52.549019607843135%" stop-color="#FFFFFF"/>
+
+            <stop  offset="100%" stop-color="#000000"/>
+        </linearGradient>
+
+        <image id="boiler_body" x="0" y="0" width="800" height="480" xlink:href="../img/module/boiler_oil_body.svg"/>
+
+        <image id="sensor" x="-50" y="-50" width="100" height="100" xlink:href="../img/module/sensor.svg"/>
+
+        <image id="valve" x="-50" y="-50" width="100" height="100" xlink:href="../img/module/valve.svg"/>
+
+        <image id="water_tank" x="-100" y="-100" width="200" height="200" xlink:href="../img/module/water_tank.svg"/>
+
+        <image id="Image_image_74" x="0" y="0" width="80" height="227" xlink:href="../img/images/Image_image_74.png"/>
+
+        <image id="Image_image_75" x="0" y="0" width="131" height="129" xlink:href="../img/images/Image_image_75.png"/>
+
+        <image id="Image_image_336" x="0" y="0" width="147" height="64" xlink:href="../img/images/Image_image_336.png"/>
+
+        <image id="Image_image_72" x="0" y="0" width="80" height="228" xlink:href="../img/images/Image_image_72.png"/>
+
+        <image id="Image_image_73" x="0" y="0" width="132" height="131" xlink:href="../img/images/Image_image_73.png"/>
+
+        <image id="Image_image_341" x="0" y="0" width="147" height="64" xlink:href="../img/images/Image_image_341.png"/>
+
+        <image id="Image_image_350" x="0" y="0" width="132" height="79" xlink:href="../img/images/Image_image_350.png"/>
+
+        <image id="Image_image_83" x="0" y="0" width="80" height="228" xlink:href="../img/images/Image_image_83.png"/>
+
+        <image id="Image_image_82" x="0" y="0" width="132" height="131" xlink:href="../img/images/Image_image_82.png"/>
+
+        <image id="Image_image_354" x="0" y="0" width="400" height="490" xlink:href="../img/images/Image_image_354.png"/>
+
+        <image id="Image_image_356" x="0" y="0" width="125" height="64" xlink:href="../img/images/Image_image_356.png"/>
+
+        <image id="Image_image_85" x="0" y="0" width="80" height="227" xlink:href="../img/images/Image_image_85.png"/>
+
+        <pattern id="Pattern_3" patternUnits="userSpaceOnUse" patternTransform="matrix( 0.449951171875, 0, 0, 0.6201324462890625, 877.5,187.8) " width="80" height="227">
+            <use xlink:href="#Image_image_74"/>
+        </pattern>
+
+        <pattern id="Pattern_4" patternUnits="userSpaceOnUse" patternTransform="matrix( 0.0016937255859375, 0.4441986083984375, -0.451995849609375, 0.0025634765625, 935.3,61.5) " width="131" height="129">
+            <use xlink:href="#Image_image_75"/>
+        </pattern>
+
+        <pattern id="Pattern_5" patternUnits="userSpaceOnUse" patternTransform="matrix( 0.4499969482421875, 0, 0, 0.2630615234375, 877,113.8) " width="80" height="227">
+            <use xlink:href="#Image_image_74"/>
+        </pattern>
+
+        <pattern id="Pattern_6" patternUnits="userSpaceOnUse" patternTransform="matrix( 0.0005035400390625, 0.4393463134765625, -0.61529541015625, -0.0005950927734375, 1066.65,61.9) " width="80" height="227">
+            <use xlink:href="#Image_image_74"/>
+        </pattern>
+
+        <pattern id="Pattern_7" patternUnits="userSpaceOnUse" patternTransform="matrix( 0.53680419921875, 0.000579833984375, -0.0013580322265625, 0.8902435302734375, 1065.8,53.05) " width="147" height="64">
+            <use xlink:href="#Image_image_336"/>
+        </pattern>
+
+        <pattern id="Pattern_8" patternUnits="userSpaceOnUse" patternTransform="matrix( 0.000701904296875, 0.224853515625, -0.1772613525390625, 0.0005645751953125, 961.4,219.8) " width="80" height="228">
+            <use xlink:href="#Image_image_72"/>
+        </pattern>
+
+        <pattern id="Pattern_9" patternUnits="userSpaceOnUse" patternTransform="matrix( 0.000701904296875, 0.224853515625, -0.2081146240234375, 0.0006561279296875, 960.85,99.8) " width="80" height="228">
+            <use xlink:href="#Image_image_72"/>
+        </pattern>
+
+        <pattern id="Pattern_10" patternUnits="userSpaceOnUse" patternTransform="matrix( 0.000701904296875, 0.224853515625, -0.175994873046875, 0.00054931640625, 961.15,134.5) " width="80" height="228">
+            <use xlink:href="#Image_image_72"/>
+        </pattern>
+
+        <pattern id="Pattern_11" patternUnits="userSpaceOnUse" patternTransform="matrix( -0.2235107421875, -0.00006103515625, -0.0006866455078125, -0.2252044677734375, 990.3,129.35) " width="132" height="131">
+            <use xlink:href="#Image_image_73"/>
+        </pattern>
+
+        <pattern id="Pattern_12" patternUnits="userSpaceOnUse" patternTransform="matrix( 0.00006103515625, -0.2235107421875, 0.2252044677734375, -0.0006866455078125, 960.95,152.75) " width="132" height="131">
+            <use xlink:href="#Image_image_73"/>
+        </pattern>
+
+        <pattern id="Pattern_13" patternUnits="userSpaceOnUse" patternTransform="matrix( 0.2248687744140625, 0, 0, 0.4605255126953125, 1094.8,396) " width="80" height="228">
+            <use xlink:href="#Image_image_72"/>
+        </pattern>
+
+        <pattern id="Pattern_14" patternUnits="userSpaceOnUse" patternTransform="matrix( 0.2248687744140625, 0, 0, 0.2108154296875, 1094.25,565.35) " width="80" height="228">
+            <use xlink:href="#Image_image_72"/>
+        </pattern>
+
+        <pattern id="Pattern_15" patternUnits="userSpaceOnUse" patternTransform="matrix( 0.223663330078125, -0.0005645751953125, 0.0013427734375, 0.2253570556640625, 972.05,628.75) " width="132" height="131">
+            <use xlink:href="#Image_image_73"/>
+        </pattern>
+
+        <pattern id="Pattern_16" patternUnits="userSpaceOnUse" patternTransform="matrix( 0.00042724609375, -0.2241058349609375, 0.2257232666015625, -0.0003509521484375, 1082.65,635.45) " width="132" height="131">
+            <use xlink:href="#Image_image_73"/>
+        </pattern>
+
+        <pattern id="Pattern_17" patternUnits="userSpaceOnUse" patternTransform="matrix( 0, 0.53741455078125, -0.890625, 0, 1280.9,288.6) " width="147" height="64">
+            <use xlink:href="#Image_image_341"/>
+        </pattern>
+
+        <!--
+        <pattern id="Pattern_18" patternUnits="userSpaceOnUse" patternTransform="matrix( -0.000274658203125, 0.2236785888671875, -0.226165771484375, 0.00048828125, 1124.85,367.6) " width="132" height="131">
+            <use xlink:href="#Image_image_73"/>
+        </pattern>
+        -->
+
+        <pattern id="Pattern_19" patternUnits="userSpaceOnUse" patternTransform="matrix( 0.2248687744140625, 0, 0, 1.694061279296875, 972,247.35) " width="80" height="228">
+            <use xlink:href="#Image_image_72"/>
+        </pattern>
+
+        <pattern id="Pattern_20" patternUnits="userSpaceOnUse" patternTransform="matrix( -0.2235107421875, -0.00006103515625, -0.0006866455078125, -0.2252044677734375, 989.95,249.25) " width="132" height="131">
+            <use xlink:href="#Image_image_73"/>
+        </pattern>
+
+        <pattern id="Pattern_21" patternUnits="userSpaceOnUse" patternTransform="matrix( 0.000701904296875, 0.224853515625, -0.834136962890625, 0.00262451171875, 877.2,100.25) " width="80" height="228">
+            <use xlink:href="#Image_image_72"/>
+        </pattern>
+
+        <pattern id="Pattern_22" patternUnits="userSpaceOnUse" patternTransform="matrix( 0.2248687744140625, 0, 0, 0.937835693359375, 662.7,129.2) " width="80" height="228">
+            <use xlink:href="#Image_image_72"/>
+        </pattern>
+
+        <pattern id="Pattern_23" patternUnits="userSpaceOnUse" patternTransform="matrix( -0.000518798828125, 0.22344970703125, -0.2251434326171875, 0.0001983642578125, 692.25,100.7) " width="132" height="131">
+            <use xlink:href="#Image_image_73"/>
+        </pattern>
+
+        <pattern id="Pattern_24" patternUnits="userSpaceOnUse" patternTransform="matrix( 0.000701904296875, 0.224853515625, -0.4022216796875, 0.0012664794921875, 1204.55,367.7) " width="80" height="228">
+            <use xlink:href="#Image_image_72"/>
+        </pattern>
+
+        <pattern id="Pattern_25" patternUnits="userSpaceOnUse" patternTransform="matrix( 0.5986175537109375, 0, 0, 0.721649169921875, 461.5,60.4) " width="132" height="79">
+            <use xlink:href="#Image_image_350"/>
+        </pattern>
+
+        <pattern id="Pattern_26" patternUnits="userSpaceOnUse" patternTransform="matrix( -0.0002288818359375, -0.2750396728515625, 0.2161712646484375, -0.000518798828125, 538.55,97.7) " width="80" height="228">
+            <use xlink:href="#Image_image_83"/>
+        </pattern>
+
+        <pattern id="Pattern_27" patternUnits="userSpaceOnUse" patternTransform="matrix( 0.2750091552734375, 0, 0, 1.0184173583984375, 599.85,110.35) " width="80" height="228">
+            <use xlink:href="#Image_image_83"/>
+        </pattern>
+
+        <pattern id="Pattern_28" patternUnits="userSpaceOnUse" patternTransform="matrix( -0.279754638671875, -0.000091552734375, -0.0002593994140625, -0.275543212890625, 622.25,111.65) " width="132" height="131">
+            <use xlink:href="#Image_image_82"/>
+        </pattern>
+
+        <pattern id="Pattern_29" patternUnits="userSpaceOnUse" patternTransform="matrix( 0.32501220703125, 0, 0, 0.314300537109375, 1158.9,362.3) " width="400" height="490">
+            <use xlink:href="#Image_image_354"/>
+        </pattern>
+
+        <pattern id="Pattern_30" patternUnits="userSpaceOnUse" patternTransform="matrix( 0.631988525390625, 0, 0, 0.890625, 46.55,485.95) " width="125" height="64">
+            <use xlink:href="#Image_image_356"/>
+        </pattern>
+
+        <pattern id="Pattern_31" patternUnits="userSpaceOnUse" patternTransform="matrix( 0.000457763671875, 0.2740020751953125, -0.3477783203125, 0.0003662109375, 432.85,503.1) " width="80" height="227">
+            <use xlink:href="#Image_image_85"/>
+        </pattern>
+
+        <pattern id="Pattern_32" patternUnits="userSpaceOnUse" patternTransform="matrix( 0.000457763671875, 0.27325439453125, -0.7984771728515625, 0.0008392333984375, 308.75,503.1) " width="80" height="227">
+            <use xlink:href="#Image_image_85"/>
+        </pattern>
+
+        <pattern id="Pattern_33" patternUnits="userSpaceOnUse" patternTransform="matrix( 0.0001373291015625, -0.537017822265625, 0.8906097412109375, 0.0006561279296875, 458.45,668.7) " width="147" height="64">
+            <use xlink:href="#Image_image_336"/>
+        </pattern>
+
+        <filter id="Filter_1" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0.5 0 0 0 0 0 0.5 0 0 0.5019607843137255 0 0 0.5 0 0.5019607843137255 0 0 0 1 0" result="result1"/>
+        </filter>
+
+        <g id="Graphic_shape_333_0_Layer6_0_FILL">
+            <path fill="#7F7F7F" stroke="none" d="
+M -38.5 22.4
+L 39.45 8.9 39.45 -35.85 -38.5 -49.35 -38.5 22.4 Z"/>
+        </g>
+
+        <g id="Graphic_shape_333_0_Layer5_0_FILL">
+            <path fill="#999999" stroke="none" d="
+M -38.5 16.8
+L 39.45 5.45 39.45 -32.4 -38.5 -43.75 -38.5 16.8 Z"/>
+        </g>
+
+        <g id="Graphic_shape_333_0_Layer4_0_FILL">
+            <path fill="#B2B2B2" stroke="none" d="
+M -38.5 10.05
+L 39.45 1.3 39.45 -28.25 -38.5 -37 -38.5 10.05 Z"/>
+        </g>
+
+        <g id="Graphic_shape_333_0_Layer3_0_FILL">
+            <path fill="#CCCCCC" stroke="none" d="
+M 39.45 -4.3
+L 39.45 -22.65 -38.5 -28.1 -38.5 1.15 39.45 -4.3 Z"/>
+        </g>
+
+        <g id="Graphic_shape_333_0_Layer2_0_FILL">
+            <path fill="#E5E5E5" stroke="none" d="
+M 39.45 -9.3
+L 39.45 -17.65 -38.5 -20.25 -38.5 -6.75 39.45 -9.3 Z"/>
+        </g>
+
+        <g id="Graphic_shape_333_0_Layer1_0_FILL">
+            <path fill="#FFFFFF" stroke="none" d="
+M 39.45 -12.75
+L 39.45 -14.2 -38.5 -14.65 -38.5 -12.35 39.45 -12.75 Z"/>
+        </g>
+
+        <g id="Pipe_Smoke_FILL">
+            <path fill="url(#Pattern_3)" stroke="none" d="
+M 913.5 173.55
+L 877 173.55 877 328.6 913.5 328.6 913.5 173.55 Z"/>
+            <path fill="url(#Pattern_4)" stroke="none" d="
+M 935.3 61.5
+L 877 61.85 877.25 120.05 935.55 119.7 935.3 61.5 Z"/>
+            <path fill="url(#Pattern_5)" stroke="none" d="
+M 877 113.8
+L 877 173.55 913 173.55 913 113.8 877 113.8 Z"/>
+            <path fill="url(#Pattern_6)" stroke="none" d="
+M 1066.7 97.05
+L 1066.65 61.9 927 61.8 927.05 96.95 1066.7 97.05 Z"/>
+        </g>
+
+        <g id="Graphic_shape_337_0_Layer0_0_FILL">
+            <path fill="url(#Pattern_7)" stroke="none" d="
+M 1144.65 110.1
+L 1144.7 53.15 1065.8 53.05 1065.75 110.05 1144.65 110.1 Z"/>
+        </g>
+
+        <g id="Saver_FILL">
+            <path fill="#7F7F7F" stroke="none" d="
+M 37.35 11.1
+L 35.75 8.8 33.55 6.95 30.8 5.8 28.75 5.4 27.7 5.35 27.7 13.15 28.5 14.25 28.05 14.7 27.7 14.75 -34.8 14.75 -34.8 24.15 27.7 24.15 30.8 23.75 33.55 22.55 35.75 20.7 37.35 18.4 38.1 15.7 38.1 13.8 37.35 11.1 Z"/>
+            <path fill="#7F7F7F" stroke="none" d="
+M 35.65 -0.6
+L 33.5 -2.45 30.7 -3.6 28.7 -4 27.65 -4.05 27.65 3.8 28.45 4.9 27.95 5.3 27.65 5.35 -17.5 5.35 -19.75 5.9 -21.35 7.4 -22.1 9.55 -22.1 10.5 -21.35 12.65 -19.75 14.15 -17.5 14.7 28.7 14.7 31.7 14 34.25 12.6 36.3 10.6 37.6 8.15 38 6.3 38 4.4 37.25 1.7 35.65 -0.6 Z"/>
+            <path fill="#7F7F7F" stroke="none" d="
+M 28.7 -13.5
+L 27.65 -13.55 27.65 -5.7 28.45 -4.6 27.95 -4.15 27.65 -4.1 -17.5 -4.1 -19.75 -3.55 -21.35 -2.05 -22.1 0.1 -22.1 1.05 -21.35 3.2 -19.75 4.7 -17.5 5.25 28.7 5.25 31.7 4.55 34.25 3.15 36.3 1.15 37.6 -1.35 38 -3.15 38 -5.05 37.25 -7.8 35.65 -10.1 33.5 -11.95 30.7 -13.1 28.7 -13.5 Z"/>
+            <path fill="#7F7F7F" stroke="none" d="
+M 38 -12.6
+L 38 -14.5 37.25 -17.2 35.65 -19.5 33.5 -21.3 30.7 -22.5 28.7 -22.85 27.65 -22.9 27.65 -15.1 28.45 -14 27.95 -13.6 27.65 -13.55 -17.5 -13.55 -19.75 -12.95 -21.35 -11.45 -22.1 -9.3 -22.1 -8.35 -21.35 -6.2 -19.75 -4.7 -17.5 -4.15 28.7 -4.15 31.7 -4.85 34.25 -6.3 36.3 -8.25 37.6 -10.75 38 -12.6 Z"/>
+            <path fill="#7F7F7F" stroke="none" d="
+M 30.7 -31.9
+L 27.65 -32.35 27.65 -24.5 28.45 -23.4 27.95 -22.95 27.65 -22.9 -17.5 -22.9 -19.75 -22.35 -21.6 -20.45 -22.1 -18.75 -22.1 -17.75 -21.35 -15.6 -19.75 -14.1 -17.5 -13.55 28.7 -13.6 31.7 -14.25 34.25 -15.7 36.3 -17.65 37.6 -20.15 38 -21.95 38 -23.85 37.25 -26.6 35.65 -28.9 33.5 -30.7 30.7 -31.9 Z"/>
+            <path fill="#7F7F7F" stroke="none" d="
+M 35.65 -38.3
+L 33.5 -40.15 30.7 -41.3 28.7 -41.7 27.65 -41.75 27.65 -33.9 28.45 -32.8 27.95 -32.4 27.65 -32.35 -17.5 -32.35 -19.75 -31.75 -21.35 -30.25 -22.1 -28.1 -22.1 -27.15 -21.35 -25 -19.75 -23.5 -17.5 -22.95 28.7 -22.95 31.7 -23.65 34.25 -25.05 36.3 -27.05 37.6 -29.55 38 -31.35 38 -33.3 37.25 -36 35.65 -38.3 Z"/>
+            <path fill="#7F7F7F" stroke="none" d="
+M 30.7 -50.6
+L 28.7 -51 -35.4 -51.05 -35.4 -43.25 27.65 -43.25 28.45 -42.15 27.95 -41.7 27.65 -41.65 -17.5 -41.65 -19.75 -41.1 -21.35 -39.6 -22.1 -37.45 -21.75 -35.15 -20.45 -33.35 -18.45 -32.4 -17.5 -32.25 28.7 -32.3 31.7 -33 34.25 -34.4 36.3 -36.4 37.6 -38.85 38 -40.7 38 -42.6 37.25 -45.3 35.65 -47.65 33.5 -49.45 30.7 -50.6 Z"/>
+            <path fill="#B2B2B2" stroke="none" d="
+M 27.7 22.8
+L 31 22.2 33.65 20.7 35.5 18.55 36.4 16 36.5 15.05 36.2 13.25 35.85 12.4 27.7 16.1 -34.25 16.1 -34.25 22.8 27.7 22.8 Z"/>
+            <path fill="#B2B2B2" stroke="none" d="
+M 32.05 12.2
+L 34.5 10.25 36.1 7.8 36.65 6.1 36.75 4.45 36.6 3.7 36.35 3 27.6 6.65 -17.45 6.65 -19.85 7.6 -20.7 9.35 -20.8 10.05 -20.7 10.7 -19.4 12.75 -18.15 13.25 -17.45 13.35 27.6 13.35 29.95 13.05 32.05 12.2 Z"/>
+            <path fill="#B2B2B2" stroke="none" d="
+M 36.1 -1.6
+L 36.65 -3.3 36.75 -4.95 36.6 -5.75 36.35 -6.45 27.6 -2.75 -17.45 -2.75 -19.85 -1.8 -20.7 -0.05 -20.8 0.6 -20.7 1.25 -19.4 3.35 -18.15 3.85 -17.45 3.95 27.6 3.95 29.95 3.65 32.05 2.8 34.5 0.85 36.1 -1.6 Z"/>
+            <path fill="#B2B2B2" stroke="none" d="
+M 36.65 -12.75
+L 36.75 -14.4 36.6 -15.15 36.35 -15.85 27.6 -12.2 -17.45 -12.2 -19.85 -11.2 -20.7 -9.45 -20.8 -8.8 -20.7 -8.15 -19.4 -6.05 -18.15 -5.55 27.6 -5.5 29.95 -5.8 32.05 -6.6 34.5 -8.55 36.1 -11 36.65 -12.75 Z"/>
+            <path fill="#B2B2B2" stroke="none" d="
+M 36.75 -23.8
+L 36.6 -24.55 36.35 -25.25 27.6 -21.6 -17.45 -21.6 -19.85 -20.6 -20.7 -18.9 -20.8 -18.2 -20.7 -17.55 -19.4 -15.45 -18.15 -14.95 -17.45 -14.9 27.6 -14.9 29.95 -15.2 32.05 -16 34.5 -17.95 36.1 -20.45 36.65 -22.15 36.75 -23.8 Z"/>
+            <path fill="#B2B2B2" stroke="none" d="
+M 32.05 -25.4
+L 34.5 -27.4 36.1 -29.85 36.65 -31.55 36.75 -33.2 36.6 -33.95 36.35 -34.65 27.6 -31 -17.45 -31 -19.85 -30 -20.7 -28.3 -20.8 -27.6 -20.7 -26.95 -19.4 -24.85 -18.15 -24.35 27.6 -24.3 29.95 -24.6 32.05 -25.4 Z"/>
+            <path fill="#B2B2B2" stroke="none" d="
+M 30.4 -49.55
+L 28.6 -49.95 -35 -50 -35 -44.45 27.6 -44.45 29.55 -43.35 29.5 -41.15 26.2 -40.3 -17.45 -40.3 -19.85 -39.35 -20.8 -37 -19.85 -34.65 -18.15 -33.75 -17.45 -33.65 27.6 -33.65 30.2 -34.05 32.55 -35.2 34.35 -36.8 35.65 -38.75 36.3 -40.95 36.35 -41.65 36.3 -42.4 35.75 -44.65 34.5 -46.7 32.7 -48.4 30.4 -49.55 Z"/>
+            <path fill="#E5E5E5" stroke="none" d="
+M 27.7 21.45
+L 30.3 21 32.4 19.75 33.9 18 34.75 15.95 34.85 15.25 34.6 13.15 31.1 14.75 30.3 16.65 27.7 17.55 -33.75 17.55 -33.75 21.45 27.7 21.45 Z"/>
+            <path fill="#E5E5E5" stroke="none" d="
+M 32.15 10.4
+L 33.75 8.7 34.65 6.65 34.85 5.2 34.6 3.75 31.15 5.35 29.65 7.5 27.65 8.05 -17.5 8.05 -19.35 9.3 -19.45 10.05 -18.4 11.85 -17.5 12 27.65 12.05 30.05 11.6 32.15 10.4 Z"/>
+            <path fill="#E5E5E5" stroke="none" d="
+M 33.75 -0.75
+L 34.65 -2.75 34.85 -4.2 34.6 -5.65 31.15 -4.05 29.65 -1.9 27.65 -1.35 -17.5 -1.35 -19.35 -0.15 -19.45 0.65 -18.4 2.45 -17.5 2.6 27.65 2.65 30.05 2.2 32.15 0.95 33.75 -0.75 Z"/>
+            <path fill="#E5E5E5" stroke="none" d="
+M 34.85 -13.65
+L 34.6 -15.05 31.15 -13.5 29.65 -11.3 27.65 -10.75 -17.5 -10.75 -19.35 -9.55 -19.45 -8.75 -18.4 -7 -17.5 -6.8 27.65 -6.8 30.05 -7.25 32.15 -8.45 33.75 -10.15 34.65 -12.2 34.85 -13.65 Z"/>
+            <path fill="#E5E5E5" stroke="none" d="
+M 34.6 -24.45
+L 31.15 -22.9 29.65 -20.75 27.65 -20.15 -17.5 -20.15 -19.35 -18.95 -19.45 -18.15 -18.4 -16.4 -17.5 -16.2 27.65 -16.2 30.05 -16.65 32.15 -17.85 33.75 -19.55 34.65 -21.6 34.85 -23.05 34.6 -24.45 Z"/>
+            <path fill="#E5E5E5" stroke="none" d="
+M 29.65 -30.15
+L 27.65 -29.55 -17.5 -29.55 -19.35 -28.35 -19.45 -27.6 -18.4 -25.8 -17.5 -25.65 27.65 -25.6 30.05 -26.05 32.15 -27.25 33.75 -28.95 34.65 -31 34.85 -32.45 34.6 -33.9 31.15 -32.3 29.65 -30.15 Z"/>
+            <path fill="#E5E5E5" stroke="none" d="
+M 32.55 -37.3
+L 34.05 -39.45 34.55 -41.15 34.55 -42.2 33.9 -44.5 32.45 -46.75 30.05 -48.35 28.5 -48.8 -34.65 -48.85 -34.65 -45.55 27.65 -45.55 30.05 -44.5 31.05 -42 30 -39.6 27.85 -38.85 -17.5 -38.85
+Q -18.4 -38.25 -19.35 -37.7
+L -19 -35.55 -18 -35 -17.5 -34.95 27.65 -34.95 30.35 -35.6 32.55 -37.3 Z"/>
+            <path fill="#666666" stroke="none" d="
+M -34.95 14.7
+L -35.4 14.8 -35.95 15.3 -36.4 16.1 -36.85 17.65 -36.95 20.45 -36.85 21.3 -36.4 22.8 -35.95 23.6 -35.2 24.15 -34.75 24.15 -34.1 23.6 -33.6 22.8 -33.15 21.3 -33 19 -33.25 17.2 -33.75 15.8 -34.25 15.1 -34.95 14.7 Z"/>
+            <path fill="#666666" stroke="none" d="
+M -34.6 -50.45
+L -35.15 -51.05 -35.45 -51.1 -36.1 -50.8 -36.5 -50.2 -36.85 -49.35 -37.1 -47.9 -37.15 -47.1 -37 -45.55 -36.85 -44.9 -36.35 -43.85 -35.75 -43.25 -35.45 -43.2 -35.15 -43.25 -34.9 -43.5 -34.35 -44.35 -33.95 -45.55 -33.8 -47.1 -33.8 -47.5 -33.95 -48.65 -34.25 -49.65 -34.6 -50.45 Z"/>
+        </g>
+
+        <g id="Graphic_shape_340_0_Layer8_0_FILL">
+            <path fill="url(#Pattern_8)" stroke="none" d="
+M 961.45 237.8
+L 961.4 219.8 921 219.95 921.05 237.95 961.45 237.8 Z"/>
+        </g>
+
+        <g id="Graphic_shape_340_0_Layer7_0_FILL">
+            <path fill="url(#Pattern_9)" stroke="none" d="
+M 960.9 117.8
+L 960.85 99.8 913.4 99.95 913.45 117.95 960.9 117.8 Z"/>
+        </g>
+
+        <g id="Graphic_shape_340_0_Layer6_0_FILL">
+            <path fill="url(#Pattern_10)" stroke="none" d="
+M 961.2 152.5
+L 961.15 134.5 921.05 134.65 921.1 152.65 961.2 152.5 Z"/>
+        </g>
+
+		
+        <g id="Graphic_shape_340_0_Layer5_0_FILL">
+            <path fill="url(#Pattern_11)" stroke="none" d="
+M 990.3 129.35
+L 990.2 99.85 960.7 99.85 960.8 129.35 990.3 129.35 Z"/>
+        </g>
+		
+		
+        <g id="Graphic_shape_340_0_Layer4_0_FILL">
+            <path fill="url(#Pattern_12)" stroke="none" d="
+M 990.45 152.65
+L 990.45 123.15 960.95 123.25 960.95 152.75 990.45 152.65 Z"/>
+        </g>
+
+        <!--
+        <g id="Graphic_shape_340_0_Layer3_0_FILL">
+            <path fill="url(#Pattern_13)" stroke="none" d="
+M 1112.8 396
+L 1094.8 396 1094.8 501 1112.8 501 1112.8 396 Z"/>
+        </g>
+
+        
+        <g id="Graphic_shape_340_0_Layer2_0_FILL">
+            <path fill="url(#Pattern_14)" stroke="none" d="
+M 1112.25 565.35
+L 1094.25 565.35 1094.25 613.45 1112.25 613.45 1112.25 565.35 Z"/>
+        </g>
+        -->
+		
+        <g id="Graphic_shape_340_0_Layer1_0_FILL">
+            <path fill="url(#Pattern_15)" stroke="none" d="
+M 1001.6 628.7
+L 972.05 628.75 972.25 658.3 1001.75 658.2 1001.6 628.7 Z"/>
+        </g>
+	
+		<!--
+        <g id="Graphic_shape_340_0_Layer0_0_FILL">
+            <path fill="url(#Pattern_16)" stroke="none" d="
+M 1112.25 635.4
+L 1112.3 605.85 1082.7 605.9 1082.65 635.45 1112.25 635.4 Z"/>
+        </g>-->
+
+        <g id="Graphic_shape_342_0_Layer0_0_FILL">
+            <path fill="url(#Pattern_17)" stroke="none" d="
+M 1280.9 288.6
+L 1223.9 288.6 1223.9 367.6 1280.9 367.6 1280.9 288.6 Z"/>
+        </g>
+
+        <g id="Graphic_shape_348_0_Layer0_0_FILL">
+            <path fill="url(#Pattern_18)" stroke="none" d="
+M 1124.85 367.6
+L 1095.25 367.7 1095.2 397.2 1124.85 397.15 1124.85 367.6 Z"/>
+        </g>
+
+        <g id="Graphic_shape_349_0_Layer7_0_FILL">
+            <path fill="url(#Pattern_19)" stroke="none" d="
+M 990 129.35
+L 972 129.35 972 633.6 990 633.6 990 129.35 Z"/>
+        </g>
+
+        <g id="Graphic_shape_349_0_Layer6_0_FILL">
+            <path fill="url(#Pattern_20)" stroke="none" d="
+M 989.95 249.25
+L 989.85 219.75 960.35 219.75 960.45 249.25 989.95 249.25 Z"/>
+        </g>
+
+        <g id="Graphic_shape_349_0_Layer5_0_FILL">
+            <path fill="url(#Pattern_21)" stroke="none" d="
+M 877.25 118.25
+L 877.2 100.25 687.05 100.85 687.1 118.85 877.25 118.25 Z"/>
+        </g>
+
+        <g id="Graphic_shape_349_0_Layer4_0_FILL">
+            <path fill="url(#Pattern_22)" stroke="none" d="
+M 680.7 129.2
+L 662.7 129.2 662.7 343.05 680.7 343.05 680.7 129.2 Z"/>
+        </g>
+
+        <g id="Graphic_shape_349_0_Layer3_0_FILL">
+            <path fill="url(#Pattern_23)" stroke="none" d="
+M 692.2 130.2
+L 692.25 100.7 662.75 100.75 662.7 130.25 692.2 130.2 Z"/>
+        </g>
+
+        <g id="Graphic_shape_349_0_Layer2_0_FILL">
+            <path fill="url(#Pattern_24)" stroke="none" d="
+M 1112.85 368
+L 1112.9 386 1204.6 385.7 1204.55 367.7 1112.85 368 Z"/>
+        </g>
+
+        <g id="Graphic_shape_65_0_Layer0_0_FILL">
+            <path fill="url(#Gradient_1)" stroke="none" d="
+M 22.4 73.3
+L 2 73.3 2 147.25 22.4 147.25 22.4 73.3 Z"/>
+
+            <path fill="url(#Gradient_2)" stroke="none" d="
+M 293.6 73.7
+L 293.6 0 273.15 0 273.15 73.7 293.6 73.7 Z"/>
+
+            <path fill="url(#Gradient_3)" stroke="none" d="
+M 61.55 86.3
+L 36.95 86.3 36.95 134.25 82.25 134.25
+Q 71.5 122.65 66.3 108.75 62.3 98.2 61.55 86.3 Z"/>
+
+            <path fill="url(#Gradient_4)" stroke="none" d="
+M 22.9 86.3
+L 22.85 86.3 22.85 134.25 36.95 134.25 36.95 86.3 22.9 86.3 Z"/>
+
+            <path fill="url(#Gradient_5)" stroke="none" d="
+M 221.05 185.3
+L 207.7 185.3 207.7 185.75 79.65 185.75 80.1 185.3 64.05 185.3 64.05 206.3 221.05 206.3 221.05 185.3 Z"/>
+
+            <path fill="url(#Gradient_6)" stroke="none" d="
+M 175.2 152.8
+L 174.9 152.95 173 153.8
+Q 159 159.95 142.65 160.25
+L 138.9 160.25 132.5 159.85
+Q 125.2 159.15 118.45 157.2 113.85 155.9 109.5 154
+L 80.1 185.3 79.65 185.75 207.7 185.75 207.7 185.3 207.7 184.85 175.2 152.8 Z"/>
+
+            <path fill="url(#Gradient_7)" stroke="none" d="
+M 184.45 12.95
+Q 191.3 17.45 197.45 23.6 210.6 36.9 216.3 53.3 217.6 56.95 218.5 60.75
+L 238.95 60.75 238.95 12.95 184.45 12.95 Z"/>
+
+            <path fill="url(#Gradient_8)" stroke="none" d="
+M 170.5 5.65
+Q 177.33046875 8.5462890625 183.55 12.95 188.8 16.65 193.6 21.45 209.8 37.75 213.55 59.35
+L 213.8 60.75
+Q 214.65 66.55 214.7 72.75 214.65 94.95 203.15 112.3 199.1 118.45 193.6 124 180.6 137 164.3 142.1 157.9 144.05 151 144.8
+L 142.45 145.25 133.95 144.8
+Q 127.05 144.05 120.7 142.1 111.85 139.35 104 134.25 97.35 129.95 91.4 124 75.15 107.75 71.4 86.3 70.25 79.75 70.25 72.75 70.25 42.7 91.4 21.45 112 0.8 141 0.3 107.95 0.25 84.7 23.6 71.25 37.1 65.55 53.8 61.3 66.15 61.35 80.25 61.3 83.3 61.55 86.3 62.3 98.2 66.3 108.75 71.5 122.65 82.25 134.25
+L 84.7 136.8
+Q 89.05 141.2 93.85 144.8 101.05 150.25 109.05 153.8
+L 109.5 154
+Q 113.85 155.9 118.45 157.2 125.2 159.15 132.5 159.85
+L 138.9 160.25 142.65 160.25
+Q 159 159.95 173 153.8
+L 174.9 152.95 175.2 152.8
+Q 182.05 149.5 188.3 144.8 193 141.2 197.45 136.8 203.5 130.7 208 123.9 220.7 104.75 220.7 80.25 220.7 72.6 219.5 65.45
+L 218.5 60.75
+Q 217.6 56.95 216.3 53.3 210.6 36.9 197.45 23.6 191.3 17.45 184.45 12.95 178.45 8.95 171.9 6.2
+L 170.5 5.65 Z"/>
+
+            <path fill="url(#Gradient_9)" stroke="none" d="
+M 170.5 5.65
+L 169.1 5.1
+Q 162.75 2.6 155.9 1.4
+L 145.9 0.4 141 0.3
+Q 112 0.8 91.4 21.45 70.25 42.7 70.25 72.75 70.25 79.75 71.4 86.3 75.15 107.75 91.4 124 97.35 129.95 104 134.25 111.85 139.35 120.7 142.1 127.05 144.05 133.95 144.8
+L 142.45 145.25 151 144.8
+Q 157.9 144.05 164.3 142.1 180.6 137 193.6 124 199.1 118.45 203.15 112.3 214.65 94.95 214.7 72.75 214.65 66.55 213.8 60.75
+L 213.55 59.35
+Q 209.8 37.75 193.6 21.45 188.8 16.65 183.55 12.95 177.33046875 8.5462890625 170.5 5.65
+M 181.5 48.3
+L 181.5 110.85 101.5 110.85 101.5 48.3 181.5 48.3 Z"/>
+
+            <path fill="url(#Gradient_10)" stroke="none" d="
+M 181.5 110.85
+L 181.5 48.3 101.5 48.3 101.5 110.85 181.5 110.85 Z"/>
+
+            <path fill="url(#Gradient_11)" stroke="none" d="
+M 246.95 60.75
+L 246.95 12.95 238.95 12.95 238.95 60.75 246.95 60.75 Z"/>
+
+            <path fill="url(#Gradient_12)" stroke="none" d="
+M 271.9 12.95
+L 246.95 12.95 246.95 60.75 272.7 60.75 272.7 12.95 271.9 12.95 Z"/>
+        </g>
+
+        <g id="Graphic_shape_54_0_Layer0_0_FILL">
+            <path fill="#FF0000" stroke="none" d="
+M 55 28
+L 55 0 0 0 0 28 55 28 Z"/>
+        </g>
+
+        <g id="Graphic_shape_351_0_Layer0_0_FILL">
+            <path fill="url(#Pattern_25)" stroke="none" d="
+M 540.55 117.4
+L 540.55 60.4 461.5 60.4 461.5 117.4 540.55 117.4 Z"/>
+        </g>
+
+        <g id="Graphic_shape_353_0_Layer3_0_FILL">
+            <path fill="url(#Pattern_26)" stroke="none" d="
+M 587.85 97.6
+L 587.85 75.6 538.55 75.7 538.55 97.7 587.85 97.6 Z"/>
+        </g>
+
+        <g id="Graphic_shape_353_0_Layer2_0_FILL">
+            <path fill="url(#Pattern_27)" stroke="none" d="
+M 621.85 110.35
+L 599.85 110.35 599.85 342.55 621.85 342.55 621.85 110.35 Z"/>
+        </g>
+
+        <g id="Graphic_shape_353_0_Layer1_0_FILL">
+            <path fill="url(#Pattern_28)" stroke="none" d="
+M 622.25 75.55
+L 585.3 75.55 585.35 111.65 622.25 111.65 622.25 75.55 Z"/>
+        </g>
+
+        <g id="Graphic_shape_355_0_Layer0_0_FILL">
+            <path fill="url(#Pattern_29)" stroke="none" d="
+M 1288.9 362.3
+L 1158.9 362.3 1158.9 516.3 1288.9 516.3 1288.9 362.3 Z"/>
+        </g>
+
+        <g id="Graphic_shape_357_0_Layer0_0_FILL">
+            <path fill="url(#Pattern_30)" stroke="none" d="
+M 125.55 542.95
+L 125.55 485.95 46.55 485.95 46.55 542.95 125.55 542.95 Z"/>
+        </g>
+
+        <g id="Graphic_shape_359_0_Layer1_0_FILL">
+            <path fill="url(#Pattern_31)" stroke="none" d="
+M 353.9 503.2
+L 353.95 525.1 432.9 525.05 432.85 503.1 353.9 503.2 Z"/>
+        </g>
+
+        <g id="Graphic_shape_359_0_Layer0_0_FILL">
+            <path fill="url(#Pattern_32)" stroke="none" d="
+M 308.8 524.95
+L 308.75 503.1 127.5 503.3 127.55 525.15 308.8 524.95 Z"/>
+        </g>
+
+        <g id="Graphic_shape_360_0_Layer0_0_FILL">
+            <path fill="url(#Pattern_33)" stroke="none" d="
+M 515.5 589.8
+L 458.5 589.75 458.45 668.7 515.45 668.75 515.5 589.8 Z"/>
+        </g>
+
+        <g id="Graphic_shape_67_0_Layer0_0_FILL">
+            <path fill="#00FF00" stroke="none" d="
+M 0 11.2
+L 16 11.2 16 0 0 0 0 11.2 Z"/>
+        </g>
+
+        <g id="Graphic_shape_69_0_Layer8_0_FILL">
+            <path fill="#00FF00" stroke="none" d="
+M -8.05 4.7
+L -7 6.2 -5.65 7.45 -4.1 8.4 -2.35 9 0.1 0 -8.05 4.7
+M -4.6 -8.1
+L -6.1 -7.05 -6.8 -6.3 -7.9 -4.85 -8.3 -4.1 -8.95 -2.35 0.1 0 -4.6 -8.1
+M 0.1 0
+L 4.85 8.1 6.35 7.1 7.55 5.75 8.5 4.2 9.2 2.45 0.1 0
+M 8.2 -4.6
+L 7.15 -6.1 5.8 -7.4 4.25 -8.35 2.5 -8.95 0.1 0 8.2 -4.6 Z"/>
+        </g>
+
+        <g id="Graphic_shape_69_0_Layer3_0_FILL">
+            <path fill="#4C4C4C" stroke="none" d="
+M 1.25 -2.7
+L 0.1 -2.95 -0.5 -2.85 -1 -2.7 -1.55 -2.4 -2 -2.05 -2.3 -1.7 -2.6 -1.15 -2.75 -0.65 -2.8 -0.05 -2.75 0.55 -2.6 1.15 -2 2.1 -1 2.7 -0.5 2.85 0.1 2.9 0.7 2.85 1.25 2.7 2.15 2.1 2.8 1.15 3.05 -0.05 2.95 -0.65 2.8 -1.15 2.5 -1.7 1.75 -2.4 1.25 -2.7 Z"/>
+        </g>
+
+        <g id="Graphic_shape_69_0_Layer1_0_FILL">
+            <path fill="#E5E5E5" stroke="none" d="
+M 0.1 -0.05
+L 0.1 -2.35 -0.25 -2.35 -1 -2.05 -1.6 -1.6 -1.85 -1.3 -2.15 -0.65 0.1 -0.05 Z"/>
+        </g>
+
+        <g id="Graphic_shape_69_0_Layer0_0_FILL">
+            <path fill="#333333" stroke="none" d="
+M 0.1 2.4
+L 0.5 2.4 1.25 2.1 2.05 1.35 2.35 0.55 0.1 -0.05 0.1 2.4 Z"/>
+        </g>
+
+        <path id="Graphic_shape_333_0_Layer0_0_1_STROKES" stroke="#000000" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none" d="
+M -38.5 22.4
+L -38.5 -49.35 39.45 -35.85 39.45 8.9 -38.5 22.4 Z"/>
+
+        <path id="Saver_STROKES" stroke="#000000" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none" d="
+M -18 -32.3
+L 28.95 -32.3
+M -18 -22.9
+L 28.95 -22.9
+M -18 -13.5
+L 28.95 -13.5
+M -18 -4.05
+L 28.95 -4.05
+M -18 5.35
+L 28.95 5.35
+M -18 14.75
+L 28.95 14.75
+"/>
+        <path id="Graphic_shape_339_0_Layer0_0_1_STROKES" stroke="#00FF00" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none" d="
+M 1076.95 353.6
+L 1076.95 359.6
+M 1076.95 365.6
+L 1076.95 371.6
+M 1076.95 377.6
+L 1076.95 381.35
+M 1076.95 341.6
+L 1076.95 347.6
+M 861.6 68
+L 867.6 68
+M 849.6 68
+L 855.6 68
+M 170.4 588.05
+L 170.4 582.05
+M 170.4 576.05
+L 170.4 570.05
+M 170.4 564.05
+L 170.4 560.05
+M 170.4 612.05
+L 170.4 606.05
+M 170.4 600.05
+L 170.4 594.05"/>
+
+        <path id="Graphic_shape_65_0_Layer0_0_1_STROKES" stroke="#000000" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none" d="
+M 293.6 73.7
+L 293.6 0
+M 273.15 0
+L 273.15 73.7
+M 207.7 185.3
+L 207.7 184.85 175.2 152.8
+M 221.05 185.3
+L 207.7 185.3 207.7 185.75
+M 79.65 185.75
+L 80.1 185.3 64.05 185.3
+M 64.05 206.3
+L 221.05 206.3
+M 2 73.3
+L 2 147.25
+M 22.4 147.25
+L 22.4 73.3
+M 80.1 185.3
+L 109.5 154
+M 271.9 12.95
+L 246.95 12.95
+M 246.95 60.75
+L 272.7 60.75
+M 293.6 0
+L 273.15 0
+M 273.15 73.7
+L 293.6 73.7
+M 184.45 12.95
+L 238.95 12.95 246.95 12.95
+M 218.5 60.75
+L 238.95 60.75
+M 64.05 185.3
+L 64.05 206.3
+M 221.05 206.3
+L 221.05 185.3
+M 238.95 60.75
+L 246.95 60.75
+M 22.4 73.3
+L 2 73.3
+M 2 147.25
+L 22.4 147.25
+M 22.85 134.25
+L 36.95 134.25
+M 22.9 86.3
+L 36.95 86.3 61.55 86.3
+M 36.95 134.25
+L 82.25 134.25"/>
+
+        <path id="Graphic_shape_54_0_Layer0_0_1_STROKES" stroke="#000000" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none" d="
+M 55 28
+L 0 28 0 0 55 0 55 28 Z"/>
+
+        <path id="Graphic_shape_67_0_Layer0_0_1_STROKES" stroke="#00FF00" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none" d="
+M 0 11.2
+L 0 0 16 0 16 11.2 0 11.2 Z"/>
+
+        <path id="Graphic_shape_69_0_Layer7_0_1_STROKES" stroke="#000000" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none" d="
+M 8.2 -4.65
+L 0.1 -0.05 2.5 -8.95 4.25 -8.35 5.8 -7.4 7.15 -6.15 8.2 -4.65 Z"/>
+
+        <path id="Graphic_shape_69_0_Layer6_0_1_STROKES" stroke="#000000" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none" d="
+M -6.8 -6.35
+L -6.1 -7.05 -4.6 -8.1 0.1 -0.05 -8.95 -2.4 -8.3 -4.15 -7.9 -4.9 -6.8 -6.35 Z"/>
+
+        <path id="Graphic_shape_69_0_Layer5_0_1_STROKES" stroke="#000000" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none" d="
+M -8.05 4.7
+L 0.1 -0.05 -2.35 9 -4.1 8.4 -4.85 8 -6.35 6.85 -7 6.2 -8.05 4.7 Z"/>
+
+        <path id="Graphic_shape_69_0_Layer4_0_1_STROKES" stroke="#000000" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none" d="
+M 6.35 7.1
+L 4.85 8.1 0.1 -0.05 9.2 2.45 8.5 4.2 7.55 5.75 6.35 7.1 Z"/>
+
+        <path id="Graphic_shape_69_0_Layer2_0_1_STROKES" stroke="#000000" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none" d="
+M 1.25 -2.7
+L 1.75 -2.4 2.5 -1.7 2.8 -1.15 2.95 -0.65 3.05 -0.05 2.8 1.15 2.15 2.1 1.25 2.7 0.7 2.85 0.1 2.9 -0.5 2.85 -1 2.7 -2 2.1 -2.6 1.15 -2.75 0.55 -2.8 -0.05 -2.75 -0.65 -2.6 -1.15 -2.3 -1.7 -2 -2.05 -1.55 -2.4 -1 -2.7 -0.5 -2.85 0.1 -2.95 1.25 -2.7 Z"/>
+
+        <font horiz-adv-x="2048">
+            <!--  Font Name: ＭＳ Ｐゴシック
+            Vendor ID: RICO
+            (C)2006 data:RICOH Co.,Ltd. typeface:RYOBI IMAGIX CO.
+            http://www.microsoft.com/typography/fonts
+            URL for more Information: http://www.adobe.com/go/font_vendor_id?ID=RICO&Name=ＭＳ%20Ｐゴシック&PSName=MS-PGothic&applanguage=en_US-->
+            <font-face font-family="_________Bold" units-per-em="2048" ascent="1760" descent="288"/>
+
+            <glyph unicode="排" horiz-adv-x="2048" d="
+M 1514 1624
+L 1514 -136 1690 -136 1690 336 2121 336 2121 488 1690 488 1690 744 2015 744 2015 896 1690 896 1690 1152 2068 1152 2068 1304 1690 1304 1690 1576
+Q 1751 1616 1681 1624
+L 1514 1624 Z
+M 836 -208
+Q 1104 -100 1239 60 1373 220 1373 432
+L 1373 1576
+Q 1434 1616 1364 1624
+L 1197 1624 1197 1304 854 1304 854 1152 1197 1152 1197 896 889 896 889 744 1197 744 1197 544 748 440 792 272
+Q 827 240 836 296
+L 1188 408
+Q 1188 260 1078 146 968 32 748 -48
+L 836 -208 Z
+M 590 720
+L 590 1088 766 1088 766 1240 590 1240 590 1600
+Q 651 1640 581 1648
+L 414 1648 414 1240 176 1240 176 1088 414 1088 414 696 123 648 167 456
+Q 202 424 211 488
+L 414 528 414 16
+Q 414 -8 387 -8
+L 264 -8 290 -160 449 -160
+Q 519 -160 554 -126 590 -92 590 -24
+L 590 568 836 632 801 760 590 720 Z"/>
+
+            <glyph unicode="烟" horiz-adv-x="2048" d="
+M 783 1272
+L 598 1120 598 1592
+Q 660 1632 590 1640
+L 449 1640 449 568
+Q 449 384 378 234 308 84 167 -32
+L 255 -168
+Q 374 -72 453 52 532 176 572 328 677 216 792 56
+L 898 168 898 -160 1047 -160 1047 -24 1918 -24 1918 -120 2068 -120 2068 1568 898 1568 898 1152 783 1272 Z
+M 1531 1304
+Q 1593 1344 1522 1352
+L 1382 1352 1382 1104 1135 1104 1135 976 1390 976
+Q 1364 728 1294 564 1223 400 1109 320
+L 1179 184
+Q 1302 264 1379 394 1456 524 1487 704 1544 560 1630 438 1716 316 1830 216
+L 1918 344 1918 128 1047 128 1047 1416 1918 1416 1918 384
+Q 1756 508 1661 656 1566 804 1540 976
+L 1848 976 1848 1104 1531 1104 1531 1304 Z
+M 343 1184
+L 194 1208
+Q 158 821 123 640
+L 282 592 330 870
+Q 348 1004 352 1128 431 1168 343 1184 Z
+M 598 976
+L 845 1104 898 1104 898 200
+Q 710 400 598 496
+L 598 976 Z"/>
+
+            <glyph unicode="蒸" horiz-adv-x="2048" d="
+M 1514 -96
+Q 1505 -28 1476 38 1448 104 1399 168
+L 1214 144
+Q 1293 -32 1311 -128
+L 1514 -96 Z
+M 1663 144
+Q 1738 72 1800 -6 1861 -84 1910 -168
+L 2086 -72
+Q 2028 8 1965 76 1901 144 1830 200
+L 1663 144 Z
+M 581 232
+L 1690 232 1690 360 581 360 581 232 Z
+M 2121 448
+Q 1967 496 1846 550 1725 604 1637 664
+L 1998 832
+Q 2050 816 2042 856
+L 1910 976 1531 752 1382 896 1716 1056
+Q 1804 1048 1760 1096
+L 1637 1208 1593 1184 502 1184 502 1056 1426 1056 1214 944 1038 968 1038 584
+Q 1038 552 1003 552
+L 924 552 942 400 1091 400
+Q 1153 400 1184 428 1214 456 1214 512
+L 1214 832 1250 848
+Q 1399 640 1599 498 1800 356 2050 280
+L 2121 448 Z
+M 783 152
+Q 807 51 818 -144
+L 1012 -128
+Q 1021 -48 1010 24 999 96 968 160
+L 783 152 Z
+M 414 208
+Q 249 11 167 -64
+L 308 -176 458 -18
+Q 524 60 572 136
+L 414 208 Z
+M 123 384
+L 185 216
+Q 405 304 585 450 766 596 906 800 959 816 933 840
+L 801 936 766 904 238 904 238 776 686 776
+Q 576 640 436 542 295 444 123 384 Z
+M 1346 1664
+L 1346 1480 889 1480 889 1616
+Q 950 1656 880 1664
+L 713 1664 713 1480 194 1480 194 1352 713 1352 713 1248 889 1248 889 1352 1346 1352 1346 1248 1522 1248 1522 1352 2077 1352 2077 1480 1522 1480 1522 1616
+Q 1584 1656 1514 1664
+L 1346 1664 Z"/>
+
+            <glyph unicode="汽" horiz-adv-x="2048" d="
+M 669 832
+L 669 680 1637 680 1637 480
+Q 1637 344 1653 238 1669 132 1701 56 1732 -20 1780 -66 1828 -112 1892 -128 2006 -156 2068 -74 2130 8 2138 200
+L 1971 280
+Q 1962 168 1947 118 1932 68 1910 80 1861 108 1837 228 1813 348 1813 560
+L 1813 832 669 832 Z
+M 361 -128
+Q 462 16 546 162 629 308 695 456
+L 528 560
+Q 449 396 352 254 255 112 141 -8
+L 326 -168
+Q 378 -192 361 -128 Z
+M 1778 1112
+L 942 1112 942 960 1778 960 1778 1112 Z
+M 695 920
+Q 770 976 840 1056 911 1136 977 1240
+L 1989 1240 1989 1392 1056 1392 1135 1568
+Q 1188 1576 1162 1608
+L 968 1664
+Q 906 1484 807 1336 708 1188 572 1072
+L 695 920 Z
+M 581 888
+Q 528 944 453 994 378 1044 282 1088
+L 158 928
+Q 242 880 312 826 383 772 440 712
+L 581 888 Z
+M 669 1368
+Q 612 1424 541 1474
+L 387 1568 255 1408
+Q 413 1304 528 1200
+L 669 1368 Z"/>
+
+            <glyph unicode="燃" horiz-adv-x="2048" d="
+M 563 1168
+L 563 1576
+Q 625 1616 554 1624
+L 414 1624 414 528
+Q 414 176 150 -72
+L 264 -200
+Q 365 -108 429 6 493 120 519 256 581 200 660 80
+L 757 224
+Q 717 288 669 338 620 388 563 424
+L 563 1008 766 1152
+Q 827 1128 792 1192
+L 722 1312 563 1168 Z
+M 836 280
+Q 805 176 759 84 713 -8 651 -88
+L 801 -176
+Q 867 -88 911 12 955 112 977 224
+L 836 280 Z
+M 1426 240
+Q 1461 164 1487 76
+L 1531 -112 1716 -80 1654 102
+Q 1619 188 1575 264
+L 1426 240 Z
+M 2130 -48
+Q 2077 56 2011 144 1945 232 1866 304
+L 1725 248
+Q 1795 168 1852 76 1910 -16 1954 -120
+L 2130 -48 Z
+M 1311 -120
+Q 1320 -20 1307 74 1294 168 1258 256
+L 1109 248
+Q 1126 148 1131 52 1135 -44 1126 -136
+L 1311 -120 Z
+M 2138 512
+Q 1954 632 1846 770 1738 908 1707 1064
+L 2086 1064 2086 1192 1707 1192 1707 1576
+Q 1769 1616 1698 1624
+L 1531 1624 1531 1192 1338 1192
+Q 1364 1304 1364 1440
+L 1030 1440 1047 1568
+Q 1126 1592 1065 1608
+L 906 1624
+Q 884 1348 821 1154 757 960 651 848
+L 757 744
+Q 836 832 862 888
+L 1030 752
+Q 990 680 911 606 832 532 713 456
+L 810 344
+Q 1232 616 1311 1064
+L 1531 1064
+Q 1518 880 1421 726 1324 572 1144 448
+L 1250 320
+Q 1395 404 1494 528 1593 652 1646 816 1707 692 1806 580 1905 468 2042 368
+L 2138 512 Z
+M 1874 1528
+L 1760 1456 1859 1360
+Q 1896 1316 1910 1280
+L 2042 1360
+Q 1927 1496 1874 1528 Z
+M 326 1184
+L 185 1208
+Q 189 1076 176 952 163 828 132 712
+L 273 624
+Q 304 732 317 860 330 988 326 1136 396 1176 326 1184 Z
+M 906 984
+L 950 1104 1144 992
+Q 1118 896 1091 856
+L 906 984 Z
+M 1214 1312
+L 1179 1104 986 1200 1012 1312 1214 1312 Z"/>
+
+            <glyph unicode="料" horiz-adv-x="2048" d="
+M 1690 1624
+L 1690 520 1170 424 1214 256 1690 352 1690 -176 1866 -176 1866 392 2156 448 2103 616 1866 560 1866 1576
+Q 1927 1616 1857 1624
+L 1690 1624 Z
+M 1329 952
+L 1214 816
+Q 1314 752 1470 616
+L 1593 760
+Q 1461 880 1329 952 Z
+M 220 72
+Q 339 160 427 252 515 344 572 440
+L 572 -176 748 -176 748 488
+Q 824 435 1003 256
+L 1109 416
+Q 1038 488 948 554 858 620 748 680
+L 748 784 1109 784 1109 936 748 936 748 1600
+Q 809 1640 739 1648
+L 572 1648 572 936 167 936 167 784 572 784
+Q 524 640 407 502 290 364 106 232
+L 220 72 Z
+M 986 1000
+Q 1064 1167 1153 1408 1214 1408 1170 1440
+L 986 1496
+Q 877 1181 818 1064
+L 986 1000 Z
+M 167 1384
+Q 296 1123 326 1016
+L 502 1080
+Q 480 1168 438 1260 396 1352 334 1448
+L 167 1384 Z
+M 1355 1392
+L 1241 1256
+Q 1417 1127 1496 1056
+L 1619 1200
+Q 1522 1296 1355 1392 Z"/>
+
+            <glyph unicode="能" horiz-adv-x="2048" d="
+M 290 976
+L 290 -168 466 -168 466 248 880 248 880 16
+Q 880 -8 854 -8
+L 739 -8 766 -160 915 -160
+Q 986 -160 1021 -128 1056 -96 1056 -32
+L 1056 976 290 976 Z
+M 1443 664
+L 1276 664 1276 -8
+Q 1276 -76 1316 -110 1355 -144 1434 -144
+L 1954 -144
+Q 2015 -144 2053 -112 2090 -80 2103 -16
+L 2138 168 1954 200 1927 64
+Q 1918 8 1857 8
+L 1505 8
+Q 1452 8 1452 64
+L 1452 288 1989 416
+Q 2050 384 2042 440
+L 1954 576 1452 408 1452 616
+Q 1513 656 1443 664 Z
+M 2006 1296
+L 1901 1440 1452 1264 1452 1544
+Q 1513 1584 1443 1592
+L 1276 1592 1276 880
+Q 1276 812 1316 778 1355 744 1434 744
+L 1936 744
+Q 2011 744 2053 782 2094 820 2103 896
+L 2121 1072 1936 1104 1918 960
+Q 1910 896 1857 896
+L 1505 896
+Q 1452 896 1452 952
+L 1452 1144 1954 1272
+Q 2015 1240 2006 1296 Z
+M 880 536
+L 880 400 466 400 466 536 880 536 Z
+M 792 1416
+L 924 1256 510 1232 722 1568
+Q 783 1576 748 1608
+L 528 1656 352 1224 114 1224 167 1032
+Q 202 1000 211 1056
+L 994 1128 1065 1032 1232 1120 1091 1312 933 1488 792 1416 Z
+M 880 824
+L 880 688 466 688 466 824 880 824 Z"/>
+
+            <glyph unicode="器" horiz-adv-x="2048" d="
+M 1038 1120
+Q 1021 1016 968 928
+L 176 928 176 776 862 776
+Q 713 648 519 568 326 488 88 456
+L 150 288
+Q 308 320 387 360
+L 387 -168 563 -168 563 -48 862 -48 862 -144 1038 -144 1038 480 686 480
+Q 805 536 900 610 994 684 1065 776
+L 1206 776
+Q 1311 676 1428 602 1544 528 1672 480
+L 1214 480 1214 -160 1390 -160 1390 -48 1698 -48 1698 -136 1874 -136 1874 408
+Q 1945 376 2121 344
+L 2165 512
+Q 1940 548 1751 614 1562 680 1408 776
+L 2077 776 2077 928 1144 928 1188 1064
+Q 1258 1096 1188 1112
+L 1038 1120 Z
+M 563 80
+L 563 352 862 352 862 80 563 80 Z
+M 1012 1600
+L 317 1600 317 1040 493 1040 493 1112 836 1112 836 1072 1012 1072 1012 1600 Z
+M 493 1240
+L 493 1472 836 1472 836 1240 493 1240 Z
+M 1390 80
+L 1390 352 1698 352 1698 80 1390 80 Z
+M 1232 1040
+L 1408 1040 1408 1112 1760 1112 1760 1072 1936 1072 1936 1600 1232 1600 1232 1040 Z
+M 1760 1240
+L 1408 1240 1408 1472 1760 1472 1760 1240 Z"/>
+
+            <glyph unicode="水" horiz-adv-x="2048" d="
+M 2033 -32
+L 2138 152
+Q 1927 276 1758 440 1588 604 1461 808 1637 920 1936 1152 2033 1136 1989 1200
+L 1830 1344
+Q 1707 1208 1595 1108 1483 1008 1382 944 1307 1064 1269 1168 1232 1272 1232 1360
+L 1232 1592
+Q 1293 1632 1223 1640
+L 1056 1640 1056 32
+Q 1056 0 1021 0
+L 845 0 880 -152 1091 -152
+Q 1162 -152 1197 -120 1232 -88 1232 -24
+L 1232 896
+Q 1373 592 1573 360 1773 128 2033 -32 Z
+M 933 1072
+Q 1003 1112 942 1144
+L 792 1240 739 1176 229 1176 229 1024 739 1024
+Q 589 384 106 136
+L 202 -32
+Q 497 140 680 416 862 692 933 1072 Z"/>
+
+            <glyph unicode="箱" horiz-adv-x="2048" d="
+M 2006 984
+L 1153 984 1153 -168 1302 -168 1302 -104 1857 -104 1857 -144 2006 -144 2006 984 Z
+M 1302 24
+L 1302 216 1857 216 1857 24 1302 24 Z
+M 1302 344
+L 1302 536 1857 536 1857 344 1302 344 Z
+M 1302 664
+L 1302 856 1857 856 1857 664 1302 664 Z
+M 123 200
+L 220 24
+Q 330 92 414 184 497 276 554 392
+L 554 -184 730 -184 730 440
+Q 830 371 968 232
+L 1074 392
+Q 959 496 730 608
+L 730 688 1065 688 1065 840 730 840 730 1040
+Q 792 1080 722 1088
+L 554 1088 554 840 185 840 185 688 546 688
+Q 471 524 365 402 260 280 123 200 Z
+M 1109 1056
+Q 1166 1104 1219 1172 1272 1240 1320 1328
+L 1461 1328
+Q 1523 1215 1549 1120
+L 1751 1160
+Q 1716 1264 1654 1328
+L 2068 1328 2068 1480 1373 1480 1426 1608
+Q 1487 1616 1452 1648
+L 1267 1680
+Q 1232 1520 1162 1394 1091 1268 986 1176
+L 1109 1056 Z
+M 273 1072
+Q 352 1140 407 1204 462 1268 493 1328
+L 616 1328
+Q 678 1199 704 1120
+L 898 1168
+Q 871 1256 810 1328
+L 1109 1328 1109 1480 554 1480 607 1608
+Q 669 1616 634 1648
+L 449 1680
+Q 405 1528 337 1412 268 1296 176 1216
+L 273 1072 Z"/>
+        </font>
+
+        <font horiz-adv-x="2048">
+            <!--  Font Name: _sans
+            Vendor ID: pyrs
+            © 1990-2006 Apple Computer Inc. © 1981 Linotype AG © 1990-91 Type Solutions Inc.
+            URL for more Information: http://www.adobe.com/go/font_vendor_id?ID=pyrs&Name=_sans&PSName=_sans&applanguage=en_US-->
+            <font-face font-family="___vi_Bold" units-per-em="2048" ascent="1577" descent="471"/>
+
+            <glyph unicode="给" horiz-adv-x="0" d="
+M 1352 0
+L 1352 1474 154 1474 154 0 1352 0 Z
+M 337 183
+L 337 1291 1169 1291 1169 183 337 183 Z"/>
+
+            <glyph unicode="水" horiz-adv-x="0" d="
+M 1352 0
+L 1352 1474 154 1474 154 0 1352 0 Z
+M 337 183
+L 337 1291 1169 1291 1169 183 337 183 Z"/>
+
+            <glyph unicode="送" horiz-adv-x="0" d="
+M 1352 0
+L 1352 1474 154 1474 154 0 1352 0 Z
+M 337 183
+L 337 1291 1169 1291 1169 183 337 183 Z"/>
+
+            <glyph unicode="风" horiz-adv-x="0" d="
+M 1352 0
+L 1352 1474 154 1474 154 0 1352 0 Z
+M 337 183
+L 337 1291 1169 1291 1169 183 337 183 Z"/>
+        </font>
+
+        <font horiz-adv-x="2048">
+            <!--  Font Name: Times New Roman
+            Vendor ID: TMC
+            © 2008 The Monotype Corporation. All Rights Reserved.
+            URL for more Information: http://www.adobe.com/go/font_vendor_id?ID=TMC&Name=Times%20New%20Roman&PSName=TimesNewRomanPSMT&applanguage=en_US-->
+            <font-face font-family="Times_New_Roman_Regular" units-per-em="2048" ascent="1825" descent="443"/>
+        </font>
+
+        <font horiz-adv-x="2048">
+            <!--  Font Name: 宋体
+            Vendor ID: ZYEC
+            © Copyright ZHONGYI Electronic Co. 2001
+            http://www.microsoft.com/typography/fonts
+            URL for more Information: http://www.adobe.com/go/font_vendor_id?ID=ZYEC&Name=宋体&PSName=SimSun&applanguage=en_US-->
+            <font-face font-family="SimSun_Bold" units-per-em="2048" ascent="1760" descent="288"/>
+
+            <glyph unicode="节" horiz-adv-x="2048" d="
+M 1294 256
+Q 1434 232 1520 186 1606 140 1637 72 1751 120 1786 168 1822 216 1822 296
+L 1822 848 1892 904 1760 1016 1663 928 273 928 352 856
+Q 449 880 563 880
+L 950 880 950 152 942 -200 1082 -128 1074 136 1074 880 1690 880 1690 328
+Q 1690 264 1628 264
+L 1294 296 1294 256 Z
+M 898 1328
+L 898 1496 968 1552 766 1640 774 1328 88 1328 167 1256
+Q 264 1280 378 1280
+L 774 1280 766 1000 898 1064 898 1280 1399 1280 1399 1024 1531 1080
+Q 1522 1167 1522 1280
+L 2138 1280 1954 1456 1795 1328 1522 1328 1522 1504 1602 1552 1390 1648 1399 1328 898 1328 Z"/>
+
+            <glyph unicode="给" horiz-adv-x="2048" d="
+M 1091 -152
+L 1091 -16 1698 -16 1698 -184 1822 -128
+Q 1813 -17 1813 56
+L 1813 456 1892 504 1769 616 1681 536 1091 536 968 600 977 200 968 -200 1091 -152 Z
+M 1698 488
+L 1698 32 1091 32 1091 488 1698 488 Z
+M 1100 792
+Q 1197 816 1267 816
+L 1795 816 1654 960 1566 864 1021 864 1100 792 Z
+M 1294 1688
+Q 1254 1532 1196 1396 1137 1260 1060 1144 983 1028 899 930 814 832 722 752
+L 739 728
+Q 845 800 936 882 1027 964 1104 1056 1181 1148 1251 1260 1320 1372 1382 1504 1430 1400 1490 1306 1551 1212 1624 1128 1696 1044 1787 968 1879 892 1989 824 2015 864 2059 884 2103 904 2165 904
+L 2165 928
+Q 2033 972 1925 1029 1817 1086 1734 1156 1650 1226 1569 1325 1487 1424 1408 1552
+L 1487 1600 1294 1688 Z
+M 229 -104
+Q 260 -68 427 0 594 68 898 168
+L 889 208 385 94
+Q 198 56 141 56
+L 229 -104 Z
+M 862 1120
+L 942 1160 783 1264
+Q 680 1056 616 960
+L 220 944
+Q 312 1060 400 1194 488 1328 572 1480
+L 651 1528 475 1632
+Q 449 1520 405 1407 361 1294 299 1180 238 1066 187 1009 136 952 97 952
+L 176 808
+Q 229 840 330 866 431 892 581 912 370 640 295 560 220 480 158 472
+L 246 312
+Q 334 368 524 420 713 472 862 496
+L 862 528 299 472
+Q 462 636 603 798 744 960 862 1120 Z"/>
+
+            <glyph unicode="泵" horiz-adv-x="2048" d="
+M 273 480
+Q 370 504 484 504
+L 774 504
+Q 656 300 486 148 317 -4 97 -104
+L 106 -136
+Q 581 8 898 464
+L 977 520 854 632 766 552 194 552 273 480 Z
+M 686 -32
+Q 818 -64 893 -108 968 -152 986 -208 1074 -176 1126 -132 1179 -88 1179 -16
+L 1179 560
+Q 1302 320 1498 160 1694 0 1962 -80 1989 -40 2033 -14 2077 12 2138 24
+L 2138 56
+Q 1901 72 1712 150 1522 228 1382 368
+L 1694 508
+Q 1808 559 1989 608
+L 1848 744
+Q 1795 684 1672 598 1549 512 1355 400 1267 501 1179 640
+L 1179 688 1250 752 1056 824
+Q 1065 702 1065 544
+L 1065 56
+Q 1065 8 1048 -15 1032 -38 999 -36
+L 695 0 686 -32 Z
+M 766 760
+L 766 856 1619 856 1619 768 1742 808
+Q 1734 887 1734 1160
+L 1813 1200 1690 1312 1610 1240 792 1240 1030 1472 2103 1472 1954 1616 1848 1520 141 1520 220 1448
+Q 317 1472 431 1472
+L 880 1472
+Q 726 1284 535 1136 343 988 114 880
+L 123 848
+Q 282 904 414 972 546 1040 651 1120 651 818 642 720
+L 766 760 Z
+M 1619 1192
+L 1619 904 766 904 766 1192 1619 1192 Z"/>
+
+            <glyph unicode="软" horiz-adv-x="2048" d="
+M 1377 612
+Q 1366 514 1330 413 1294 312 1232 208 1170 104 1067 6 964 -92 818 -184
+L 836 -200
+Q 999 -132 1123 -39 1247 54 1333 172 1419 290 1466 451 1514 612 1522 816 1549 492 1652 248 1756 4 1936 -160 2006 -80 2147 -88
+L 2147 -56
+Q 1905 20 1758 258 1610 496 1558 896
+L 1628 944 1399 1048
+Q 1392 743 1377 612 Z
+M 466 1304
+L 114 1304 194 1232
+Q 290 1256 361 1256
+L 449 1256 343 944
+Q 317 872 286 832 255 792 220 784
+L 334 656 405 712 642 712 642 408
+Q 396 349 150 304
+L 246 144
+Q 260 176 359 222 458 268 642 328
+L 634 -200 766 -144 757 368 1118 496 1109 528 757 440 757 712 1153 712 1012 856 915 760 757 760 757 992 827 1048 634 1136 642 760 396 760 572 1256 1153 1256 1012 1400 906 1304 590 1304 660 1528 748 1568 546 1672
+Q 537 1576 466 1304 Z
+M 1795 896
+Q 1883 1016 1965 1078 2046 1140 2121 1144
+L 1962 1296 1883 1208 1346 1208 1496 1504 1575 1544 1382 1648
+Q 1338 1436 1254 1240 1170 1044 1047 864
+L 1074 848
+Q 1156 928 1329 1160
+L 1892 1160 1769 912 1795 896 Z"/>
+        </font>
+    </defs>
+
+    <!--
+    <pattern id="Pattern_boiler" patternUnits="userSpaceOnUse" patternTransform="matrix( 0.2762298583984375, 0, 0, 0.35107421875, 432.45,327.1) " width="1775" height="779">
+        <use xlink:href="#Image_image_boiler"/>
+    </pattern>
+    -->
+
+    <!--<g transform="matrix( 0.0012054443359375, -2.8262939453125, 0.7129058837890625, 0.00030517578125, 1194.7,225.35) ">
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <use xlink:href="#Graphic_shape_333_0_Layer6_0_FILL"/>
+        </g>
+
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <use xlink:href="#Graphic_shape_333_0_Layer5_0_FILL"/>
+        </g>
+
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <use xlink:href="#Graphic_shape_333_0_Layer4_0_FILL"/>
+        </g>
+
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <use xlink:href="#Graphic_shape_333_0_Layer3_0_FILL"/>
+        </g>
+
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <use xlink:href="#Graphic_shape_333_0_Layer2_0_FILL"/>
+        </g>
+
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <use xlink:href="#Graphic_shape_333_0_Layer1_0_FILL"/>
+        </g>
+
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <use xlink:href="#Graphic_shape_333_0_Layer0_0_1_STROKES"/>
+        </g>
+    </g>-->
+
+    <!--<g transform="matrix( 0.0050048828125, -0.232086181640625, 0.36456298828125, 0.0078277587890625, 869.95,303.6) ">
+        <use xlink:href="#sensor"/>
+    </g>-->
+
+    <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <use xlink:href="#Graphic_shape_337_0_Layer0_0_FILL"/>
+        </g>
+    </g>
+
+    <g transform="matrix( 1, 0, 0, 1, 1069.65,69) ">
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <clipPath id="Mask_Mask_1">
+                <rect x="-4" y="-2.8" width="63.85" height="48" fill="#FFFFFF" stroke="none"/>
+            </clipPath>
+
+            <text clip-path="url(#Mask_Mask_1)" writing-mode="lr"><tspan x="-2" y="18.1" baseline-shift="0%" kerning="0" font-family="_________Bold" font-weight="bold" font-size="22" fill="#000000" xml:space="preserve">排烟</tspan></text>
+        </g>
+    </g>
+
+    <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <use xlink:href="#Graphic_shape_339_0_Layer0_0_1_STROKES"/>
+        </g>
+    </g>
+
+    <!--<g transform="matrix( 0.004302978515625, -0.23211669921875, 0.36383056640625, 0.0067596435546875, 590.4,168.45) ">
+        <use xlink:href="#sensor"/>
+    </g>
+
+    <g transform="matrix( 0.004302978515625, -0.23211669921875, 0.36383056640625, 0.0067596435546875, 590.25,234.85) ">
+        <use xlink:href="#sensor"/>
+    </g>
+
+    <g transform="matrix( 0.004302978515625, -0.23211669921875, 0.36383056640625, 0.0067596435546875, 592.2,307.4) ">
+        <use xlink:href="#sensor"/>
+    </g>
+
+    <g transform="matrix( -0.285797119140625, -0.00408935546875, 0.0068359375, -0.47918701171875, 173.45,535.15) ">
+        <use xlink:href="#sensor"/>
+    </g>
+
+    <g transform="matrix( 0.002227783203125, -0.2321014404296875, 0.3645477294921875, 0.00347900390625, 655.35,134.25) ">
+        <use xlink:href="#sensor"/>
+    </g>
+
+    <g transform="matrix( 0.1650390625, -0.163360595703125, 0.256591796875, 0.25921630859375, 883.95,70.15) ">
+        <use xlink:href="#sensor"/>
+    </g>
+
+    
+    <g transform="matrix( -0.0079345703125, -0.2319488525390625, 0.364288330078125, -0.012481689453125, 1087.4,390.65) ">
+        <use xlink:href="#sensor"/>
+    </g>
+    -->
+
+    <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+        <!--<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <use xlink:href="#Graphic_shape_340_0_Layer8_0_FILL"/>
+     </g>-->
+
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <use xlink:href="#Graphic_shape_340_0_Layer7_0_FILL"/>
+        </g>
+
+        <!--<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <use xlink:href="#Graphic_shape_340_0_Layer6_0_FILL"/>
+        </g>-->
+
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <use xlink:href="#Graphic_shape_340_0_Layer5_0_FILL"/>
+        </g>
+
+        <!--<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <use xlink:href="#Graphic_shape_340_0_Layer4_0_FILL"/>
+        </g>-->
+
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <use xlink:href="#Graphic_shape_340_0_Layer3_0_FILL"/>
+        </g>
+
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <use xlink:href="#Graphic_shape_340_0_Layer2_0_FILL"/>
+        </g>
+
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <use xlink:href="#Graphic_shape_340_0_Layer1_0_FILL"/>
+        </g>
+
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <use xlink:href="#Graphic_shape_340_0_Layer0_0_FILL"/>
+        </g>
+    </g>
+
+    <!--<g transform="matrix( -0.001861572265625, -0.23223876953125, 0.364776611328125, -0.0029449462890625, 962.75,587.45) ">
+        <use xlink:href="#sensor"/>
+    </g>
+
+    <g transform="matrix( -0.0053558349609375, 0.2321624755859375, -0.364654541015625, -0.008392333984375, 997.75,239.75) ">
+        <use xlink:href="#sensor"/>
+    </g>-->
+
+	<!--
+    <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <use xlink:href="#Graphic_shape_342_0_Layer0_0_FILL"/>
+        </g>
+    </g>
+
+	
+    <g transform="matrix( 1, 0, 0, 1, 1244.15,300.8) ">
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+                <clipPath id="Mask_Mask_2">
+                    <rect x="-0.9" y="-22.8" width="33.65" height="87.6" fill="#FFFFFF" stroke="none"/>
+                </clipPath>
+
+                <text clip-path="url(#Mask_Mask_2)" writing-mode="lr"><tspan x="1.1" y="2.5" baseline-shift="0%" kerning="0" font-family="___vi_Bold" font-weight="bold" font-size="22" fill="#000000" xml:space="preserve">给</tspan><tspan x="1.1" y="33.3" baseline-shift="0%" kerning="0" font-family="___vi_Bold" font-weight="bold" font-size="22" fill="#000000" xml:space="preserve">水</tspan></text>
+            </g>
+        </g>
+
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+                <clipPath id="Mask_Mask_3">
+                    <rect x="-2" y="-2" width="34.75" height="5.4" fill="#FFFFFF" stroke="none"/>
+                </clipPath>
+
+                <text clip-path="url(#Mask_Mask_3)" writing-mode="lr"><tspan x="0" y="0.55" baseline-shift="0%" kerning="0" font-family="Times_New_Roman_Regular" font-size="0.6" fill="#000000" xml:space="preserve"></tspan></text>
+            </g>
+        </g>
+    </g>
+   -->
+
+    <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <use xlink:href="#Graphic_shape_348_0_Layer0_0_FILL"/>
+        </g>
+    </g>
+
+    <!--<g transform="matrix( 0.004302978515625, -0.23211669921875, 0.36383056640625, 0.0067596435546875, 869.85,253.2) ">
+        <use xlink:href="#sensor"/>
+    </g>-->
+
+    <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <use xlink:href="#Graphic_shape_349_0_Layer7_0_FILL"/>
+        </g>
+
+        <!--<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <use xlink:href="#Graphic_shape_349_0_Layer6_0_FILL"/>
+     </g>-->
+
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <use xlink:href="#Graphic_shape_349_0_Layer5_0_FILL"/>
+        </g>
+
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <use xlink:href="#Graphic_shape_349_0_Layer4_0_FILL"/>
+        </g>
+
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <use xlink:href="#Graphic_shape_349_0_Layer3_0_FILL"/>
+        </g>
+
+        <!--
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <use xlink:href="#Graphic_shape_349_0_Layer2_0_FILL"/>
+        </g>
+        -->
+    </g>
+
+    <g transform="matrix( 1.056671142578125, 0, 0, 1.2063140869140625, 1001,613.45) ">
+        <g id="panel_mc" transform="matrix( 0.2621002197265625, 0, 0, 0.2617340087890625, -0.05,1.2) ">
+            <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+                <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+                    <use xlink:href="#Graphic_shape_65_0_Layer0_0_FILL"/>
+
+                    <use xlink:href="#Graphic_shape_65_0_Layer0_0_1_STROKES"/>
+                </g>
+            </g>
+        </g>
+
+        <g id="indicator_mc" transform="matrix( 0.2621002197265625, 0, 0, 0.2617340087890625, 30,18) ">
+            <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+                <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+                    <use xlink:href="#Graphic_shape_54_0_Layer0_0_FILL"/>
+
+                    <use xlink:href="#Graphic_shape_54_0_Layer0_0_1_STROKES"/>
+                </g>
+            </g>
+        </g>
+    </g>
+
+    <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <use xlink:href="#Graphic_shape_351_0_Layer0_0_FILL"/>
+        </g>
+    </g>
+
+    <g transform="matrix( 1, 0, 0, 1, 485.9,77.45) ">
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <clipPath id="Mask_Mask_4">
+                <rect x="-4" y="-2.8" width="63.85" height="48" fill="#FFFFFF" stroke="none"/>
+            </clipPath>
+
+            <text clip-path="url(#Mask_Mask_4)" writing-mode="lr"><tspan x="-2" y="18.1" baseline-shift="0%" kerning="0" font-family="_________Bold" font-weight="bold" font-size="22" fill="#000000" xml:space="preserve">出油</tspan></text>
+        </g>
+    </g>
+
+
+	<g transform="matrix( 1, 0, 0, 1, 685.9,155) ">
+		<text font-family="_________Bold" font-weight="bold" font-size="22" fill="#000000">进油</text> 
+	</g>
+
+
+    <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <use xlink:href="#Graphic_shape_353_0_Layer3_0_FILL"/>
+        </g>
+
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <use xlink:href="#Graphic_shape_353_0_Layer2_0_FILL"/>
+        </g>
+
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <use xlink:href="#Graphic_shape_353_0_Layer1_0_FILL"/>
+        </g>
+    </g>
+
+    <!--<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <use xlink:href="#Graphic_shape_355_0_Layer0_0_FILL"/>
+        </g>
+    </g>-->
+
+    <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <use xlink:href="#Graphic_shape_357_0_Layer0_0_FILL"/>
+        </g>
+    </g>
+
+    <g transform="matrix( 1, 0, 0, 1, 52.75,501.9) ">
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <clipPath id="Mask_Mask_5">
+                <rect x="-4" y="-2.8" width="63.85" height="48" fill="#FFFFFF" stroke="none"/>
+            </clipPath>
+
+            <text clip-path="url(#Mask_Mask_5)" writing-mode="lr"><tspan x="-2" y="18.1" baseline-shift="0%" kerning="0" font-family="_________Bold" font-weight="bold" font-size="22" fill="#000000" xml:space="preserve">燃料</tspan></text>
+        </g>
+    </g>
+
+    <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <use xlink:href="#Graphic_shape_359_0_Layer1_0_FILL"/>
+        </g>
+
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <use xlink:href="#Graphic_shape_359_0_Layer0_0_FILL"/>
+        </g>
+    </g>
+
+    <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <use xlink:href="#Graphic_shape_360_0_Layer0_0_FILL"/>
+        </g>
+    </g>
+
+    <g transform="matrix( 1, 0, 0, 1, 475.2,616.6) ">
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+                <clipPath id="Mask_Mask_6">
+                    <rect x="-1.15" y="-21.1" width="31.1" height="80" fill="#FFFFFF" stroke="none"/>
+                </clipPath>
+
+                <text clip-path="url(#Mask_Mask_6)" writing-mode="lr"><tspan x="0.85" y="2.1" baseline-shift="0%" kerning="0" font-family="___vi_Bold" font-weight="bold" font-size="20" fill="#000000" xml:space="preserve">送</tspan><tspan x="0.85" y="30.1" baseline-shift="0%" kerning="0" font-family="___vi_Bold" font-weight="bold" font-size="20" fill="#000000" xml:space="preserve">风</tspan></text>
+            </g>
+        </g>
+
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+                <clipPath id="Mask_Mask_7">
+                    <rect x="-2" y="-2" width="31.95" height="5.4" fill="#FFFFFF" stroke="none"/>
+                </clipPath>
+            </g>
+        </g>
+    </g>
+
+    <!--<g transform="matrix( 1, 0, 0, 1, 928.45,176) ">
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <clipPath id="Mask_Mask_8">
+                <rect x="-4" y="-2.7" width="64.15" height="36" fill="#FFFFFF" stroke="none"/>
+            </clipPath>
+
+            <text clip-path="url(#Mask_Mask_8)" writing-mode="lr"><tspan x="-2" y="13.05" baseline-shift="0%" kerning="0" font-family="SimSun_Bold" font-weight="bold" font-size="16" fill="#000000" xml:space="preserve">节</tspan><tspan baseline-shift="0%" kerning="0" font-family="_________Bold" font-weight="bold" font-size="16" fill="#000000" xml:space="preserve">能器</tspan><tspan baseline-shift="0%" kerning="0" font-family="_________Bold" font-weight="bold" font-size="16" fill="#000000" xml:space="preserve"></tspan></text>
+        </g>
+    </g>-->
+
+    <g transform="matrix( 1, 0, 0, 1, 1065.4,649.45) ">
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <clipPath id="Mask_Mask_9">
+                <rect x="-4" y="-2.7" width="64.15" height="36" fill="#FFFFFF" stroke="none"/>
+            </clipPath>
+
+            <text clip-path="url(#Mask_Mask_9)" writing-mode="lr"><tspan x="-2" y="13.05" baseline-shift="0%" kerning="0" font-family="SimSun_Bold" font-weight="bold" font-size="18" fill="#000000" xml:space="preserve">循环泵</tspan>           
+            </text>
+        </g>
+    </g>
+
+    <!--
+    <g transform="matrix( 1, 0, 0, 1, 1057.4,462.5) ">
+        <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+            <clipPath id="Mask_Mask_10">
+                <rect x="-4" y="-2.7" width="48.1" height="36" fill="#FFFFFF" stroke="none"/>
+            </clipPath>
+
+            <text clip-path="url(#Mask_Mask_10)" writing-mode="lr"><tspan x="-2" y="13.05" baseline-shift="0%" kerning="0" font-family="_________Bold" font-weight="bold" font-size="16" fill="#000000" xml:space="preserve">水箱</tspan></text>
+        </g>
+    </g>
+
+    <g transform="matrix( 1, 0, 0, 1, 1214.9,538.5) ">
+        <text clip-path="url(#Mask_Mask_11)" writing-mode="lr"><tspan baseline-shift="0%" kerning="0" font-family="_________Bold" font-weight="bold" font-size="16" fill="#000000" xml:space="preserve">软水器</tspan></text>
+    </g>-->
+
+    <g transform="matrix( 0.9855804443359375, 0, 0, 1.0911407470703125, 1076.15,838.4) ">
+        <g id="panel_mc_FL" transform="matrix( 0.2621002197265625, 0, 0, 0.2617340087890625, -36.35,-21.5) ">
+            <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+                <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+                    <use xlink:href="#Graphic_shape_65_0_Layer0_0_FILL"/>
+
+                    <use xlink:href="#Graphic_shape_65_0_Layer0_0_1_STROKES"/>
+                </g>
+            </g>
+        </g>
+
+        <g transform="matrix( 1, 0, 0, 1, -7.35,15.7) ">
+            <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+                <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+                    <use xlink:href="#Graphic_shape_67_0_Layer0_0_FILL"/>
+
+                    <use xlink:href="#Graphic_shape_67_0_Layer0_0_1_STROKES"/>
+                </g>
+            </g>
+        </g>
+
+        <g id="yl" transform="matrix( 1, 0, 0, 1, 0.7,-0.95) ">
+            <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+                <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+                    <use filter="url(#Filter_1)" xlink:href="#Graphic_shape_69_0_Layer8_0_FILL"/>
+                </g>
+
+                <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+                    <use filter="url(#Filter_1)" xlink:href="#Graphic_shape_69_0_Layer7_0_1_STROKES"/>
+                </g>
+
+                <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+                    <use filter="url(#Filter_1)" xlink:href="#Graphic_shape_69_0_Layer6_0_1_STROKES"/>
+                </g>
+
+                <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+                    <use filter="url(#Filter_1)" xlink:href="#Graphic_shape_69_0_Layer5_0_1_STROKES"/>
+                </g>
+
+                <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+                    <use filter="url(#Filter_1)" xlink:href="#Graphic_shape_69_0_Layer4_0_1_STROKES"/>
+                </g>
+
+                <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+                    <use filter="url(#Filter_1)" xlink:href="#Graphic_shape_69_0_Layer3_0_FILL"/>
+                </g>
+
+                <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+                    <use filter="url(#Filter_1)" xlink:href="#Graphic_shape_69_0_Layer2_0_1_STROKES"/>
+                </g>
+
+                <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+                    <use filter="url(#Filter_1)" xlink:href="#Graphic_shape_69_0_Layer1_0_FILL"/>
+                </g>
+
+                <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+                    <use filter="url(#Filter_1)" xlink:href="#Graphic_shape_69_0_Layer0_0_FILL"/>
+                </g>
+            </g>
+        </g>
+    </g>
+
+    <g id="status_container">
+    </g>
+
+    <g id="steam_container">
+    </g>
+
+    <g id="water_container">
+    </g>
+
+    <g id="water1_container">
+    </g>
+
+    <g id="water_lv_container">
+    </g>
+
+    <g id="smoke_container">
+    </g>
+
+    <g id="sw_container">
+    </g>
+
+    <g id="fuel_container">
+    </g>
+
+    <g id="dash_container">
+    </g>
+
+    <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+        <use xlink:href="#Pipe_Smoke_FILL"/>
+    </g>
+
+    <g id="dash_smoke_container">
+    </g>
+
+    <!--<g transform="matrix( -0.7435150146484375, 0.007568359375, -0.0046234130859375, -1.311248779296875, 898.25,168.55) ">
+        <use xlink:href="#Saver_FILL"/>
+        <use xlink:href="#Saver_STROKES"/>
+    </g>-->
+
+    <g transform="matrix( 0.625, 0, 0, 0.62, 431,324) ">
+        <use xlink:href="#boiler_body"/>
+    </g>
+
+    <!--
+    <g transform="matrix( 1, 0, 0, 1, 1118.55,532.4) ">
+        <use xlink:href="#water_tank"/>
+    </g>
+    -->
+
+    <g transform="matrix( 4.100006103515625, 0, 0, 3.5133514404296875, 305.6,475.75) ">
+        <use xlink:href="#valve"/>
+    </g>
+
+    <g transform="matrix( -0.0197906494140625, -4.2449798583984375, 3.784027099609375, -0.016326904296875, 632.05,293.9) ">
+        <use xlink:href="#valve"/>
+    </g>
+	
+	
+    <g transform="matrix( -0.0197906494140625, -4.2449798583984375, 3.784027099609375, -0.016326904296875, 940.75,330) ">
+        <use xlink:href="#valve"/>
+    </g>
+
+    
+    <g transform="matrix( -0.0199432373046875, -4.2466583251953125, 3.7861175537109375, -0.016204833984375, 570.85,295.4) ">
+        <use xlink:href="#valve"/>
+    </g>
+    
+
+    <g id="fire_container">
+    </g>
+
+</svg>

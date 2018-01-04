@@ -261,6 +261,10 @@ mainApp.controller("BoilerRuntimeController",function($rootScope, $scope, $http,
         console.info("Runtime initCharts!");
         initChartHeatMonth(boiler);
     };
+    
+    
+    
+
 	
 	
 });
@@ -301,6 +305,227 @@ function boiler_module_height() {
         console.info("Not Is IE")
     }
 }
+
+
+
+mainApp.controller("statusModule", function($scope, productData) {
+	$scope.statusss = 111;
+
+	var moduleStatus = d3.select("#status_1");
+	var svgContainer = moduleStatus.append("svg");
+
+	$scope.boiler = productData[1];
+	var moduleOptionsDef = {
+		align: "left", //"left", "justify"
+		baseWidth: 82,
+		height: 40,
+		gap: 10,
+		baseX: 0,
+		baseY: 0
+	};
+	var copy = function(obj) {
+		var aObj = {};
+
+		for(var i = 0; i < Object.keys(obj).length; i++) {
+			var key = Object.keys(obj)[i];
+			var value = obj[key];
+			aObj[key] = ((typeof value) === 'object' ? copy(value) : value);
+		}
+
+		return aObj;
+	};
+
+	var isTerminalConnected = ($scope.boiler.Terminal && $scope.boiler.Terminal.IsOnline) || $scope.boiler.isBurning;
+	var statData = [
+		[{
+				id: 0,
+				name: "终端状态",
+				text: isTerminalConnected ? "已连接" : "未连接",
+				type: "status",
+				value: !!isTerminalConnected
+			},
+			{
+				id: 0,
+				name: "燃烧状态",
+				text: $scope.boiler.isBurning ? "已点燃" : "未点燃",
+				type: "status",
+				value: $scope.boiler.isBurning
+			},
+			{
+				id: 0,
+				name: "告警状态",
+				text: "",
+				type: "status",
+				value: $scope.boiler.alarmLevel
+			}
+		],
+//		[{
+//				id: 0,
+//				name: "热效率(正平衡)"
+//			},
+//			{
+//				id: 1201,
+//				name: "热效率(反平衡)"
+//			}
+//		]
+		
+	];
+
+	var statOptions = copy(moduleOptionsDef);
+	statOptions.align = "justify";
+
+	var renderStatusModule = function(data, options) {
+
+		console.log("ready to renderStatusModule", data, options);
+		var align = options.align;
+
+		var baseWidth = options.baseWidth;
+		var height = options.height;
+		var gap = options.gap;
+		var fontSize = Math.round(baseWidth / 7);
+
+		var baseX = options.baseX;
+		var baseY = options.baseY;
+
+		var statusModule = svgContainer;
+
+		if(!statusModule) {
+			$log.warn("There IS NO " + id + "!");
+			return;
+		}
+
+		var maxRowLength = 0;
+		for(var row = 0; row < data.length; row++) {
+			if(data[row].length > maxRowLength) {
+				maxRowLength = data[row].length;
+			}
+		}
+
+		for(var row = 0; row < data.length; row++) {
+			var rowData = data[row];
+			for(var col = 0; col < rowData.length; col++) {
+				var width, cx, cy;
+				cy = baseY + (height + gap) * row;
+
+				switch(align) {
+					case "left":
+						width = baseWidth;
+						cx = baseX + (width + gap) * col;
+						break;
+					case "right":
+						width = baseWidth;
+						cx = baseX + (width + gap) * (maxRowLength - rowData.length) + (width + gap) * col;
+						break;
+					case "justify":
+						width = (baseWidth * maxRowLength + gap * (maxRowLength - rowData.length)) / rowData.length;
+						cx = baseX + (width + gap) * col;
+						break;
+					default:
+						width = baseWidth;
+						cx = baseX + (width + gap) * col;
+						break;
+				}
+
+				var d = rowData[col];
+
+				var barColor = d.type === "status" ? "#4c87b9" : "#bfcad1";
+				var text = d.type === "status" ? d.text : "未测定";
+				var textColor = d.type === "status" ? "#fff" : "#aaa";
+
+				//              if ($scope.boiler.isBurning && d.type !== "status" && d.id > 0) {
+				//                  for (var i = 0; i < $scope.instants.length; i++) {
+				//                      var ins = $scope.instants[i];
+				//                      if (d.id == ins.id && ins.value != "-") {
+				//                          barColor = "#4c87b9";
+				//                          text = ins.value + ins.unit;
+				//                          textColor = "#80898e";
+				//                          break;
+				//                      }
+				//                  }
+				//              }
+
+				//Bar Drawing
+				statusModule.append("rect")
+					.attr("x", cx)
+					.attr("y", cy)
+					.attr("width", width)
+					.attr("height", height)
+					//.attr("rx", 6)
+					.style("fill", "none")
+					.style("stroke", barColor)
+					.style("stroke-width", "1");
+				statusModule.append("rect")
+					.attr("x", cx)
+					.attr("y", cy)
+					.attr("width", width)
+					.attr("height", height / 2)
+					.style("fill", barColor);
+
+				if(d.type === "status") {
+					//StatusColor Drawing
+					var bgColor = "#32c5d2";
+					if(typeof d.value === "boolean") {
+						bgColor = d.value ? "#32c5d2" : "#e7505a";
+					} else if(typeof d.value === "number") {
+						switch(d.value) {
+							case 0:
+								bgColor = "#32c5d2";
+								break;
+							case 1:
+								bgColor = "#f3c200";
+								break;
+							case 2:
+								bgColor = "#e7505a";
+								break;
+						}
+					}
+
+					statusModule.append("rect")
+						.attr("x", cx + 4)
+						.attr("y", cy + height / 2 + 4)
+						.attr("width", width - 8)
+						.attr("height", height / 2 - 8)
+						.attr("rx", 6)
+						.attr("ry", 6)
+						.style("fill", bgColor);
+				}
+
+				//Label Drawing
+				statusModule.append("text")
+					.attr("x", cx + width / 2)
+					.attr("y", cy + fontSize / 2 + 2)
+					.attr("dy", fontSize / 2)
+					.attr("text-anchor", "middle")
+					.text(d.name)
+					.style("font-size", fontSize + "px")
+					//.style("font-weight", "bold")
+					.style("fill", "#fff")
+					.style("stroke-width", "0px");
+
+				//Text Drawing
+				statusModule.append("text")
+					.attr("x", cx + width / 2)
+					.attr("y", cy + height / 2 + fontSize / 2 + 2)
+					.attr("dy", fontSize / 2)
+					.attr("text-anchor", "middle")
+					.text(text)
+					.style("font-size", fontSize - 2 + "px")
+					//.style("font-weight", "bold")
+					.style("fill", textColor)
+					.style("stroke-width", "0px");
+			}
+		}
+	};
+
+	renderStatusModule(statData, statOptions);
+
+	console.log(moduleStatus);
+
+})
+
+
+
+
 
 
 

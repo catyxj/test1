@@ -1,2 +1,326 @@
+<style>
+	.portlet{
+		margin-bottom: 0px;
+	}
+	.table td{
+		white-space: nowrap;
+	}
+</style>
+<div class="row">
+	<div class="col-md-3" style="padding: 0; padding-left: 10px; ">
+		<div ng-controller="statusModule" id="status_1" style="height: 60px;">
+			
+		</div>
+		<div class="">
+			<!-- BEGIN SAMPLE TABLE PORTLET-->
+			<div class="portlet light bordered" style="padding: 5px;padding-top: 0; border-color: #DDDDDD;height: 340px; overflow: auto;">
 
-<boiler-module></boiler-module>
+				<div class="portlet-body">
+					<div class="table-scrollable table-scrollable-borderless">
+						<table class="table table-hover table-light">
+							<thead>
+                            <tr>
+                                <th>测量项目</th>
+                                <th>状态值</th>
+
+                            </tr>
+                            </thead>
+							<tbody>
+								<tr>
+									<td> 工作状态码 </td>									
+									<td>
+										<span class="label label-sm label-success"
+											ng-class="['label', 'label-sm', {'label-success': d.alarmLevel == 0}, {'label-default': d.alarmLevel == -1}, {'label-warning': d.alarmLevel == 1}, {'label-danger': d.alarmLevel == 2}]">
+											系统正
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<td> 火焰装填 </td>									
+									<td>
+										<span class="label label-sm label-success"
+											ng-class="['label', 'label-sm', {'label-success': d.alarmLevel == 0}, {'label-default': d.alarmLevel == -1}, {'label-warning': d.alarmLevel == 1}, {'label-danger': d.alarmLevel == 2}]">
+											大火
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<td> 工作状态码 </td>									
+									<td>
+										<span class="label label-sm label-success"
+											ng-class="['label', 'label-sm', {'label-success': d.alarmLevel == 0}, {'label-default': d.alarmLevel == -1}, {'label-warning': d.alarmLevel == 1}, {'label-danger': d.alarmLevel == 2}]">
+											系统正常燃烧
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<td> 火焰装填 </td>									
+									<td>
+										<span class="label label-sm label-success"
+											ng-class="['label', 'label-sm', {'label-success': d.alarmLevel == 0}, {'label-default': d.alarmLevel == -1}, {'label-warning': d.alarmLevel == 1}, {'label-danger': d.alarmLevel == 2}]">
+											大火
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<td> 工作状态码 </td>									
+									<td>
+										<span class="label label-sm label-success"
+											ng-class="['label', 'label-sm', {'label-success': d.alarmLevel == 0}, {'label-default': d.alarmLevel == -1}, {'label-warning': d.alarmLevel == 1}, {'label-danger': d.alarmLevel == 2}]">
+											系统正常燃烧系统正常燃烧
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<td> 火焰装填 </td>									
+									<td>
+										<span class="label label-sm label-success"
+											ng-class="['label', 'label-sm', {'label-success': d.alarmLevel == 0}, {'label-default': d.alarmLevel == -1}, {'label-warning': d.alarmLevel == 1}, {'label-danger': d.alarmLevel == 2}]">
+											大火
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<td> 工作状态码 </td>									
+									<td>
+										<span class="label label-sm label-success"
+											ng-class="['label', 'label-sm', {'label-success': d.alarmLevel == 0}, {'label-default': d.alarmLevel == -1}, {'label-warning': d.alarmLevel == 1}, {'label-danger': d.alarmLevel == 2}]">
+											系统正常燃烧
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<td> 火焰装填 </td>									
+									<td>
+										<span class="label label-sm label-success"
+											ng-class="['label', 'label-sm', {'label-success': d.alarmLevel == 0}, {'label-default': d.alarmLevel == -1}, {'label-warning': d.alarmLevel == 1}, {'label-danger': d.alarmLevel == 2}]">
+											大火
+										</span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						 
+					</div>
+				</div>
+			</div>
+			<!-- END SAMPLE TABLE PORTLET-->
+		</div>
+	</div>
+	<div class="col-md-6" style="padding: 0; ">
+		<boiler-module></boiler-module>
+		<div class="" >
+			<div 
+                             style="margin-top: 12px; margin-left: 10px;margin-right: 10px; border: 1px solid #DDDDDD;">
+                                    <span 
+                                          class="label label-sm label-danger"
+                                         
+                                          style="margin: 4px 4px; display: inline-block;">
+                                       循环泵状态
+                                    </span>
+                                    <span 
+                                          class="label label-sm label-default"
+                                          ng-class="{'label-warning': d.value, 'label-default': !d.value}"
+                                          style="margin: 4px 4px; display: inline-block;">
+                                       循环泵状态
+                                    </span>
+                                     <span 
+                                          class="label label-sm label-danger"
+                                          
+                                          style="margin: 4px 4px; display: inline-block;">
+                                       循环泵状态
+                                    </span>
+                                    
+                                     <span 
+                                          class="label label-sm label-danger"
+                                          
+                                          style="margin: 4px 4px; display: inline-block;">
+                                       循环泵状态
+                                    </span>
+                                    <span 
+                                          class="label label-sm label-default"
+                                          ng-class="{'label-warning': d.value, 'label-default': !d.value}"
+                                          style="margin: 4px 4px; display: inline-block;">
+                                       循环泵状态
+                                    </span>
+                                     <span 
+                                          class="label label-sm label-danger"
+                                          
+                                          style="margin: 4px 4px; display: inline-block;">
+                                       循环泵状态
+                                    </span>
+                                    <span 
+                                          class="label label-sm label-default"
+                                          ng-class="{'label-warning': d.value, 'label-default': !d.value}"
+                                          style="margin: 4px 4px; display: inline-block;">
+                                       循环泵状态
+                                    </span>
+                                    
+                        </div>
+		</div>
+	</div>
+	<div class="col-md-3" style="padding: 0; padding-right: 10px;">
+		<!-- BEGIN SAMPLE TABLE PORTLET-->
+			<div class="portlet light bordered" style="padding: 5px;padding-top: 0; height: 400px; overflow: auto;">
+
+				<div class="portlet-body">
+					<div class="table-scrollable table-scrollable-borderless">
+						<table class="table table-hover table-light" >
+							<thead>
+								<tr>
+									<th>测量项目</th>
+									<th>测量值</th>
+									<th>单位</th>
+									<th>状态</th>
+								</tr>
+							</thead>
+							<tbody>
+								<!--<tr ng-repeat="d in runtime.instants">
+									<td> {{d.name}} </td>
+									<td> {{d.value}} </td>
+									<td> {{d.unit}} </td>
+									<td>
+										<span ng-class="['label', 'label-sm', {'label-success': d.alarmLevel == 0}, {'label-default': d.alarmLevel == -1}, {'label-warning': d.alarmLevel == 1}, {'label-danger': d.alarmLevel == 2}]">{{d.alarmDesc}}</span>
+									</td>
+								</tr>-->
+								<tr>
+									<td> 烟道温度</td>
+									<td> 0 </td>
+									<td> ℃ </td>
+									<td>
+										<span class="label label-sm label-success"
+											ng-class="['label', 'label-sm', {'label-success': d.alarmLevel == 0}, {'label-default': d.alarmLevel == -1}, {'label-warning': d.alarmLevel == 1}, {'label-danger': d.alarmLevel == 2}]">
+											正常
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<td> 进油温度</td>
+									<td> 249.8 </td>
+									<td> ℃ </td>
+									<td>
+										<span class="label label-sm label-success"
+											ng-class="['label', 'label-sm', {'label-success': d.alarmLevel == 0}, {'label-default': d.alarmLevel == -1}, {'label-warning': d.alarmLevel == 1}, {'label-danger': d.alarmLevel == 2}]">
+											正常
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<td> 烟道温度</td>
+									<td> 0 </td>
+									<td> ℃ </td>
+									<td>
+										<span class="label label-sm label-success"
+											ng-class="['label', 'label-sm', {'label-success': d.alarmLevel == 0}, {'label-default': d.alarmLevel == -1}, {'label-warning': d.alarmLevel == 1}, {'label-danger': d.alarmLevel == 2}]">
+											正常
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<td> 进油温度</td>
+									<td> 249.8 </td>
+									<td> ℃ </td>
+									<td>
+										<span class="label label-sm label-success"
+											ng-class="['label', 'label-sm', {'label-success': d.alarmLevel == 0}, {'label-default': d.alarmLevel == -1}, {'label-warning': d.alarmLevel == 1}, {'label-danger': d.alarmLevel == 2}]">
+											正常
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<td> 烟道温度</td>
+									<td> 0 </td>
+									<td> ℃ </td>
+									<td>
+										<span class="label label-sm label-success"
+											ng-class="['label', 'label-sm', {'label-success': d.alarmLevel == 0}, {'label-default': d.alarmLevel == -1}, {'label-warning': d.alarmLevel == 1}, {'label-danger': d.alarmLevel == 2}]">
+											正常
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<td> 进油温度</td>
+									<td> 249.8 </td>
+									<td> ℃ </td>
+									<td>
+										<span class="label label-sm label-success"
+											ng-class="['label', 'label-sm', {'label-success': d.alarmLevel == 0}, {'label-default': d.alarmLevel == -1}, {'label-warning': d.alarmLevel == 1}, {'label-danger': d.alarmLevel == 2}]">
+											正常
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<td> 烟道温度</td>
+									<td> 0 </td>
+									<td> ℃ </td>
+									<td>
+										<span class="label label-sm label-success"
+											ng-class="['label', 'label-sm', {'label-success': d.alarmLevel == 0}, {'label-default': d.alarmLevel == -1}, {'label-warning': d.alarmLevel == 1}, {'label-danger': d.alarmLevel == 2}]">
+											正常
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<td> 进油温度</td>
+									<td> 249.8 </td>
+									<td> ℃ </td>
+									<td>
+										<span class="label label-sm label-success"
+											ng-class="['label', 'label-sm', {'label-success': d.alarmLevel == 0}, {'label-default': d.alarmLevel == -1}, {'label-warning': d.alarmLevel == 1}, {'label-danger': d.alarmLevel == 2}]">
+											正常
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<td> 烟道温度</td>
+									<td> 0 </td>
+									<td> ℃ </td>
+									<td>
+										<span class="label label-sm label-success"
+											ng-class="['label', 'label-sm', {'label-success': d.alarmLevel == 0}, {'label-default': d.alarmLevel == -1}, {'label-warning': d.alarmLevel == 1}, {'label-danger': d.alarmLevel == 2}]">
+											正常
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<td> 进油温度</td>
+									<td> 249.8 </td>
+									<td> ℃ </td>
+									<td>
+										<span class="label label-sm label-success"
+											ng-class="['label', 'label-sm', {'label-success': d.alarmLevel == 0}, {'label-default': d.alarmLevel == -1}, {'label-warning': d.alarmLevel == 1}, {'label-danger': d.alarmLevel == 2}]">
+											正常
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<td> 烟道温度</td>
+									<td> 0 </td>
+									<td> ℃ </td>
+									<td>
+										<span class="label label-sm label-success"
+											ng-class="['label', 'label-sm', {'label-success': d.alarmLevel == 0}, {'label-default': d.alarmLevel == -1}, {'label-warning': d.alarmLevel == 1}, {'label-danger': d.alarmLevel == 2}]">
+											正常
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<td> 进油温度</td>
+									<td> 249.8 </td>
+									<td> ℃ </td>
+									<td>
+										<span class="label label-sm label-success"
+											ng-class="['label', 'label-sm', {'label-success': d.alarmLevel == 0}, {'label-default': d.alarmLevel == -1}, {'label-warning': d.alarmLevel == 1}, {'label-danger': d.alarmLevel == 2}]">
+											正常
+										</span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<!-- END SAMPLE TABLE PORTLET-->
+	</div>
+</div>
+

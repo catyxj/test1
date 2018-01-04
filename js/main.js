@@ -792,7 +792,7 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 			isBurning:1,
 			Fuel:{
 				Type:{
-					Id:3,
+					Id:6,
 					name:"燃气",
 					
 				}
