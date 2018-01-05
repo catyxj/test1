@@ -1,9 +1,19 @@
 var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
-    concat = require('gulp-concat');
-    
+    concat = require('gulp-concat'),
+    cssmin = require('gulp-clean-css');
 
 
+
+//合并压缩css
+gulp.task('minCss',function(){
+	gulp.src(['css/bootstrap.min.css','js/scripts/ladda/ladda-themeless.min.css','css/components-rounded.min.css',
+	'js/asset/angular-ui-select/select.css','js/asset/angular-bootstrap-switch/bootstrap-switch.min.css',
+	'js/lib/sweetalert2/dist/sweetalert2.min.css','css/spinner.css'])
+	.pipe(concat('base.min.css'))
+	.pipe(cssmin())
+	.pipe(gulp.dest('css'));
+})
 
 //合并压缩js插件
 gulp.task('js', function () {
@@ -27,3 +37,8 @@ gulp.task('concatmoment', function () {
       .pipe(uglify())
       .pipe(gulp.dest('js/asset'));
 });
+
+
+
+
+
