@@ -119,10 +119,10 @@ mainApp.controller("BoilerHistoryController", function($scope, $http, $location,
 			
 			
 
-			//表格样式
+			//表格滚动样式
 			var scrollLeftTarget = angular.element(document.getElementById("cd-table"));
 			var scrollLeftBtn = angular.element(document.getElementsByClassName("cd-scroll-right"));
-			if(bHistory.pids.length >= 9) {
+			if(bHistory.pids.length >= 8) {
 				scrollLeftTarget.addClass("table_responsive").removeClass("table-end");
 				scrollLeftBtn.css("display", "block");
 			} else {
@@ -312,8 +312,9 @@ mainApp.controller("BoilerHistoryController", function($scope, $http, $location,
 	//表格横向滚动事件
 	var scLeft = angular.element(document.getElementsByClassName("cd-table-container")),
 		cdTable = angular.element(document.querySelector('#cd-table')),
-		cdTableWrapper = angular.element(document.querySelector('.cd-table-wrapper'));
-	var scLeftArrow = angular.element(document.getElementsByClassName("cd-scroll-right"));
+		cdTableWrapper = angular.element(document.querySelector('.cd-table-wrapper'));//表格
+	var scLeftArrow = angular.element(document.getElementsByClassName("cd-scroll-right"));//向右箭头
+	var scLeftArrow2 = angular.element(document.getElementsByClassName("cd-scroll-left"));//向左箭头
 	scLeft.on("scroll", function() {
 		//remove color gradient when table has scrolled to the end
 		var total_table_width = parseInt(cdTableWrapper.css('width').replace('px', '')),
@@ -325,13 +326,26 @@ mainApp.controller("BoilerHistoryController", function($scope, $http, $location,
 		} else {
 			cdTable.removeClass('table-end');
 			scLeftArrow.css("display", "block");
+		};
+		if(scLeft.scrollLeft()>0){
+			scLeftArrow2.css("display", "block");
+		}else{
+			scLeftArrow2.css("display", "none");
 		}
 	});
 
 	//scroll the table (scroll value equal to column width) when clicking on the .cd-scroll-right arrow		
 	scLeftArrow.on('click', function() {
-		var column_width = scLeft.find('td').eq(2).css('width').replace('px', ''),
+		var column_width = scLeft.find('td').eq(2).css('width').replace('px', '')*3,
 			new_left_scroll = parseInt(scLeft.scrollLeft()) + parseInt(column_width);
+		scLeft.animate({
+			scrollLeft: new_left_scroll
+		}, 200);
+	});
+	scLeftArrow2.on('click', function() {
+		var column_width = scLeft.find('td').eq(2).css('width').replace('px', '')*3,		
+			new_left_scroll = parseInt(scLeft.scrollLeft()) - parseInt(column_width);
+			console.log(column_width);
 		scLeft.animate({
 			scrollLeft: new_left_scroll
 		}, 200);

@@ -1126,7 +1126,7 @@ table div.status-icon.warning {
 }
 
 
-
+/*向右箭头*/
 .cd-scroll-right {
   /* small right arrow that indicates it's possible to scroll right */
   display: block;
@@ -1141,6 +1141,7 @@ table div.status-icon.warning {
   -webkit-animation: cd-scroll-right 1.5s infinite;
   -moz-animation: cd-scroll-right 1.5s infinite;
   animation: cd-scroll-right 1.5s infinite;
+  cursor: pointer;
 }
 
 @-webkit-keyframes cd-scroll-right {
@@ -1181,7 +1182,59 @@ table div.status-icon.warning {
 
 
 
+/*向左箭头*/
+.cd-scroll-left {
+  /* small left arrow that indicates it's possible to scroll left */
+  display: none;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -8px;
+  background: url("../images/small-arrow2.svg") no-repeat center center;
+  z-index: 6;
+  -webkit-animation: cd-scroll-left 1.5s infinite;
+  -moz-animation: cd-scroll-left 1.5s infinite;
+  animation: cd-scroll-left 1.5s infinite;
+  cursor: pointer;
+}
 
+@-webkit-keyframes cd-scroll-left {
+  0%, 100% {
+    -webkit-transform: translateX(0);
+  }
+
+  50% {
+    -webkit-transform: translateX(-3px);
+  }
+}
+@-moz-keyframes cd-scroll-left {
+  0%, 100% {
+    -moz-transform: translateX(0);
+  }
+
+  50% {
+    -moz-transform: translateX(-3px);
+  }
+}
+@keyframes cd-scroll-left {
+  0%, 100% {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  50% {
+    -webkit-transform: translateX(-3px);
+    -moz-transform: translateX(-3px);
+    -ms-transform: translateX(-3px);
+    -o-transform: translateX(-3px);
+    transform: translateX(-3px);
+  }
+}
 
 
 
