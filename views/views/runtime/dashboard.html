@@ -4,7 +4,10 @@
 	}
 	.table td{
 		white-space: nowrap;
+		font-size: 13px;
 	}
+	
+	 
 </style>
 <div class="row">
 	<div class="col-md-3" style="padding: 0; padding-left: 10px; ">
@@ -13,18 +16,26 @@
 		</div>
 		<div class="">
 			<!-- BEGIN SAMPLE TABLE PORTLET-->
-			<div class="portlet light bordered" style="padding: 5px;padding-top: 0; border-color: #DDDDDD;height: 340px;width: 100%; overflow: auto;">
+			<div class="portlet light bordered" style="padding: 5px;padding-top: 0; border-color: #DDDDDD;">
 
 				<div class="portlet-body">
-					<div class="table-scrollable table-scrollable-borderless">
-						<table class="table table-hover table-light">
+					<table class="table table-hover table-light" style="margin-bottom: 0;">
 							<thead>
                             <tr>
-                                <th>测量项目</th>
+                                <th style="width: 40%;">测量项目</th>
                                 <th>状态值</th>
 
                             </tr>
                             </thead>
+					</table>
+					<div class="" style="height: 300px;width: 100%; overflow: auto; overflow-x: hidden;margin-top: 0;">
+						<table class="table table-hover table-light">
+							<!--<thead>
+                            <tr>
+                                <th>测量项目</th>
+                                <th>状态值</th>
+                            </tr>
+                            </thead>-->
 							<tbody>
 								<tr>
 									<td> 工作状态码 </td>									
@@ -86,6 +97,33 @@
 										<span class="label label-sm label-success"
 											ng-class="['label', 'label-sm', {'label-success': d.alarmLevel == 0}, {'label-default': d.alarmLevel == -1}, {'label-warning': d.alarmLevel == 1}, {'label-danger': d.alarmLevel == 2}]">
 											系统正常燃烧
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<td> 火焰装填 </td>									
+									<td>
+										<span class="label label-sm label-success"
+											ng-class="['label', 'label-sm', {'label-success': d.alarmLevel == 0}, {'label-default': d.alarmLevel == -1}, {'label-warning': d.alarmLevel == 1}, {'label-danger': d.alarmLevel == 2}]">
+											大火
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<td> 火焰装填 </td>									
+									<td>
+										<span class="label label-sm label-success"
+											ng-class="['label', 'label-sm', {'label-success': d.alarmLevel == 0}, {'label-default': d.alarmLevel == -1}, {'label-warning': d.alarmLevel == 1}, {'label-danger': d.alarmLevel == 2}]">
+											大火
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<td> 火焰装填 </td>									
+									<td>
+										<span class="label label-sm label-success"
+											ng-class="['label', 'label-sm', {'label-success': d.alarmLevel == 0}, {'label-default': d.alarmLevel == -1}, {'label-warning': d.alarmLevel == 1}, {'label-danger': d.alarmLevel == 2}]">
+											大火
 										</span>
 									</td>
 								</tr>
@@ -161,19 +199,29 @@
 	</div>
 	<div class="col-md-3" style="padding: 0; padding-right: 10px;">
 		<!-- BEGIN SAMPLE TABLE PORTLET-->
-			<div class="portlet light bordered" style="padding: 5px;padding-top: 0; height: 400px; overflow: auto;">
+			<div class="portlet light bordered" style="padding: 5px;padding-top: 0; ">
 
 				<div class="portlet-body">
-					<div class="table-scrollable table-scrollable-borderless">
-						<table class="table table-hover table-light" >
+					<table class="table table-hover table-light" style="margin-bottom: 0;">
 							<thead>
+								<tr>
+									<th style="width: 30%;">测量项目</th>
+									<th>测量值</th>
+									<th style="width: 18%;">单位</th>
+									<th>状态</th>
+								</tr>
+							</thead>
+					</table>		
+					<div class="" style="height: 360px; overflow: auto; margin-top: 0;">
+						<table class="table table-hover table-light" >
+							<!--<thead>
 								<tr>
 									<th>测量项目</th>
 									<th>测量值</th>
 									<th>单位</th>
 									<th>状态</th>
 								</tr>
-							</thead>
+							</thead>-->
 							<tbody>
 								<!--<tr ng-repeat="d in runtime.instants">
 									<td> {{d.name}} </td>

@@ -99,6 +99,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
                 '../js/directives/chart_excess-air.js',
                 '../js/directives/chart_heat.js',
                 '../js/directives/chart_heat_month.js',
+                '../js/directives/chart_dynamic.js',
                 '../js/controllers/BoilerRuntimeController.js', 
 		             ]);
 		    }]
