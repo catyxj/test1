@@ -1,6 +1,6 @@
-<div ng-controller="viewCtrl" class="view row">
+<div ng-controller="viewCtrl" class="view row thumb_con">
 	<ul>
-		<li ng-repeat="boiler in datasource | filter:search
+		<li ng-repeat="boiler in productData | filter:search
 			| filter:modelFilterFn | filter:fuelFilterFn | filter:aEvaporateFilterFn | filter:aOrgFilterFn 
 			| filter:filterBurning | filter:aQuery |filter:aLocation 
 			| range:selectedpage:pageSize " 

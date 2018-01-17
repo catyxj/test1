@@ -27,7 +27,7 @@ mainApp.directive('boilerModule', function () {
 //      bModule.boiler = $rootScope.boiler;
 //      bModule.instants = $rootScope.instants;
 
-		bModule.boiler = productData[1];
+		bModule.boiler = productData[0];
 		bModule.instants = [];
 		
         // console.error("Runtime initModule!", bModule.instants);
@@ -83,7 +83,7 @@ mainApp.directive('boilerModule', function () {
                 svgName = "../img/boiler_water.svg";
                 break;
             case 5:
-                svgName = "../img/electricity2.svg";
+                svgName = "../img/electricity.svg";
                 break;
             case 6:
                 svgName = "../img/boiler_oil.svg";

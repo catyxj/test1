@@ -362,7 +362,7 @@
             </div>
         </div>
     </div>
-    <div ng-class="['panel', {'panel-success': info.currentData.Terminal}, {'panel-default': !info.currentData.Terminal}]">
+    <div ng-class="['panel', {'panel-success': !info.currentData.Terminal}, {'panel-default': info.currentData.Terminal}]">
         <div class="panel-heading">
             <h4 class="panel-title">
                 <a class="accordion-toggle" ng-show="info.currentData.Terminal"
@@ -406,7 +406,7 @@
         </div>
     </div>
 
-    <div ng-class="['panel', {'panel-success': info.currentData.Terminal}, {'panel-default': !info.currentData.Terminal}]">
+    <div ng-class="['panel', {'panel-success': !info.currentData.Terminal}, {'panel-default': info.currentData.Terminal}]">
         <div class="panel-heading">
             <h4 class="panel-title">
                 <a class="accordion-toggle" ng-show="info.currentData.Terminal"
@@ -546,12 +546,12 @@
     <div class="row">
         <div class="btn-group btn-group-devided" style="text-align: center">
             <button ng-click="info.back()"
-                    class="btn btn-outline btn-circle grey-gallery">
+                    class="btn btn-outline btn-circle grey-gallery back_btn">
                 <i class="fa fa-reply"></i> 返回
             </button>
-            <button ng-show="info.dataMode == 'edit'"
+            <button 
                     ng-click="info.delete()"
-                    class="btn btn-outline btn-circle red">
+                    class="btn btn-outline btn-circle red delete_btn">
                 <i class="fa fa-trash-o"></i> 删除
             </button>
         </div>

@@ -90,6 +90,9 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
         .state("runtime", {
             url:"/runtime?:boiler:from",
             templateUrl: "views/runtime/main.html",
+            data: {pageTitle: '主监控台 - 实时监控'},
+            controller: "BoilerRuntimeController",
+            controllerAs: "runtime",
             resolve: { 
     		 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
              return $ocLazyLoad.load([ 
@@ -484,10 +487,10 @@ mainApp.config(["$provide", "$compileProvider", "$controllerProvider", "$filterP
 			Enterprise:{
 				Name:"东莞天鹿锅炉有限公司",
 			},
-			isBurning:0,
+			isBurning:1,
 			Fuel:{
 				Type:{
-					Id:1,
+					Id:5,
 					name:"燃煤",					
 				}
 			},
@@ -1391,19 +1394,21 @@ mainApp.controller("mainCtrl", function($scope,$state) {
 			name: "默认",
 			value: ""
 		},
+//		{
+//			name: "天蓝色",
+//			value: "../css/theme-a.css"
+//		},
+//		{
+//			name: "绿色",
+//			value: "../css/theme-b.css"
+//		},
 		{
-			name: "天蓝色",
-			value: "../css/theme-a.css"
-		},
-		{
-			name: "绿色",
-			value: "../css/theme-b.css"
+			name: "墨绿色",
+			value: "../css/theme-green-dark.css"
 		}
 	];
 	//默认选择第一个样式
-	$scope.theme = "";
-
-	   
+	$scope.theme = "";	   
 
 })
 

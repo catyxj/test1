@@ -28,7 +28,7 @@
                 </div>
 				<div class="portlet-body">
 					<div class="row">
-						<div class="col-md-8">
+						<div class="col-md-12">
 							<div class="row">								
 								<div class="col-md-6">
 									<!--select pageSize-->
@@ -39,18 +39,18 @@
 										条					
 									</div>
 					
-									<button style="margin-left: 20px; margin-top: 8px;" ng-click="account.new()" type="button" class="btn btn-info">
-										添加
+									<button style="margin-left: 20px; margin-top: 8px;" ng-click="account.new()" type="button" class="btn btn-info">									
 										<i class="fa fa-plus"></i>
+										添加
 									</button>										
 								</div>	
 								<div class="col-md-6">
 									<!--search-->
-									<form class="navbar-form navbar-right">
-										<div class="form-group">
+									<form class="form-inline text-right">
+										<label class="form-group">
 											搜索：
-											<input type="text" ng-model="search" class="form-control" >					
-										</div>					
+											<input type="text" ng-model="search" class="form-control input-sm" >					
+										</label>					
 									</form>
 								</div>
 							</div>
@@ -61,10 +61,12 @@
 									<tr>
 										<th>序号</th>
 	                                    <th>登录名</th>
+	                                    <th>登录密码</th>
 	                                    <th>用户名称</th>
 	                                    <th>用户角色</th>
 	                                    <th>所属企业</th>
-	                                    <th>状态</th>
+	                                    <th>用户状态</th>
+	                                    <th>创建时间</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -72,10 +74,12 @@
                                 	ng-click="rowCallback(data)">
                                     <td>{{ data.num }}</td>
                                     <td>{{ data.Username }}</td>
+                                    <td>******** </td>
                                     <td>{{ data.Name }}</td>
                                     <td><span ng-class="['label', {'label-danger': data.Role.RoleId == 0}, {'label-warning': data.Role.RoleId == 1}, {'label-success': data.Role.RoleId == 2 || data.Role.RoleId == 10}, {'label-primary': data.Role.RoleId == 3 || data.Role.RoleId == 4}, {'label-info': data.Role.RoleId == 11}, {'label-default': data.Role.RoleId == 20}]">{{ data.Role.Name }}</span></td>
                                     <td>{{ data.Organization.Name }}</td>
                                     <td><span ng-class="['label', {'label-danger': data.Status == 2}, {'label-warning': data.Status == 0}, {'label-info': data.Status == 1}, {'label-success': data.Role.RoleId == -1}]">{{ account.status[data.Status].name }}</span></td>                                    
+                                	<td>{{ data.CreatedDate | amDateFormat:'YYYY-MM-DD HH:mm:ss' }}</td>
                                 </tr>
                                </tbody>								
 							</table>
@@ -95,9 +99,99 @@
 							</div>
 						</div>
 						
-						<div class="col-md-4">
-							<form name="accountForm" ng-submit="accountForm.$valid && account.saveRow()" >
-								<table class="table table-striped table-hover" >
+						
+						
+						<script type="text/ng-template" id="myModalContent.html">
+			             <div class="modal-header">
+			                 <h3 class="modal-title">用户信息</h3>
+			             </div>
+			             <div class="modal-body">
+			                 <table class="table table-striped table-hover table-bordered" >
+									<tr>
+										<th width="26%">登录名</th>
+										<td width="72%">{{ currentData.Username }}</td>
+									</tr>
+									<tr>
+										<th>登录密码</th>
+										<td>
+	                                        <span ng-show="!editing && currentData"> ******** </span>
+	                                        <input type="button" ng-show="editing && currentData && !currentData.resetPassword" ng-click="resetPassword()" class="btn green-sharp btn-outline btn-block sbold uppercase" value="重置密码">
+	                                        <input ng-show="editing && currentData && currentData.resetPassword" ng-model="currentData.aPassword" type="password" class="form-control input" placeholder="输入新密码进行重置">
+	                                    </td>					
+									</tr>
+									<tr>
+										<th>用户名称</th>
+										<td>
+	                                        <span ng-show="!editing">{{ currentData.Name }}</span>
+	                                        <input ng-show="editing" ng-model="currentData.aName" type="text" class="form-control input" placeholder="{{ currentData.Name }}" value="{{ currentData.Name }}">
+	                                    </td>					
+									</tr>
+									<tr>
+										<th>用户角色</th>
+										<td ng-show="!editing">{{ currentData.Role.Name }}</td>
+	                                    <td ng-show="editing">
+	                                        <select ng-model="currentData.aRole"
+	                                                ng-options="role.id as role.name for role in aRoles" class="form-control"></select>	                                        
+	                                    </td>					
+									</tr>
+									<tr>
+										<th>用户状态</th>
+										<td ng-show="!editing">{{ currentData.stat.name }}</td>
+	                                    <td ng-show="editing">
+	                                        <select ng-model="currentData.aStat"
+	                                                ng-options="stat.id as stat.name disable when stat.hidden for stat in status" class="form-control">
+	                                        </select>
+	                                    </td>					
+									</tr>
+									<tr>
+										<th>所属企业</th>
+										<td ng-show="!editing">{{ currentData.Organization.Name }}</td>
+	                                    <td ng-show="editing">
+	                                        <ui-select ng-model="currentData.aOrg"
+	                                                   ng-disabled="!isOrgs()"
+	                                                   theme="bootstrap">
+	                                            <ui-select-match placeholder="输入企业名称或在列表中选择...">{{$select.selected.name}}</ui-select-match>
+	                                            <ui-select-choices group-by="'type'" repeat="org.Uid as org in organizations | filter: $select.search">
+	                                                <span ng-bind-html="org.name | highlight: $select.search"></span>
+	                                            </ui-select-choices>
+	                                        </ui-select>
+	                                    </td>					
+									</tr>
+									<tr>
+										<th>创建时间</th>
+										<td id="detail-createddate">{{ currentData.CreatedDate | amDateFormat:'YYYY-MM-DD HH:mm:ss' }}</td>				
+									</tr>
+									
+								</table>
+			             </div>
+			             <div class="modal-footer" id="detail-actions">
+			                 
+	                        <a ng-show="editing" href ng-click="saveRow()" class="btn green">
+	                                            <i class="fa fa-save"></i> 保存
+	                        </a>
+	                        <a ng-show="editing" href ng-click="resetRow()" class="btn grey-cascade">
+	                                            <i class="fa fa-reply"></i> 取消
+	                        </a>
+	                        <a ng-show="!editing && currentData && currentData.Status == 0" href ng-click="activeRow()" class="btn green">
+	                                            <i class="fa fa-check"></i> 激活
+	                        </a>
+	                        <a ng-show="!editing && currentData" href ng-click="editRow()" class="btn btn-outline btn-circle blue edit_btn">
+	                                            <i class="fa fa-edit"></i> 编辑
+	                        </a>
+	                        <a href ng-click="deleteRow()" class="btn delete btn-outline btn-circle red delete_btn">
+	                                            <i class="fa fa-trash-o"></i> 删除
+	                        </a>
+	                         <a href ng-click="close()" class="btn grey-cascade">
+	                                            <i class="fa fa-trash-o"></i> 关闭
+	                        </a>           
+			             </div>
+			         </script>
+						
+						<div class="">
+							<div class="">
+															
+							<!--<form name="accountForm" ng-submit="accountForm.$valid && account.saveRow()" >
+								<table class="table table-striped table-hover table-bordered" >
 									<tr>
 										<th width="26%">登录名</th>
 										<td width="72%">{{ account.currentData.Username }}</td>
@@ -172,8 +266,10 @@
 	                                    </td>
 	                                </tr>
 								</table>								
-							</form>
+							</form>-->
+							</div>
 						</div>				
+					
 					</div>
 				</div>
 			</div>

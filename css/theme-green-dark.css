@@ -1,0 +1,362 @@
+
+/*header*/
+
+.page-header.navbar{
+	border-radius: 0;
+	margin: 0;
+    background-color:#096e7a ;
+    color: #FFFFFF;
+}
+
+
+/*NAVIGATION MENU*/
+
+.navbar a{
+	color: #EEEEEE;
+}
+
+.navbar .dropdown:hover .dropdown-toggle{
+	background-color: #075e68;
+}
+
+.page-header.navbar .username{
+	color: #c6cfda;
+}
+
+
+/*sidebar*/
+
+.page-sidebar .nav-item.active{
+	background-color: #19bc9c;	
+}
+.page-sidebar .nav-item.active a{
+	color: #FFFFFF;
+}
+.page-sidebar li.active a i{
+	color: #FFFFFF;
+}
+
+.credit{
+	display: none;
+}
+
+
+/*能效统计*/
+.dashboard-stat.blue {
+    background-color: #2dc7c9;
+}
+.dashboard-stat.blue .more {
+    color: #fff;
+    background-color: #41bcbe;
+}
+.dashboard-stat.red {
+    background-color: #b7a3df;
+}
+.dashboard-stat.red .more {
+    color: #fff;
+    background-color: #ab90df;
+}
+.dashboard-stat.green {
+    background-color: #59b1f0;
+}
+.dashboard-stat.green .more {
+    color: #fff;
+    background-color: #50a4df;
+}
+.bg_purple {
+    background-color: #ffb980;
+    color: #ffffff !important;
+}
+.bg_purple_dark {
+    background-color: #f1ac73;
+    color: #ffffff !important;
+}
+.dashboard-stat .details {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 0;      
+}
+.dashboard-stat .details .number {
+    text-align: center; 
+}
+.dashboard-stat .details .desc {
+    text-align: center; 
+}
+
+
+
+
+
+
+/*global*/
+
+.table.table-boiler thead th{
+	background-color: #edfaf8 ;
+}
+
+.portlet.light>.portlet-title>.caption>.caption-subject {
+    color: #19bb9b;
+    font-weight: bold;
+}
+.portlet.light>.portlet-title>.caption>i{
+	color: #19bb9b;
+}
+.font-blue-madison {
+    color: #19bb9b!important;
+}
+.font-green-sharp {
+    color: #19bb9b!important;
+}
+
+.form-inline.text-right label{
+	color: #FFFFFF;
+	position: relative;
+}
+.form-inline.text-right label:after{
+	content: "\f002";
+	display: block;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 30px;
+	height: 30px;
+	background-color: #19BB9B;
+	font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: inherit;
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+/*按钮*/
+.btn-info{
+    background-color: #1fbd9a;
+    border-color: #1fbd9a;
+}
+.btn-info:hover{
+    background-color: #1fbd9a;
+    border-color: #1fbd9a;
+}
+.btn-info.focus, .btn-info:focus {
+    color: #fff;
+    background-color: #1fbd9a;
+    border-color: #1fbd9a;
+}
+.btn.btn-outline.green.active, .btn.btn-outline.green:active, .btn.btn-outline.green:active:focus, .btn.btn-outline.green:active:hover, .btn.btn-outline.green:focus, .btn.btn-outline.green:hover {
+    border-color: #1abc9c;
+    color: #fff;
+    background-color: #1abc9c;
+}
+.btn.btn-outline.yellow-lemon.active, .btn.btn-outline.yellow-lemon:active, .btn.btn-outline.yellow-lemon:active:focus, .btn.btn-outline.yellow-lemon:active:hover, .btn.btn-outline.yellow-lemon:focus, .btn.btn-outline.yellow-lemon:hover {
+    border-color: #f39e11;
+    color: #FFFFFF;
+    background-color: #f39e11;
+}
+
+
+.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-info {
+    color: #fff;
+    background: #19bc9c;
+}
+
+
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: #19bc9c;
+    border-color: #19bc9c;
+}
+
+.btn.btn-outline.view_btn{
+	border-color: #3598dc;
+    color: #FFFFFF;
+    background: #3598dc;
+    border-radius: 4px!important;
+}
+.btn.btn-outline.edit_btn{
+	border-color: #5bb95c;
+    color: #FFFFFF;
+    background: #5bb95c;
+    border-radius: 4px!important;
+}
+.btn.btn-outline.edit_btn:hover{
+	background-color: #4fab50;
+}
+
+.btn.btn-outline.delete_btn{
+	border-color: #e84b3b;
+    color: #FFFFFF;
+    background: #e84b3b;
+    border-radius: 4px!important;
+}
+.btn.btn-outline.delete_btn:hover{
+	background-color: #FF3F3F;
+}
+.btn.btn-outline.back_btn {
+    border-color: #2c3e4f;
+    color: #FFFFFF;
+    background: #2c3e4f;
+    border-radius: 4px!important;
+}
+
+
+
+.modal .modal-header {
+    background-color: #edfaf8;  
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px; 
+}
+.modal .modal-footer .btn-primary {
+    color: #fff;
+    background-color: #19bb9b;
+    border-color: #19bb9b;
+}
+.modal .modal-footer .btn-primary:hover{
+	background-color: #14ab8d;
+	border-color: #14ab8d;
+}
+
+
+
+
+
+/*设备概览*/
+.thumb_con .label-success {
+    background-color: #59bdaa;
+}
+.thumb_con .label-warning {
+    background-color: #ebbb6d;
+}
+
+
+.tabbable-line>.nav-tabs>li.active {
+    border-bottom: 4px solid #1abc9c;    
+}
+.tabbable-line>.nav-tabs>li.open, .tabbable-line>.nav-tabs>li:hover {
+    background: 0 0;
+    border-bottom: 4px solid #90f0dd;
+}
+.btn.btn-outline.grey-cascade {
+    border-color: #1abc9c;
+    color: #FFFFFF;
+    background: #1abc9c;
+}
+.btn.btn-outline.grey-cascade.active, .btn.btn-outline.grey-cascade:active, .btn.btn-outline.grey-cascade:active:focus, .btn.btn-outline.grey-cascade:active:hover, .btn.btn-outline.grey-cascade:focus, .btn.btn-outline.grey-cascade:hover {
+    border-color: #14ae90;
+    color: #fff;
+    background-color: #14ae90;
+}
+
+table.table-boiler div.status-icon.success {
+    background-color: #19bc9b;
+}
+table.table-boiler div.status-icon.danger {
+    background-color: #e84b3c;
+}
+table.table-boiler div.status-icon.warning {
+    background-color: #f39e11;
+}
+
+/*地图模式*/
+.map{
+	margin-right: 0px;
+}
+.map .col-md-3{
+	float: right;
+	padding-left: 0;	
+}
+.map .col-md-9{
+	float: left;
+}
+.map table.table-boiler{
+	margin-top: 0;
+}
+
+/*告警信息*/
+#alarm_tabs.tabbable-line>.nav-tabs>li.active {
+    border-top-color: #1abc9c;
+}
+
+
+
+/*维保记录*/
+div.detail-btn label.active.btn-yellow {
+    background-color: #f39e11;
+    color: #fff;
+}
+div.detail-btn label.active.btn-green {
+    background-color: #5bb85c;
+    color: #fff;
+}
+div.detail-btn label.active.btn-red {
+    background-color: #e84c3a;
+    color: #fff;
+}
+.modal-body .pagination>li>a{
+	color: #1abc9c;
+}
+.modal-body .pagination>li.active>a{
+	color: #FFFFFF;
+}
+
+/*企业信息*/
+.organization .table-boiler .label-primary {
+    background-color: #3498db;
+}
+
+/*锅炉信息*/
+.panel-info {
+    border-color: #edf9f7;
+}
+.panel-info>.panel-heading {
+    color: #19bc9c;
+    background-color: #edf9f7;
+    border-color: #bce8f1;
+}
+.panel-success {
+    border-color: #edf9f7;
+}
+.panel-success>.panel-heading {
+    color: #19bc9c;
+    background-color: #edf9f7;
+    border-color: #bce8f1;
+}
+.panel-title .btn.btn-outline.green {
+    border-color: #19bc9c;
+    color: #FFFFFF;
+    background: #19bc9c;
+}
+
+/*账号管理*/
+#accounts_table .label-success {
+    background-color: #3498dd;
+}
+
+/*用户信息*/
+.profile-usermenu .nav{
+	display: none;
+}
+.btn.green-haze:not(.btn-outline) {
+    color: #fff;
+    background-color: #1abc9c;
+    border-color: #1abc9c;
+}
+.margiv-top-10{
+	float: right;
+}
+.margin-top-10 {
+    float: right;
+}

@@ -78,50 +78,7 @@ mainApp.controller("monitorController",function($rootScope,$scope,$filter,produc
         
         
 
-//      var localCount = function (locations) {
-//          //console.warn("localCount", locations);
-//          if (!locations) {
-//              return;
-//          }
-//          for (var i = 0; i < locations.length; i++)  {
-//              var local = locations[i];
-//              var matchNum = 0;
-//              $filter('filter')(bMonitor.datasource, function (item) {
-//                  var locationId = (!item.Address || !item.Address.Location) ? 0 : item.Address.Location.LocationId;
-//                  if (locationId === local.LocationId ||
-//                      Math.floor(locationId / 100) === local.LocationId ||
-//                      Math.floor(locationId / 10000) === local.LocationId) {
-//                      matchNum++;
-//                      return true;
-//                  }
-//                  return false;
-//              });
-//              local.count = matchNum;
-//              if (local.LocationId !== 0) {
-//                  local.name = local.Name + ' - ' + local.count;
-//              } else {
-//                  local.name = '所在区域';
-//              }
-//
-//              if (local.SuperId === 0) {
-//                  localCount(local.cities);
-//              }
-//
-//              if (local.SuperId > 0 && local.SuperId < 100) {
-//                  localCount(local.regions);
-//              }
-//          }
-//      };
 
-        //localCount(bMonitor.provinces);
-//      bMonitor.aProvince = null;
-//      if (bMonitor.province && bMonitor.provinces.length > 0) {
-//          bMonitor.provinces[0].Name = '所在区域';
-//          bMonitor.aProvince = bMonitor.provinces[0];
-//
-//      }
-//      bMonitor.aCity = null;
-//      bMonitor.aRegion = null;
 
 		//初始化选项
         $scope.aEvaporate = $scope.evaporates[0];
@@ -189,12 +146,12 @@ mainApp.controller("monitorController",function($rootScope,$scope,$filter,produc
             };
            
             
-            boiler.alarmLevel = boiler.isBurning ? 0 : -1;
+//          boiler.alarmLevel = boiler.isBurning ? 0 : -1;
             boiler.img = boiler.imgName() + (boiler.isBurning ? '.gif' : '.png');
 
             boiler.runtime = [[], []];
 
-            for (var i = 0; i < res.data.length; i++) {
+            for (var i = 0; i < Math.min(res.data.length, 4); i++) {
                 var d = res.data[i];
                 var value;
                 var name = d.ParameterName;
@@ -396,7 +353,7 @@ mainApp.controller("DashboardController",function($scope, $rootScope, $http, $fi
             chart.startDuration = 1;  
             chart.colors= [
 				"#67b7dc",
-				"#fdd400",
+				"#c4e479",
 				"#84b761",
 				"#cc4748",
 				"#cd82ad",
@@ -415,7 +372,7 @@ mainApp.controller("DashboardController",function($scope, $rootScope, $http, $fi
 		        useGraphSettings: true,
 		        markerSize: 10,
 //              valueText: "[[value]]",
-                valueWidth: 100,
+                valueWidth: 50,
 //              valueAlign: "left",
                 equalWidths: false,
 //              periodValueText: "total: [[value.sum]]"
@@ -557,6 +514,7 @@ mainApp.controller("DashboardController",function($scope, $rootScope, $http, $fi
             });
             
             
+            
             console.log($rootScope.boilers);
             
             for (var i = 0; i < $rootScope.boilers.length; i++) {
@@ -591,12 +549,12 @@ mainApp.controller("DashboardController",function($scope, $rootScope, $http, $fi
             chart.language = "zh";
             chart.valueField = "count";
             chart.titleField = "range";
-
+			
 			chart.colors= [
-				"#67b7dc",
-				"#fdd400",
 				"#84b761",
-				"#cc4748",
+				"#fdd400",
+				"#5fbfdb",
+				"#c4e479",
 				"#cd82ad",
 				"#2f4074",
 				"#448e4d",
@@ -611,6 +569,17 @@ mainApp.controller("DashboardController",function($scope, $rootScope, $http, $fi
             // chart.plotAreaFillAlphas = 0.1;
             chart.outlineAlpha = .4;
             chart.depth3D = 12;
+	
+  			chart.legend={
+  				position:"bottom",
+			    marginRight:10,
+			    markerSize: 10,
+			    valueText: "",
+			    align: "center",
+			    autoMargins:false
+  			};
+
+            
             chart.angle = 30;
             chart.labelRadius = 8;
             chart.minRadius = 145;

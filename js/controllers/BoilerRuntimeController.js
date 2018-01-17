@@ -1,6 +1,6 @@
 
 
-mainApp.controller("BoilerRuntimeController",function($rootScope, $scope, $http, $location, $timeout, $uibModal, $document, moment, settings,productData){
+mainApp.controller("BoilerRuntimeController",function($rootScope, $scope, $http, $location, $timeout, $uibModal, $document,$log, moment, settings,productData){
 	runtime = this;
 
     $scope.$on('$viewContentLoaded', function() {
@@ -35,7 +35,7 @@ mainApp.controller("BoilerRuntimeController",function($rootScope, $scope, $http,
 
         var p = $location.search();
 
-        $http.get('/boiler_list/?boiler=' + p['boiler'])
+        $http.get('boiler_list.json/?boiler=' + p['boiler'])
             .then(function (res) {
 
                 $log.info('Runtime Boiler Get:', res);
@@ -49,26 +49,31 @@ mainApp.controller("BoilerRuntimeController",function($rootScope, $scope, $http,
     };
 
     runtime.fetchStatus = function (boiler) {
-        boiler.isBurning = false;
-        $http.get('/boiler/state/is_burning/?boiler=' + boiler.Uid)
+        // $log.error("bRuntime.fetchStatus(boiler):", boiler);
+        if (!boiler) {
+            return;
+        }
+
+        $http.get('is_burning.json')
             .then(function (res) {
                 console.log("Fetch BurningStatus Resp:", res.data);
                 boiler.isBurning = (res.data.value === "true");
-                runtime.fetchRuntime(runtime.boiler, null, runtime.initCharts);
             }, function (err) {
                 console.error('Fetch Status Err!', err);
-                runtime.fetchRuntime(runtime.boiler, null, runtime.initCharts);
+                boiler.isBurning = false;
+            })
+            .then(function () {
+                runtime.fetchRuntime(runtime.boiler);
             });
+//
+//      $http.get('/boiler/state/has_subscribed' )
+//          .then(function (res) {
+//              console.log("Fetch SubscribeStatus Resp:", res.data);
+//              boiler.hasSubscribed = (res.data.value === "true");
+//          }, function (err) {
+//              console.error('Fetch Status Err!', err);
+//          });
 
-        $http.get('/boiler/state/has_subscribed/?boiler=' + boiler.Uid + "&uid=" + $rootScope.currentUser.Uid)
-            .then(function (res) {
-                console.log("Fetch SubscribeStatus Resp:", res.data);
-                boiler.hasSubscribed = (res.data.value === "true");
-                runtime.fetchRuntime(runtime.boiler, null, runtime.initCharts);
-            }, function (err) {
-                console.error('Fetch Status Err!', err);
-                runtime.fetchRuntime(runtime.boiler, null, runtime.initCharts);
-            });
     };
 
     runtime.fetchRuntime = function (boiler, callback1, callback2) {
@@ -84,7 +89,7 @@ mainApp.controller("BoilerRuntimeController",function($rootScope, $scope, $http,
         runtime.instants = [];
         runtime.data = { Uid: runtime.boiler.Uid };
 
-        $http.post('/boiler_runtime_instants/', data).then(function (res) {
+        $http.get('boiler_runtime_instants.json/').then(function (res) {
             boiler.imgName = function() {
                 var imgName = '';
                 switch (boiler.Template.TemplateId) {
@@ -168,11 +173,13 @@ mainApp.controller("BoilerRuntimeController",function($rootScope, $scope, $http,
                 runtime.instants.push({
                     id: d.Parameter,
                     name: name,
+                    category: d.ParameterCategory,
                     value: value,
                     unit: d.Unit,
                     alarmLevel: alarmLevel,
                     alarmDesc: label,
-                    date: new Date(d.CreatedDate)
+                    date: new Date(d.UpdatedDate),
+                    remark:d.Remark
                 });
             }
 
@@ -190,7 +197,7 @@ mainApp.controller("BoilerRuntimeController",function($rootScope, $scope, $http,
         });
 
 
-        $http.post('/boiler_runtime_list/', data).then(function (res) {
+        $http.get('boiler_runtime_list.json/').then(function (res) {
             console.info("Runtime Resp:", res);     
 
             if (res.data.Parameters) {
@@ -214,7 +221,7 @@ mainApp.controller("BoilerRuntimeController",function($rootScope, $scope, $http,
     runtime.fetchDaily = function () {
         var p = $location.search();
         var limit = 30;
-        $http.post('/boiler_runtime_daily/', {
+        $http.get('boiler_runtime_daily.json/', {
             uid: p['boiler'],
             limit: limit
         }).then(function (res) {

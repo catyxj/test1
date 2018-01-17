@@ -1,2 +1,11 @@
 
 /node_modules/
+assets/
+bower_components/
+home2.js
+index2.html
+views/images/
+*.json
+
+
+

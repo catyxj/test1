@@ -1,4 +1,4 @@
-<div class="">
+<div class="organization">
 	<table class="table table-striped table-bordered table-hover order-column table-boiler">
 		<thead>
 			<tr>
@@ -48,15 +48,15 @@
 				<td>
 					<a ng-show="currentUser.Role.RoleId >= 10"
 		               ng-click="org.view(data.Uid)"
-		               class="btn edit btn-outline btn-circle btn-sm green">
+		               class="btn edit btn-outline btn-circle btn-sm green view_btn">
 		                <i class="fa fa-eye"></i> 查看
 		            </a>
 					<a ng-click="org.edit(data.Uid)" 
-						class="btn edit btn-outline btn-circle btn-sm blue">
+						class="btn edit btn-outline btn-circle btn-sm blue edit_btn">
 						<i class="fa fa-edit"></i> 编辑
 					</a>
 					<a ng-click="removeData(data)" 
-						class="btn delete btn-outline btn-circle btn-sm red">
+						class="btn delete btn-outline btn-circle btn-sm red delete_btn">
 						<i class="fa fa-trash-o"></i> 删除
 					</a>
 				</td>
