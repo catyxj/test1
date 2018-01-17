@@ -1,0 +1,134 @@
+
+
+
+
+
+
+.c-layout-header .c-navbar .c-mega-menu > .nav.navbar-nav > li > .c-btn.login_btn{
+	margin: 20px 0px 20px 0px;
+	background-color: #19bc9c;
+	color: #FFFFFF;
+	font-size: 14px;
+}
+.c-page-on-scroll.c-layout-header-fixed .c-layout-header .c-mega-menu .nav.navbar-nav > li > .c-btn.login_btn{
+	transition: all 0.2s;
+    margin: 10px 0px 10px 0px;
+}
+.c-layout-header .c-navbar .c-mega-menu .nav>li>a.login_btn{
+	padding: 15px 30px;
+}
+.c-page-on-scroll.c-layout-header-fixed .c-layout-header .c-mega-menu .nav>li>a.login_btn{
+	padding: 10px 30px;
+}
+
+.c-theme-nav li:focus > a:not(.btn), .c-theme-nav li:active > a:not(.btn), .c-theme-nav li:hover > a:not(.btn) {
+    color: #FFFFFF !important;
+}
+.c-layout-header .c-navbar .c-mega-menu > .nav.navbar-nav > li{
+	position: relative;
+}
+
+.c-layout-header .c-navbar .c-mega-menu > .nav.navbar-nav > li > .divider_line{
+	height: 14px;
+	width: 1px;
+	background-color: #FFFFFF;
+	position: absolute;
+	left: 88px;
+	top: 38px;
+	z-index: 99;
+}
+.c-page-on-scroll.c-layout-header-fixed .c-layout-header .c-mega-menu .nav.navbar-nav > li >  .divider_line{
+	height: 12px;
+	width: 1px;
+	background-color: #FFFFFF;
+	position: absolute;
+	left: 88px;
+	top: 25px;
+	z-index: 99;
+}
+
+
+
+/**/
+.c-content-box.c-size-md{
+	padding-top: 50px;
+}
+.c-content-line-icon{
+	display: block;
+	margin: auto;
+}
+.c-content-feature-1 > h3{
+	text-align: center;	
+	margin: 20px 0 15px 0;
+}
+
+
+
+
+/*footer*/
+.c-layout-footer.c-layout-footer-3 .c-postfooter {
+    padding: 5px 0;   
+}
+.c-layout-footer.c-layout-footer-3 .c-postfooter .c-copyright{
+	font-size: 12px;
+	text-align: center;
+}
+/*微信*/
+.weixin_ri {
+    display: inline-block;
+    position: fixed;
+    bottom: 5px;
+    right: 120px;
+    z-index: 999;   
+}
+.weixin_ri > i {   
+    color: #eaf0f4;
+    font-size: 38px;
+    font-weight: 300;
+    cursor: pointer;
+    opacity: 0.6;
+    filter:Alpha(opacity=60);
+}
+.weixin_QR{
+	position: absolute;
+	right: -55px;
+	bottom: 66px;
+	width: 176px;
+	height: 212px;
+	background-color: #474747;
+	border-radius: 3px;
+	box-sizing: border-box;
+	text-align: center;
+	display: none;
+}
+.weixin_QR:before{
+	content: "";
+	position: absolute;
+	bottom: -28px;
+	left: 80px;
+	width: 18px;
+	height: 28px;
+	border-top: 14px solid #474747;
+	border-bottom: 14px dashed transparent;
+	border-left: 9px dashed transparent;
+	border-right: 9px dashed transparent;
+}
+.weixin_QR p{
+	color: #FFFFFF;
+	font-size: 12px;
+	padding-top: 18px;
+	margin-bottom: 12px;
+}
+.weixin_QR img{
+	width: 140px;	
+	border-radius: 4px;
+}
+.weixin_ri:hover i{
+	opacity: 1;
+    filter:Alpha(opacity=100);
+}
+.weixin_ri:hover .weixin_QR{
+	display: block;
+}
+
+

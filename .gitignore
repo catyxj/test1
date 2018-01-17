@@ -1,10 +1,12 @@
 
 /node_modules/
-assets/
+views/assets/boiler
+views/assets/global
+views/assets/layouts
+views/assets/pages
+views/assets/plugins
+!views/assets/base/css/style.css
 bower_components/
-home2.js
-index2.html
-views/images/
 *.json
 
 
