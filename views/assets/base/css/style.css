@@ -4,13 +4,16 @@
 
 
 
-.c-layout-header .c-navbar .c-mega-menu > .nav.navbar-nav > li > .c-btn.login_btn{
+.c-layout-header .c-navbar .c-mega-menu > .nav.navbar-nav > li > .login_btn{
 	margin: 20px 0px 20px 0px;
 	background-color: #19bc9c;
 	color: #FFFFFF;
 	font-size: 14px;
 }
-.c-page-on-scroll.c-layout-header-fixed .c-layout-header .c-mega-menu .nav.navbar-nav > li > .c-btn.login_btn{
+.c-layout-header .c-navbar .c-mega-menu > .nav.navbar-nav > li > .login_btn:hover{
+	background-color: #16b797;
+}
+.c-page-on-scroll.c-layout-header-fixed .c-layout-header .c-mega-menu .nav.navbar-nav > li > .login_btn{
 	transition: all 0.2s;
     margin: 10px 0px 10px 0px;
 }
@@ -36,6 +39,7 @@
 	left: 88px;
 	top: 38px;
 	z-index: 99;
+	transition: all 0.2s;
 }
 .c-page-on-scroll.c-layout-header-fixed .c-layout-header .c-mega-menu .nav.navbar-nav > li >  .divider_line{
 	height: 12px;
@@ -45,6 +49,7 @@
 	left: 88px;
 	top: 25px;
 	z-index: 99;
+	
 }
 
 
@@ -66,6 +71,9 @@
 
 
 /*footer*/
+.c-layout-footer{
+	position: relative;
+}
 .c-layout-footer.c-layout-footer-3 .c-postfooter {
     padding: 5px 0;   
 }
@@ -74,9 +82,8 @@
 	text-align: center;
 }
 /*微信*/
-.weixin_ri {
-    display: inline-block;
-    position: fixed;
+.weixin_ri {   
+    position: absolute;
     bottom: 5px;
     right: 120px;
     z-index: 999;   
