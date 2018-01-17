@@ -62,9 +62,8 @@ boilerHome.controller('HomeController', ['$scope', '$http', '$cookies', '$window
                 if (typeof fn === "function") {
                     fn();
                 }
-            });
-        $scope.ip = "0.0.0.0";
-
+            });		
+        $scope.ip = "0.0.0.0";		
         setTimeout(function () {
             $http.get('/organization_list/?scope=register')
                 .then(function (res) {
